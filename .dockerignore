@@ -1,0 +1,6 @@
+.git
+.venv
+generated
+site
+__pycache__
+.DS_Store

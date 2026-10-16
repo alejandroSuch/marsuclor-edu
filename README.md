@@ -4,6 +4,18 @@ Materials d'estudi per assignatura, curs i tema. El primer tema és una **versi�
 
 ## Ús local
 
+### Amb Docker
+
+Cal tindre Docker instal·lat i en marxa. Des de l'arrel del repositori:
+
+```sh
+docker compose up --build
+```
+
+La validació, la generació Quarto i els PDF s'executen abans d'obrir el servidor en [http://localhost:8000](http://localhost:8000). Per incorporar canvis al contingut, para el procés i executa `docker compose up` de nou. Els fitxers generats viuen en volums de Docker; `docker compose down -v` els elimina. La primera construcció descarrega Quarto i Chromium i pot tardar uns minuts.
+
+### Sense Docker
+
 Cal Python 3.11+, Quarto 1.6+ i, per als PDF, Chromium de Playwright.
 
 ```sh

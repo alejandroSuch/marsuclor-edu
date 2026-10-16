@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    init: true
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app:ro
+      - generated:/app/generated
+      - site:/app/site
+
+volumes:
+  generated:
+  site:

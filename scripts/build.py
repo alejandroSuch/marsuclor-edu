@@ -147,8 +147,13 @@ def pdf_link(relative: Path, filename: str) -> str:
 def prepare():
     validate()
     if GENERATED.exists():
-        shutil.rmtree(GENERATED)
-    GENERATED.mkdir()
+        for child in GENERATED.iterdir():
+            if child.is_dir():
+                shutil.rmtree(child)
+            else:
+                child.unlink()
+    else:
+        GENERATED.mkdir()
     shutil.copytree(ROOT / "styles", GENERATED / "styles")
     (GENERATED / "_quarto.yml").write_text(
         "project:\n  type: website\n  output-dir: ../site\n  render:\n    - '*.qmd'\n    - 'topics/**/*.qmd'\nwebsite:\n  title: Martina Edu\n"
