@@ -1,0 +1,21 @@
+diagrams:
+  - id: terra-capes
+    title: Capes internes de la Terra
+    file: terra-capes.svg
+    objective_ids: [o3]
+    vocabulary_ids: []
+  - id: relleu-continental
+    title: Formes del relleu continental
+    file: relleu-continental.svg
+    objective_ids: [o4]
+    vocabulary_ids: [muntanya, serralada, plana, altipla, vall, conca]
+  - id: relleu-submari
+    title: Formes del relleu submarí
+    file: relleu-submari.svg
+    objective_ids: [o4]
+    vocabulary_ids: [plataforma-continental, talus, plana-abissal, dorsal-oceanica, fossa-marina]
+  - id: relleu-costaner
+    title: Formes del relleu costaner
+    file: relleu-costaner.svg
+    objective_ids: [o4]
+    vocabulary_ids: [peninsula, golf, cap, delta, estuari, illa, arxipelag]

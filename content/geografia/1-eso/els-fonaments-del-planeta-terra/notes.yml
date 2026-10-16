@@ -1,22 +1,122 @@
 sections:
-  - title: La Terra en el sistema solar
+  - title: "Entendre els moviments de la Terra i les seues conseqüències"
     objective_ids: [o1]
-    source_ids: [nasa-earth, nasa-solar]
+    source_ids: [guide]
     body: |
-      El Sol és una **estrela**. La Terra és un **planeta** que gira al seu voltant i és el tercer planeta del sistema solar. La Lluna és el **satèl·lit natural** de la Terra: orbita el nostre planeta.
+      La Terra fa dos moviments principals: ROTACIÓ i TRANSLACIÓ.
 
-      **Recorda:** una estrela emet llum pròpia; un planeta orbita una estrela; un satèl·lit orbita un planeta.
-  - title: Dos moviments de la Terra
+      ### A. Moviment de rotació
+
+      La rotació és el moviment que fa la Terra quan gira sobre si mateixa.
+
+      - Duració: aproximadament 24 hores.
+      - Direcció: d'oest a est; si la mirem des del pol nord, gira en sentit contrari a les agulles del rellotge.
+      - Conseqüències: origina el dia i la nit i les diferències horàries entre llocs del planeta.
+      - També afavoreix el repartiment de la llum i la calor del Sol, cosa que contribueix a l'equilibri tèrmic.
+
+      Als apunts també es relaciona la rotació amb les marees; cal recordar que les marees es deuen principalment a l'atracció gravitatòria de la Lluna i, en menor mesura, del Sol.
+
+      ### B. Moviment de translació
+
+      La translació és el moviment de la Terra al voltant del Sol seguint una òrbita el·líptica.
+
+      - Duració: uns 365 dies i 6 hores.
+      - Conseqüència principal: juntament amb la inclinació de l'eix terrestre, provoca les quatre estacions: primavera, estiu, tardor i hivern.
+      - Les estacions no es deuen principalment a la distància al Sol, sinó a la inclinació de la Terra i a la incidència dels rajos solars.
+      - Periheli: moment en què la Terra està més prop del Sol (uns 147 milions de km; al voltant del 3 de gener).
+      - Afeli: moment en què està més lluny del Sol (uns 152 milions de km; al voltant del 3 de juliol).
+
+      ### C. Solsticis i equinoccis
+
+      - Solstici d'estiu: al voltant del 21 de juny, a l'hemisferi nord, es produeix el dia més llarg.
+      - Solstici d'hivern: al voltant del 21 de desembre, a l'hemisferi nord, es produeix el dia més curt.
+      - Equinocci: moment de l'any en què el dia i la nit duren aproximadament el mateix. N'hi ha un a la primavera i un a la tardor. [Ampliació del vocabulari]
+
+      **RESPOSTA CURTA:** La rotació origina el dia i la nit. La translació, juntament amb la inclinació de l'eix terrestre, origina les estacions de l'any.
+  - title: "Explicar les causes que hi haja vida a la Terra"
     objective_ids: [o2]
-    source_ids: [nasa-earth]
+    source_ids: [guide]
     body: |
-      La **rotació** és el gir de la Terra sobre el seu eix. Tarda aproximadament 24 hores i explica l'alternança del dia i la nit.
+      A la Terra hi ha vida gràcies a quatre factors principals.
 
-      La **translació** és el recorregut de la Terra al voltant del Sol. Dura aproximadament 365 dies i un quart: és la base de l'any. L'eix terrestre està inclinat; esta inclinació, junt amb la translació, explica les estacions. La distància al Sol no n'és la causa principal.
-  - title: L'interior del planeta
+      ### A. Presència d'aigua
+
+      L'aigua dolça i salada és imprescindible per als éssers vius. Els primers organismes es van desenvolupar a l'aigua.
+
+      ### B. Existència de l'atmosfera
+
+      L'atmosfera és la capa de gasos que envolta la Terra.
+
+      - Conté gasos necessaris per a la vida, com l'oxigen.
+      - La capa d'ozó ens protegeix de part de la radiació solar perjudicial.
+      - Ajuda a regular la temperatura i evita contrastos tèrmics molt grans.
+
+      ### C. Distància adequada al Sol
+
+      La distància al Sol permet rebre llum i energia sense temperatures extremes, cosa que facilita l'existència d'aigua líquida.
+
+      ### D. Camp magnètic terrestre
+
+      El camp magnètic protegeix la Terra de part de les partícules del vent solar.
+
+      **RESPOSTA CURTA:** A la Terra hi ha vida perquè hi ha aigua, una atmosfera que protegeix i regula la temperatura, una distància adequada al Sol i un camp magnètic que ens protegeix del vent solar.
+  - title: "Identificar en un diagrama les capes de la Terra"
     objective_ids: [o3]
-    source_ids: [usgs-inside]
+    source_ids: [guide]
+    diagram_ids: [terra-capes]
     body: |
-      De fora cap a dins, les tres capes internes principals són **escorça**, **mantell** i **nucli**. L'escorça és la capa exterior sòlida. Davall hi ha el mantell, de roques molt calentes. El nucli ocupa la part central.
+      La Terra està formada per tres capes internes principals. Cal saber-les assenyalar de fora cap a dins.
 
-      **Esquema per recordar-ho:** escorça → mantell → nucli.
+      ### A. Les capes internes
+
+      - ESCORÇA: capa més exterior, formada per roques sòlides; és la més prima. Pot arribar a uns 70 km de gruix.
+      - MANTELL: capa de roques situada davall de l'escorça; ocupa gran part de l'interior terrestre.
+      - NUCLI: part central de la Terra, formada principalment per ferro i níquel.
+
+      ORDRE EN UN DIBUIX: EXTERIOR → ESCORÇA → MANTELL → NUCLI → CENTRE.
+
+      ### B. Els grans components de la Terra
+
+      Aquests conceptes no s'han de confondre amb les capes internes:
+
+      - ATMOSFERA: capa gasosa que envolta la Terra.
+      - HIDROSFERA: conjunt de totes les aigües del planeta.
+      - LITOSFERA: capa externa rígida que comprén l'escorça i la part superior rígida del mantell. Als apunts es simplifica com a «escorça terrestre».
+      - BIOSFERA: conjunt de tots els éssers vius i els llocs on hi ha vida.
+
+      **RESPOSTA CURTA:** Les capes internes són l'escorça, el mantell i el nucli. En un diagrama cal identificar-les de fora cap a dins.
+  - title: "Explicar els processos de formació i erosió del relleu"
+    objective_ids: [o4]
+    source_ids: [guide]
+    diagram_ids: [relleu-continental, relleu-submari, relleu-costaner]
+    body: |
+      El relleu és el conjunt de formes de la superfície terrestre: muntanyes, valls, planes, etc. Es forma i es transforma per l'acció d'agents interns i externs.
+
+      ### A. Agents interns: formen i transformen el relleu
+
+      - PLAQUES LITOSFÈRIQUES: grans fragments de la litosfera que es mouen lentament. Els seus contactes poden originar muntanyes, volcans i terratrèmols.
+      - DERIVA CONTINENTAL: antigament els continents estaven units en un gran continent, Pangea, i es van anar separant amb el temps.
+      - VOLCANS: durant les erupcions, el magma arriba a la superfície i pot formar noves elevacions del terreny. Parts que apareixen als apunts: cràter, xemeneia i con volcànic.
+      - TERRATRÈMOLS: sacsejades del terreny relacionades amb l'alliberament d'energia a l'interior de la Terra. Als apunts apareixen l'hipocentre, l'epicentre i les ones sísmiques.
+      - FALLES i PLECS: fractures amb desplaçament i deformacions de les roques, respectivament. [Definicions ampliades]
+
+      ### B. Agents externs: erosionen i modelen el relleu
+
+      - AIGUA: els rius desgasten el terreny i formen valls; les ones erosionen les costes; el gel i les glaceres modifiquen les roques i el paisatge.
+      - VENT: arranca i transporta partícules, desgasta roques i acumula arena formant dunes.
+      - ÉSSERS VIUS: les plantes i les persones també poden modificar el terreny.
+
+      **RESPOSTA CURTA:** Els agents interns, com les plaques, els volcans i els terratrèmols, formen i transformen el relleu. Els externs, com l'aigua, el vent i els éssers vius, erosionen i modelen la superfície terrestre.
+study_tips:
+  - "COMPRENSIÓ: explicar amb paraules pròpies les quatre preguntes principals i donar exemples."
+  - "VOCABULARI: tapar les definicions i endevinar cada concepte (i fer-ho també a l'inrevés)."
+  - "DIAGRAMES: practicar l'escorça, el mantell i el nucli; el relleu continental, submarí i costaner."
+  - "MAPES: repassar com es relacionen els paral·lels amb la latitud i els meridians amb la longitud."
+self_check:
+  - "Sé distingir rotació i translació i explicar-ne les conseqüències."
+  - "Sé explicar per què hi ha vida a la Terra."
+  - "Puc identificar escorça, mantell i nucli sense mirar els apunts."
+  - "Sé diferenciar agents interns i externs del relleu."
+  - "Puc definir els 33 conceptes del vocabulari."
+  - "Puc reconéixer les formes del relleu en un dibuix."
+  - "Sé què són paral·lels, meridians, latitud i longitud."

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">Formes del relleu submarí</title>
+  <desc id="desc">Perfil del fons oceànic des de la costa fins a una fossa, amb cinc formes numerades.</desc>
+  <rect width="900" height="430" fill="#fff"/>
+  <rect x="35" y="100" width="830" height="280" fill="#d9eef4"/>
+  <path d="M35 70 L175 70 L175 210 L320 220 L405 320 L555 320 L615 245 L675 320 L720 365 L770 370 L800 320 L865 320 L865 390 L35 390 Z" fill="#c7b496" stroke="#6d695e" stroke-width="3"/>
+  <path d="M35 100 H865" stroke="#32859a" stroke-width="4"/>
+  <g fill="#fff" stroke="#234d59" stroke-width="2">
+    <circle cx="255" cy="195" r="17"/><circle cx="365" cy="257" r="17"/><circle cx="490" cy="296" r="17"/>
+    <circle cx="615" cy="220" r="17"/><circle cx="745" cy="341" r="17"/>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="18" fill="#1f3a45" text-anchor="middle">
+    <text x="255" y="202">1</text><text x="365" y="264">2</text><text x="490" y="303">3</text>
+    <text x="615" y="227">4</text><text x="745" y="348">5</text>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="15" fill="#203442">
+    <text x="32" y="412">1</text><text class="diagram-answer" x="52" y="412">Plataforma continental</text>
+    <text x="264" y="412">2</text><text class="diagram-answer" x="284" y="412">Talús</text>
+    <text x="358" y="412">3</text><text class="diagram-answer" x="378" y="412">Plana abissal</text>
+    <text x="516" y="412">4</text><text class="diagram-answer" x="536" y="412">Dorsal oceànica</text>
+    <text x="720" y="412">5</text><text class="diagram-answer" x="740" y="412">Fossa marina</text>
+  </g>
+</svg>

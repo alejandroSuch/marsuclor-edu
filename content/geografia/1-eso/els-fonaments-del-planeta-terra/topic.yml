@@ -2,25 +2,65 @@ title: Els fonaments del planeta Terra
 course: 1-eso
 subject: geografia
 teaching_language: ca-valencia
-status: provisional
+status: revisat amb els apunts
 intro: >-
-  Material de repàs provisional. El PDF dels apunts originals no està disponible;
-  els continguts actuals són ampliacions documentades i es revisaran en incorporar-lo.
+  Guia d'estudi de Geografia de 1r d'ESO. Les quatre respostes i les definicions
+  procedixen de la guia d'estudi ja elaborada; els apunts de classe s'han utilitzat
+  per a comprovar els objectius i el vocabulari de l'examen.
 objectives:
-  - {id: o1, text: Situar la Terra en el sistema solar i distingir estrela, planeta i satèl·lit.}
-  - {id: o2, text: Relacionar la rotació amb el dia i la nit i la translació amb l'any.}
-  - {id: o3, text: Identificar les capes internes principals de la Terra.}
+  - {id: o1, text: Entendre els moviments de la Terra i les seues conseqüències.}
+  - {id: o2, text: Explicar les causes que hi haja vida a la Terra.}
+  - {id: o3, text: Identificar en un diagrama les capes de la Terra.}
+  - {id: o4, text: Explicar els processos de formació i erosió del relleu.}
 sources:
-  - id: nasa-earth
-    type: external
-    title: Earth Facts, NASA Science
-    url: https://science.nasa.gov/earth/facts/
-  - id: nasa-solar
-    type: external
-    title: Solar System Facts, NASA Science
-    url: https://science.nasa.gov/solar-system/solar-system-facts/
-  - id: usgs-inside
-    type: external
-    title: Inside the Earth, USGS
-    url: https://pubs.usgs.gov/gip/dynamic/inside.html
-source_note: Apunts originals pendents de localitzar; cap afirmació actual s'hi atribuïx.
+  - id: guide
+    type: developed-guide
+    title: Tema 1 · Els fonaments del planeta Terra — Guia d'estudi (1r ESO)
+    url: https://docs.google.com/document/d/1Z26NQ5x-lx71btF3vnuQRd5APUgLigROPBjbnGVDAHY/edit
+  - id: class-objectives
+    type: private-class-notes
+    title: Apunts manuscrits de classe, pàgina 14 (objectius i vocabulari)
+    note: PDF de 14 pàgines; no es publica al repositori.
+  - id: class-notes
+    type: private-class-notes
+    title: Apunts manuscrits de classe, pàgines 1–13
+    note: PDF de 14 pàgines; no es publica al repositori.
+source_note: >-
+  La llista de l'examen conté 33 termes, inclosos «paral·lels» i «meridians»
+  afegits a mà. La guia aporta també «latitud» i «longitud»: es conserven com a
+  termes de suport, fora dels 33. Les definicions i les ampliacions provenen de
+  la guia; no s'atribuïxen literalment als apunts manuscrits.
+exam_vocabulary:
+  - SOLSTICI
+  - EQUINOCCI
+  - ATMOSFERA
+  - LITOSFERA
+  - HIDROSFERA
+  - DERIVA CONTINENTAL
+  - PLAQUES LITOSFÈRIQUES
+  - MUNTANYA
+  - SERRALADA
+  - PLANA
+  - ALTIPLÀ
+  - VALL
+  - CONCA
+  - PLATAFORMA CONTINENTAL
+  - TALÚS
+  - PLANA ABISSAL
+  - DORSAL OCEÀNICA
+  - FOSSA MARINA
+  - PENÍNSULA
+  - GOLF
+  - CAP
+  - DELTA
+  - ESTUARI
+  - ILLA
+  - ARXIPÈLAG
+  - FALLES
+  - PLECS
+  - SISME
+  - ESCALA DE RICHTER
+  - TSUNAMI
+  - TERRATRÈMOL
+  - PARAL·LELS
+  - MERIDIANS

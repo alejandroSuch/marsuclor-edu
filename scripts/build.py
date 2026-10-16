@@ -6,8 +6,10 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import math
 import re
 import shutil
+import xml.etree.ElementTree as ET
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -48,6 +50,15 @@ def data_for(path: Path):
     )
 
 
+def optional_data(folder: Path):
+    vocabulary = folder / "vocabulary.yml"
+    diagrams = folder / "diagrams.yml"
+    return (
+        read_yaml(vocabulary) if vocabulary.exists() else None,
+        read_yaml(diagrams) if diagrams.exists() else None,
+    )
+
+
 def validate():
     subjects = read_yaml(ROOT / "config/subjects.yml")["subjects"]
     errors = []
@@ -57,6 +68,7 @@ def validate():
         label = str(path.relative_to(ROOT))
         try:
             topic, notes, exercises, cards = data_for(path)
+            vocabulary, diagrams = optional_data(path.parent)
             subject, course, slug = path.parts[-4:-1]
             if topic.get("subject") != subject or subject not in subjects:
                 errors.append(f"{label}: assignatura inconsistent")
@@ -108,7 +120,57 @@ def validate():
                 missing = objectives - covered
                 if missing:
                     errors.append(f"{label}: {group_name} no cobrix {', '.join(sorted(missing))}")
-        except (OSError, KeyError, TypeError, ValueError, yaml.YAMLError) as exc:
+            vocabulary_ids = set()
+            if vocabulary:
+                terms = vocabulary.get("terms", [])
+                vocabulary_ids = {entry["id"] for entry in terms}
+                if len(vocabulary_ids) != len(terms):
+                    errors.append(f"{label}: identificadors de vocabulari repetits")
+                exam_terms = {entry["term"] for entry in terms if entry.get("exam")}
+                expected_terms = set(topic.get("exam_vocabulary", []))
+                if exam_terms != expected_terms or len(expected_terms) != len(topic.get("exam_vocabulary", [])):
+                    errors.append(f"{label}: el vocabulari de l'examen no coincideix amb la llista de la font")
+                if len(terms) != len({entry["term"] for entry in terms}):
+                    errors.append(f"{label}: termes de vocabulari repetits")
+                for entry in terms:
+                    if not entry.get("definition") or not entry.get("category"):
+                        errors.append(f"{label}: definició o categoria absent")
+                    if not set(entry.get("source_ids", [])) <= sources:
+                        errors.append(f"{label}: font de vocabulari invàlida")
+                covered_terms = set().union(*(set(row.get("vocabulary_ids", [])) for row in exercises["exercises"]))
+                missing_terms = {entry["id"] for entry in terms if entry.get("exam")} - covered_terms
+                if missing_terms:
+                    errors.append(f"{label}: exercicis sense {', '.join(sorted(missing_terms))}")
+            diagram_ids = set()
+            if diagrams:
+                diagram_ids = {entry["id"] for entry in diagrams.get("diagrams", [])}
+                if len(diagram_ids) != len(diagrams["diagrams"]):
+                    errors.append(f"{label}: identificadors de diagrama repetits")
+                for entry in diagrams["diagrams"]:
+                    svg = path.parent / "diagrams" / entry["file"]
+                    if not svg.is_file() or svg.suffix != ".svg":
+                        errors.append(f"{label}: diagrama absent: {entry['file']}")
+                    else:
+                        ET.parse(svg)
+                    if not set(entry.get("objective_ids", [])) <= objectives:
+                        errors.append(f"{label}: objectius de diagrama invàlids")
+                    if not set(entry.get("vocabulary_ids", [])) <= vocabulary_ids:
+                        errors.append(f"{label}: vocabulari de diagrama invàlid")
+            for group_name, rows in groups:
+                for row in rows:
+                    if not set(row.get("vocabulary_ids", [])) <= vocabulary_ids:
+                        errors.append(f"{label}: vocabulari invàlid en {group_name}")
+                    refs = row.get("diagram_ids", []) + ([row["diagram_id"]] if row.get("diagram_id") else [])
+                    if not set(refs) <= diagram_ids:
+                        errors.append(f"{label}: diagrama invàlid en {group_name}")
+                    if group_name == "exercises":
+                        space = row.get("answer_space_mm", 30)
+                        if not isinstance(space, int) or not 8 <= space <= 80:
+                            errors.append(f"{label}: espai de resposta invàlid")
+            fronts = [row["front"] for row in cards["cards"]]
+            if len(fronts) != len(set(fronts)):
+                errors.append(f"{label}: targetes duplicades")
+        except (OSError, KeyError, TypeError, ValueError, yaml.YAMLError, ET.ParseError) as exc:
             errors.append(f"{label}: {exc}")
     if errors:
         raise SystemExit("\n".join(errors))
@@ -144,6 +206,50 @@ def pdf_link(relative: Path, filename: str) -> str:
     return f'<p class="pdf-link"><a href="{esc(target)}">Descarrega el PDF A4</a></p>\n\n'
 
 
+def diagram_markup(diagrams_by_id, diagram_id: str, blank: bool = False) -> str:
+    entry = diagrams_by_id[diagram_id]
+    suffix = "-blank" if blank else ""
+    return f"![{esc(entry['title'])}](diagrams/{diagram_id}{suffix}.svg){{.topic-diagram}}\n\n"
+
+
+def copy_diagrams(folder: Path, dest: Path, diagrams):
+    if not diagrams:
+        return
+    target = dest / "diagrams"
+    target.mkdir()
+    for entry in diagrams["diagrams"]:
+        svg = (folder / "diagrams" / entry["file"]).read_text(encoding="utf-8")
+        (target / f"{entry['id']}.svg").write_text(svg, encoding="utf-8")
+        blank = re.sub(
+            r'(<text class="diagram-answer"[^>]*>)[^<]*(</text>)',
+            lambda match: match.group(1) + "________" + match.group(2),
+            svg,
+        )
+        (target / f"{entry['id']}-blank.svg").write_text(blank, encoding="utf-8")
+
+
+def vocabulary_markup(vocabulary):
+    if not vocabulary:
+        return ""
+    out = "## Vocabulari de l'examen (33 termes)\n\n"
+    for exam in (True, False):
+        if not exam:
+            out += "## Termes de suport dels apunts\n\n"
+        current_category = None
+        for entry in vocabulary["terms"]:
+            if entry["exam"] != exam:
+                continue
+            if entry["category"] != current_category:
+                current_category = entry["category"]
+                out += f"### {esc(current_category)}\n\n"
+            tag = f" <small>({esc(entry['editorial_tag'])})</small>" if entry.get("editorial_tag") else ""
+            out += f'<div class="vocab-entry"><strong>{esc(entry["term"])}</strong> — {esc(entry["definition"])}{tag}</div>\n\n'
+    if vocabulary.get("mnemonics"):
+        out += "### Trucs de repàs\n\n"
+        out += "\n".join(f"- {esc(tip)}" for tip in vocabulary["mnemonics"]) + "\n\n"
+    return out
+
+
 def prepare():
     validate()
     if GENERATED.exists():
@@ -165,10 +271,13 @@ def prepare():
     index = frontmatter("Martina Edu") + "Materials per a estudiar en línia i imprimir en A4.\n\n"
     for path in topics():
         topic, notes, exercises, cards = data_for(path)
+        vocabulary, diagrams = optional_data(path.parent)
+        diagrams_by_id = {entry["id"]: entry for entry in diagrams["diagrams"]} if diagrams else {}
         subject, course, slug = path.parts[-4:-1]
         rel = Path("topics") / subject / course / slug
         dest = GENERATED / rel
         dest.mkdir(parents=True)
+        copy_diagrams(path.parent, dest, diagrams)
         nav = '<div class="material-nav">\n\n' + " | ".join(f"[{name}]({file}.qmd)" for name, file in [
             ("Apunts", "notes"), ("Exercicis", "exercises"),
             ("Solucionari", "solutions"), ("Targetes", "cards")]) + '\n\n</div>'
@@ -181,30 +290,64 @@ def prepare():
         base += "\n".join(f"- {esc(o['text'])}" for o in topic["objectives"]) + "\n\n"
         for row in notes["sections"]:
             base += f"## {esc(row['title'])}\n\n{row['body']}\n\n"
+            for diagram_id in row.get("diagram_ids", []):
+                base += diagram_markup(diagrams_by_id, diagram_id)
             base += "*Fonts d'este apartat: " + ", ".join(
                 esc(next(s["title"] for s in topic["sources"] if s["id"] == source_id))
                 for source_id in row["source_ids"]
             ) + ".*\n\n"
+        base += vocabulary_markup(vocabulary)
+        if notes.get("study_tips"):
+            base += "## Com estudiar-ho\n\n" + "\n".join(
+                f"{number}. {esc(tip)}" for number, tip in enumerate(notes["study_tips"], 1)
+            ) + "\n\n"
+        if notes.get("self_check"):
+            base += "## Comprovació final\n\n" + "\n".join(
+                f"- [ ] {esc(item)}" for item in notes["self_check"]
+            ) + "\n\n"
         base += "## Fonts i procedència\n\n" + source_list(topic) + "\n\n" + esc(topic.get("source_note", "")) + "\n"
         (dest / "notes.qmd").write_text(base, encoding="utf-8")
         exercise_page = page_header(topic, course, "Exercicis") + pdf_link(rel, "exercises") + nav + "\n\n"
         solution_page = page_header(topic, course, "Solucionari") + pdf_link(rel, "solutions") + nav + "\n\n"
         for n, row in enumerate(exercises["exercises"], 1):
-            exercise_page += f"## {n}. {esc(row['question'])}\n\n<div class='answer-space'></div>\n\n"
-            solution_page += f"## {n}. {esc(row['question'])}\n\n{esc(row['answer'])}\n\n"
+            exercise_page += f"::: {{.exercise}}\n### Exercici {n}\n\n{esc(row['question'])}\n\n"
+            solution_page += f"::: {{.key-item}}\n### Solució {n}\n\n{esc(row['question'])}\n\n"
+            if row.get("diagram_id"):
+                exercise_page += diagram_markup(diagrams_by_id, row["diagram_id"], blank=True)
+                solution_page += diagram_markup(diagrams_by_id, row["diagram_id"])
+            exercise_page += f'<div class="answer-space" style="min-height:{row.get("answer_space_mm", 30)}mm"></div>\n\n:::\n\n'
+            solution_page += f"{esc(row['answer'])}\n\n:::\n\n"
         (dest / "exercises.qmd").write_text(exercise_page, encoding="utf-8")
         (dest / "solutions.qmd").write_text(solution_page, encoding="utf-8")
         card_page = page_header(topic, course, "Targetes") + pdf_link(rel, "cards") + nav + "\n\n"
-        card_page += "Prem una targeta per veure la resposta. En imprimir, cada targeta mostra pregunta i resposta per a retallar.\n\n"
-        card_page += '<div class="card-grid">\n'
+        card_page += "Prem una targeta per veure la resposta. Per al PDF A4, imprimix a doble cara, amb gir pel costat llarg i escala del 100 %; els reversos estan reflectits horitzontalment per a retallar.\n\n"
+        card_page += '<div class="card-grid web-cards">\n'
         for row in cards["cards"]:
+            diagram = (
+                f'<img class="card-diagram" src="diagrams/{esc(row["diagram_id"])}-blank.svg" alt="Esquema sense etiquetes">'
+                if row.get("diagram_id") else ""
+            )
             card_page += (
                 '<button type="button" class="study-card" aria-pressed="false" '
                 f'aria-label="{esc(row["front"])}. Prem per veure la resposta">'
-                f'<span class="card-front">{esc(row["front"])}</span>'
+                f'<span class="card-front">{esc(row["front"])}{diagram}</span>'
                 f'<span class="card-back">{esc(row["back"])}</span></button>\n'
             )
         card_page += "</div>\n"
+        card_page += '<div class="flashcard-print">\n'
+        for sheet_number, start in enumerate(range(0, len(cards["cards"]), 8), 1):
+            chunk = cards["cards"][start:start + 8]
+            for face in ("front", "back"):
+                card_page += f'<div class="print-sheet {face}-sheet"><div class="sheet-title">{esc(topic["title"])} · {"Anversos" if face == "front" else "Reversos"} {sheet_number}</div>\n'
+                ordered = chunk if face == "front" else [item for index in range(0, len(chunk), 2) for item in chunk[index:index + 2][::-1]]
+                for row in ordered:
+                    content = row["front"] if face == "front" else row["back"]
+                    card_page += f'<div class="cut-card" data-card-id="{esc(row["id"])}"><span class="cut-card-id">{esc(row["id"])}</span><span>{esc(content)}</span>'
+                    if face == "front" and row.get("diagram_id"):
+                        card_page += f'<img class="card-diagram" src="diagrams/{esc(row["diagram_id"])}-blank.svg" alt="Esquema sense etiquetes">'
+                    card_page += '</div>\n'
+                card_page += '</div>\n'
+        card_page += '</div>\n'
         (dest / "cards.qmd").write_text(card_page, encoding="utf-8")
     (GENERATED / "index.qmd").write_text(index, encoding="utf-8")
     print(f"Preparades {len(topics())} pàgines de tema per a Quarto.")
@@ -232,6 +375,7 @@ def pdf():
 
 def verify():
     from playwright.sync_api import sync_playwright
+    from pypdf import PdfReader
 
     pages = sorted((SITE / "topics").rglob("*.html"))
     if not pages:
@@ -247,6 +391,23 @@ def verify():
             pdf_path = (page_path.parent / links.first.get_attribute("href")).resolve()
             if not pdf_path.is_file() or pdf_path.stat().st_size < 1000:
                 raise SystemExit(f"PDF absent o buit: {pdf_path}")
+            reader = PdfReader(str(pdf_path))
+            if not reader.pages or any(
+                abs(float(pdf_page.mediabox.width) - 595) > 3
+                or abs(float(pdf_page.mediabox.height) - 842) > 3
+                for pdf_page in reader.pages
+            ):
+                raise SystemExit(f"Pàgines PDF fora de format A4: {pdf_path}")
+            if not page.locator("img.topic-diagram, img.card-diagram").evaluate_all(
+                "images => images.every(image => image.complete && image.naturalWidth > 0)"
+            ):
+                raise SystemExit(f"Diagrama absent a {page_path}")
+            relative = page_path.relative_to(SITE).parts
+            folder = CONTENT.joinpath(*relative[1:-1])
+            if page_path.name == "exercises.html" and page.locator(".exercise").count() != len(read_yaml(folder / "exercises.yml")["exercises"]):
+                raise SystemExit("Falten exercicis en l'HTML")
+            if page_path.name == "solutions.html" and page.locator(".key-item").count() != len(read_yaml(folder / "exercises.yml")["exercises"]):
+                raise SystemExit("Falten solucions en l'HTML")
             if page_path.name == "cards.html":
                 card = page.locator(".study-card").first
                 if card.count() == 0:
@@ -254,6 +415,18 @@ def verify():
                 card.click()
                 if card.get_attribute("aria-pressed") != "true":
                     raise SystemExit("La targeta no mostra la resposta")
+                card_rows = read_yaml(folder / "flashcards.yml")["cards"]
+                if len(reader.pages) != 2 * math.ceil(len(card_rows) / 8):
+                    raise SystemExit("Els anversos i reversos no ocupen parelles de pàgines A4")
+                ids = [row["id"] for row in card_rows]
+                pattern = re.compile(r"\b(?:" + "|".join(map(re.escape, ids)) + r")\b")
+                for sheet_number, start in enumerate(range(0, len(ids), 8)):
+                    front = ids[start:start + 8]
+                    back = [item for index in range(0, len(front), 2) for item in front[index:index + 2][::-1]]
+                    found_front = pattern.findall(reader.pages[2 * sheet_number].extract_text())
+                    found_back = pattern.findall(reader.pages[2 * sheet_number + 1].extract_text())
+                    if found_front != front or found_back != back:
+                        raise SystemExit(f"Anversos i reversos desalineats al full {sheet_number + 1}")
             page.close()
         browser.close()
     print(f"Verificades {len(pages)} pàgines, PDF i targetes interactives.")

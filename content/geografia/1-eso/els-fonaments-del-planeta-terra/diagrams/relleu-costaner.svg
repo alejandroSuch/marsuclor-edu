@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+  <title id="title">Formes del relleu costaner</title>
+  <desc id="desc">Set esquemes numerats de península, golf, cap, delta, estuari, illa i arxipèlag.</desc>
+  <rect width="900" height="610" fill="#fff"/>
+  <g font-family="Arial,sans-serif" font-size="17" fill="#203442" stroke-linejoin="round">
+    <g transform="translate(18 12)">
+      <rect width="420" height="134" fill="#dceff4" stroke="#9dbac2"/>
+      <path d="M0 0 H145 V55 H205 L243 35 L317 48 L355 72 L317 94 L244 99 L207 75 H145 V134 H0 Z" fill="#d9c49e" stroke="#8e7756" stroke-width="2"/>
+      <text x="12" y="121">1</text><text class="diagram-answer" x="42" y="121">Península</text>
+    </g>
+    <g transform="translate(462 12)">
+      <rect width="420" height="134" fill="#dceff4" stroke="#9dbac2"/>
+      <path d="M0 0 H420 V82 H329 Q313 55 278 47 Q245 42 221 74 Q202 97 172 91 H0 Z" fill="#d9c49e" stroke="#8e7756" stroke-width="2"/>
+      <text x="12" y="121">2</text><text class="diagram-answer" x="42" y="121">Golf</text>
+    </g>
+    <g transform="translate(18 162)">
+      <rect width="420" height="134" fill="#dceff4" stroke="#9dbac2"/>
+      <path d="M0 0 H150 V54 L355 75 L150 91 V134 H0 Z" fill="#d9c49e" stroke="#8e7756" stroke-width="2"/>
+      <text x="12" y="121">3</text><text class="diagram-answer" x="42" y="121">Cap</text>
+    </g>
+    <g transform="translate(462 162)">
+      <rect width="420" height="134" fill="#dceff4" stroke="#9dbac2"/>
+      <path d="M0 0 H420 V47 H252 L235 69 L263 93 L220 83 L188 103 L173 80 L145 87 L164 50 H0 Z" fill="#d9c49e" stroke="#8e7756" stroke-width="2"/>
+      <path d="M210 0 V62" stroke="#4c9cb4" stroke-width="12"/>
+      <text x="12" y="121">4</text><text class="diagram-answer" x="42" y="121">Delta</text>
+    </g>
+    <g transform="translate(18 312)">
+      <rect width="420" height="134" fill="#dceff4" stroke="#9dbac2"/>
+      <path d="M0 0 H420 V72 H293 L264 59 L220 40 L174 67 L144 83 H0 Z" fill="#d9c49e" stroke="#8e7756" stroke-width="2"/>
+      <path d="M220 0 V40 L264 59 L293 72" fill="none" stroke="#4c9cb4" stroke-width="7"/>
+      <text x="12" y="121">5</text><text class="diagram-answer" x="42" y="121">Estuari</text>
+    </g>
+    <g transform="translate(462 312)">
+      <rect width="420" height="134" fill="#dceff4" stroke="#9dbac2"/>
+      <path d="M179 39 Q223 18 265 43 Q284 63 260 83 Q225 101 184 82 Q157 66 179 39 Z" fill="#d9c49e" stroke="#8e7756" stroke-width="2"/>
+      <text x="12" y="121">6</text><text class="diagram-answer" x="42" y="121">Illa</text>
+    </g>
+    <g transform="translate(18 462)">
+      <rect width="420" height="134" fill="#dceff4" stroke="#9dbac2"/>
+      <ellipse cx="164" cy="60" rx="30" ry="20" fill="#d9c49e" stroke="#8e7756" stroke-width="2"/>
+      <ellipse cx="242" cy="43" rx="40" ry="21" fill="#d9c49e" stroke="#8e7756" stroke-width="2"/>
+      <ellipse cx="296" cy="76" rx="24" ry="17" fill="#d9c49e" stroke="#8e7756" stroke-width="2"/>
+      <text x="12" y="121">7</text><text class="diagram-answer" x="42" y="121">Arxipèlag</text>
+    </g>
+  </g>
+</svg>

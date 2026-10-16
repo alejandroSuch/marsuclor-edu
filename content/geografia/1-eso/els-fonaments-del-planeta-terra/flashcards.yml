@@ -1,31 +1,146 @@
 cards:
-  - id: c1
+  - id: c01
     objective_ids: [o1]
-    source_ids: [nasa-earth]
-    front: Quin tipus d'astre és la Terra?
-    back: Un planeta, el tercer des del Sol.
-  - id: c2
+    source_ids: [guide]
+    vocabulary_ids: []
+    front: "Quina diferència hi ha entre rotació i translació?"
+    back: "La rotació és el gir sobre si mateixa i origina el dia i la nit; la translació és el moviment al voltant del Sol i, amb la inclinació de l'eix, origina les estacions."
+  - id: c02
     objective_ids: [o1]
-    source_ids: [nasa-solar]
-    front: Què és el Sol?
-    back: Una estrela.
-  - id: c3
+    source_ids: [guide]
+    vocabulary_ids: []
+    front: "Què origina principalment les marees?"
+    back: "L'atracció gravitatòria de la Lluna i, en menor mesura, del Sol."
+  - id: c03
     objective_ids: [o1]
-    source_ids: [nasa-earth]
-    front: Què és la Lluna?
-    back: El satèl·lit natural de la Terra.
-  - id: c4
+    source_ids: [guide]
+    vocabulary_ids: [solstici, equinocci]
+    front: "Com distingixes un solstici d'un equinocci?"
+    back: "Al solstici hi ha el dia més llarg o més curt d'un hemisferi; a l'equinocci el dia i la nit duren aproximadament el mateix."
+  - id: c04
+    objective_ids: [o1]
+    source_ids: [guide]
+    vocabulary_ids: []
+    front: "Què són el periheli i l'afeli?"
+    back: "El periheli és el moment de més proximitat de la Terra al Sol; l'afeli, el de més llunyania."
+  - id: c05
     objective_ids: [o2]
-    source_ids: [nasa-earth]
-    front: Quin moviment origina el dia i la nit?
-    back: La rotació de la Terra.
-  - id: c5
+    source_ids: [guide]
+    vocabulary_ids: []
+    front: "Quins quatre factors de la guia fan possible la vida a la Terra?"
+    back: "Aigua, atmosfera, distància adequada al Sol i camp magnètic terrestre."
+  - id: c06
     objective_ids: [o2]
-    source_ids: [nasa-earth]
-    front: Quant dura aproximadament la translació?
-    back: Un any, aproximadament 365 dies i un quart.
-  - id: c6
+    source_ids: [guide]
+    vocabulary_ids: [atmosfera]
+    front: "Per què l'atmosfera ajuda a la vida?"
+    back: "Aporta gasos necessaris, la capa d'ozó protegix de part de la radiació i ajuda a regular la temperatura."
+  - id: c07
+    objective_ids: [o2]
+    source_ids: [guide]
+    vocabulary_ids: []
+    front: "De què protegix el camp magnètic terrestre?"
+    back: "De part de les partícules del vent solar."
+  - id: c08
     objective_ids: [o3]
-    source_ids: [usgs-inside]
-    front: Quines són les capes internes principals?
-    back: Escorça, mantell i nucli.
+    source_ids: [guide]
+    vocabulary_ids: []
+    diagram_id: terra-capes
+    front: Identifica les capes 1, 2 i 3 del diagrama.
+    back: 1) Escorça. 2) Mantell. 3) Nucli.
+  - id: c09
+    objective_ids: [o3]
+    source_ids: [guide]
+    vocabulary_ids: [litosfera]
+    front: "És igual l'escorça que la litosfera?"
+    back: "No. La litosfera inclou l'escorça i la part superior rígida del mantell."
+  - id: c10
+    objective_ids: [o2, o3]
+    source_ids: [guide]
+    vocabulary_ids: [hidrosfera]
+    front: "Què és la hidrosfera i què és la biosfera?"
+    back: "La hidrosfera és el conjunt de les aigües; la biosfera, el dels éssers vius i els llocs on hi ha vida."
+  - id: c11
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: []
+    front: "Com actuen els agents interns i externs sobre el relleu?"
+    back: "Els interns el formen i transformen; els externs, com l'aigua i el vent, l'erosionen i el modelen."
+  - id: c12
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: [plaques-litosferiques, deriva-continental]
+    front: "Què són les plaques litosfèriques i què explica la deriva continental?"
+    back: "Les plaques són fragments rígids que es mouen lentament; la deriva explica el desplaçament dels continents, abans units en Pangea."
+  - id: c13
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: [falles, plecs]
+    front: "Quina diferència hi ha entre una falla i un plec?"
+    back: "La falla és una fractura amb desplaçament; el plec és un doblegament de les capes de roques."
+  - id: c14
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: [sisme, terratremol]
+    front: "Sisme i terratrèmol són fenòmens diferents?"
+    back: "No. Són dos noms per a una sacsejada del terreny causada per l'alliberament d'energia interior."
+  - id: c15
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: [escala-de-richter, tsunami]
+    front: "Què mesura tradicionalment l'escala de Richter i què és un tsunami?"
+    back: "L'escala s'ha usat per a expressar la magnitud d'un terratrèmol; un tsunami és una sèrie d'ones marines de gran energia."
+  - id: c16
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: [muntanya, serralada]
+    front: "Com distingixes una muntanya d'una serralada?"
+    back: "Una muntanya és una elevació natural; una serralada és un conjunt de muntanyes en cadena."
+  - id: c17
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: [plana, altipla]
+    front: "En què es diferencia una plana d'un altiplà?"
+    back: "Tots dos són terrenys plans o poc ondulats; l'altiplà està a una altitud elevada."
+  - id: c18
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: [vall, conca]
+    front: "Què és una vall i què és una conca?"
+    back: "Una vall és un terreny baix entre muntanyes; una conca és una zona més enfonsada que les terres del voltant."
+  - id: c19
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: [plataforma-continental, talus, plana-abissal]
+    front: "Quin orde seguixen plataforma, talús i plana abissal des de la costa?"
+    back: "Plataforma continental poc profunda, talús amb pendent pronunciat i plana abissal al fons oceànic profund."
+  - id: c20
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: [dorsal-oceanica, fossa-marina]
+    front: "Quina és la diferència entre una dorsal oceànica i una fossa marina?"
+    back: "La dorsal és una serralada submarina; la fossa és una depressió oceànica llarga, estreta i molt profunda."
+  - id: c21
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: [cap, golf]
+    front: "En quin cas entra la terra al mar i en quin entra el mar a la terra?"
+    back: "Al cap, la terra s'endinsa en el mar; al golf, el mar entra dins de la terra."
+  - id: c22
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: [delta, estuari]
+    front: "Quina diferència hi ha entre delta i estuari?"
+    back: "El delta acumula sediments a la desembocadura; l'estuari és una desembocadura ampla on es barregen aigües dolces i salades."
+  - id: c23
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: [illa, arxipelag, peninsula]
+    front: "Com distingixes una illa, un arxipèlag i una península?"
+    back: "Una illa està envoltada d'aigua; un arxipèlag és un conjunt d'illes; una península queda unida a altres terres per una banda."
+  - id: c24
+    objective_ids: [o1]
+    source_ids: [guide]
+    vocabulary_ids: [parallels, meridians]
+    front: "Quines línies s'usen per a mesurar la latitud i la longitud?"
+    back: "Els paral·lels es relacionen amb la latitud i l'equador; els meridians, amb la longitud i Greenwich."

@@ -1,6 +1,6 @@
 # Martina Edu
 
-Materials d'estudi per assignatura, curs i tema. El primer tema és una **versió provisional** de geografia de 1r d'ESO: encara no s'ha localitzat el PDF original. Cada ampliació indica la font.
+Materials d'estudi per assignatura, curs i tema. El primer tema real és *Els fonaments del planeta Terra*, de Geografia de 1r d'ESO. La teoria i el vocabulari provenen de la guia d'estudi ja elaborada; els apunts manuscrits originals, que no es publiquen, s'han utilitzat per a contrastar els objectius i la llista del vocabulari.
 
 ## Ús local
 
@@ -30,12 +30,13 @@ python scripts/build.py pdf
 python scripts/build.py verify
 ```
 
-Obri `site/index.html` o inicia `python -m http.server 8000 -d site`. A cada pàgina hi ha un botó per imprimir en A4. Els PDF es generen a `site/pdf/` des de la mateixa pàgina HTML. Per crear un altre tema, copia l'estructura de `content/geografia/1-eso/els-fonaments-del-planeta-terra/` i actualitza els fitxers YAML/Markdown. `python scripts/build.py validate` detecta camps, objectius i fonts que falten.
+Obri `site/index.html` o inicia `python -m http.server 8000 -d site`. A cada pàgina hi ha un botó per imprimir en A4. Els PDF es generen a `site/pdf/` des de la mateixa pàgina HTML. Per a les targetes, imprimix el PDF a doble cara amb gir pel costat llarg i escala del 100 %. Per crear un altre tema, copia l'estructura de `content/geografia/1-eso/els-fonaments-del-planeta-terra/` i actualitza els fitxers YAML/Markdown. `python scripts/build.py validate` comprova objectius, vocabulari, fonts, diagrames i cobertura dels exercicis.
 
 ## Estructura
 
 - `config/subjects.yml`: idiomes per assignatura. Els configurables es concreten per tema.
 - `content/<assignatura>/<curs>/<tema>/`: font del material, independent del disseny.
+- `vocabulary.yml` i `diagrams.yml` dins d'un tema: definicions traçables i esquemes SVG reutilitzables, quan fan falta.
 - `scripts/build.py`: validació, preparació per a Quarto i impressió PDF.
 - `styles/`: presentació web, A4 i targetes interactives.
 - `generated/` i `site/`: eixides generades, ignorades per Git.

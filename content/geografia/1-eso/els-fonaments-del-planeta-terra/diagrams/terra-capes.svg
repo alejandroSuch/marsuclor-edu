@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" role="img" aria-labelledby="title desc">
+  <title id="title">Capes internes de la Terra</title>
+  <desc id="desc">Tall esquemàtic amb tres capes concèntriques numerades de fora cap a dins.</desc>
+  <rect width="760" height="320" fill="#fff"/>
+  <circle cx="170" cy="160" r="133" fill="#417985"/>
+  <circle cx="170" cy="160" r="118" fill="#d7a35b"/>
+  <circle cx="170" cy="160" r="57" fill="#c45742"/>
+  <path d="M285 90 L365 53 M267 125 L365 139 M220 183 L365 226" fill="none" stroke="#243c45" stroke-width="2"/>
+  <g fill="#fff" stroke="#243c45" stroke-width="2">
+    <circle cx="385" cy="52" r="16"/><circle cx="385" cy="139" r="16"/><circle cx="385" cy="226" r="16"/>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="17" fill="#203442">
+    <text x="379" y="58">1</text><text x="379" y="145">2</text><text x="379" y="232">3</text>
+    <text class="diagram-answer" x="420" y="58">Escorça</text>
+    <text class="diagram-answer" x="420" y="145">Mantell</text>
+    <text class="diagram-answer" x="420" y="232">Nucli</text>
+  </g>
+  <text x="34" y="306" fill="#48616a" font-family="Arial,sans-serif" font-size="14">Esquema didàctic; proporcions no exactes.</text>
+</svg>

@@ -1,0 +1,225 @@
+terms:
+  - id: solstici
+    term: "SOLSTICI"
+    category: "Moviments de la Terra"
+    definition: "Moment de l'any en què, en un hemisferi, es produeix el dia més llarg o el més curt."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: equinocci
+    term: "EQUINOCCI"
+    category: "Moviments de la Terra"
+    definition: "Moment de l'any en què el dia i la nit duren aproximadament el mateix."
+    exam: true
+    source_ids: [guide, class-objectives]
+    editorial_tag: "Ampliació"
+  - id: atmosfera
+    term: "ATMOSFERA"
+    category: "Components de la Terra"
+    definition: "Capa de gasos que envolta la Terra."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: litosfera
+    term: "LITOSFERA"
+    category: "Components de la Terra"
+    definition: "Capa externa rígida de la Terra, formada per l'escorça i la part superior rígida del mantell."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: hidrosfera
+    term: "HIDROSFERA"
+    category: "Components de la Terra"
+    definition: "Conjunt de totes les aigües de la Terra."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: deriva-continental
+    term: "DERIVA CONTINENTAL"
+    category: "Formació del relleu"
+    definition: "Explica el desplaçament lent dels continents, que fa milions d'anys estaven units en Pangea."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: plaques-litosferiques
+    term: "PLAQUES LITOSFÈRIQUES"
+    category: "Formació del relleu"
+    definition: "Grans fragments de la litosfera que es mouen molt lentament."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: muntanya
+    term: "MUNTANYA"
+    category: "Formes del relleu continental"
+    definition: "Elevació natural del terreny amb altitud i pendents importants."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: serralada
+    term: "SERRALADA"
+    category: "Formes del relleu continental"
+    definition: "Conjunt de muntanyes que formen una cadena."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: plana
+    term: "PLANA"
+    category: "Formes del relleu continental"
+    definition: "Gran extensió de terreny pla o lleugerament ondulat."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: altipla
+    term: "ALTIPLÀ"
+    category: "Formes del relleu continental"
+    definition: "Extensió de terreny pla situada a una altitud elevada."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: vall
+    term: "VALL"
+    category: "Formes del relleu continental"
+    definition: "Terreny més baix entre muntanyes; pot ser en forma de V (riu) o d'U (glacera)."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: conca
+    term: "CONCA"
+    category: "Formes del relleu continental"
+    definition: "Zona de terreny més enfonsada que les terres del voltant."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: plataforma-continental
+    term: "PLATAFORMA CONTINENTAL"
+    category: "Formes del relleu submarí"
+    definition: "Continuació submergida del continent; és poc profunda i arriba aproximadament als 200 m."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: talus
+    term: "TALÚS"
+    category: "Formes del relleu submarí"
+    definition: "Pendent submarí pronunciat que uneix la plataforma continental amb les zones oceàniques profundes."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: plana-abissal
+    term: "PLANA ABISSAL"
+    category: "Formes del relleu submarí"
+    definition: "Gran extensió plana situada al fons profund de l'oceà."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: dorsal-oceanica
+    term: "DORSAL OCEÀNICA"
+    category: "Formes del relleu submarí"
+    definition: "Gran serralada submarina."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: fossa-marina
+    term: "FOSSA MARINA"
+    category: "Formes del relleu submarí"
+    definition: "Depressió oceànica llarga, estreta i molt profunda."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: peninsula
+    term: "PENÍNSULA"
+    category: "Formes del relleu costaner"
+    definition: "Porció de terra envoltada d'aigua per totes bandes excepte per una, que la uneix a altres terres."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: golf
+    term: "GOLF"
+    category: "Formes del relleu costaner"
+    definition: "Gran entrada de mar dins de la terra."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: cap
+    term: "CAP"
+    category: "Formes del relleu costaner"
+    definition: "Porció de terra que s'endinsa en el mar."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: delta
+    term: "DELTA"
+    category: "Formes del relleu costaner"
+    definition: "Acumulació de sediments, sovint triangular, a la desembocadura d'un riu."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: estuari
+    term: "ESTUARI"
+    category: "Formes del relleu costaner"
+    definition: "Desembocadura ampla d'un riu, sovint en forma d'embut, on es barregen aigües dolces i salades."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: illa
+    term: "ILLA"
+    category: "Formes del relleu costaner"
+    definition: "Porció de terra completament envoltada d'aigua."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: arxipelag
+    term: "ARXIPÈLAG"
+    category: "Formes del relleu costaner"
+    definition: "Conjunt d'illes pròximes entre si."
+    exam: true
+    source_ids: [guide, class-objectives]
+  - id: falles
+    term: "FALLES"
+    category: "Fenòmens geològics"
+    definition: "Fractures de les roques en què els blocs es desplacen."
+    exam: true
+    source_ids: [guide, class-objectives]
+    editorial_tag: "Ampliació"
+  - id: plecs
+    term: "PLECS"
+    category: "Fenòmens geològics"
+    definition: "Doblegaments de les capes de roques per les forces internes."
+    exam: true
+    source_ids: [guide, class-objectives]
+    editorial_tag: "Ampliació"
+  - id: sisme
+    term: "SISME"
+    category: "Fenòmens geològics"
+    definition: "Sacsejada del terreny causada per l'alliberament d'energia a l'interior de la Terra."
+    exam: true
+    source_ids: [guide, class-objectives]
+    editorial_tag: "Ampliació"
+  - id: escala-de-richter
+    term: "ESCALA DE RICHTER"
+    category: "Fenòmens geològics"
+    definition: "Escala utilitzada tradicionalment per a expressar la magnitud d'un terratrèmol."
+    exam: true
+    source_ids: [guide, class-objectives]
+    editorial_tag: "Ampliació"
+  - id: tsunami
+    term: "TSUNAMI"
+    category: "Fenòmens geològics"
+    definition: "Sèrie d'ones marines de gran energia, sovint originades per un terratrèmol submarí."
+    exam: true
+    source_ids: [guide, class-objectives]
+    editorial_tag: "Ampliació"
+  - id: terratremol
+    term: "TERRATRÈMOL"
+    category: "Fenòmens geològics"
+    definition: "Sacsejada del terreny; és un sinònim de sisme."
+    exam: true
+    source_ids: [guide, class-objectives]
+    editorial_tag: "Ampliació de la definició"
+  - id: parallels
+    term: "PARAL·LELS"
+    category: "Localització geogràfica"
+    definition: "Línies imaginàries paral·leles a l'equador amb què es mesura la latitud."
+    exam: true
+    source_ids: [guide, class-objectives]
+    editorial_tag: "Ampliació"
+  - id: meridians
+    term: "MERIDIANS"
+    category: "Localització geogràfica"
+    definition: "Línies imaginàries que uneixen els pols i amb què es mesura la longitud."
+    exam: true
+    source_ids: [guide, class-objectives]
+    editorial_tag: "Ampliació"
+  - id: latitud
+    term: "LATITUD"
+    category: "Localització geogràfica"
+    definition: "Distància en graus entre un punt i l'equador."
+    exam: false
+    source_ids: [guide, class-notes]
+    editorial_tag: "Concepte dels apunts"
+  - id: longitud
+    term: "LONGITUD"
+    category: "Localització geogràfica"
+    definition: "Distància en graus entre un punt i el meridià de Greenwich."
+    exam: false
+    source_ids: [guide, class-notes]
+    editorial_tag: "Concepte dels apunts"
+mnemonics:
+  - "TRUC: al CAP, la TERRA entra al MAR; al GOLF, el MAR entra a la TERRA."
+  - "TRUC: LATITUD → PARAL·LELS → EQUADOR; LONGITUD → MERIDIANS → GREENWICH."

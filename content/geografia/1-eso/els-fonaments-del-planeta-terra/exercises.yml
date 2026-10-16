@@ -1,21 +1,180 @@
 exercises:
-  - id: e1
+  - id: e01
+    kind: resposta-curta
     objective_ids: [o1]
-    source_ids: [nasa-earth, nasa-solar]
-    question: Classifica Sol, Terra i Lluna com a estrela, planeta o satèl·lit natural.
-    answer: El Sol és una estrela; la Terra, un planeta; la Lluna, un satèl·lit natural de la Terra.
-  - id: e2
+    source_ids: [guide]
+    vocabulary_ids: []
+    question: >-
+      Explica què són la rotació i la translació. Indica la duració aproximada
+      de cadascuna i una conseqüència de cada moviment.
+    answer: >-
+      La rotació és el gir de la Terra sobre si mateixa; dura aproximadament 24 hores
+      i origina el dia i la nit. La translació és el moviment de la Terra al voltant
+      del Sol; dura uns 365 dies i 6 hores i, juntament amb la inclinació de l'eix,
+      origina les estacions.
+    answer_space_mm: 37
+  - id: e02
+    kind: completar
+    objective_ids: [o1]
+    source_ids: [guide, class-objectives]
+    vocabulary_ids: [solstici, equinocci]
+    question: >-
+      Completa amb «solstici» o «equinocci»: a) Dia i nit duren aproximadament
+      el mateix: ________. b) A l'hemisferi nord es produïx el dia més llarg
+      o el més curt: ________. c) Indica en quines estacions hi ha equinoccis.
+    answer: >-
+      a) Equinocci. b) Solstici. c) A la primavera i a la tardor.
+    answer_space_mm: 24
+  - id: e03
+    kind: vertader-fals
+    objective_ids: [o1]
+    source_ids: [guide]
+    vocabulary_ids: []
+    question: >-
+      Marca V o F i corregix les falses: a) Les estacions es deuen sobretot
+      a la distància entre la Terra i el Sol. b) La rotació contribuïx a les
+      diferències horàries. c) Les marees es deuen principalment a la rotació.
+      d) El periheli és el moment en què la Terra està més prop del Sol.
+    answer: >-
+      a) F: es deuen principalment a la inclinació de l'eix terrestre combinada
+      amb la translació. b) V. c) F: les marees es deuen principalment a
+      l'atracció gravitatòria de la Lluna i, en menor mesura, del Sol. d) V.
+    answer_space_mm: 36
+  - id: e04
+    kind: raonament
     objective_ids: [o2]
-    source_ids: [nasa-earth]
-    question: Quin moviment explica el dia i la nit? Quant dura aproximadament?
-    answer: La rotació de la Terra sobre el seu eix; aproximadament 24 hores.
-  - id: e3
-    objective_ids: [o2]
-    source_ids: [nasa-earth]
-    question: Una companya diu que les estacions ocorren perquè a l'estiu la Terra està molt més prop del Sol. Com li ho explicaries?
-    answer: Les estacions es deuen principalment a la inclinació de l'eix terrestre combinada amb la translació, que canvia l'angle i la duració de la llum solar en cada hemisferi.
-  - id: e4
+    source_ids: [guide]
+    vocabulary_ids: []
+    question: >-
+      Explica els quatre factors de la guia que fan possible la vida a la Terra.
+      Per què ajuda la distància al Sol a mantindre aigua líquida?
+    answer: >-
+      Hi ha aigua, atmosfera, una distància adequada al Sol i camp magnètic.
+      La distància permet rebre llum i energia sense temperatures extremes,
+      cosa que facilita l'existència d'aigua líquida.
+    answer_space_mm: 42
+  - id: e05
+    kind: relacionar
+    objective_ids: [o2, o3]
+    source_ids: [guide, class-objectives]
+    vocabulary_ids: [atmosfera, hidrosfera, litosfera]
+    question: >-
+      Relaciona cada terme amb la seua definició: 1) atmosfera, 2) hidrosfera,
+      3) litosfera. A) Conjunt de totes les aigües del planeta. B) Capa externa
+      rígida formada per l'escorça i la part superior rígida del mantell.
+      C) Capa de gasos que envolta la Terra. Després, explica què és la biosfera.
+    answer: >-
+      1-C, 2-A, 3-B. La biosfera és el conjunt de tots els éssers vius i els
+      llocs on hi ha vida.
+    answer_space_mm: 28
+  - id: e06
+    kind: diagrama
     objective_ids: [o3]
-    source_ids: [usgs-inside]
-    question: Escriu les tres capes internes principals de la Terra de fora cap a dins.
-    answer: Escorça, mantell i nucli.
+    source_ids: [guide]
+    vocabulary_ids: []
+    diagram_id: terra-capes
+    question: Identifica les tres capes numerades i escriu-les de fora cap a dins.
+    answer: 1) Escorça. 2) Mantell. 3) Nucli. De fora cap a dins, este és l'orde correcte.
+    answer_space_mm: 14
+  - id: e07
+    kind: resposta-curta
+    objective_ids: [o3]
+    source_ids: [guide, class-notes]
+    vocabulary_ids: [litosfera]
+    question: >-
+      Per què no és exactament el mateix «escorça» que «litosfera»? Indica també
+      quin dels dos termes és una de les tres capes internes principals.
+    answer: >-
+      L'escorça és la capa sòlida més externa. La litosfera comprén l'escorça
+      i la part superior rígida del mantell. L'escorça és una de les tres capes
+      internes principals.
+    answer_space_mm: 35
+  - id: e08
+    kind: completar
+    objective_ids: [o4]
+    source_ids: [guide, class-objectives]
+    vocabulary_ids: [deriva-continental, plaques-litosferiques, falles, plecs, sisme, terratremol, escala-de-richter, tsunami]
+    question: >-
+      Completa amb el terme adequat: a) Els grans fragments de la litosfera que
+      es mouen són les ________. b) El desplaçament lent dels continents s'explica
+      amb la ________. c) Una fractura amb desplaçament és una ________;
+      un doblegament de les roques és un ________. d) Una sacsejada del terreny
+      és un ________ o ________. e) Tradicionalment s'ha expressat la magnitud
+      amb l'________. f) Una sèrie d'ones marines de gran energia és un ________.
+    answer: >-
+      a) Plaques litosfèriques. b) Deriva continental. c) Falla; plec.
+      d) Sisme; terratrèmol. e) Escala de Richter. f) Tsunami.
+    answer_space_mm: 47
+  - id: e09
+    kind: classificacio
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: [plaques-litosferiques, falles, plecs]
+    question: >-
+      Classifica com a agents o processos interns o externs: moviment de plaques,
+      volcans, terratrèmols, falles, plecs, rius, ones, glaceres, vent i éssers vius.
+      Tria un agent extern i explica com modela el relleu.
+    answer: >-
+      Interns: moviment de plaques, volcans, terratrèmols, falles i plecs.
+      Externs: rius, ones, glaceres, vent i éssers vius. Per exemple,
+      els rius desgasten el terreny i formen valls.
+    answer_space_mm: 42
+  - id: e10
+    kind: diagrama
+    objective_ids: [o4]
+    source_ids: [guide, class-objectives]
+    vocabulary_ids: [muntanya, serralada, vall, plana, altipla, conca]
+    diagram_id: relleu-continental
+    question: Identifica les sis formes del relleu continental numerades en l'esquema.
+    answer: 1) Muntanya. 2) Serralada. 3) Vall. 4) Plana. 5) Altiplà. 6) Conca.
+    answer_space_mm: 14
+  - id: e11
+    kind: diagrama
+    objective_ids: [o4]
+    source_ids: [guide, class-objectives]
+    vocabulary_ids: [plataforma-continental, talus, plana-abissal, dorsal-oceanica, fossa-marina]
+    diagram_id: relleu-submari
+    question: Identifica les cinc formes del relleu submarí numerades en l'esquema.
+    answer: >-
+      1) Plataforma continental. 2) Talús. 3) Plana abissal.
+      4) Dorsal oceànica. 5) Fossa marina.
+    answer_space_mm: 14
+  - id: e12
+    kind: diagrama
+    objective_ids: [o4]
+    source_ids: [guide, class-objectives]
+    vocabulary_ids: [peninsula, golf, cap, delta, estuari, illa, arxipelag]
+    diagram_id: relleu-costaner
+    question: Identifica les set formes del relleu costaner dels esquemes numerats.
+    answer: >-
+      1) Península. 2) Golf. 3) Cap. 4) Delta. 5) Estuari.
+      6) Illa. 7) Arxipèlag.
+    answer_space_mm: 14
+  - id: e13
+    kind: raonament
+    objective_ids: [o4]
+    source_ids: [guide]
+    vocabulary_ids: [cap, golf, delta, estuari]
+    question: >-
+      Explica la diferència entre un cap i un golf, i entre un delta i un estuari.
+      Utilitza la direcció de la terra o de l'aigua en la teua explicació.
+    answer: >-
+      En un cap, la terra s'endinsa en el mar; en un golf, el mar entra en la terra.
+      Un delta és una acumulació de sediments a la desembocadura d'un riu.
+      Un estuari és una desembocadura ampla, sovint en forma d'embut,
+      on es barregen aigües dolces i salades.
+    answer_space_mm: 43
+  - id: e14
+    kind: relacionar
+    objective_ids: [o1]
+    source_ids: [guide, class-objectives, class-notes]
+    vocabulary_ids: [parallels, meridians]
+    question: >-
+      Completa les parelles: a) paral·lels → ________ → equador;
+      b) meridians → ________ → Greenwich. Després, indica quina de les dues
+      coordenades es mesura amb cada família de línies.
+    answer: >-
+      a) Latitud: es mesura en graus des de l'equador amb els paral·lels.
+      b) Longitud: es mesura en graus des del meridià de Greenwich
+      amb els meridians.
+    answer_space_mm: 28

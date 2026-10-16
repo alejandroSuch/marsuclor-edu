@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 410" role="img" aria-labelledby="title desc">
+  <title id="title">Formes del relleu continental</title>
+  <desc id="desc">Perfil esquemàtic d'una serralada amb muntanya, vall, plana, altiplà i conca, numerats.</desc>
+  <rect width="900" height="410" fill="#fff"/>
+  <path d="M28 292 L62 270 L104 190 L148 88 L186 210 L232 130 L270 240 L326 293 L365 285 L475 285 L520 270 L540 160 L680 160 L706 280 L742 300 L786 335 L824 320 L864 285 L864 370 L28 370 Z" fill="#d9c4a0" stroke="#6e6958" stroke-width="3"/>
+  <path d="M28 292 L62 270 L104 190 L148 88 L186 210 L232 130 L270 240 L326 293" fill="none" stroke="#866b4f" stroke-width="4"/>
+  <path d="M90 63 V45 H270 V63" fill="none" stroke="#234d59" stroke-width="2"/>
+  <g fill="#fff" stroke="#234d59" stroke-width="2">
+    <circle cx="147" cy="105" r="17"/><circle cx="214" cy="44" r="17"/><circle cx="346" cy="264" r="17"/>
+    <circle cx="435" cy="262" r="17"/><circle cx="610" cy="138" r="17"/><circle cx="788" cy="312" r="17"/>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="18" fill="#1f3a45" text-anchor="middle">
+    <text x="147" y="112">1</text><text x="214" y="51">2</text><text x="346" y="271">3</text>
+    <text x="435" y="269">4</text><text x="610" y="145">5</text><text x="788" y="319">6</text>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="15" fill="#203442">
+    <text x="40" y="386">1</text><text class="diagram-answer" x="62" y="386">Muntanya</text>
+    <text x="172" y="386">2</text><text class="diagram-answer" x="194" y="386">Serralada</text>
+    <text x="315" y="386">3</text><text class="diagram-answer" x="337" y="386">Vall</text>
+    <text x="420" y="386">4</text><text class="diagram-answer" x="442" y="386">Plana</text>
+    <text x="540" y="386">5</text><text class="diagram-answer" x="562" y="386">Altiplà</text>
+    <text x="686" y="386">6</text><text class="diagram-answer" x="708" y="386">Conca</text>
+  </g>
+</svg>

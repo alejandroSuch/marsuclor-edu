@@ -3,8 +3,14 @@ body { color: var(--ink); }
 h1, h2 { color: #164c5b; }
 .print-button { border: 0; border-radius: .4rem; background: var(--accent); color: white; padding: .65rem 1rem; margin: 1rem 0; cursor: pointer; }
 .answer-space { min-height: 5rem; border-bottom: 1px solid #bac9d1; }
+.exercise, .key-item { margin: 1.2rem 0; }
+.topic-diagram { display: block; width: 100%; max-width: 880px; max-height: 190mm; margin: 1rem auto; }
+.vocab-entry { margin: .3rem 0; padding: .3rem .5rem; border-left: 2px solid #b8d8d3; }
+.vocab-entry small { color: #536971; }
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; margin: 1.5rem 0; }
 .study-card { min-height: 9rem; padding: 1rem; border: 2px solid var(--accent); border-radius: .6rem; background: var(--soft); color: var(--ink); font-size: 1.05rem; text-align: center; cursor: pointer; }
+.card-diagram { display: block; width: 100%; max-height: 5rem; margin: .5rem auto 0; object-fit: contain; }
+.flashcard-print { display: none; }
 .study-card .card-back { display: none; }
 .study-card[aria-pressed="true"] { background: #fff9e8; border-color: #b27516; }
 .study-card[aria-pressed="true"] .card-front { display: none; }
@@ -14,10 +20,20 @@ h1, h2 { color: #164c5b; }
   body { font-size: 10.5pt; color: #000; }
   nav, .navbar, .sidebar, .toc-active, #TOC, .quarto-title-banner, .print-button, .pdf-link, .material-nav, .page-footer { display: none !important; }
   main { width: 100%; max-width: none; margin: 0; padding: 0; }
-  h2, .study-card, .callout { break-inside: avoid; }
-  .card-grid { grid-template-columns: repeat(2, 1fr); gap: 4mm; }
-  .study-card { min-height: 45mm; border: 1px dashed #555; border-radius: 0; padding: 5mm; display: flex; flex-direction: column; justify-content: space-around; font-size: 11pt; }
-  .study-card .card-front, .study-card[aria-pressed="true"] .card-front { display: block; font-weight: bold; }
-  .study-card .card-back, .study-card[aria-pressed="true"] .card-back { display: block; border-top: 1px solid #aaa; padding-top: 3mm; }
-  .answer-space { min-height: 30mm; }
+  h2, h3 { break-after: avoid; }
+  .callout, .vocab-entry, .topic-diagram, .exercise, .key-item { break-inside: avoid; }
+  .vocab-entry { padding: 1mm 2mm; margin: 1mm 0; }
+  .topic-diagram { max-width: 100%; max-height: 160mm; }
+  .answer-space { border-bottom: 1px solid #bac9d1; }
+  body:has(.flashcard-print) .quarto-title-block,
+  body:has(.flashcard-print) #quarto-content main > :not(.flashcard-print) { display: none !important; }
+  body:has(.flashcard-print) #quarto-content main { width: 180mm; max-width: 180mm; margin: 0; padding: 0; }
+  body:has(.flashcard-print) #quarto-content { display: block; }
+  .flashcard-print { display: block; }
+  .print-sheet { width: 180mm; height: 230mm; display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 6mm repeat(4, 52mm); gap: 3mm; break-after: page; margin: 0; padding: 0; }
+  .print-sheet:last-child { break-after: auto; }
+  .sheet-title { grid-column: 1 / 3; font-size: 9pt; font-weight: bold; }
+  .cut-card { border: 1px dashed #555; padding: 4mm; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2mm; text-align: center; font-size: 10pt; break-inside: avoid; position: relative; min-height: 0; overflow: hidden; }
+  .cut-card-id { position: absolute; top: 2mm; right: 3mm; color: #6b6b6b; font-size: 7pt; }
+  .cut-card .card-diagram { max-height: 24mm; margin: 0; }
 }
