@@ -3,6 +3,8 @@ body { color: var(--ink); }
 h1, h2 { color: #164c5b; }
 .print-button { border: 0; border-radius: .4rem; background: var(--accent); color: white; padding: .65rem 1rem; margin: 1rem 0; cursor: pointer; }
 .answer-space { min-height: 5rem; border-bottom: 1px solid #bac9d1; }
+.exercise-solution { margin: 1rem 0; padding: .65rem .8rem; background: var(--soft); border-left: 3px solid var(--accent); }
+.exercise-solution summary { cursor: pointer; font-weight: 600; }
 .exercise, .key-item { margin: 1.2rem 0; }
 .key-item { border-bottom: 1px solid #bac9d1; padding-bottom: 1rem; }
 .solution-prompt, .solution-answer { padding: .55rem .8rem; }
@@ -31,6 +33,7 @@ h1, h2 { color: #164c5b; }
   .vocab-entry { padding: 1mm 2mm; margin: 1mm 0; }
   .topic-diagram { max-width: 100%; max-height: 160mm; }
   .answer-space { border-bottom: 1px solid #bac9d1; }
+  .exercise-solution { display: none !important; }
   .solution-prompt, .solution-answer { break-inside: avoid; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   body:has(.flashcard-print) .quarto-title-block,
   body:has(.flashcard-print) #quarto-content main > :not(.flashcard-print) { display: none !important; }

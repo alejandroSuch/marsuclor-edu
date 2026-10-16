@@ -201,7 +201,7 @@ UI = {
         "cards": "Targetes", "objectives": "Objectius", "section_sources": "Fonts d'este apartat",
         "study_tips": "Com estudiar-ho", "self_check": "Comprovació final",
         "sources": "Fonts i procedència", "exercise": "Exercici", "prompt": "Enunciat",
-        "answer": "Solució", "print": "Imprimix / Desa en PDF",
+        "answer": "Solució", "show_answer": "Mostra la solució", "print": "Imprimix / Desa en PDF",
         "download": "Descarrega el PDF A4", "status": "Estat",
         "card_instruction": "Prem una targeta per veure la resposta. Per al PDF A4, imprimix a doble cara, amb gir pel costat llarg i escala del 100 %; els reversos estan reflectits horitzontalment per a retallar.",
         "card_action": "Prem per veure la resposta", "blank_diagram": "Esquema sense etiquetes",
@@ -213,7 +213,7 @@ UI = {
         "cards": "Tarjetas", "objectives": "Objetivos", "section_sources": "Fuentes de este apartado",
         "study_tips": "Cómo estudiarlo", "self_check": "Comprobación final",
         "sources": "Fuentes y procedencia", "exercise": "Ejercicio", "prompt": "Enunciado",
-        "answer": "Solución", "print": "Imprimir / Guardar en PDF",
+        "answer": "Solución", "show_answer": "Ver solución", "print": "Imprimir / Guardar en PDF",
         "download": "Descargar el PDF A4", "status": "Estado",
         "card_instruction": "Pulsa una tarjeta para ver la respuesta. Para el PDF A4, imprime a doble cara, girando por el borde largo y al 100 % de escala; los reversos están reflejados horizontalmente para recortar.",
         "card_action": "Pulsa para ver la respuesta", "blank_diagram": "Esquema sin etiquetas",
@@ -326,7 +326,7 @@ def prepare():
         dest = GENERATED / rel
         dest.mkdir(parents=True)
         copy_diagrams(path.parent, dest, diagrams)
-        materials = [(ui(language, key), key) for key in ("notes", "exercises", "solutions", "cards")]
+        materials = [(ui(language, key), key) for key in ("notes", "exercises", "cards")]
         nav = '<div class="material-nav">\n\n' + " | ".join(
             f"[{name}]({file}.qmd)" for name, file in materials
         ) + '\n\n</div>'
@@ -366,6 +366,10 @@ def prepare():
             if row.get("diagram_id"):
                 exercise_page += diagram_markup(diagrams_by_id, row["diagram_id"], blank=True)
                 solution_page += diagram_markup(diagrams_by_id, row["diagram_id"])
+            exercise_page += f'<details class="exercise-solution"><summary>{ui(language, "show_answer")}</summary>\n\n{esc(row["answer"])}\n\n'
+            if row.get("diagram_id"):
+                exercise_page += diagram_markup(diagrams_by_id, row["diagram_id"])
+            exercise_page += '</details>\n\n'
             exercise_page += f'<div class="answer-space" style="min-height:{row.get("answer_space_mm", 30)}mm"></div>\n\n:::\n\n'
             solution_page += f"{esc(row['answer'])}\n\n:::\n\n:::\n\n"
         (dest / "exercises.qmd").write_text(exercise_page, encoding="utf-8")
@@ -455,8 +459,14 @@ def verify():
                 raise SystemExit(f"Diagrama absent a {page_path}")
             relative = page_path.relative_to(SITE).parts
             folder = CONTENT.joinpath(*relative[1:-1])
-            if page_path.name == "exercises.html" and page.locator(".exercise").count() != len(read_yaml(folder / "exercises.yml")["exercises"]):
-                raise SystemExit("Falten exercicis en l'HTML")
+            if page_path.name == "exercises.html":
+                exercise_count = len(read_yaml(folder / "exercises.yml")["exercises"])
+                if page.locator(".exercise").count() != exercise_count or page.locator(".exercise-solution").count() != exercise_count:
+                    raise SystemExit("Falten exercicis o solucions en l'HTML")
+                first_solution = page.locator(".exercise-solution").first
+                first_solution.locator("summary").click()
+                if not first_solution.evaluate("element => element.open"):
+                    raise SystemExit("La solució no es mostra en fer clic")
             if page_path.name == "solutions.html":
                 items = page.locator(".key-item")
                 exercise_count = len(read_yaml(folder / "exercises.yml")["exercises"])
