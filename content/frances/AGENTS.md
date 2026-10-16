@@ -1,2 +1,3 @@
 # Francès
-Indica `teaching_language` en cada tema per a la llengua de les explicacions. Mantén el francès dels exemples.
+
+Conserva el francès en els exemples i les activitats de llengua. La llengua de les explicacions es pren de `teaching_language` del tema.

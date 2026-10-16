@@ -1,22 +1,58 @@
 # Martina Edu
 
-Materials d'estudi per assignatura, curs i tema. El primer tema real és *Els fonaments del planeta Terra*, de Geografia de 1r d'ESO. La teoria i el vocabulari provenen de la guia d'estudi ja elaborada; els apunts manuscrits originals, que no es publiquen, s'han utilitzat per a contrastar els objectius i la llista del vocabulari.
+Materiales de estudio por asignatura, curso y tema. El contenido editable vive en `content/`; Quarto genera la web y Chromium imprime las mismas páginas en PDF A4. El primer tema completo, *Els fonaments del planeta Terra* (Geografía, 1.º ESO), sirve para comprobar el recorrido completo del generador.
 
-## Ús local
+## Pedir materiales desde Codex
 
-### Amb Docker
+Abre este repositorio como proyecto en Codex. Adjunta los apuntes o indica dónde está la guía y escribe lo que necesitas con tus propias palabras. No hace falta indicar carpetas, YAML, Quarto, diseño de impresión ni comandos. Codex deduce el curso y la asignatura de la petición y del material; si una lengua de enseñanza configurable no queda clara, la consulta. Los materiales salen en la web y en PDF A4.
 
-Cal tindre Docker instal·lat i en marxa. Des de l'arrel del repositori:
+Ejemplos de peticiones:
+
+> Estos son los apuntes de Biología de 1.º de ESO sobre las células. Prepara el tema para estudiar y practicar.
+
+> Añade esta nueva página de los apuntes al tema de Geografía que ya tenemos. Actualiza solo lo que cambie.
+
+> Mi hija confunde rotación y translación. Añade ejercicios y tarjetas de repaso al tema existente.
+
+> Revisa las soluciones del tema de fracciones de Matemáticas de 1.º de ESO y corrige los errores que encuentres.
+
+Por defecto, una petición de preparar un tema completo produce apuntes, ejercicios, solucionario y tarjetas interactivas/recortables. Si solo se pide una parte, se actualiza esa parte y lo que dependa directamente de ella. Los originales con datos personales se usan como referencia privada y no se publican.
+
+## Crear y actualizar un tema
+
+1. Codex busca primero `content/<asignatura>/<curso>/<tema>/` y lee las fuentes disponibles. Si hay una guía desarrollada, conserva su teoría; los apuntes originales sirven para contrastar objetivos, vocabulario y lenguaje de clase. Si falta acceso a la guía, solicita una copia antes de trabajar en esa teoría.
+2. Para un tema nuevo, crea el contenido estructurado y los cuatro materiales. Para uno existente, compara la petición con el contenido actual, conserva secciones e identificadores vigentes y cambia solo los elementos afectados, incluidas sus soluciones y tarjetas cuando corresponda.
+3. Codex valida cobertura, fuentes y referencias, genera web y PDF y revisa la salida. Una corrección científica se comunica con su justificación; no se oculta dentro de una reescritura general.
+
+Los archivos principales de cada tema son `topic.yml` (metadatos, objetivos, fuentes y vocabulario del examen), `notes.yml` (secciones), `exercises.yml` (preguntas y soluciones) y `flashcards.yml`. `vocabulary.yml` y `diagrams.yml` con SVG se usan cuando el tema los necesita. Cada bloque lleva los identificadores de objetivos y fuentes que lo respaldan. Los `source_ids` de una ampliación deben apuntar a su fuente real, no a los apuntes de clase por comodidad. El tema de Geografía muestra el formato completo; su contenido educativo no es una plantilla para otros temas.
+
+### Dónde vive cada regla
+
+- `AGENTS.md`: criterios comunes, privacidad, conservación de contenido y comprobación final.
+- `config/subjects.yml`: asignaturas y lengua de enseñanza fija o configurable.
+- `content/<asignatura>/AGENTS.md`: criterios pedagógicos propios de esa materia, sin repetir la configuración de idiomas.
+- `.agents/skills/importar-materiales/`: lectura de adjuntos o guías, procedencia y actualización de fuentes.
+- `.agents/skills/generar-materiales/`: apuntes, ejercicios, soluciones y revisión de impresión.
+- `.agents/skills/generar-flashcards/`: tarjetas web e imprimibles.
+- `scripts/build.py`: reglas automáticas del modelo de datos y comprobación de las salidas.
+
+Codex selecciona las skills según la petición; el padre no tiene que nombrarlas. Las decisiones editoriales que no pueden verificarse automáticamente, como la fidelidad de una explicación o la calidad de un ejercicio, se revisan con las fuentes.
+
+## Uso local
+
+### Con Docker
+
+Con Docker instalado y en marcha, desde la raíz del repositorio:
 
 ```sh
 docker compose up --build
 ```
 
-La validació, la generació Quarto i els PDF s'executen abans d'obrir el servidor en [http://localhost:8000](http://localhost:8000). Per incorporar canvis al contingut, para el procés i executa `docker compose up` de nou. Els fitxers generats viuen en volums de Docker; `docker compose down -v` els elimina. La primera construcció descarrega Quarto i Chromium i pot tardar uns minuts.
+La validación, la generación y los PDF se ejecutan antes de abrir [http://localhost:8000](http://localhost:8000). Para incorporar cambios, detén el proceso y ejecuta `docker compose up` otra vez. Los archivos generados viven en volúmenes de Docker; `docker compose down -v` los elimina. La primera construcción descarga Quarto y Chromium y puede tardar unos minutos.
 
-### Sense Docker
+### Sin Docker
 
-Cal Python 3.11+, Quarto 1.6+ i, per als PDF, Chromium de Playwright.
+Se necesitan Python 3.11+, Quarto 1.6+ y Chromium de Playwright para los PDF.
 
 ```sh
 python3 -m venv .venv
@@ -30,22 +66,10 @@ python scripts/build.py pdf
 python scripts/build.py verify
 ```
 
-Obri `site/index.html` o inicia `python -m http.server 8000 -d site`. A cada pàgina hi ha un botó per imprimir en A4. Els PDF es generen a `site/pdf/` des de la mateixa pàgina HTML. Per a les targetes, imprimix el PDF a doble cara amb gir pel costat llarg i escala del 100 %. Per crear un altre tema, copia l'estructura de `content/geografia/1-eso/els-fonaments-del-planeta-terra/` i actualitza els fitxers YAML/Markdown. `python scripts/build.py validate` comprova objectius, vocabulari, fonts, diagrames i cobertura dels exercicis.
+Abre `site/index.html` o inicia `python -m http.server 8000 -d site`. Los PDF se generan en `site/pdf/`. Para las tarjetas, imprime el PDF a doble cara, girando por el borde largo y al 100 % de escala. No edites `generated/` ni `site/`: se regeneran desde `content/`.
 
-## Estructura
+## Validación y publicación
 
-- `config/subjects.yml`: idiomes per assignatura. Els configurables es concreten per tema.
-- `content/<assignatura>/<curs>/<tema>/`: font del material, independent del disseny.
-- `vocabulary.yml` i `diagrams.yml` dins d'un tema: definicions traçables i esquemes SVG reutilitzables, quan fan falta.
-- `scripts/build.py`: validació, preparació per a Quarto i impressió PDF.
-- `styles/`: presentació web, A4 i targetes interactives.
-- `generated/` i `site/`: eixides generades, ignorades per Git.
-- `.agents/skills/`: tres fluxos de treball per als agents.
+`validate` comprueba la lengua y el curso, los identificadores, la cobertura de los objetivos en apuntes, ejercicios y tarjetas, el vocabulario de examen, las fuentes y los diagramas referenciados, y que cada ejercicio tenga respuesta. `verify` comprueba las cuatro páginas web por tema, sus PDF A4, las imágenes, las tarjetas interactivas y el orden de anversos y reversos. Estas comprobaciones no sustituyen la revisión pedagógica y visual.
 
-El curs es dedueix de la ruta i del fitxer del tema: `1-eso` / `1r d'ESO`, `4-eso` / `4t d'ESO`, etc. El generador no fixa un nivell global. El camp `teaching_language` es comprova contra la configuració de l'assignatura. Per a francès, anglès i educació física, es tria explícitament en cada tema.
-
-## Publicació
-
-Cada `push` a `main` valida, renderitza amb Quarto, genera els PDF i desplega `site/` a GitHub Pages. En una nova pàgina de GitHub, selecciona **Settings → Pages → Build and deployment → GitHub Actions** si encara no s'ha activat automàticament.
-
-No puges fotografies o escanejos amb dades personals al repositori públic. Revisa i transcriu el material primer; registra el fitxer privat com a origen sense adjuntar-lo.
+Cada cambio enviado a `main` ejecuta esas comprobaciones en GitHub Actions y publica `site/` en GitHub Pages si terminan correctamente. El repositorio y la web son públicos: no subas fotografías o escaneos con datos personales. Transcribe el contenido necesario y registra el original privado como fuente sin adjuntarlo.

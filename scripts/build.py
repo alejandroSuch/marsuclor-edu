@@ -89,6 +89,8 @@ def validate():
             objectives = {o["id"] for o in topic["objectives"]}
             if len(objectives) != len(topic["objectives"]) or not objectives:
                 errors.append(f"{label}: objectius buits o repetits")
+            if any(not objective.get("text") for objective in topic["objectives"]):
+                errors.append(f"{label}: objectiu sense text")
             sources = {s["id"] for s in topic["sources"]}
             if len(sources) != len(topic["sources"]) or not sources:
                 errors.append(f"{label}: fonts buides o repetides")
@@ -105,6 +107,10 @@ def validate():
                 ids = [row.get("id") for row in rows] if group_name != "notes" else []
                 if ids and len(ids) != len(set(ids)):
                     errors.append(f"{label}: identificadors repetits en {group_name}")
+                text_field = {"notes": "body", "exercises": "question", "cards": "front"}[group_name]
+                texts = [re.sub(r"\s+", " ", str(row.get(text_field, ""))).strip().casefold() for row in rows]
+                if len(texts) != len(set(texts)):
+                    errors.append(f"{label}: contingut repetit en {group_name}")
                 for row in rows:
                     objective_ids = set(row.get("objective_ids", []))
                     source_ids = set(row.get("source_ids", []))
@@ -121,6 +127,8 @@ def validate():
                 if missing:
                     errors.append(f"{label}: {group_name} no cobrix {', '.join(sorted(missing))}")
             vocabulary_ids = set()
+            if topic.get("exam_vocabulary") and not vocabulary:
+                errors.append(f"{label}: falta vocabulary.yml per al vocabulari de l'examen")
             if vocabulary:
                 terms = vocabulary.get("terms", [])
                 vocabulary_ids = {entry["id"] for entry in terms}
@@ -135,7 +143,7 @@ def validate():
                 for entry in terms:
                     if not entry.get("definition") or not entry.get("category"):
                         errors.append(f"{label}: definició o categoria absent")
-                    if not set(entry.get("source_ids", [])) <= sources:
+                    if not entry.get("source_ids") or not set(entry["source_ids"]) <= sources:
                         errors.append(f"{label}: font de vocabulari invàlida")
                 covered_terms = set().union(*(set(row.get("vocabulary_ids", [])) for row in exercises["exercises"]))
                 missing_terms = {entry["id"] for entry in terms if entry.get("exam")} - covered_terms
@@ -152,8 +160,10 @@ def validate():
                         errors.append(f"{label}: diagrama absent: {entry['file']}")
                     else:
                         ET.parse(svg)
-                    if not set(entry.get("objective_ids", [])) <= objectives:
+                    if not entry.get("objective_ids") or not set(entry["objective_ids"]) <= objectives:
                         errors.append(f"{label}: objectius de diagrama invàlids")
+                    if not entry.get("source_ids") or not set(entry["source_ids"]) <= sources:
+                        errors.append(f"{label}: font de diagrama invàlida")
                     if not set(entry.get("vocabulary_ids", [])) <= vocabulary_ids:
                         errors.append(f"{label}: vocabulari de diagrama invàlid")
             for group_name, rows in groups:
@@ -164,12 +174,11 @@ def validate():
                     if not set(refs) <= diagram_ids:
                         errors.append(f"{label}: diagrama invàlid en {group_name}")
                     if group_name == "exercises":
+                        if not row.get("kind"):
+                            errors.append(f"{label}: tipus d'exercici absent")
                         space = row.get("answer_space_mm", 30)
                         if not isinstance(space, int) or not 8 <= space <= 80:
                             errors.append(f"{label}: espai de resposta invàlid")
-            fronts = [row["front"] for row in cards["cards"]]
-            if len(fronts) != len(set(fronts)):
-                errors.append(f"{label}: targetes duplicades")
         except (OSError, KeyError, TypeError, ValueError, yaml.YAMLError, ET.ParseError) as exc:
             errors.append(f"{label}: {exc}")
     if errors:
@@ -231,10 +240,14 @@ def copy_diagrams(folder: Path, dest: Path, diagrams):
 def vocabulary_markup(vocabulary):
     if not vocabulary:
         return ""
-    out = "## Vocabulari de l'examen (33 termes)\n\n"
+    exam_count = sum(bool(entry.get("exam")) for entry in vocabulary["terms"])
+    support_count = len(vocabulary["terms"]) - exam_count
+    out = ""
     for exam in (True, False):
-        if not exam:
-            out += "## Termes de suport dels apunts\n\n"
+        if exam and exam_count:
+            out += f"## Vocabulari de l'examen ({exam_count} termes)\n\n"
+        elif not exam and support_count:
+            out += "## Altres termes de suport\n\n"
         current_category = None
         for entry in vocabulary["terms"]:
             if entry["exam"] != exam:

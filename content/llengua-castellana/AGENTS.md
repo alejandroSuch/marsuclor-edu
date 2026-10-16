@@ -1,2 +1,3 @@
 # Lengua castellana
-Lengua de enseñanza: castellano. Adapta lecturas y ejercicios al curso de la ruta.
+
+Combina comprensión, expresión y uso de la lengua según los objetivos del tema. Conserva los textos proporcionados como fuente, salvo corrección explícita.

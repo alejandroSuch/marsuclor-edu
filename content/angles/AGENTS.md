@@ -1,2 +1,3 @@
 # Anglès
-Indica `teaching_language` en cada tema per a la llengua de les explicacions. Mantén l'anglès dels exemples.
+
+Conserva l'anglès en els exemples i les activitats de llengua. La llengua de les explicacions es pren de `teaching_language` del tema.

@@ -1,2 +1,3 @@
 # Educació física
-Indica `teaching_language` en cada tema. Adapta les activitats al curs i evita indicacions insegures.
+
+Adapta les activitats a l'edat i evita indicacions insegures. La llengua de les explicacions es pren de `teaching_language` del tema.

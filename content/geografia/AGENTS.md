@@ -1,2 +1,3 @@
 # Geografia
-Llengua d'ensenyament: valencià. Distingix fets, models i vocabulari; cita les ampliacions.
+
+Distingix fets, models i vocabulari geogràfic. Utilitza mapes o esquemes quan faciliten situar o identificar elements; preserva la terminologia emprada en classe.

@@ -1,10 +1,10 @@
 ---
 name: importar-materiales
-description: Incorporar apuntes del padre a un tema de Martina Edu con revisión de privacidad y trazabilidad.
+description: Incorporar apuntes, PDF, fotos o una guía existente a un tema de Martina Edu, también al actualizarlo, con privacidad y procedencia.
 ---
 
-1. Pide asignatura y curso solo si no se deducen del mensaje o archivo. Lee `config/subjects.yml`.
-2. Revisa imágenes/PDF en privado: detecta nombres, notas, centros u otros datos personales. No copies escaneos al repositorio público.
-3. Transcribe a Markdown y crea `topic.yml` con objetivos y `sources`; marca lo no legible como pendiente, sin inventarlo.
-4. Identifica cada ampliación con `source_id` verificable. No presentes una ampliación como contenido del apunte.
-5. Ejecuta `python scripts/build.py validate` y comunica lo que aún requiere confirmar.
+Cuando una familia adjunte material o señale un documento, localízalo y léelo antes de escribir contenido. Si hay una guía ya desarrollada, úsala como base de la teoría; utiliza apuntes originales para contrastar objetivos, vocabulario y terminología. Si no puedes acceder a la guía, pide una copia: no la reconstruyas desde otra fuente.
+
+Busca primero el tema en `content/`. Si existe, compara fuentes y contenido por secciones y conserva lo que no haya cambiado. Si es nuevo, prepara `topic.yml` y transcribe a los archivos del modelo existente. Registra fuentes identificables en `topic.yml` y enlaza cada bloque mediante `source_ids`; separa claramente las ampliaciones y las dudas. Una fuente ilegible queda pendiente, sin suposiciones.
+
+Revisa datos personales antes de incorporar archivos a este repositorio público. Conserva los originales privados fuera del repositorio cuando no sea apropiado publicarlos. Usa `generar-materiales` y `generar-flashcards` si la petición incluye materiales completos; no publiques ni confirmes como válido un tema a medio construir.
