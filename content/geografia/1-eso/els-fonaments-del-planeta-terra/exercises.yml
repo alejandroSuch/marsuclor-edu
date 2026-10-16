@@ -1,0 +1,21 @@
+exercises:
+  - id: e1
+    objective_ids: [o1]
+    source_ids: [nasa-earth, nasa-solar]
+    question: Classifica Sol, Terra i Lluna com a estrela, planeta o satèl·lit natural.
+    answer: El Sol és una estrela; la Terra, un planeta; la Lluna, un satèl·lit natural de la Terra.
+  - id: e2
+    objective_ids: [o2]
+    source_ids: [nasa-earth]
+    question: Quin moviment explica el dia i la nit? Quant dura aproximadament?
+    answer: La rotació de la Terra sobre el seu eix; aproximadament 24 hores.
+  - id: e3
+    objective_ids: [o2]
+    source_ids: [nasa-earth]
+    question: Una companya diu que les estacions ocorren perquè a l'estiu la Terra està molt més prop del Sol. Com li ho explicaries?
+    answer: Les estacions es deuen principalment a la inclinació de l'eix terrestre combinada amb la translació, que canvia l'angle i la duració de la llum solar en cada hemisferi.
+  - id: e4
+    objective_ids: [o3]
+    source_ids: [usgs-inside]
+    question: Escriu les tres capes internes principals de la Terra de fora cap a dins.
+    answer: Escorça, mantell i nucli.

@@ -1,0 +1,22 @@
+sections:
+  - title: La Terra en el sistema solar
+    objective_ids: [o1]
+    source_ids: [nasa-earth, nasa-solar]
+    body: |
+      El Sol és una **estrela**. La Terra és un **planeta** que gira al seu voltant i és el tercer planeta del sistema solar. La Lluna és el **satèl·lit natural** de la Terra: orbita el nostre planeta.
+
+      **Recorda:** una estrela emet llum pròpia; un planeta orbita una estrela; un satèl·lit orbita un planeta.
+  - title: Dos moviments de la Terra
+    objective_ids: [o2]
+    source_ids: [nasa-earth]
+    body: |
+      La **rotació** és el gir de la Terra sobre el seu eix. Tarda aproximadament 24 hores i explica l'alternança del dia i la nit.
+
+      La **translació** és el recorregut de la Terra al voltant del Sol. Dura aproximadament 365 dies i un quart: és la base de l'any. L'eix terrestre està inclinat; esta inclinació, junt amb la translació, explica les estacions. La distància al Sol no n'és la causa principal.
+  - title: L'interior del planeta
+    objective_ids: [o3]
+    source_ids: [usgs-inside]
+    body: |
+      De fora cap a dins, les tres capes internes principals són **escorça**, **mantell** i **nucli**. L'escorça és la capa exterior sòlida. Davall hi ha el mantell, de roques molt calentes. El nucli ocupa la part central.
+
+      **Esquema per recordar-ho:** escorça → mantell → nucli.

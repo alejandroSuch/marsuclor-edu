@@ -1,0 +1,31 @@
+cards:
+  - id: c1
+    objective_ids: [o1]
+    source_ids: [nasa-earth]
+    front: Quin tipus d'astre és la Terra?
+    back: Un planeta, el tercer des del Sol.
+  - id: c2
+    objective_ids: [o1]
+    source_ids: [nasa-solar]
+    front: Què és el Sol?
+    back: Una estrela.
+  - id: c3
+    objective_ids: [o1]
+    source_ids: [nasa-earth]
+    front: Què és la Lluna?
+    back: El satèl·lit natural de la Terra.
+  - id: c4
+    objective_ids: [o2]
+    source_ids: [nasa-earth]
+    front: Quin moviment origina el dia i la nit?
+    back: La rotació de la Terra.
+  - id: c5
+    objective_ids: [o2]
+    source_ids: [nasa-earth]
+    front: Quant dura aproximadament la translació?
+    back: Un any, aproximadament 365 dies i un quart.
+  - id: c6
+    objective_ids: [o3]
+    source_ids: [usgs-inside]
+    front: Quines són les capes internes principals?
+    back: Escorça, mantell i nucli.

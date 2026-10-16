@@ -1,0 +1,26 @@
+title: Els fonaments del planeta Terra
+course: 1-eso
+subject: geografia
+teaching_language: ca-valencia
+status: provisional
+intro: >-
+  Material de repàs provisional. El PDF dels apunts originals no està disponible;
+  els continguts actuals són ampliacions documentades i es revisaran en incorporar-lo.
+objectives:
+  - {id: o1, text: Situar la Terra en el sistema solar i distingir estrela, planeta i satèl·lit.}
+  - {id: o2, text: Relacionar la rotació amb el dia i la nit i la translació amb l'any.}
+  - {id: o3, text: Identificar les capes internes principals de la Terra.}
+sources:
+  - id: nasa-earth
+    type: external
+    title: Earth Facts, NASA Science
+    url: https://science.nasa.gov/earth/facts/
+  - id: nasa-solar
+    type: external
+    title: Solar System Facts, NASA Science
+    url: https://science.nasa.gov/solar-system/solar-system-facts/
+  - id: usgs-inside
+    type: external
+    title: Inside the Earth, USGS
+    url: https://pubs.usgs.gov/gip/dynamic/inside.html
+source_note: Apunts originals pendents de localitzar; cap afirmació actual s'hi atribuïx.
