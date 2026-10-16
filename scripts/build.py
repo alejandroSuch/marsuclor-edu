@@ -324,12 +324,16 @@ def prepare():
         solution_page = page_header(topic, course, "Solucionari") + pdf_link(rel, "solutions") + nav + "\n\n"
         for n, row in enumerate(exercises["exercises"], 1):
             exercise_page += f"::: {{.exercise}}\n### Exercici {n}\n\n{esc(row['question'])}\n\n"
-            solution_page += f"::: {{.key-item}}\n### Solució {n}\n\n{esc(row['question'])}\n\n"
+            solution_page += (
+                f"::: {{.key-item}}\n### Exercici {n}\n\n"
+                f"::: {{.solution-prompt}}\n**Enunciat**\n\n{esc(row['question'])}\n\n:::\n\n"
+                "::: {.solution-answer}\n**Solució**\n\n"
+            )
             if row.get("diagram_id"):
                 exercise_page += diagram_markup(diagrams_by_id, row["diagram_id"], blank=True)
                 solution_page += diagram_markup(diagrams_by_id, row["diagram_id"])
             exercise_page += f'<div class="answer-space" style="min-height:{row.get("answer_space_mm", 30)}mm"></div>\n\n:::\n\n'
-            solution_page += f"{esc(row['answer'])}\n\n:::\n\n"
+            solution_page += f"{esc(row['answer'])}\n\n:::\n\n:::\n\n"
         (dest / "exercises.qmd").write_text(exercise_page, encoding="utf-8")
         (dest / "solutions.qmd").write_text(solution_page, encoding="utf-8")
         card_page = page_header(topic, course, "Targetes") + pdf_link(rel, "cards") + nav + "\n\n"
@@ -419,8 +423,20 @@ def verify():
             folder = CONTENT.joinpath(*relative[1:-1])
             if page_path.name == "exercises.html" and page.locator(".exercise").count() != len(read_yaml(folder / "exercises.yml")["exercises"]):
                 raise SystemExit("Falten exercicis en l'HTML")
-            if page_path.name == "solutions.html" and page.locator(".key-item").count() != len(read_yaml(folder / "exercises.yml")["exercises"]):
-                raise SystemExit("Falten solucions en l'HTML")
+            if page_path.name == "solutions.html":
+                items = page.locator(".key-item")
+                exercise_count = len(read_yaml(folder / "exercises.yml")["exercises"])
+                if items.count() != exercise_count:
+                    raise SystemExit("Falten solucions en l'HTML")
+                for number in range(1, exercise_count + 1):
+                    item = items.nth(number - 1)
+                    if (
+                        item.locator("h3").inner_text() != f"Exercici {number}"
+                        or item.locator(".solution-prompt").count() != 1
+                        or item.locator(".solution-answer").count() != 1
+                        or item.evaluate("element => getComputedStyle(element).borderBottomStyle") == "none"
+                    ):
+                        raise SystemExit(f"Presentació incompleta de la solució {number}")
             if page_path.name == "cards.html":
                 card = page.locator(".study-card").first
                 if card.count() == 0:

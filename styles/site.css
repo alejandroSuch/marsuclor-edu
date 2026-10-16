@@ -4,6 +4,11 @@ h1, h2 { color: #164c5b; }
 .print-button { border: 0; border-radius: .4rem; background: var(--accent); color: white; padding: .65rem 1rem; margin: 1rem 0; cursor: pointer; }
 .answer-space { min-height: 5rem; border-bottom: 1px solid #bac9d1; }
 .exercise, .key-item { margin: 1.2rem 0; }
+.key-item { border-bottom: 1px solid #bac9d1; padding-bottom: 1rem; }
+.solution-prompt, .solution-answer { padding: .55rem .8rem; }
+.solution-prompt { background: #f3f6f7; border-left: 3px solid #bdcbd0; }
+.solution-answer { margin-top: .45rem; background: var(--soft); border-left: 3px solid var(--accent); }
+.solution-prompt p:last-child, .solution-answer p:last-child { margin-bottom: 0; }
 .topic-diagram { display: block; width: 100%; max-width: 880px; max-height: 190mm; margin: 1rem auto; }
 .vocab-entry { margin: .3rem 0; padding: .3rem .5rem; border-left: 2px solid #b8d8d3; }
 .vocab-entry small { color: #536971; }
@@ -25,6 +30,7 @@ h1, h2 { color: #164c5b; }
   .vocab-entry { padding: 1mm 2mm; margin: 1mm 0; }
   .topic-diagram { max-width: 100%; max-height: 160mm; }
   .answer-space { border-bottom: 1px solid #bac9d1; }
+  .solution-prompt, .solution-answer { break-inside: avoid; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   body:has(.flashcard-print) .quarto-title-block,
   body:has(.flashcard-print) #quarto-content main > :not(.flashcard-print) { display: none !important; }
   body:has(.flashcard-print) #quarto-content main { width: 180mm; max-width: 180mm; margin: 0; padding: 0; }
