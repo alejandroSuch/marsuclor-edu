@@ -190,8 +190,41 @@ def esc(value):
     return html.escape(str(value), quote=True)
 
 
-def frontmatter(title: str) -> str:
-    return f"---\ntitle: {json.dumps(title, ensure_ascii=False)}\n---\n\n"
+def frontmatter(title: str, language: str | None = None) -> str:
+    language_line = f"lang: {language}\n" if language else ""
+    return f"---\ntitle: {json.dumps(title, ensure_ascii=False)}\n{language_line}---\n\n"
+
+
+UI = {
+    "ca-valencia": {
+        "notes": "Apunts", "exercises": "Exercicis", "solutions": "Solucionari",
+        "cards": "Targetes", "objectives": "Objectius", "section_sources": "Fonts d'este apartat",
+        "study_tips": "Com estudiar-ho", "self_check": "Comprovació final",
+        "sources": "Fonts i procedència", "exercise": "Exercici", "prompt": "Enunciat",
+        "answer": "Solució", "print": "Imprimix / Desa en PDF",
+        "download": "Descarrega el PDF A4", "status": "Estat",
+        "card_instruction": "Prem una targeta per veure la resposta. Per al PDF A4, imprimix a doble cara, amb gir pel costat llarg i escala del 100 %; els reversos estan reflectits horitzontalment per a retallar.",
+        "card_action": "Prem per veure la resposta", "blank_diagram": "Esquema sense etiquetes",
+        "vocabulary": "Vocabulari de l'examen", "support_terms": "Altres termes de suport",
+        "review_tips": "Trucs de repàs",
+    },
+    "es": {
+        "notes": "Apuntes", "exercises": "Ejercicios", "solutions": "Solucionario",
+        "cards": "Tarjetas", "objectives": "Objetivos", "section_sources": "Fuentes de este apartado",
+        "study_tips": "Cómo estudiarlo", "self_check": "Comprobación final",
+        "sources": "Fuentes y procedencia", "exercise": "Ejercicio", "prompt": "Enunciado",
+        "answer": "Solución", "print": "Imprimir / Guardar en PDF",
+        "download": "Descargar el PDF A4", "status": "Estado",
+        "card_instruction": "Pulsa una tarjeta para ver la respuesta. Para el PDF A4, imprime a doble cara, girando por el borde largo y al 100 % de escala; los reversos están reflejados horizontalmente para recortar.",
+        "card_action": "Pulsa para ver la respuesta", "blank_diagram": "Esquema sin etiquetas",
+        "vocabulary": "Vocabulario del examen", "support_terms": "Otros términos de apoyo",
+        "review_tips": "Trucos de repaso",
+    },
+}
+
+
+def ui(language: str, key: str) -> str:
+    return UI.get(language, UI["ca-valencia"])[key]
 
 
 def source_list(topic):
@@ -202,17 +235,18 @@ def source_list(topic):
 
 
 def page_header(topic, course, section):
+    language = topic["teaching_language"]
     return (
-        frontmatter(f"{section} · {topic['title']}")
+        frontmatter(f"{section} · {topic['title']}", language)
         + f"**{esc(course_label(course, topic['teaching_language']))} · {esc(topic['title'])}**\n\n"
         + f"::: {{.callout-note}}\n{esc(topic['intro'])}\n:::\n\n"
-        + '<button class="print-button" onclick="window.print()">Imprimix / Desa en PDF</button>\n\n'
+        + f'<button class="print-button" onclick="window.print()">{ui(language, "print")}</button>\n\n'
     )
 
 
-def pdf_link(relative: Path, filename: str) -> str:
+def pdf_link(relative: Path, filename: str, language: str) -> str:
     target = "../../../../pdf/" + relative.as_posix() + "/" + filename + ".pdf"
-    return f'<p class="pdf-link"><a href="{esc(target)}">Descarrega el PDF A4</a></p>\n\n'
+    return f'<p class="pdf-link"><a href="{esc(target)}">{ui(language, "download")}</a></p>\n\n'
 
 
 def diagram_markup(diagrams_by_id, diagram_id: str, blank: bool = False) -> str:
@@ -237,7 +271,7 @@ def copy_diagrams(folder: Path, dest: Path, diagrams):
         (target / f"{entry['id']}-blank.svg").write_text(blank, encoding="utf-8")
 
 
-def vocabulary_markup(vocabulary):
+def vocabulary_markup(vocabulary, language: str):
     if not vocabulary:
         return ""
     exam_count = sum(bool(entry.get("exam")) for entry in vocabulary["terms"])
@@ -245,9 +279,9 @@ def vocabulary_markup(vocabulary):
     out = ""
     for exam in (True, False):
         if exam and exam_count:
-            out += f"## Vocabulari de l'examen ({exam_count} termes)\n\n"
+            out += f"## {ui(language, 'vocabulary')} ({exam_count})\n\n"
         elif not exam and support_count:
-            out += "## Altres termes de suport\n\n"
+            out += f"## {ui(language, 'support_terms')}\n\n"
         current_category = None
         for entry in vocabulary["terms"]:
             if entry["exam"] != exam:
@@ -258,7 +292,7 @@ def vocabulary_markup(vocabulary):
             tag = f" <small>({esc(entry['editorial_tag'])})</small>" if entry.get("editorial_tag") else ""
             out += f'<div class="vocab-entry"><strong>{esc(entry["term"])}</strong> — {esc(entry["definition"])}{tag}</div>\n\n'
     if vocabulary.get("mnemonics"):
-        out += "### Trucs de repàs\n\n"
+        out += f"### {ui(language, 'review_tips')}\n\n"
         out += "\n".join(f"- {esc(tip)}" for tip in vocabulary["mnemonics"]) + "\n\n"
     return out
 
@@ -287,47 +321,47 @@ def prepare():
         vocabulary, diagrams = optional_data(path.parent)
         diagrams_by_id = {entry["id"]: entry for entry in diagrams["diagrams"]} if diagrams else {}
         subject, course, slug = path.parts[-4:-1]
+        language = topic["teaching_language"]
         rel = Path("topics") / subject / course / slug
         dest = GENERATED / rel
         dest.mkdir(parents=True)
         copy_diagrams(path.parent, dest, diagrams)
-        nav = '<div class="material-nav">\n\n' + " | ".join(f"[{name}]({file}.qmd)" for name, file in [
-            ("Apunts", "notes"), ("Exercicis", "exercises"),
-            ("Solucionari", "solutions"), ("Targetes", "cards")]) + '\n\n</div>'
+        materials = [(ui(language, key), key) for key in ("notes", "exercises", "solutions", "cards")]
+        nav = '<div class="material-nav">\n\n' + " | ".join(
+            f"[{name}]({file}.qmd)" for name, file in materials
+        ) + '\n\n</div>'
         index += f"## {esc(topic['title'])}\n\n{esc(course_label(course, topic['teaching_language']))} · {esc(subject)}\n\n"
-        index += " | ".join(f"[{name}]({rel.as_posix()}/{file}.qmd)" for name, file in [
-            ("Apunts", "notes"), ("Exercicis", "exercises"),
-            ("Solucionari", "solutions"), ("Targetes", "cards")]) + "\n\n"
-        index += f"**Estat:** {esc(topic.get('status', 'revisat'))}. {esc(topic['intro'])}\n\n"
-        base = page_header(topic, course, "Apunts") + pdf_link(rel, "notes") + nav + "\n\n## Objectius\n\n"
+        index += " | ".join(f"[{name}]({rel.as_posix()}/{file}.qmd)" for name, file in materials) + "\n\n"
+        index += f"**{ui(language, 'status')}:** {esc(topic.get('status', 'revisat'))}. {esc(topic['intro'])}\n\n"
+        base = page_header(topic, course, ui(language, "notes")) + pdf_link(rel, "notes", language) + nav + f"\n\n## {ui(language, 'objectives')}\n\n"
         base += "\n".join(f"- {esc(o['text'])}" for o in topic["objectives"]) + "\n\n"
         for row in notes["sections"]:
             base += f"## {esc(row['title'])}\n\n{row['body']}\n\n"
             for diagram_id in row.get("diagram_ids", []):
                 base += diagram_markup(diagrams_by_id, diagram_id)
-            base += "*Fonts d'este apartat: " + ", ".join(
+            base += f"*{ui(language, 'section_sources')}: " + ", ".join(
                 esc(next(s["title"] for s in topic["sources"] if s["id"] == source_id))
                 for source_id in row["source_ids"]
             ) + ".*\n\n"
-        base += vocabulary_markup(vocabulary)
+        base += vocabulary_markup(vocabulary, language)
         if notes.get("study_tips"):
-            base += "## Com estudiar-ho\n\n" + "\n".join(
+            base += f"## {ui(language, 'study_tips')}\n\n" + "\n".join(
                 f"{number}. {esc(tip)}" for number, tip in enumerate(notes["study_tips"], 1)
             ) + "\n\n"
         if notes.get("self_check"):
-            base += "## Comprovació final\n\n" + "\n".join(
+            base += f"## {ui(language, 'self_check')}\n\n" + "\n".join(
                 f"- [ ] {esc(item)}" for item in notes["self_check"]
             ) + "\n\n"
-        base += "## Fonts i procedència\n\n" + source_list(topic) + "\n\n" + esc(topic.get("source_note", "")) + "\n"
+        base += f"::: {{.source-list}}\n## {ui(language, 'sources')}\n\n" + source_list(topic) + "\n\n" + esc(topic.get("source_note", "")) + "\n\n:::\n"
         (dest / "notes.qmd").write_text(base, encoding="utf-8")
-        exercise_page = page_header(topic, course, "Exercicis") + pdf_link(rel, "exercises") + nav + "\n\n"
-        solution_page = page_header(topic, course, "Solucionari") + pdf_link(rel, "solutions") + nav + "\n\n"
+        exercise_page = page_header(topic, course, ui(language, "exercises")) + pdf_link(rel, "exercises", language) + nav + "\n\n"
+        solution_page = page_header(topic, course, ui(language, "solutions")) + pdf_link(rel, "solutions", language) + nav + "\n\n"
         for n, row in enumerate(exercises["exercises"], 1):
-            exercise_page += f"::: {{.exercise}}\n### Exercici {n}\n\n{esc(row['question'])}\n\n"
+            exercise_page += f"::: {{.exercise}}\n### {ui(language, 'exercise')} {n}\n\n{esc(row['question'])}\n\n"
             solution_page += (
-                f"::: {{.key-item}}\n### Exercici {n}\n\n"
-                f"::: {{.solution-prompt}}\n**Enunciat**\n\n{esc(row['question'])}\n\n:::\n\n"
-                "::: {.solution-answer}\n**Solució**\n\n"
+                f"::: {{.key-item}}\n### {ui(language, 'exercise')} {n}\n\n"
+                f"::: {{.solution-prompt}}\n**{ui(language, 'prompt')}**\n\n{esc(row['question'])}\n\n:::\n\n"
+                f"::: {{.solution-answer}}\n**{ui(language, 'answer')}**\n\n"
             )
             if row.get("diagram_id"):
                 exercise_page += diagram_markup(diagrams_by_id, row["diagram_id"], blank=True)
@@ -336,17 +370,17 @@ def prepare():
             solution_page += f"{esc(row['answer'])}\n\n:::\n\n:::\n\n"
         (dest / "exercises.qmd").write_text(exercise_page, encoding="utf-8")
         (dest / "solutions.qmd").write_text(solution_page, encoding="utf-8")
-        card_page = page_header(topic, course, "Targetes") + pdf_link(rel, "cards") + nav + "\n\n"
-        card_page += "Prem una targeta per veure la resposta. Per al PDF A4, imprimix a doble cara, amb gir pel costat llarg i escala del 100 %; els reversos estan reflectits horitzontalment per a retallar.\n\n"
+        card_page = page_header(topic, course, ui(language, "cards")) + pdf_link(rel, "cards", language) + nav + "\n\n"
+        card_page += ui(language, "card_instruction") + "\n\n"
         card_page += '<div class="card-grid web-cards">\n'
         for row in cards["cards"]:
             diagram = (
-                f'<img class="card-diagram" src="diagrams/{esc(row["diagram_id"])}-blank.svg" alt="Esquema sense etiquetes">'
+                f'<img class="card-diagram" src="diagrams/{esc(row["diagram_id"])}-blank.svg" alt="{ui(language, "blank_diagram")}">'
                 if row.get("diagram_id") else ""
             )
             card_page += (
                 '<button type="button" class="study-card" aria-pressed="false" '
-                f'aria-label="{esc(row["front"])}. Prem per veure la resposta">'
+                f'aria-label="{esc(row["front"])}. {ui(language, "card_action")}">'
                 f'<span class="card-front">{esc(row["front"])}{diagram}</span>'
                 f'<span class="card-back">{esc(row["back"])}</span></button>\n'
             )
@@ -361,7 +395,7 @@ def prepare():
                     content = row["front"] if face == "front" else row["back"]
                     card_page += f'<div class="cut-card" data-card-id="{esc(row["id"])}"><span class="cut-card-id">{esc(row["id"])}</span><span>{esc(content)}</span>'
                     if face == "front" and row.get("diagram_id"):
-                        card_page += f'<img class="card-diagram" src="diagrams/{esc(row["diagram_id"])}-blank.svg" alt="Esquema sense etiquetes">'
+                        card_page += f'<img class="card-diagram" src="diagrams/{esc(row["diagram_id"])}-blank.svg" alt="{ui(language, "blank_diagram")}">'
                     card_page += '</div>\n'
                 card_page += '</div>\n'
         card_page += '</div>\n'
@@ -431,7 +465,7 @@ def verify():
                 for number in range(1, exercise_count + 1):
                     item = items.nth(number - 1)
                     if (
-                        item.locator("h3").inner_text() != f"Exercici {number}"
+                        item.locator("h3").inner_text() != f"{ui(read_yaml(folder / 'topic.yml')['teaching_language'], 'exercise')} {number}"
                         or item.locator(".solution-prompt").count() != 1
                         or item.locator(".solution-answer").count() != 1
                         or item.evaluate("element => getComputedStyle(element).borderBottomStyle") == "none"

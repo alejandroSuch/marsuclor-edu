@@ -1,0 +1,209 @@
+exercises:
+  - id: e01
+    kind: separación-silábica
+    objective_ids: [o1]
+    source_ids: [textbook-syllables, syllable-guide]
+    question: >-
+      Separa en sílabas estas palabras de los apuntes y del cuadernillo:
+      transporte, impresión, buque, lluvia, obstruir y diccionario.
+    answer: >-
+      trans-por-te; im-pre-sión; bu-que; llu-via; obs-truir;
+      dic-cio-na-rio.
+    answer_space_mm: 32
+  - id: e02
+    kind: clasificar-y-justificar
+    objective_ids: [o1]
+    source_ids: [syllable-guide, workbook]
+    question: >-
+      Separa y clasifica el encuentro vocálico indicado: ruido (ui), peor
+      (eo), puerta (ue), limpiáis (iái), canoa (oa) y baúl (aú).
+    answer: >-
+      rui-do: diptongo ui; pe-or: hiato eo; puer-ta: diptongo ue;
+      lim-piáis: triptongo iái; ca-no-a: hiato oa; ba-úl: hiato aú
+      porque la u es tónica y lleva tilde.
+    answer_space_mm: 40
+  - id: e03
+    kind: corrección-razonada
+    objective_ids: [o1]
+    source_ids: [textbook-syllables, workbook]
+    question: >-
+      Corrige las separaciones que estén mal y explica la regla: a) co-che;
+      b) ca-rro; c) ac-ción; d) ra-iz; e) temb-lar; f) pe-or.
+    answer: >-
+      a), b), c) y f) están bien. d) es ra-íz: se conserva la tilde y hay
+      hiato entre a e í tónica. e) es tem-blar: bl permanece junto.
+    answer_space_mm: 37
+  - id: e04
+    kind: clasificación
+    objective_ids: [o2]
+    source_ids: [textbook-texts, essential]
+    question: >-
+      Indica el tipo de texto que predomina: a) «Primero lava la fruta;
+      después córtala». b) «El lince tiene orejas puntiagudas». c) «La
+      evaporación transforma el agua líquida en vapor». d) «Ayer encontramos
+      un mapa y seguimos sus pistas».
+    answer: >-
+      a) Prescriptivo o instructivo, porque da pasos. b) Descriptivo,
+      porque dice cómo es. c) Expositivo, porque informa o explica.
+      d) Narrativo, porque cuenta hechos.
+    answer_space_mm: 36
+  - id: e05
+    kind: clasificación-razonada
+    objective_ids: [o2]
+    source_ids: [textbook-texts, essential]
+    question: >-
+      Clasifica y justifica: a) «—¿Vienes? —Sí, enseguida». b) «Deberíamos
+      usar la biblioteca: allí encontramos información fiable y un lugar
+      tranquilo para estudiar». ¿Cuál intenta convencer y cuál intercambia
+      mensajes?
+    answer: >-
+      a) Dialogado: dos personas intercambian mensajes. b) Argumentativo:
+      intenta convencer y aporta dos razones, la información y la tranquilidad.
+    answer_space_mm: 33
+  - id: e06
+    kind: relacionar
+    objective_ids: [o3]
+    source_ids: [textbook-texts]
+    question: >-
+      Relaciona cada texto con su ámbito de uso: 1) aviso en la puerta del
+      edificio; 2) entrada de una enciclopedia; 3) noticia en un periódico
+      digital; 4) exposición oral de clase; 5) entrevista en la radio.
+      Ámbitos: vida diaria, vida académica o medios de comunicación.
+    answer: >-
+      1) Vida diaria y relaciones sociales. 2) Vida académica.
+      3) Medios de comunicación. 4) Vida académica.
+      5) Medios de comunicación.
+    answer_space_mm: 29
+  - id: e07
+    kind: distinguir-conceptos
+    objective_ids: [o2, o3]
+    source_ids: [textbook-texts]
+    question: >-
+      Una noticia de prensa explica las causas de una tormenta. Indica
+      su ámbito y la forma de texto que predomina. Explica por qué son
+      dos clasificaciones diferentes.
+    answer: >-
+      Ámbito: medios de comunicación, por el lugar donde se difunde.
+      Forma predominante: expositiva, porque explica causas e informa.
+      El ámbito describe la situación de uso; la forma, la finalidad del texto.
+    answer_space_mm: 36
+  - id: e08
+    kind: géneros-literarios
+    objective_ids: [o4]
+    source_ids: [genres-sheet, essential]
+    question: >-
+      Escribe el género literario y una razón: a) Un cuento sobre una niña
+      que descubre una isla. b) Un poema en el que una voz expresa tristeza.
+      c) Una obra con personajes que hablan en escena ante el público.
+    answer: >-
+      a) Narrativo: cuenta acontecimientos de personajes. b) Lírico:
+      expresa sentimientos. c) Teatral o dramático: se representa y
+      desarrolla la historia mediante diálogos y acciones.
+    answer_space_mm: 38
+  - id: e09
+    kind: relacionar
+    objective_ids: [o4]
+    source_ids: [genres-sheet]
+    question: >-
+      Agrupa por género estas formas: novela, mito, fábula, leyenda,
+      comedia, tragedia y poema que expresa emociones. ¿Puede existir
+      un poema narrativo?
+    answer: >-
+      Narrativo: novela, mito, fábula y leyenda. Teatral: comedia y tragedia.
+      Lírico: poema que expresa emociones. Sí: el poema narrativo cuenta
+      acontecimientos aunque esté en verso.
+    answer_space_mm: 35
+  - id: e10
+    kind: definición-y-recuento
+    objective_ids: [o5]
+    source_ids: [textbook-words, workbook]
+    question: >-
+      Explica qué es una palabra y cuenta las palabras de «Mis amigas
+      llegaron ayer». Indica cómo las has distinguido en la escritura.
+    answer: >-
+      Una palabra es una unidad de la lengua asociada a un significado.
+      Hay cuatro: Mis, amigas, llegaron y ayer. En la escritura aparecen
+      separadas por espacios.
+    answer_space_mm: 27
+  - id: e11
+    kind: clasificación
+    objective_ids: [o5]
+    source_ids: [textbook-words, workbook]
+    question: >-
+      Clasifica como variable o invariable e indica la clase de palabra:
+      libros, felices, cantábamos, «aquellas mochilas», ellos, ayer,
+      con, pero y ¡ay!
+    answer: >-
+      Variables: libros (sustantivo), felices (adjetivo), cantábamos
+      (verbo), aquellas (determinante en «aquellas mochilas»), ellos
+      (pronombre). Invariables: ayer (adverbio), con (preposición),
+      pero (conjunción), ¡ay! (interjección).
+    answer_space_mm: 43
+  - id: e12
+    kind: contraste
+    objective_ids: [o5]
+    source_ids: [workbook]
+    question: >-
+      En «Aquella mochila pesa; aquella es ligera», ¿qué clase de palabra
+      es «aquella» en cada caso? Justifica la diferencia.
+    answer: >-
+      En «aquella mochila» es determinante porque acompaña a «mochila».
+      En «aquella es ligera» es pronombre porque sustituye al sustantivo.
+      Ambas clases son variables.
+    answer_space_mm: 28
+  - id: e13
+    kind: análisis-de-palabras
+    objective_ids: [o6]
+    source_ids: [textbook-words, workbook]
+    question: >-
+      Separa las partes de gatitos, niñas y panadero. Señala el lexema
+      y clasifica los morfemas que aparecen como flexivos o derivativos.
+    answer: >-
+      gat-it-o-s: gat- lexema, -it- derivativo, -o- y -s flexivos;
+      niñ-a-s: niñ- lexema, -a- y -s flexivos;
+      pan-adero: pan- lexema y -adero sufijo derivativo.
+    answer_space_mm: 45
+  - id: e14
+    kind: prefijos-y-sufijos
+    objective_ids: [o6]
+    source_ids: [textbook-words, workbook]
+    question: >-
+      En deshacer, releer, florista y casitas, señala el lexema y los
+      morfemas derivativos. Di si son prefijos o sufijos; en casitas,
+      señala además los flexivos.
+    answer: >-
+      des-hacer: des- es prefijo derivativo y hacer es la base;
+      re-leer: re- es prefijo derivativo y leer es la base;
+      flor-ista: flor- es lexema y -ista es sufijo derivativo;
+      cas-it-a-s: cas- es lexema, -it- sufijo derivativo,
+      -a- y -s flexivos. Si se analiza el verbo por partes, también se
+      acepta hac-/le- como lexema y -er como terminación verbal.
+    answer_space_mm: 48
+  - id: e15
+    kind: familia-léxica
+    objective_ids: [o6]
+    source_ids: [textbook-words, essential]
+    question: >-
+      Encuentra el lexema común de flor, florero y florista. Explica por
+      qué forman una familia léxica y distingue derivación de flexión
+      con los pares flor/florista y flor/flores.
+    answer: >-
+      El lexema común es flor-. Forman una familia léxica porque comparten
+      raíz y significado básico. Florista se forma por derivación con
+      el sufijo -ista; flores es una forma flexionada con plural -es.
+    answer_space_mm: 34
+  - id: e16
+    kind: repaso-integrado
+    objective_ids: [o1, o2, o3, o4, o5, o6]
+    source_ids: [exam-list, textbook-texts, textbook-words, workbook]
+    question: >-
+      Mini examen: a) Separa «cambiáis» y clasifica iái. b) ¿Qué tipo de
+      texto da razones para convencer? c) ¿A qué ámbito pertenece un
+      informativo de radio? d) ¿Qué género está pensado para la escena?
+      e) ¿«Ayer» es variable o invariable? f) En «florista», identifica
+      lexema y sufijo.
+    answer: >-
+      a) Cam-biáis, triptongo. b) Argumentativo. c) Medios de
+      comunicación. d) Teatral o dramático. e) Invariable, adverbio.
+      f) flor- lexema y -ista sufijo derivativo.
+    answer_space_mm: 48

@@ -1,0 +1,88 @@
+sections:
+  - title: "1. Separación de sílabas y encuentros vocálicos"
+    objective_ids: [o1]
+    source_ids: [textbook-syllables, syllable-guide, workbook]
+    body: |
+      Una **sílaba** es un grupo de sonidos que pronunciamos en un solo golpe de voz: *ca-sa*, *trans-por-te*. Para separar una palabra, localiza primero las vocales y decide si las contiguas van juntas o en sílabas distintas.
+
+      - Los dígrafos **ch, ll, rr** no se separan: *co-che*, *ca-lle*, *ca-rro*. Las letras **gu** y **qu** se mantienen con la vocal a la que acompañan: *gui-san-te*, *bu-que*.
+      - **cc** se divide: *ac-ción*. Entre dos vocales, dos consonantes suelen separarse: *al-to*. Los grupos como **bl, br, cl, cr, dr, fl, fr, gl, gr, pl, pr, tr** suelen quedar juntos: *tem-blar*.
+      - Con tres consonantes, si las dos últimas forman uno de esos grupos, van juntas: *com-prar*. En los demás ejemplos de clase se agrupan las dos primeras: *cons-ti-pa-do*. Con cuatro, se reparten dos y dos: *cons-truir*.
+
+      **Vocales abiertas:** a, e, o. **Vocales cerradas:** i, u. La vocal tónica recibe el acento de voz; algunas reglas dependen de ella.
+
+      - **Diptongo:** dos vocales distintas en una misma sílaba. Puede ser abierta + cerrada átona (*puer-ta*) o dos cerradas distintas (*rui-do*).
+      - **Hiato:** dos vocales contiguas en sílabas distintas. Ocurre con dos abiertas (*pe-or*), dos iguales (*le-er*) o una cerrada tónica junto a una abierta (*ra-íz*, *frí-o*). La **h** intercalada no lo impide: *bú-ho*.
+      - **Triptongo:** tres vocales en una misma sílaba, normalmente cerrada átona + abierta tónica + cerrada átona: *lim-piáis*. En *buey*, la **y** final representa sonido vocálico.
+
+      **Método de examen:** 1) marca las vocales; 2) identifica el encuentro; 3) separa toda la palabra; 4) escribe diptongo, hiato o triptongo. Una palabra puede tener más de un encuentro vocálico; especifica cuál clasificas.
+  - title: "2. Tipos de texto según su finalidad"
+    objective_ids: [o2]
+    source_ids: [textbook-texts, essential]
+    body: |
+      Un texto puede combinar varias formas. Para clasificarlo, busca la **finalidad que predomina**.
+
+      | Forma | Finalidad | Pista |
+      |---|---|---|
+      | Narración | Contar hechos | Alguien hace algo en un tiempo. |
+      | Descripción | Decir cómo es un ser, objeto o lugar | Abundan rasgos y cualidades. |
+      | Diálogo | Intercambiar mensajes | Intervienen dos o más voces. |
+      | Exposición | Informar o explicar un tema | Presenta datos o explicaciones. |
+      | Argumentación | Convencer de una idea | Da razones u opiniones justificadas. |
+      | Instrucción o prescripción | Dar pasos, normas u órdenes | Indica qué hacer y cómo. |
+
+      Un fragmento de novela puede contener diálogo y descripción; sigue siendo posible reconocer la forma predominante de cada fragmento.
+  - title: "3. Ámbitos de uso de los textos"
+    objective_ids: [o3]
+    source_ids: [textbook-texts, exam-list]
+    body: |
+      El **ámbito de uso** indica en qué situación circula el texto. No es lo mismo que su tipo: una noticia es informativa por su finalidad y pertenece a los medios de comunicación por su ámbito.
+
+      - **Vida diaria y relaciones sociales:** cartas y correos, notas, avisos, instrucciones y normas.
+      - **Vida académica:** libros de texto, exposiciones de clase, diccionarios, enciclopedias y libros de consulta.
+      - **Medios de comunicación:** noticias, entrevistas y reportajes en prensa; informativos en radio o televisión; periódicos digitales y vídeos informativos en Internet.
+
+      Fíjate en quién lo produce, a quién se dirige y dónde se publica. Una instrucción puede aparecer en varios ámbitos.
+  - title: "4. Géneros literarios"
+    objective_ids: [o4]
+    source_ids: [genres-sheet, essential]
+    body: |
+      **Narrativo:** cuenta acontecimientos que les suceden a personajes. Incluye novela, cuento, mito, fábula, leyenda y poema narrativo.
+
+      **Lírico:** expresa sentimientos o emociones. Suele componerse en verso, aunque el verso por sí solo no basta para identificar el género.
+
+      **Teatral o dramático:** desarrolla una historia mediante diálogos y acciones de personajes para ser representada. Incluye tragedia, drama y comedia.
+
+      Para distinguirlos, pregunta: ¿se narran hechos?, ¿se expresan sentimientos?, ¿está escrito para representarse?
+  - title: "5. La palabra: variables e invariables"
+    objective_ids: [o5]
+    source_ids: [textbook-words, workbook]
+    body: |
+      Una **palabra** es una unidad de la lengua asociada a un significado; en la escritura aparece separada de las demás por espacios. En *Mi libro llegó ayer* hay cuatro palabras.
+
+      Las **variables** pueden cambiar de forma para expresar género, número, persona o tiempo: **sustantivos** (*libro/libros*), **adjetivos** (*alto/altas*), **verbos** (*canto/cantamos*), **determinantes** (*este/estas*) y **pronombres** (*él/ellos*).
+
+      Las **invariables** mantienen normalmente la misma forma: **adverbios** (*ayer*), **preposiciones** (*con*), **conjunciones** (*pero*) e **interjecciones** (*¡ay!*).
+
+      **Pista:** *esta* es determinante en *esta mochila* porque acompaña al sustantivo; es pronombre en *esta es mía* porque lo sustituye.
+  - title: "6. Lexemas y clases de morfemas"
+    objective_ids: [o6]
+    source_ids: [textbook-words, essential, workbook]
+    body: |
+      En muchas palabras variables distinguimos **lexema o raíz**, que aporta el significado fundamental, y **morfemas**, que se añaden a él. En *gatitos*: **gat-** es el lexema, **-it-** es derivativo y **-o-**, **-s** son flexivos. Las palabras que comparten lexema forman una **familia léxica**: *flor, florero, florista*.
+
+      - **Morfemas flexivos:** aportan información gramatical sin crear una palabra nueva. Pueden indicar género y número (*gat-a-s*) o datos del verbo, como persona, número y tiempo (*cant-ábamos*).
+      - **Morfemas derivativos:** forman palabras nuevas. Los **prefijos** van delante del lexema (*des-hacer, re-leer*) y los **sufijos**, detrás (*pan-adero, flor-ista*).
+
+      No confundas **flexión** (*niño/niños*) con **derivación** (*pan/panadero*). Para el análisis, señala cada parte y explica qué aporta.
+study_tips:
+  - "Estudia en dos pasadas: primero explica cada regla con un ejemplo; después resuelve ejercicios mezclados sin mirar."
+  - "Al separar sílabas, escribe siempre la palabra completa y justifica el encuentro vocálico."
+  - "En tipos de texto, responde con la finalidad predominante, no solo con una palabra memorizada."
+  - "Para morfemas, comprueba si la parte cambia información gramatical o crea una palabra nueva."
+self_check:
+  - "Sé separar palabras con consonantes agrupadas y clasificar diptongo, hiato o triptongo."
+  - "Reconozco los seis tipos de texto y los tres ámbitos con un ejemplo."
+  - "Distingo narrativo, lírico y teatral por lo que hace cada obra."
+  - "Puedo clasificar una palabra como variable o invariable y explicar por qué."
+  - "Puedo identificar lexema, prefijo, sufijo y morfemas flexivos en ejemplos sencillos."

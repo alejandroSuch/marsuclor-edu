@@ -1,0 +1,57 @@
+title: "Unidad 1 · Lengua castellana: textos, palabras y sílabas"
+course: 1-eso
+subject: llengua-castellana
+teaching_language: es
+status: "Repaso ajustado a la lista del examen"
+intro: >-
+  Guía de repaso de 1.º de ESO basada en la lista manuscrita del examen, las
+  páginas de clase y el cuadernillo de Lengua. Primero estudia los ejemplos;
+  después practica sin mirar las soluciones y usa las tarjetas para comprobarte.
+objectives:
+  - {id: o1, text: "Separar palabras en sílabas y reconocer diptongos, hiatos y triptongos."}
+  - {id: o2, text: "Distinguir los seis tipos de texto por su finalidad."}
+  - {id: o3, text: "Reconocer los ámbitos de uso cotidiano, académico y de los medios de comunicación."}
+  - {id: o4, text: "Identificar los géneros literarios narrativo, lírico y teatral."}
+  - {id: o5, text: "Explicar qué es una palabra y clasificar palabras variables e invariables."}
+  - {id: o6, text: "Separar lexemas y morfemas y distinguir morfemas flexivos y derivativos."}
+sources:
+  - id: exam-list
+    type: private-class-notes
+    title: "Lista manuscrita de contenidos del examen de Lengua, unidad 1"
+    note: "Fotografía privada recibida el 16 de octubre de 2026; no se publica."
+  - id: textbook-texts
+    type: private-class-notes
+    title: "Páginas de clase sobre ámbitos de uso y clases de textos"
+    note: "Fotografías de las páginas 19 y 16; no se publican."
+  - id: textbook-words
+    type: private-class-notes
+    title: "Páginas de clase sobre la palabra, lexemas y morfemas"
+    note: "Fotografías de las páginas 26 a 28; no se publican."
+  - id: textbook-syllables
+    type: private-class-notes
+    title: "Página de clase sobre la división en sílabas"
+    note: "Fotografía de la página 84; no se publica."
+  - id: essential
+    type: private-class-notes
+    title: "Esquema Lo esencial, unidad 1"
+    note: "PDF facilitado por la familia; se usa como referencia privada."
+  - id: syllable-guide
+    type: private-class-notes
+    title: "Esquema y ejercicios resueltos de división en sílabas"
+    note: "Dos PDF facilitados por la familia; se usan como referencia privada."
+  - id: genres-sheet
+    type: private-class-notes
+    title: "Esquema de géneros literarios"
+    note: "PDF facilitado por la familia; se usa como referencia privada."
+  - id: workbook
+    type: developed-guide
+    title: "Cuadernillo de Lengua, unidades 1 y 2 (1.º de ESO)"
+    note: "Documento de Google facilitado por la familia; enlace privado no publicado."
+source_note: >-
+  La fotografía manuscrita fija el alcance del examen. El cuadernillo desarrolla
+  la separación silábica y la estructura de las palabras; el esquema y las
+  páginas de clase sustentan los apartados de textos, ámbitos y géneros. El
+  cuadernillo contiene otros contenidos de significado de las palabras que no
+  figuran en la lista del examen y no se incluyen aquí. Los ejercicios, las
+  soluciones y las tarjetas son elaboraciones didácticas, no copias de los
+  documentos. Los archivos originales permanecen fuera del repositorio público.

@@ -1,0 +1,81 @@
+cards:
+  - id: c01
+    objective_ids: [o1]
+    source_ids: [textbook-syllables, workbook]
+    front: "¿Cuándo hay diptongo? Separa «ruido» como ejemplo."
+    back: "Dos vocales forman una misma sílaba. Rui-do: ui es diptongo."
+  - id: c02
+    objective_ids: [o1]
+    source_ids: [textbook-syllables, workbook]
+    front: "¿Por qué «raíz» tiene hiato? Sepárala."
+    back: "Ra-íz: la í es cerrada tónica con tilde y se separa de la a."
+  - id: c03
+    objective_ids: [o1]
+    source_ids: [syllable-guide, workbook]
+    front: "¿Qué estructura vocálica tiene un triptongo? Da un ejemplo separado."
+    back: "Cerrada átona + abierta tónica + cerrada átona en una sílaba: lim-piáis."
+  - id: c04
+    objective_ids: [o1]
+    source_ids: [textbook-syllables]
+    front: "Separa «acción» y «carro». ¿Qué grupo se divide?"
+    back: "Ac-ción y ca-rro. Se divide cc; rr permanece unido."
+  - id: c05
+    objective_ids: [o2]
+    source_ids: [textbook-texts, essential]
+    front: "¿Qué finalidad distingue narración y descripción?"
+    back: "La narración cuenta hechos; la descripción dice cómo es alguien o algo."
+  - id: c06
+    objective_ids: [o2]
+    source_ids: [textbook-texts, essential]
+    front: "¿Cómo distingues exposición de argumentación?"
+    back: "La exposición informa o explica; la argumentación intenta convencer con razones."
+  - id: c07
+    objective_ids: [o2]
+    source_ids: [textbook-texts]
+    front: "¿Qué tipo de texto predomina en una receta y cuál en una conversación?"
+    back: "Receta: prescriptivo o instructivo. Conversación: dialogado."
+  - id: c08
+    objective_ids: [o3]
+    source_ids: [textbook-texts]
+    front: "¿Qué indica el ámbito de uso? Clasifica una noticia de prensa."
+    back: "Indica dónde circula el texto. Una noticia de prensa pertenece a los medios de comunicación."
+  - id: c09
+    objective_ids: [o3]
+    source_ids: [textbook-texts]
+    front: "¿En qué ámbito situarías una enciclopedia y un aviso familiar?"
+    back: "Enciclopedia: vida académica. Aviso familiar: vida diaria y relaciones sociales."
+  - id: c10
+    objective_ids: [o4]
+    source_ids: [genres-sheet, essential]
+    front: "¿Qué caracteriza al género narrativo? Nombra dos formas."
+    back: "Cuenta acontecimientos de personajes; por ejemplo, novela y cuento."
+  - id: c11
+    objective_ids: [o4]
+    source_ids: [genres-sheet]
+    front: "¿Cómo distingues un poema lírico de una obra teatral?"
+    back: "El lírico expresa emociones; el teatral está pensado para representarse mediante acciones y diálogos."
+  - id: c12
+    objective_ids: [o5]
+    source_ids: [textbook-words, workbook]
+    front: "¿Qué es una palabra y cómo la reconoces en la escritura?"
+    back: "Es una unidad de la lengua asociada a un significado; suele aparecer entre espacios."
+  - id: c13
+    objective_ids: [o5]
+    source_ids: [textbook-words, workbook]
+    front: "¿Qué diferencia las palabras variables de las invariables? Da un ejemplo de cada una."
+    back: "Las variables cambian de forma, como libro/libros. Las invariables la mantienen, como ayer."
+  - id: c14
+    objective_ids: [o5]
+    source_ids: [workbook]
+    front: "¿Cuándo «esta» es determinante y cuándo pronombre?"
+    back: "Determinante si acompaña a un nombre: esta casa. Pronombre si lo sustituye: esta es mía."
+  - id: c15
+    objective_ids: [o6]
+    source_ids: [textbook-words, workbook]
+    front: "En «gatitos», ¿cuál es el lexema y qué aporta cada morfema?"
+    back: "gat- es lexema; -it- crea un derivado; -o- y -s aportan género y número."
+  - id: c16
+    objective_ids: [o6]
+    source_ids: [textbook-words, workbook]
+    front: "¿Cómo distingues un morfema flexivo de uno derivativo? Usa «flores» y «florista»."
+    back: "El flexivo aporta información gramatical: flor-es. El derivativo forma otra palabra: flor-ista."
