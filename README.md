@@ -96,7 +96,49 @@ python -m unittest discover -s tests
 
 `text` extrae únicamente la voz. `inspect` devuelve metadatos y eventos ordenados de capítulo, voz y pausa en JSON. Para previsualizar, ejecuta el flujo web indicado abajo y después `python scripts/build.py serve`; abre `http://localhost:8000/topics/geografia/1-eso/els-fonaments-del-planeta-terra/podcast.html`. La página muestra capítulos y pausas, y ofrece PDF A4. El guion original sigue disponible como Markdown en `content/`.
 
-Codex genera y revisa el contenido; `scripts/podcast.py` valida y procesa el texto sin IA ni servicios externos; GitHub Actions ejecuta las pruebas, valida, construye y publica la vista web mediante el mismo código. La síntesis TTS y el MP3 quedan pendientes: un motor futuro podrá consumir los eventos de `inspect` y resolver motor, voz e idioma fuera del guion.
+Codex genera y revisa el contenido; `scripts/podcast.py` valida y procesa el texto sin IA ni servicios externos; GitHub Actions ejecuta las pruebas, valida, construye y publica la vista web mediante el mismo código. La síntesis TTS local se describe a continuación y no forma parte de la publicación web.
+
+### Síntesis TTS local de los guiones
+
+En macOS Apple Silicon, instala Python 3.11–3.13 y FFmpeg (por ejemplo, `brew install python@3.12 ffmpeg`). Esta fase se probó con Python 3.12, Piper 1.8.0 y FFmpeg 9.0.2 en ARM64. Piper 1.8.0 dispone de rueda ARM64 para macOS 11 o posterior y Linux ARM64/x86-64. Usa un entorno separado para evitar conflictos con las dependencias de construcción web:
+
+```sh
+python3.12 -m venv .venv-tts
+.venv-tts/bin/python -m pip install -r requirements-tts.txt
+.venv-tts/bin/python scripts/build.py tts download geografia/1-eso/els-fonaments-del-planeta-terra
+.venv-tts/bin/python scripts/build.py tts sample geografia/1-eso/els-fonaments-del-planeta-terra
+.venv-tts/bin/python scripts/build.py tts play geografia/1-eso/els-fonaments-del-planeta-terra --sample
+.venv-tts/bin/python scripts/build.py tts build geografia/1-eso/els-fonaments-del-planeta-terra
+.venv-tts/bin/python scripts/build.py tts play geografia/1-eso/els-fonaments-del-planeta-terra
+```
+
+`download` es el único paso que necesita red. Descarga el modelo y su JSON desde el catálogo de voces de Piper a `models/piper/`; `sample`, `build` y `play` funcionan sin red. La muestra selecciona frases completas hasta quedar entre 30 y 45 segundos; su duración exacta depende de la voz. Los MP3 están en `audio/<asignatura>/<curso>/<tema>/sample.mp3` y `podcast.mp3`. `play` usa `afplay` en macOS y busca `ffplay`, `mpg123` o `xdg-open` en Linux. `models/`, `audio/`, `.venv-tts/` y los temporales quedan fuera de Git. La síntesis lee el guion mediante el procesador existente, omite metadatos y títulos, introduce las pausas explícitas y añade las pausas configuradas entre frases y párrafos. No añade otra pausa corta junto a una pausa explícita. FFmpeg une, normaliza en dos pasadas y codifica el MP3.
+
+La configuración `materials.podcast.tts` de `config/subjects.yml` admite `engine`, `voices` por `teaching_language`, `length_scale` (más alto = narración más lenta), `noise_scale`, `noise_w_scale`, `volume`, `audio_format`, `output_sample_rate`, `mp3_bitrate_kbps`, `loudness_lufs`, `true_peak_db`, `sample_seconds`, `sentence_pause_seconds` y `paragraph_pause_seconds`. Para valenciano se eligió `ca_ES-upc_ona-medium` con `length_scale: 1.0`, pausas de frase/párrafo de 0,5/0,8 segundos y objetivo de −20 LUFS. Una asignatura o tema puede sobrescribir campos con el mismo bloque en su `subjects` o `topic.yml`; las entradas de `voices` se combinan por idioma. Los idiomas sin voz configurada producen un error explícito. Piper trabaja en CPU; no se necesita GPU.
+
+Para ajustar una palabra sin tocar `script.md`, crea `content/<asignatura>/<curso>/<tema>/podcast/pronunciation.yml`:
+
+```yaml
+replacements:
+  Pangea: Pan-ge-a
+  ADN: a de ene
+```
+
+Se sustituyen coincidencias completas, respetando mayúsculas y minúsculas, justo antes de sintetizar. Prueba la pronunciación con `tts sample`; la escritura de reemplazo es una aproximación ortográfica, no fonética. El tema de Geografía incluye `ix: Ix`: el fonemizador catalán de Piper lee `ix` en minúsculas como el número romano nueve, mientras que `Ix` produce los fonemas del verbo valenciano.
+
+Las voces iniciales son [`ca_ES-upc_ona-medium`](https://huggingface.co/rhasspy/piper-voices/blob/main/ca/ca_ES/upc_ona/medium/MODEL_CARD) y [`es_ES-davefx-medium`](https://huggingface.co/rhasspy/piper-voices/blob/main/es/es_ES/davefx/medium/MODEL_CARD). El motor [Piper de OHF-Voice](https://github.com/OHF-Voice/piper1-gpl) se distribuye bajo GPL-3.0 o posterior; [FFmpeg](https://ffmpeg.org/legal.html) bajo LGPL o GPL según su compilación. El repositorio de voces indica MIT, pero cada tarjeta de modelo detalla la licencia del corpus: `upc_ona` usa UPC FestCat de [CollectivaT](https://collectivat.cat/asr#upc-festcat-tts-corpora), [CC BY-SA 3.0 ES](https://creativecommons.org/licenses/by-sa/3.0/es/); `davefx` indica CC0. Ambas se ajustaron a partir de `en_US-lessac-medium`, cuya [tarjeta](https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_US/lessac/medium/MODEL_CARD) remite a una licencia propia del corpus original. Antes de publicar audios, conserva atribución a Piper, al modelo, a UPC FestCat/CollectivaT y un enlace a CC BY-SA 3.0 ES para los audios de `upc_ona`; revisa además las condiciones de los corpus de origen y señala cambios si publicas una versión modificada. Esta fase deja los audios solo en local.
+
+Para comparar la calidad antes de elegir una voz o ajustar valores predeterminados:
+
+```sh
+.venv-tts/bin/python scripts/build.py tts compare geografia/1-eso/els-fonaments-del-planeta-terra --chapter 'Girar sobre si mateixa'
+```
+
+El comando toma el primer párrafo narrado de ese capítulo y produce siete MP3 en `audio/geografia/1-eso/els-fonaments-del-planeta-terra/comparacion/`. Todos utilizan exactamente el mismo texto, conservado en `texto.txt` y con hash SHA-256 en `manifest.json`. Los nombres identifican la configuración: base `upc_ona` a −20 LUFS, velocidades `length_scale` 1,08 y 0,94, pausas de frase/párrafo 0,75/1,0 s, menor variación `noise_scale`/`noise_w_scale` 0,5/0,6, una variante a −18 LUFS y voz alternativa `ca_ES-upc_pau-x_low`. Esta última figura en el [catálogo oficial de Piper](https://huggingface.co/rhasspy/piper-voices/blob/main/ca/ca_ES/upc_pau/x_low/MODEL_CARD), con corpus UPC FestCat bajo CC BY-SA 3.0 ES; no altera la voz predeterminada.
+
+`manifest.json` registra duración, formato, decodificación, volumen integrado, pico real, silencios de más de dos segundos y el salto máximo de muestras PCM en uniones. Estos datos detectan defectos técnicos; no valoran naturalidad ni garantizan la pronunciación de cada palabra. El fragmento contiene «rotació» y «vint-i-quatre hores». El guion narrado no tiene siglas ni cifras escritas con dígitos; otros términos científicos, como «Pangea» y «equinocci», deben revisarse al escuchar el episodio completo. No se añaden correcciones ortográficas de pronunciación sin detectar antes un error concreto.
+
+Problemas conocidos: la voz catalana del catálogo no garantiza pronunciación valenciana de todos los términos; la calidad debe revisarse escuchando. La normalización es global al episodio, de modo que pasajes muy desiguales pueden requerir ajuste editorial. La muestra de `tts sample` no incluye pausas que queden después de sus primeras frases. Para ejecutar la integración real opcional: `MARTINA_TTS_INTEGRATION=1 .venv-tts/bin/python -m unittest discover -s tests -p 'test_tts.py'` (requiere modelo y FFmpeg).
 
 ### Con Docker
 

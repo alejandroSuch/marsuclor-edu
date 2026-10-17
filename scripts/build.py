@@ -16,6 +16,8 @@ from urllib.parse import urlparse
 
 import yaml
 from podcast import parse_script, resolve_config, should_generate, spoken_text, topic_folder
+from tts import (PiperSynthesizer, audio_path, build_audio, context as tts_context,
+                 download_voice, model_path, play_audio, resolve_tts_config, resolve_voice)
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content"
@@ -77,6 +79,7 @@ def validate():
     for subject in subjects:
         try:
             resolve_config(config, subject, {})
+            resolve_tts_config(config, subject, {})
         except ValueError as exc:
             errors.append(f"config/subjects.yml ({subject}): {exc}")
     if not topics():
@@ -86,6 +89,9 @@ def validate():
         try:
             topic, notes, exercises, cards = data_for(path)
             policy = resolve_config(config, path.parts[-4], topic)
+            tts_settings = resolve_tts_config(config, path.parts[-4], topic)
+            if topic.get("teaching_language") in tts_settings["voices"]:
+                resolve_voice(tts_settings, topic["teaching_language"])
             script = path.parent / "podcast" / "script.md"
             if script.exists():
                 parse_script(script, topic, policy)
@@ -713,6 +719,16 @@ if __name__ == "__main__":
         if name == "policy":
             action.add_argument("--all-materials", action="store_true")
             action.add_argument("--explicit", action="store_true")
+    tts_command = commands.add_parser("tts", help="Síntesi local de pòdcasts amb Piper i FFmpeg")
+    tts_actions = tts_command.add_subparsers(dest="action", required=True)
+    for name in ("download", "sample", "build", "play", "compare"):
+        action = tts_actions.add_parser(name)
+        action.add_argument("topic", help="assignatura/curs/tema")
+        if name == "play":
+            action.add_argument("--sample", action="store_true", help="Reproduïx la mostra en lloc del pòdcast")
+        if name == "compare":
+            action.add_argument("--chapter", required=True, help="Títol del capítol del guió")
+            action.add_argument("--paragraph-index", type=int, default=0, help="Paràgraf del capítol, des de zero")
     args = parser.parse_args()
     if args.command == "serve":
         from functools import partial
@@ -722,6 +738,28 @@ if __name__ == "__main__":
             parser.error("Genera primer la web amb prepare i quarto render")
         print("Previsualització: http://localhost:8000", flush=True)
         ThreadingHTTPServer(("localhost", 8000), partial(SimpleHTTPRequestHandler, directory=str(SITE))).serve_forever()
+    elif args.command == "tts":
+        try:
+            _, settings, _, events, model = tts_context(ROOT, args.topic)
+            if args.action == "download":
+                print(f"Model descarregat: {download_voice(ROOT, model)}")
+            elif args.action == "compare":
+                from tts_compare import generate_comparison
+                print(f"Comparació: {generate_comparison(ROOT, args.topic, args.chapter, args.paragraph_index)}")
+            elif args.action == "play":
+                path = audio_path(ROOT, args.topic, sample=args.sample)
+                print(f"Reproduint {path}", flush=True)
+                play_audio(path)
+            else:
+                path = audio_path(ROOT, args.topic, sample=args.action == "sample")
+                synthesizer = PiperSynthesizer(model_path(ROOT, model), settings)
+                result = build_audio(events, path, settings, synthesizer, sample=args.action == "sample")
+                print(f"MP3: {result['path']}\nVeu: {model}\nDuració aproximada: {result['duration_estimate']:.1f} s"
+                      f"\nPauses del guió: {result['explicit_pause_count']} ({result['explicit_pause_seconds']:.1f} s)"
+                      f"\nPauses totals: {result['pause_count']} ({result['pause_seconds']:.1f} s)"
+                      f"\nTemps de generació: {result['elapsed_seconds']:.1f} s")
+        except (OSError, KeyError, TypeError, ValueError, yaml.YAMLError) as exc:
+            parser.error(str(exc))
     elif args.command == "podcast":
         try:
             folder = topic_folder(CONTENT, args.topic)

@@ -1,6 +1,9 @@
 .venv/
+.venv-tts/
 __pycache__/
 .pytest_cache/
 generated/
 site/
+models/
+audio/
 .DS_Store
