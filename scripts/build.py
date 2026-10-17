@@ -190,9 +190,17 @@ def esc(value):
     return html.escape(str(value), quote=True)
 
 
-def frontmatter(title: str, language: str | None = None) -> str:
+def frontmatter(title: str, language: str | None = None, toc: bool | None = None) -> str:
     language_line = f"lang: {language}\n" if language else ""
-    return f"---\ntitle: {json.dumps(title, ensure_ascii=False)}\n{language_line}---\n\n"
+    toc_line = f"toc: {str(toc).lower()}\n" if toc is not None else ""
+    return f"---\ntitle: {json.dumps(title, ensure_ascii=False)}\n{language_line}{toc_line}---\n\n"
+
+
+def natural_key(value: str):
+    return tuple(
+        (0, int(part)) if part.isdigit() else (1, part.casefold())
+        for part in re.split(r"(\d+)", value)
+    )
 
 
 UI = {
@@ -313,7 +321,8 @@ def prepare():
         "    include-after-body: styles/cards.js\nexecute:\n  freeze: auto\n",
         encoding="utf-8",
     )
-    index = frontmatter("Martina Edu") + "Materials per a estudiar en línia i imprimir en A4.\n\n"
+    subjects = read_yaml(ROOT / "config/subjects.yml")["subjects"]
+    index_topics = {}
     for path in topics():
         topic, notes, exercises, cards = data_for(path)
         vocabulary, diagrams = optional_data(path.parent)
@@ -328,9 +337,7 @@ def prepare():
         nav = '<div class="material-nav">\n\n' + " | ".join(
             f"[{name}]({file}.qmd)" for name, file in materials
         ) + '\n\n</div>'
-        index += f"## {esc(topic['title'])}\n\n{esc(course_label(course, topic['teaching_language']))} · {esc(subject)}\n\n"
-        index += " | ".join(f"[{name}]({rel.as_posix()}/{file}.qmd)" for name, file in materials) + "\n\n"
-        index += f"**{ui(language, 'status')}:** {esc(topic.get('status', 'revisat'))}. {esc(topic['intro'])}\n\n"
+        index_topics.setdefault(subject, []).append((course, topic["title"], language, rel))
         base = page_header(topic, course, ui(language, "notes")) + pdf_link(rel, "notes", language) + nav + f"\n\n## {ui(language, 'objectives')}\n\n"
         base += "\n".join(f"- {esc(o['text'])}" for o in topic["objectives"]) + "\n\n"
         for row in notes["sections"]:
@@ -396,6 +403,27 @@ def prepare():
                 card_page += '</div>\n'
         card_page += '</div>\n'
         (dest / "cards.qmd").write_text(card_page, encoding="utf-8")
+    index = frontmatter("Martina Edu", toc=False) + "Materials per a estudiar en línia i imprimir en A4.\n\n## Assignatures\n\n"
+    ordered_subjects = sorted(index_topics, key=lambda subject: subjects[subject]["label"].casefold())
+    index += '<nav class="subject-index" aria-label="Assignatures">\n'
+    for subject in ordered_subjects:
+        label = subjects[subject]["label"]
+        count = len(index_topics[subject])
+        index += (
+            f'<a href="#subject-{subject}"><strong>{esc(label)}</strong> '
+            f'<span>{count} {"tema" if count == 1 else "temes"}</span></a>\n'
+        )
+    index += "</nav>\n\n"
+    for subject in ordered_subjects:
+        index += f"## {esc(subjects[subject]['label'])} {{#subject-{subject}}}\n\n"
+        rows = sorted(index_topics[subject], key=lambda row: (int(row[0].split("-")[0]), natural_key(row[1])))
+        for course, title, language, rel in rows:
+            index += f"::: {{.topic-entry}}\n### {esc(title)}\n\n"
+            index += f'<p class="topic-course">{esc(course_label(course, language))}</p>\n\n'
+            index += " | ".join(
+                f"[{ui(language, key)}]({rel.as_posix()}/{key}.qmd)"
+                for key in ("notes", "exercises", "cards")
+            ) + "\n\n:::\n\n"
     (GENERATED / "index.qmd").write_text(index, encoding="utf-8")
     print(f"Preparades {len(topics())} pàgines de tema per a Quarto.")
 
