@@ -17,4 +17,4 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt \
 WORKDIR /app
 EXPOSE 8000
 
-CMD ["sh", "-c", "python scripts/build.py prepare && quarto render generated --to html && python scripts/build.py pdf && python scripts/build.py verify && python -m http.server 8000 --bind 0.0.0.0 --directory site"]
+CMD ["sh", "-c", "python scripts/build.py prepare && python scripts/build.py render && python scripts/build.py pdf && python scripts/build.py verify && python -m http.server 8000 --bind 0.0.0.0 --directory site"]

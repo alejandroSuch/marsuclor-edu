@@ -4,11 +4,14 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
+import importlib.metadata
 import json
 import math
 import re
 import shutil
+import subprocess
 import unicodedata
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -20,6 +23,37 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content"
 GENERATED = ROOT / "generated"
 SITE = ROOT / "site"
+CACHE = ROOT / ".build-cache" / "manifest.json"
+CACHE_VERSION = 1
+
+
+def digest(*values: bytes) -> str:
+    hash_value = hashlib.sha256()
+    for value in values:
+        hash_value.update(len(value).to_bytes(8, "big"))
+        hash_value.update(value)
+    return hash_value.hexdigest()
+
+
+def file_digest(path: Path) -> str:
+    return digest(path.read_bytes())
+
+
+def load_cache() -> dict:
+    try:
+        cache = json.loads(CACHE.read_text(encoding="utf-8"))
+        if cache.get("version") == CACHE_VERSION:
+            return cache
+    except (OSError, ValueError, AttributeError):
+        pass
+    return {"version": CACHE_VERSION, "html": {}, "pdf": {}}
+
+
+def save_cache(cache: dict) -> None:
+    CACHE.parent.mkdir(parents=True, exist_ok=True)
+    temporary = CACHE.with_suffix(".tmp")
+    temporary.write_text(json.dumps(cache, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+    temporary.replace(CACHE)
 
 
 def read_yaml(path: Path):
@@ -342,12 +376,6 @@ def vocabulary_markup(vocabulary, language: str):
 
 def prepare():
     validate()
-    if SITE.exists():
-        for child in SITE.iterdir():
-            if child.is_dir():
-                shutil.rmtree(child)
-            else:
-                child.unlink()
     if GENERATED.exists():
         for child in GENERATED.iterdir():
             if child.is_dir():
@@ -505,7 +533,102 @@ def prepare():
         index += "</ul></section>\n"
     index += "</div>\n"
     (GENERATED / "index.qmd").write_text(index, encoding="utf-8")
-    print(f"Preparades {len(topics())} pàgines de tema per a Quarto.")
+    print(f"Preparats {len(topics())} temes per a Quarto.")
+
+
+def render():
+    if not (GENERATED / "_quarto.yml").is_file():
+        raise SystemExit("Executa prepare abans de render")
+    pages = sorted(GENERATED.rglob("*.qmd"))
+    expected = {page.relative_to(GENERATED).with_suffix(".html").as_posix() for page in pages}
+    cache = load_cache()
+    old_html = cache.get("html", {})
+    old_pdf = cache.get("pdf", {})
+    try:
+        quarto_version = subprocess.check_output(["quarto", "--version"], text=True).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise SystemExit(f"Quarto no està disponible: {exc}") from exc
+    shared = digest(
+        str(CACHE_VERSION).encode(), quarto_version.encode(),
+        (ROOT / "scripts/build.py").read_bytes(),
+        (ROOT / "requirements.txt").read_bytes(),
+        *(path.read_bytes() for path in sorted((ROOT / "styles").rglob("*")) if path.is_file()),
+    )
+    fingerprints = {}
+    changed = []
+    for page in pages:
+        relative = page.relative_to(GENERATED)
+        name = relative.with_suffix(".html").as_posix()
+        diagrams = sorted((page.parent / "diagrams").glob("*.svg"))
+        fingerprint = digest(shared.encode(), page.read_bytes(), *(svg.read_bytes() for svg in diagrams))
+        fingerprints[name] = fingerprint
+        output = SITE / name
+        entry = old_html.get(name, {})
+        if (
+            entry.get("source") != fingerprint
+            or not output.is_file()
+            or entry.get("output") != file_digest(output)
+        ):
+            changed.append(relative.as_posix())
+    site_css = SITE / "styles/site.css"
+    styles_match = site_css.is_file() and file_digest(site_css) == file_digest(ROOT / "styles/site.css")
+    if not (SITE / "site_libs").is_dir() or not (SITE / "search.json").is_file() or not styles_match:
+        changed = [page.relative_to(GENERATED).as_posix() for page in pages]
+    old_search = []
+    if (SITE / "search.json").is_file():
+        try:
+            old_search = json.loads((SITE / "search.json").read_text(encoding="utf-8"))
+            if not isinstance(old_search, list):
+                old_search = []
+        except (OSError, ValueError):
+            changed = [page.relative_to(GENERATED).as_posix() for page in pages]
+    if changed:
+        config_path = GENERATED / "_quarto.yml"
+        original = config_path.read_text(encoding="utf-8")
+        config = yaml.safe_load(original)
+        config["project"]["render"] = changed
+        config_path.write_text(yaml.safe_dump(config, allow_unicode=True, sort_keys=False), encoding="utf-8")
+        try:
+            subprocess.run(["quarto", "render", str(GENERATED), "--to", "html"], check=True, cwd=ROOT)
+        finally:
+            config_path.write_text(original, encoding="utf-8")
+        search_path = SITE / "search.json"
+        fresh_search = json.loads(search_path.read_text(encoding="utf-8"))
+        changed_html = {str(Path(name).with_suffix(".html")) for name in changed}
+        merged_search = [row for row in old_search if row.get("href", "").split("#", 1)[0] in expected - changed_html]
+        merged_search.extend(fresh_search)
+        search_path.write_text(json.dumps(merged_search, ensure_ascii=False), encoding="utf-8")
+    for folder in (SITE / "topics", SITE / "courses"):
+        if folder.exists():
+            for output in folder.rglob("*.html"):
+                if output.relative_to(SITE).as_posix() not in expected:
+                    output.unlink()
+    for topic_dir in (GENERATED / "topics").glob("*/*/*"):
+        output_dir = SITE / topic_dir.relative_to(GENERATED)
+        source_diagrams = topic_dir / "diagrams"
+        output_diagrams = output_dir / "diagrams"
+        if output_diagrams.exists():
+            shutil.rmtree(output_diagrams)
+        if source_diagrams.is_dir():
+            shutil.copytree(source_diagrams, output_diagrams)
+    for output in (SITE / "topics").glob("*/*/*"):
+        if not (GENERATED / output.relative_to(SITE)).exists():
+            shutil.rmtree(output)
+    for output in (SITE / "courses").glob("*/*"):
+        if not (GENERATED / output.relative_to(SITE)).exists():
+            shutil.rmtree(output)
+    for output in (SITE / "pdf/topics").rglob("*.pdf"):
+        if output.relative_to(SITE / "pdf").with_suffix(".html").as_posix() not in expected:
+            output.unlink()
+    for name, fingerprint in fingerprints.items():
+        output = SITE / name
+        if not output.is_file():
+            raise SystemExit(f"Falta l'HTML renderitzat: {output}")
+        old_html[name] = {"source": fingerprint, "output": file_digest(output)}
+    cache["html"] = {name: old_html[name] for name in fingerprints}
+    cache["pdf"] = {name: value for name, value in old_pdf.items() if name in fingerprints and (SITE / "pdf" / name).with_suffix(".pdf").is_file()}
+    save_cache(cache)
+    print(f"Renderitzades {len(changed)} de {len(pages)} pàgines HTML; {len(pages) - len(changed)} reutilitzades.")
 
 
 def pdf():
@@ -514,18 +637,42 @@ def pdf():
     pages = sorted((SITE / "topics").rglob("*.html"))
     if not pages:
         raise SystemExit("No hi ha HTML renderitzat en site/topics")
+    cache = load_cache()
+    pdf_cache = cache.get("pdf", {})
+    css = (SITE / "styles/site.css").read_bytes()
+    playwright_version = importlib.metadata.version("playwright")
+    generated_count = 0
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
         for page_path in pages:
             relative = page_path.relative_to(SITE).with_suffix(".pdf")
             output = SITE / "pdf" / relative
+            html_name = page_path.relative_to(SITE).as_posix()
+            diagrams = sorted((page_path.parent / "diagrams").glob("*.svg"))
+            fingerprint = digest(
+                page_path.read_bytes(), css, (ROOT / "scripts/build.py").read_bytes(),
+                playwright_version.encode(), browser.version.encode(),
+                *(diagram.read_bytes() for diagram in diagrams),
+            )
+            entry = pdf_cache.get(html_name, {})
+            if (
+                entry.get("source") == fingerprint
+                and output.is_file()
+                and output.stat().st_size >= 1000
+                and entry.get("output") == file_digest(output)
+            ):
+                continue
             output.parent.mkdir(parents=True, exist_ok=True)
             page = browser.new_page()
             page.goto(page_path.resolve().as_uri(), wait_until="load")
             page.pdf(path=str(output), format="A4", print_background=True, prefer_css_page_size=True)
             page.close()
+            generated_count += 1
+            pdf_cache[html_name] = {"source": fingerprint, "output": file_digest(output)}
         browser.close()
-    print(f"Generats {len(pages)} PDF en site/pdf/.")
+    cache["pdf"] = {name: pdf_cache[name] for name in (page.relative_to(SITE).as_posix() for page in pages)}
+    save_cache(cache)
+    print(f"Generats {generated_count} de {len(pages)} PDF; {len(pages) - generated_count} reutilitzats.")
 
 
 def verify():
@@ -658,6 +805,6 @@ def verify():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("command", choices=["validate", "prepare", "pdf", "verify"])
+    parser.add_argument("command", choices=["validate", "prepare", "render", "pdf", "verify"])
     command = parser.parse_args().command
-    {"validate": validate, "prepare": prepare, "pdf": pdf, "verify": verify}[command]()
+    {"validate": validate, "prepare": prepare, "render": render, "pdf": pdf, "verify": verify}[command]()

@@ -3,4 +3,5 @@ __pycache__/
 .pytest_cache/
 generated/
 site/
+.build-cache/
 .DS_Store

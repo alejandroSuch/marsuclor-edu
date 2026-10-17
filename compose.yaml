@@ -8,7 +8,9 @@ services:
       - .:/app:ro
       - generated:/app/generated
       - site:/app/site
+      - build-cache:/app/.build-cache
 
 volumes:
   generated:
   site:
+  build-cache:

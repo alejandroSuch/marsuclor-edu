@@ -60,13 +60,15 @@ python3 -m venv .venv
 pip install -r requirements.txt
 python scripts/build.py validate
 python scripts/build.py prepare
-quarto render generated --to html
+python scripts/build.py render
 python -m playwright install chromium
 python scripts/build.py pdf
 python scripts/build.py verify
 ```
 
 Abre `site/index.html` o inicia `python -m http.server 8000 -d site`. Los PDF se generan en `site/pdf/`. Para las tarjetas, imprime el PDF a doble cara, girando por el borde largo y al 100 % de escala. No edites `generated/` ni `site/`: se regeneran desde `content/`.
+
+La generación conserva en `.build-cache/` las huellas de los HTML y PDF y reutiliza las salidas de `site/` que siguen vigentes. `prepare` sigue validando todos los temas; `render` procesa solo las páginas cuyo contenido, diagramas o herramientas han cambiado, y `pdf` imprime solo los HTML o estilos modificados. GitHub Actions restaura ambas carpetas entre ejecuciones; Docker las conserva en volúmenes. Si falta la caché o una salida, se reconstruye automáticamente. Para forzar una reconstrucción completa en local, elimina `.build-cache/` y `site/` antes de ejecutar los comandos.
 
 ## Validación y publicación
 
