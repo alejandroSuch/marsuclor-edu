@@ -198,9 +198,9 @@ def frontmatter(title: str, language: str | None = None) -> str:
 UI = {
     "ca-valencia": {
         "notes": "Apunts", "exercises": "Exercicis", "solutions": "Solucionari",
-        "cards": "Targetes", "objectives": "Objectius", "section_sources": "Fonts d'este apartat",
+        "cards": "Targetes", "objectives": "Objectius",
         "study_tips": "Com estudiar-ho", "self_check": "Comprovació final",
-        "sources": "Fonts i procedència", "exercise": "Exercici", "prompt": "Enunciat",
+        "exercise": "Exercici", "prompt": "Enunciat",
         "answer": "Solució", "show_answer": "Mostra la solució", "print": "Imprimix / Desa en PDF",
         "download": "Descarrega el PDF A4", "status": "Estat",
         "card_instruction": "Prem una targeta per veure la resposta. Per al PDF A4, imprimix a doble cara, amb gir pel costat llarg i escala del 100 %; els reversos estan reflectits horitzontalment per a retallar.",
@@ -210,9 +210,9 @@ UI = {
     },
     "es": {
         "notes": "Apuntes", "exercises": "Ejercicios", "solutions": "Solucionario",
-        "cards": "Tarjetas", "objectives": "Objetivos", "section_sources": "Fuentes de este apartado",
+        "cards": "Tarjetas", "objectives": "Objetivos",
         "study_tips": "Cómo estudiarlo", "self_check": "Comprobación final",
-        "sources": "Fuentes y procedencia", "exercise": "Ejercicio", "prompt": "Enunciado",
+        "exercise": "Ejercicio", "prompt": "Enunciado",
         "answer": "Solución", "show_answer": "Ver solución", "print": "Imprimir / Guardar en PDF",
         "download": "Descargar el PDF A4", "status": "Estado",
         "card_instruction": "Pulsa una tarjeta para ver la respuesta. Para el PDF A4, imprime a doble cara, girando por el borde largo y al 100 % de escala; los reversos están reflejados horizontalmente para recortar.",
@@ -225,13 +225,6 @@ UI = {
 
 def ui(language: str, key: str) -> str:
     return UI.get(language, UI["ca-valencia"])[key]
-
-
-def source_list(topic):
-    return "\n".join(
-        f"- [{esc(s['title'])}]({s['url']})" if s.get("url") else f"- {esc(s['title'])}"
-        for s in topic["sources"]
-    )
 
 
 def page_header(topic, course, section):
@@ -344,10 +337,6 @@ def prepare():
             base += f"## {esc(row['title'])}\n\n{row['body']}\n\n"
             for diagram_id in row.get("diagram_ids", []):
                 base += diagram_markup(diagrams_by_id, diagram_id)
-            base += f"*{ui(language, 'section_sources')}: " + ", ".join(
-                esc(next(s["title"] for s in topic["sources"] if s["id"] == source_id))
-                for source_id in row["source_ids"]
-            ) + ".*\n\n"
         base += vocabulary_markup(vocabulary, language)
         if notes.get("study_tips"):
             base += f"## {ui(language, 'study_tips')}\n\n" + "\n".join(
@@ -357,7 +346,6 @@ def prepare():
             base += f"## {ui(language, 'self_check')}\n\n" + "\n".join(
                 f"- [ ] {esc(item)}" for item in notes["self_check"]
             ) + "\n\n"
-        base += f"::: {{.source-list}}\n## {ui(language, 'sources')}\n\n" + source_list(topic) + "\n\n" + esc(topic.get("source_note", "")) + "\n\n:::\n"
         (dest / "notes.qmd").write_text(base, encoding="utf-8")
         exercise_page = page_header(topic, course, ui(language, "exercises")) + pdf_link(rel, "exercises", language) + nav + "\n\n"
         solution_page = f'::: {{.print-solutions}}\n## {ui(language, "solutions")}\n\n'
