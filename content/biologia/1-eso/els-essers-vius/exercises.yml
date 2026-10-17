@@ -1,0 +1,128 @@
+exercises:
+  - id: e01
+    kind: resposta-curta
+    objective_ids: [o1]
+    source_ids: [composicio]
+    question: "Indica les tres característiques dels éssers vius treballades als apunts i explica què és la biosfera."
+    answer: "Estan formats per cèl·lules, contenen substàncies orgàniques i inorgàniques i realitzen nutrició, relació i reproducció. La biosfera comprén els éssers vius i els llocs on viuen."
+    answer_space_mm: 34
+  - id: e02
+    kind: relacionar
+    objective_ids: [o1]
+    source_ids: [composicio]
+    question: "Relaciona cada substància amb la funció principal: 1) glúcids, 2) lípids, 3) proteïnes, 4) ADN, 5) sals minerals. A) Informació genètica; B) reserva d'energia; C) energia d'ús immediat; D) estructures com els ossos; E) estructura, transport o defensa."
+    answer: "1-C, 2-B, 3-E, 4-A, 5-D. Els glúcids, lípids, proteïnes i àcids nucleics són orgànics; les sals minerals són inorgàniques."
+    answer_space_mm: 25
+  - id: e03
+    kind: raonament
+    objective_ids: [o1]
+    source_ids: [composicio]
+    question: "És correcte dir que tota substància amb carboni és orgànica i que tota matèria no viva és inorgànica? Justifica-ho amb un exemple."
+    answer: "No. El diòxid de carboni conté carboni i és inorgànic. La matèria no viva també pot contindre compostos orgànics, com un tros de fusta morta."
+    answer_space_mm: 30
+  - id: e04
+    kind: completar
+    objective_ids: [o2]
+    source_ids: [celules]
+    question: "Completa: totes les cèl·lules tenen ______, ______ i ______. En les procariotes l'ADN no es troba dins d'un ______ delimitat per membrana."
+    answer: "Membrana plasmàtica, citoplasma i material genètic (ADN); nucli."
+    answer_space_mm: 22
+  - id: e05
+    kind: diagrama
+    objective_ids: [o2]
+    source_ids: [celules, organuls]
+    diagram_id: tipus-cellules
+    question: "Identifica A, B i C com a cèl·lula procariota, eucariota animal o eucariota vegetal. Anomena dos pistes visibles que justifiquen cada identificació."
+    answer: "A: procariota, sense nucli i amb l'ADN al citoplasma. B: animal, amb nucli i sense paret ni cloroplasts. C: vegetal, amb nucli, paret cel·lular, cloroplasts i gran vacúol."
+    answer_space_mm: 42
+  - id: e06
+    kind: vertader-fals
+    objective_ids: [o2]
+    source_ids: [celules, organuls]
+    question: "Marca V o F i corregix les falses: a) Els bacteris tenen nucli. b) Només les plantes tenen paret cel·lular. c) Les cèl·lules animals i vegetals són eucariotes. d) Totes les cèl·lules tenen membrana."
+    answer: "a) F: són procariotes i no tenen nucli. b) F: també en poden tindre bacteris i fongs. c) V. d) V."
+    answer_space_mm: 38
+  - id: e07
+    kind: relacionar
+    objective_ids: [o2]
+    source_ids: [organuls]
+    question: "Relaciona 1) cloroplast, 2) mitocòndria, 3) ribosoma, 4) aparell de Golgi, 5) vacúol amb A) emmagatzema substàncies, B) fabrica proteïnes, C) fotosíntesi, D) obtenció d'energia utilitzable, E) modifica i distribuïx substàncies."
+    answer: "1-C, 2-D, 3-B, 4-E, 5-A."
+    answer_space_mm: 25
+  - id: e08
+    kind: comparacio
+    objective_ids: [o2]
+    source_ids: [celules, organuls]
+    question: "Escriu dos semblances i dos diferències entre una cèl·lula animal i una vegetal."
+    answer: "Les dos són eucariotes i tenen membrana, citoplasma, ADN i mitocòndries. La vegetal té paret cel·lular i cloroplasts, i habitualment un gran vacúol central; l'animal no presenta eixes estructures com a característiques típiques."
+    answer_space_mm: 36
+  - id: e09
+    kind: resposta-curta
+    objective_ids: [o3]
+    source_ids: [funcions]
+    question: "Quina diferència hi ha entre nutrició autòtrofa i heteròtrofa? Dona un exemple de cada una."
+    answer: "L'autòtrof fabrica matèria orgànica a partir de substàncies inorgàniques, com una planta. L'heteròtrof obté matèria orgànica d'altres éssers vius o restes, com un animal o un fong."
+    answer_space_mm: 34
+  - id: e10
+    kind: seqüencia
+    objective_ids: [o3]
+    source_ids: [funcions]
+    question: "Indica què necessiten les plantes per a fer la fotosíntesi i dos productes o resultats importants del procés."
+    answer: "Necessiten llum, aigua, diòxid de carboni i sals minerals. Fabriquen matèria orgànica i alliberen oxigen."
+    answer_space_mm: 28
+  - id: e11
+    kind: classificar
+    objective_ids: [o3]
+    source_ids: [funcions]
+    question: "Classifica: un milpeus que menja fullaraca, un fong que transforma restes i un àcar que s'alimenta d'un animal viu. Explica una diferència entre els tres casos."
+    answer: "Milpeus: detritívor, ingerix restes. Fong: descomponedor, transforma matèria orgànica en substàncies més senzilles. Àcar: paràsit, obté aliment d'un hoste viu i el perjudica."
+    answer_space_mm: 42
+  - id: e12
+    kind: aplicacio
+    objective_ids: [o3, o6]
+    source_ids: [funcions, classificacio]
+    question: "En un estany hi ha algues, animals i bacteris descomponedors. Explica una relació alimentària possible i què passa amb les restes orgàniques."
+    answer: "Les algues fotosintètiques fabriquen matèria orgànica que pot alimentar animals. Quan hi ha restes, els bacteris descomponedors les transformen en substàncies més senzilles que tornen al medi."
+    answer_space_mm: 38
+  - id: e13
+    kind: exemples
+    objective_ids: [o4]
+    source_ids: [funcions]
+    question: "Explica per què créixer en direcció a la llum és una resposta de relació. Després posa un altre exemple de funció vital i anomena-la."
+    answer: "La planta detecta un estímul del medi, la direcció de la llum, i respon creixent cap a ella. Per exemple, absorbir aigua i sals minerals és nutrició; formar nous individus és reproducció."
+    answer_space_mm: 34
+  - id: e14
+    kind: comparacio
+    objective_ids: [o4]
+    source_ids: [funcions]
+    question: "Compara la reproducció sexual i l'asexual: indica d'on prové el material genètic i com sol ser la descendència."
+    answer: "En l'asexual intervé un progenitor i la descendència sol ser genèticament molt semblant. En la sexual s'unix el material genètic de dos gàmetes i la descendència combina característiques dels progenitors."
+    answer_space_mm: 36
+  - id: e15
+    kind: ordenar
+    objective_ids: [o5]
+    source_ids: [classificacio]
+    question: "Ordena de més general a més concret: espècie, família, regne, classe, gènere, fílum, orde."
+    answer: "Regne → fílum → classe → orde → família → gènere → espècie."
+    answer_space_mm: 20
+  - id: e16
+    kind: aplicar
+    objective_ids: [o5]
+    source_ids: [classificacio]
+    question: "En *Homo sapiens*, quina paraula indica el gènere? Per què és útil el nom científic? Explica també la definició escolar d'espècie."
+    answer: "*Homo* és el gènere; *sapiens* és l'epítet específic. El nom científic és compartit internacionalment i evita confusions dels noms comuns. Una espècie és, en esta definició escolar, un grup d'individus semblants que poden reproduir-se entre ells i originar descendència fèrtil."
+    answer_space_mm: 42
+  - id: e17
+    kind: classificar
+    objective_ids: [o6]
+    source_ids: [classificacio, celules]
+    question: "Classifica un bacteri, una ameba, una diatomea, una floridura, una pomera i un porc en els sis grups dels apunts. Indica quin és procariota."
+    answer: "Bacteri: bacteris; ameba: protozous; diatomea: algues; floridura: fongs; pomera: plantes; porc: animals. El bacteri és procariota; els altres són eucariotes."
+    answer_space_mm: 36
+  - id: e18
+    kind: raonament
+    objective_ids: [o6]
+    source_ids: [classificacio]
+    question: "En l'estany A viuen 4 espècies i en l'estany B en viuen 9. Quin té més riquesa d'espècies? Explica què significa biodiversitat i per què els sis grups de classe són una simplificació."
+    answer: "L'estany B té més riquesa d'espècies (9). La biodiversitat és la varietat de vida d'un lloc; el recompte d'espècies n'és una mesura senzilla. Els sis grups són didàctics: protozous i algues no són regnes taxonòmics universals."
+    answer_space_mm: 38

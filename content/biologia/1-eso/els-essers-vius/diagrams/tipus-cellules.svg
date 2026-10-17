@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 310" role="img" aria-labelledby="title desc">
+  <title id="title">Tres tipus de cèl·lules</title>
+  <desc id="desc">A no té nucli; B té nucli i no té paret; C té nucli, paret, cloroplasts i vacúol gran.</desc>
+  <rect width="900" height="310" fill="#fff"/>
+  <g font-family="Arial,sans-serif" fill="#203442" text-anchor="middle">
+    <text x="150" y="28" font-size="23" font-weight="bold">A</text>
+    <text x="450" y="28" font-size="23" font-weight="bold">B</text>
+    <text x="750" y="28" font-size="23" font-weight="bold">C</text>
+  </g>
+  <rect x="35" y="57" width="230" height="178" rx="82" fill="#e8f4f1" stroke="#27726d" stroke-width="8"/>
+  <path d="M115 126c24-31 70-18 67 18s-40 34-55 9c-8-13 12-31 28-25" fill="none" stroke="#673b78" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="86" cy="180" r="7" fill="#397aaf"/><circle cx="214" cy="105" r="6" fill="#397aaf"/><circle cx="210" cy="189" r="5" fill="#397aaf"/>
+  <ellipse cx="450" cy="145" rx="113" ry="89" fill="#f4e9e1" stroke="#b66543" stroke-width="7"/>
+  <circle cx="450" cy="143" r="37" fill="#dfbdc9" stroke="#82516a" stroke-width="4"/>
+  <path d="M380 112c-19 14-18 29 3 34m126 22c19-10 14-27-5-32" fill="none" stroke="#ba7c4f" stroke-width="10" stroke-linecap="round"/>
+  <rect x="635" y="58" width="230" height="176" rx="17" fill="#dbefce" stroke="#538247" stroke-width="11"/>
+  <rect x="651" y="73" width="198" height="145" rx="10" fill="none" stroke="#8eb773" stroke-width="4"/>
+  <ellipse cx="764" cy="151" rx="54" ry="48" fill="#eef8e9" stroke="#abc99a" stroke-width="3"/>
+  <circle cx="683" cy="124" r="20" fill="#dfbdc9" stroke="#82516a" stroke-width="4"/>
+  <g fill="#4c8d49"><ellipse cx="680" cy="181" rx="16" ry="9"/><ellipse cx="735" cy="93" rx="16" ry="9"/><ellipse cx="824" cy="115" rx="16" ry="9"/><ellipse cx="824" cy="187" rx="16" ry="9"/></g>
+  <g font-family="Arial,sans-serif" fill="#203442" font-size="17" text-anchor="middle">
+    <text class="diagram-answer" x="150" y="271">Procariota</text>
+    <text class="diagram-answer" x="450" y="271">Eucariota animal</text>
+    <text class="diagram-answer" x="750" y="271">Eucariota vegetal</text>
+  </g>
+  <text x="450" y="303" fill="#526870" font-family="Arial,sans-serif" font-size="13" text-anchor="middle">Esquema didàctic; formes i proporcions simplificades.</text>
+</svg>

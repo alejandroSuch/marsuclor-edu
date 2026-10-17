@@ -1,0 +1,7 @@
+diagrams:
+  - id: tipus-cellules
+    title: Tres tipus de cèl·lules
+    file: tipus-cellules.svg
+    objective_ids: [o2]
+    source_ids: [celules, organuls]
+    vocabulary_ids: []

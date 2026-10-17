@@ -1,0 +1,90 @@
+sections:
+  - title: "1. Què caracteritza els éssers vius?"
+    objective_ids: [o1]
+    source_ids: [composicio]
+    body: |
+      La **biosfera** comprén els éssers vius i els llocs on viuen. Els éssers vius estan formats per una o més cèl·lules i realitzen tres **funcions vitals**: nutrició, relació i reproducció. Un organisme pot ser **unicel·lular** (una cèl·lula) o **pluricel·lular** (moltes cèl·lules).
+
+      Els elements químics més abundants en els éssers vius són **carboni, hidrogen, oxigen i nitrogen** (CHON). En els éssers vius hi ha substàncies **inorgàniques** i **orgàniques**.
+
+      | Substància | Funció o exemple dels apunts |
+      |---|---|
+      | Aigua (inorgànica) | És molt abundant; forma part dels líquids interns. |
+      | Sals minerals (inorgàniques) | Poden estar dissoltes o formar estructures, com els ossos. |
+      | Glúcids (orgànics) | Aporten energia d'ús immediat; la cel·lulosa té funció estructural. |
+      | Lípids (orgànics) | Servixen de reserva energètica i formen part de les membranes. |
+      | Proteïnes (orgàniques) | Formen estructures; també transporten substàncies i participen en la defensa. |
+      | Àcids nucleics (orgànics) | L'ADN guarda informació genètica per al funcionament cel·lular. |
+
+      **Precisió:** el diòxid de carboni conté carboni i és inorgànic. La matèria que no és viva també pot contindre substàncies orgàniques. Per això, la presència de carboni, tota sola, no definix la vida.
+  - title: "2. Les cèl·lules i els seus orgànuls"
+    objective_ids: [o2]
+    source_ids: [celules, organuls]
+    diagram_ids: [tipus-cellules]
+    body: |
+      Totes les cèl·lules tenen **membrana plasmàtica**, que regula l'entrada i l'eixida de substàncies; **citoplasma**, on tenen lloc processos cel·lulars; i **material genètic** (ADN), que conté instruccions. Les cèl·lules **procariotes** no tenen un nucli delimitat per membrana; les **eucariotes** sí que en tenen.
+
+      | Tipus | Característiques per a identificar-lo |
+      |---|---|
+      | Procariota | Sense nucli; ADN al citoplasma. Els bacteris són procariotes. |
+      | Eucariota animal | Amb nucli, membrana i orgànuls; sense paret cel·lular ni cloroplasts. |
+      | Eucariota vegetal | Amb nucli, paret cel·lular, cloroplasts i un gran vacúol central. |
+
+      **Orgànuls dels apunts:** les **mitocòndries** intervenen en l'obtenció d'energia utilitzable; els **ribosomes** fabriquen proteïnes; l'**aparell de Golgi** modifica, classifica i distribuïx substàncies; els **cloroplasts** fan la fotosíntesi; el **vacúol** emmagatzema substàncies. El **nucli** conté i protegix l'ADN. La **paret cel·lular** dona suport i protecció. En les cèl·lules animals, els **centríols** participen en l'organització dels microtúbuls durant la divisió.
+
+      **Compte amb les generalitzacions:** moltes algues també tenen cloroplasts. Els bacteris i els fongs poden tindre paret cel·lular; per tant, la paret no és exclusiva de les plantes. La membrana, el citoplasma i l'ADN sí que són comuns als tres tipus de l'esquema.
+  - title: "3. La nutrició"
+    objective_ids: [o3]
+    source_ids: [funcions, composicio]
+    body: |
+      Amb la **nutrició**, els éssers vius obtenen matèria i energia per a créixer, mantindre el cos en funcionament i realitzar les funcions vitals.
+
+      - **Autòtrofs:** fabriquen matèria orgànica a partir de substàncies inorgàniques. Les plantes, moltes algues i alguns bacteris fan **fotosíntesi** utilitzant llum, aigua, diòxid de carboni i sals minerals; en este procés s'allibera oxigen. Alguns bacteris autòtrofs obtenen energia d'una altra manera.
+      - **Heteròtrofs:** obtenen matèria orgànica d'altres éssers vius o de les seues restes. En són exemples els animals, els fongs i molts bacteris i protozous.
+
+      Els **paràsits** viuen a costa d'un altre organisme i el perjudiquen; els **detritívors**, com el milpeus, ingerixen restes orgàniques; els **descomponedors**, com molts fongs i bacteris, transformen les restes en substàncies més senzilles que tornen al medi. Estes paraules descriuen maneres de nutrició heteròtrofa, no grups taxonòmics.
+
+      Els autòtrofs fotosintètics produïxen matèria orgànica que pot alimentar altres éssers vius. Els heteròtrofs necessiten obtindre-la del seu entorn. Els descomponedors reciclen la matèria. No tots els heteròtrofs respiren oxigen ni tots els autòtrofs el produïxen.
+  - title: "4. Relació i reproducció"
+    objective_ids: [o4]
+    source_ids: [funcions]
+    body: |
+      La **funció de relació** permet detectar canvis del medi i respondre-hi. Per exemple, una planta pot detectar la direcció de la llum i créixer cap a ella.
+
+      La **reproducció** origina nous individus. En la **reproducció asexual** participa un sol progenitor i la descendència sol ser genèticament molt semblant a este. En la **reproducció sexual** s'unix material genètic de dos gàmetes i la descendència combina característiques dels progenitors. Alguns éssers vius poden reproduir-se de les dos maneres. No cal que els individus es desplacen per a estar vius: les plantes també fan les tres funcions vitals.
+  - title: "5. Com classifiquem els éssers vius?"
+    objective_ids: [o5]
+    source_ids: [classificacio]
+    body: |
+      La **taxonomia** estudia com classificar els éssers vius. Els grups o **tàxons** dels apunts s'ordenen de més general a més concret així: **regne → fílum → classe → orde → família → gènere → espècie**. L'ésser humà, per exemple, pertany al regne animal, al fílum dels cordats, a la classe dels mamífers, a l'orde dels primats, a la família dels homínids i al gènere *Homo*.
+
+      A este nivell, una **espècie** s'explica com un grup d'individus semblants que poden reproduir-se entre ells i originar descendència fèrtil. És una definició escolar útil, encara que no resol tots els casos de la natura.
+
+      El **nom comú** canvia entre llengües i regions. El **nom científic** és compartit internacionalment i té dos paraules: **gènere + epítet específic**. Per exemple, *Homo sapiens*: *Homo* és el gènere i *sapiens* és l'epítet; els dos junts identifiquen l'espècie. També apareix als apunts el dofí comú, *Delphinus delphis*.
+  - title: "6. Grups de classe i biodiversitat"
+    objective_ids: [o6]
+    source_ids: [classificacio, celules]
+    body: |
+      Els apunts comparen **bacteris, protozous, algues, fongs, plantes i animals**. És una agrupació didàctica: «protozous» i «algues» no són regnes taxonòmics universals. Per a classificar un exemple, observa el tipus de cèl·lula, el nombre de cèl·lules i la nutrició.
+
+      | Grup dels apunts | Cèl·lules i nutrició habitual | Exemple |
+      |---|---|---|
+      | Bacteris | Procariotes i unicel·lulars; autòtrofs o heteròtrofs. | *E. coli*. |
+      | Protozous | Eucariotes, generalment unicel·lulars i heteròtrofs. | Ameba. |
+      | Algues | Eucariotes, unicel·lulars o pluricel·lulars; moltes són fotosintètiques. | Diatomea. |
+      | Fongs | Eucariotes, unicel·lulars o pluricel·lulars i heteròtrofs. | Floridura. |
+      | Plantes | Eucariotes, pluricel·lulars i, en general, fotosintètiques. | Pomera. |
+      | Animals | Eucariotes, pluricel·lulars i heteròtrofs. | Porc. |
+
+      La **biodiversitat** és la varietat de vida d'un lloc. Als apunts es mesura de manera senzilla comptant les espècies diferents: si en un estany hi ha més espècies que en un altre, té més riquesa d'espècies. La biodiversitat també es pot estudiar a altres nivells, com la diversitat genètica i la dels ecosistemes.
+study_tips:
+  - "Dibuixa les tres cèl·lules i explica què tenen en comú i què les diferencia."
+  - "Estudia les tres funcions vitals amb un exemple diferent per a cadascuna."
+  - "Practica l'orde dels tàxons de general a concret i escriu correctament un nom científic."
+self_check:
+  - "Puc relacionar aigua, sals, glúcids, lípids, proteïnes i ADN amb una funció."
+  - "Identifique una cèl·lula procariota, una animal i una vegetal."
+  - "Explique les dos formes de nutrició i els detritívors, paràsits i descomponedors."
+  - "Distingisc relació, reproducció sexual i reproducció asexual."
+  - "Ordene els tàxons i explique què és una espècie."
+  - "Compare els sis grups dels apunts i explique la biodiversitat."

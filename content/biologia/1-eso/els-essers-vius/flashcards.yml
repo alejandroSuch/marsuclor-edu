@@ -1,0 +1,21 @@
+cards:
+  - {id: c01, objective_ids: [o1], source_ids: [composicio], front: "Quines tres funcions vitals realitza un ésser viu?", back: "Nutrició, relació i reproducció."}
+  - {id: c02, objective_ids: [o1], source_ids: [composicio], front: "Què vol dir CHON en els apunts?", back: "Carboni, hidrogen, oxigen i nitrogen: elements molt abundants en els éssers vius."}
+  - {id: c03, objective_ids: [o1], source_ids: [composicio], front: "Quines substàncies dels apunts són inorgàniques?", back: "L'aigua i les sals minerals."}
+  - {id: c04, objective_ids: [o1], source_ids: [composicio], front: "Quina funció tenen glúcids i lípids?", back: "Els glúcids solen aportar energia immediata; els lípids poden servir de reserva energètica."}
+  - {id: c05, objective_ids: [o1], source_ids: [composicio], front: "Què guarda l'ADN?", back: "Informació genètica amb instruccions per al funcionament cel·lular."}
+  - {id: c06, objective_ids: [o2], source_ids: [celules], front: "Quines tres estructures tenen totes les cèl·lules?", back: "Membrana plasmàtica, citoplasma i material genètic."}
+  - {id: c07, objective_ids: [o2], source_ids: [celules], front: "Quina diferència bàsica hi ha entre procariotes i eucariotes?", back: "Les procariotes no tenen nucli delimitat per membrana; les eucariotes sí."}
+  - {id: c08, objective_ids: [o2], source_ids: [celules, organuls], front: "Quines pistes identifiquen una cèl·lula vegetal?", back: "Paret cel·lular, cloroplasts i habitualment un gran vacúol central, a més del nucli."}
+  - {id: c09, objective_ids: [o2], source_ids: [organuls], front: "Quins orgànuls fan la fotosíntesi i fabriquen proteïnes?", back: "Els cloroplasts fan la fotosíntesi; els ribosomes fabriquen proteïnes."}
+  - {id: c10, objective_ids: [o2], source_ids: [organuls], front: "Què fan les mitocòndries i l'aparell de Golgi?", back: "Les mitocòndries intervenen en l'obtenció d'energia utilitzable; el Golgi modifica i distribuïx substàncies."}
+  - {id: c11, objective_ids: [o3], source_ids: [funcions], front: "Com obtenen matèria orgànica els autòtrofs i els heteròtrofs?", back: "Els autòtrofs la fabriquen a partir de substàncies inorgàniques; els heteròtrofs l'obtenen d'altres organismes o restes."}
+  - {id: c12, objective_ids: [o3], source_ids: [funcions], front: "Què necessita la fotosíntesi i què produïx?", back: "Llum, aigua, CO₂ i sals minerals; fabrica matèria orgànica i allibera oxigen."}
+  - {id: c13, objective_ids: [o3], source_ids: [funcions], front: "En què es diferencien paràsit, detritívor i descomponedor?", back: "El paràsit perjudica un hoste viu; el detritívor menja restes; el descomponedor les transforma en substàncies més senzilles."}
+  - {id: c14, objective_ids: [o4], source_ids: [funcions], front: "Què és la funció de relació?", back: "Detectar canvis del medi i respondre-hi, com una planta que creix cap a la llum."}
+  - {id: c15, objective_ids: [o4], source_ids: [funcions], front: "Quina diferència hi ha entre reproducció sexual i asexual?", back: "En l'asexual participa un progenitor; en la sexual es combina material genètic de dos gàmetes."}
+  - {id: c16, objective_ids: [o5], source_ids: [classificacio], front: "Quin és l'orde dels tàxons de més general a més concret?", back: "Regne, fílum, classe, orde, família, gènere i espècie."}
+  - {id: c17, objective_ids: [o5], source_ids: [classificacio], front: "Què indiquen les dos paraules de *Homo sapiens*?", back: "*Homo* és el gènere; *sapiens* és l'epítet específic. Les dos paraules identifiquen l'espècie."}
+  - {id: c18, objective_ids: [o5], source_ids: [classificacio], front: "Com es definix una espècie en la versió escolar dels apunts?", back: "Individus semblants que poden reproduir-se entre ells i donar descendència fèrtil; hi ha excepcions."}
+  - {id: c19, objective_ids: [o6], source_ids: [classificacio], front: "Quins sis grups compara la taula de classe?", back: "Bacteris, protozous, algues, fongs, plantes i animals."}
+  - {id: c20, objective_ids: [o6], source_ids: [classificacio], front: "Què és la riquesa d'espècies d'un lloc?", back: "El nombre d'espècies diferents que hi viuen; és una mesura senzilla de la biodiversitat."}

@@ -1,0 +1,51 @@
+title: Els éssers vius
+course: 1-eso
+subject: biologia
+teaching_language: ca-valencia
+status: Elaborat a partir dels apunts de classe
+intro: >-
+  Guia d'estudi de Biologia de 1r d'ESO sobre la composició, les cèl·lules,
+  les funcions vitals i la classificació dels éssers vius. Estudia els
+  exemples, practica i comprova les respostes amb el solucionari.
+objectives:
+  - {id: o1, text: Reconéixer les característiques dels éssers vius i distingir les substàncies orgàniques i inorgàniques.}
+  - {id: o2, text: Identificar les parts comunes de les cèl·lules i comparar cèl·lules procariotes, animals i vegetals.}
+  - {id: o3, text: Explicar la nutrició autòtrofa i heteròtrofa i les seues relacions.}
+  - {id: o4, text: Explicar la funció de relació i distingir reproducció sexual i asexual.}
+  - {id: o5, text: Ordenar les categories taxonòmiques i explicar què és una espècie i com s'anomena.}
+  - {id: o6, text: Comparar els sis grups treballats a classe i explicar la biodiversitat.}
+sources:
+  - id: composicio
+    type: private-class-notes
+    title: Apunts manuscrits de classe sobre éssers vius i substàncies, fotografies 001–004
+    note: Originals conservats fora del repositori públic; inclouen exercicis de les pàgines 92–93.
+  - id: celules
+    type: private-class-notes
+    title: Apunts i exercicis manuscrits sobre cèl·lules, fotografies 005–007 i 010–011
+    note: Originals conservats fora del repositori públic.
+  - id: funcions
+    type: private-class-notes
+    title: Apunts i exercicis manuscrits sobre nutrició, relació i reproducció, fotografies 008–009 i 012–014
+    note: Originals conservats fora del repositori públic.
+  - id: classificacio
+    type: private-class-notes
+    title: Apunts manuscrits de taxonomia, espècies, grups i biodiversitat, fotografies 015–019
+    note: Originals conservats fora del repositori públic; els noms de persones dels exemples no es reproduïxen.
+  - id: organuls
+    type: private-class-notes
+    title: Apunts manuscrits sobre orgànuls vegetals i animals, fotografies 020–021
+    note: Originals conservats fora del repositori públic.
+source_note: >-
+  Les 21 fotografies són apunts i exercicis de classe, no una guia desenvolupada.
+  El curs de 1r d'ESO es deduïx de la seqüència i del context del repositori;
+  no apareix escrit a les pàgines. Els exercicis, les solucions, les targetes
+  i l'esquema són elaboracions didàctiques. Propostes de precisió científica
+  respecte a les simplificacions dels apunts: (1) «inorgànic» no significa
+  sempre «sense carboni», perquè el diòxid de carboni és inorgànic; (2) la
+  matèria no viva també pot ser orgànica; (3) els cloroplasts apareixen en
+  plantes i moltes algues, i les parets cel·lulars també en bacteris i fongs;
+  (4) la nutrició autòtrofa no sempre implica fotosíntesi; (5) els grups de
+  protozous i algues són categories escolars simplificades, no regnes
+  taxonòmics universals. No es copien com a fets absoluts les afirmacions
+  errònies dels originals. La definició d'espècie per descendència fèrtil
+  és una aproximació útil per al curs, amb excepcions.
