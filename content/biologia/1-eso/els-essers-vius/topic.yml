@@ -35,6 +35,10 @@ sources:
     type: private-class-notes
     title: Apunts manuscrits sobre orgànuls vegetals i animals, fotografies 020–021
     note: Originals conservats fora del repositori públic.
+  - id: pasapalabra
+    type: user-provided-activity
+    title: Pasapalabra de biologia aportat en la petició
+    note: Text transcrit i adaptat al valencià. HONGOS i SERES VIVOS passen a FONGS (F) i ÉSSERS VIUS (E); s'afigen HÀBITAT i SAPIENS per completar les lletres H i S. S'han precisat algunes definicions científiques.
 source_note: >-
   Les 21 fotografies són apunts i exercicis de classe, no una guia desenvolupada.
   El curs de 1r d'ESO es deduïx de la seqüència i del context del repositori;

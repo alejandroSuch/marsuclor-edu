@@ -1,9 +1,9 @@
 sections:
   - title: "1. Què caracteritza els éssers vius?"
     objective_ids: [o1]
-    source_ids: [composicio]
+    source_ids: [composicio, pasapalabra]
     body: |
-      La **biosfera** comprén els éssers vius i els llocs on viuen. Els éssers vius estan formats per una o més cèl·lules i realitzen tres **funcions vitals**: nutrició, relació i reproducció. Un organisme pot ser **unicel·lular** (una cèl·lula) o **pluricel·lular** (moltes cèl·lules).
+      La **biosfera** comprén els éssers vius i els llocs on viuen. El lloc on viu un organisme és el seu **hàbitat**. Els éssers vius estan formats per una o més cèl·lules i realitzen tres **funcions vitals**: nutrició, relació i reproducció. Un organisme pot ser **unicel·lular** (una cèl·lula) o **pluricel·lular** (moltes cèl·lules).
 
       Els elements químics més abundants en els éssers vius són **carboni, hidrogen, oxigen i nitrogen** (CHON). En els éssers vius hi ha substàncies **inorgàniques** i **orgàniques**.
 
@@ -19,7 +19,7 @@ sections:
       **Precisió:** el diòxid de carboni conté carboni i és inorgànic. La matèria que no és viva també pot contindre substàncies orgàniques. Per això, la presència de carboni, tota sola, no definix la vida.
   - title: "2. Les cèl·lules i els seus orgànuls"
     objective_ids: [o2]
-    source_ids: [celules, organuls]
+    source_ids: [celules, organuls, pasapalabra]
     diagram_ids: [tipus-cellules]
     body: |
       Totes les cèl·lules tenen **membrana plasmàtica**, que regula l'entrada i l'eixida de substàncies; **citoplasma**, on tenen lloc processos cel·lulars; i **material genètic** (ADN), que conté instruccions. Les cèl·lules **procariotes** no tenen un nucli delimitat per membrana; les **eucariotes** sí que en tenen.
@@ -30,7 +30,7 @@ sections:
       | Eucariota animal | Amb nucli, membrana i orgànuls; sense paret cel·lular ni cloroplasts. |
       | Eucariota vegetal | Amb nucli, paret cel·lular, cloroplasts i un gran vacúol central. |
 
-      **Orgànuls dels apunts:** les **mitocòndries** intervenen en l'obtenció d'energia utilitzable; els **ribosomes** fabriquen proteïnes; l'**aparell de Golgi** modifica, classifica i distribuïx substàncies; els **cloroplasts** fan la fotosíntesi; el **vacúol** emmagatzema substàncies. El **nucli** conté i protegix l'ADN. La **paret cel·lular** dona suport i protecció. En les cèl·lules animals, els **centríols** participen en l'organització dels microtúbuls durant la divisió.
+      **Orgànuls dels apunts:** les **mitocòndries** intervenen en l'obtenció d'energia utilitzable; els **ribosomes** fabriquen proteïnes; l'**aparell de Golgi** modifica, classifica i distribuïx substàncies; els **cloroplasts** fan la fotosíntesi; el **vacúol** emmagatzema substàncies. El **nucli** conté i protegix l'ADN. La **paret cel·lular** dona suport i protecció. En les cèl·lules animals, els **centríols** participen en l'organització dels microtúbuls durant la divisió. **Ampliació del joc:** el **reticle endoplasmàtic** intervé en la fabricació de proteïnes i lípids.
 
       **Compte amb les generalitzacions:** moltes algues també tenen cloroplasts. Els bacteris i els fongs poden tindre paret cel·lular; per tant, la paret no és exclusiva de les plantes. La membrana, el citoplasma i l'ADN sí que són comuns als tres tipus de l'esquema.
   - title: "3. La nutrició"
@@ -54,13 +54,13 @@ sections:
       La **reproducció** origina nous individus. En la **reproducció asexual** participa un sol progenitor i la descendència sol ser genèticament molt semblant a este. En la **reproducció sexual** s'unix material genètic de dos gàmetes i la descendència combina característiques dels progenitors. Alguns éssers vius poden reproduir-se de les dos maneres. No cal que els individus es desplacen per a estar vius: les plantes també fan les tres funcions vitals.
   - title: "5. Com classifiquem els éssers vius?"
     objective_ids: [o5]
-    source_ids: [classificacio]
+    source_ids: [classificacio, pasapalabra]
     body: |
       La **taxonomia** estudia com classificar els éssers vius. Els grups o **tàxons** dels apunts s'ordenen de més general a més concret així: **regne → fílum → classe → orde → família → gènere → espècie**. L'ésser humà, per exemple, pertany al regne animal, al fílum dels cordats, a la classe dels mamífers, a l'orde dels primats, a la família dels homínids i al gènere *Homo*.
 
       A este nivell, una **espècie** s'explica com un grup d'individus semblants que poden reproduir-se entre ells i originar descendència fèrtil. És una definició escolar útil, encara que no resol tots els casos de la natura.
 
-      El **nom comú** canvia entre llengües i regions. El **nom científic** és compartit internacionalment i té dos paraules: **gènere + epítet específic**. Per exemple, *Homo sapiens*: *Homo* és el gènere i *sapiens* és l'epítet; els dos junts identifiquen l'espècie. També apareix als apunts el dofí comú, *Delphinus delphis*.
+      El **nom comú** canvia entre llengües i regions. El **nom científic** és compartit internacionalment i té dos paraules: **gènere + epítet específic**. Per exemple, *Homo sapiens*: *Homo* és el gènere i *sapiens* és l'epítet; els dos junts identifiquen l'espècie. També apareix als apunts el dofí comú, *Delphinus delphis*. **Ampliació del joc:** els dofins són mamífers del grup dels **cetacis**.
   - title: "6. Grups de classe i biodiversitat"
     objective_ids: [o6]
     source_ids: [classificacio, celules]

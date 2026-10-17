@@ -1,0 +1,123 @@
+title: Pasapalabra de biologia
+intro: Llig la pista, pensa el concepte i prem «Mostra el concepte» per comprovar-lo. En el PDF pots escriure les respostes i consultar el solucionari al final.
+groups:
+  - letter: A
+    clues:
+      - {id: a01, answer: ADN, clue: "Molècula que guarda la informació genètica i les instruccions per al funcionament cel·lular.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: a02, answer: AUTÒTROFS, clue: "Éssers vius capaços de fabricar la seua pròpia matèria orgànica.", objective_ids: [o3], source_ids: [pasapalabra]}
+      - {id: a03, answer: ASEXUAL, clue: "Reproducció en què participa un sol progenitor i la descendència sol ser genèticament molt semblant.", objective_ids: [o4], source_ids: [pasapalabra]}
+      - {id: a04, answer: AIGUA, clue: "Substància inorgànica molt abundant en els éssers vius i present en líquids com la sang.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: a05, answer: ÀCIDS NUCLEICS, clue: "Grup de substàncies orgàniques al qual pertany l'ADN.", objective_ids: [o1], source_ids: [pasapalabra]}
+  - letter: B
+    clues:
+      - {id: b01, answer: BIOSFERA, clue: "Conjunt dels éssers vius i dels llocs on es desenvolupa la vida.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: b02, answer: BIODIVERSITAT, clue: "Varietat de vida d'un lloc; als apunts s'aproxima comptant les espècies diferents.", objective_ids: [o6], source_ids: [pasapalabra]}
+      - {id: b03, answer: BACTERIS, clue: "Organismes procariotes entre els quals n'hi ha d'autòtrofs i de descomponedors.", objective_ids: [o6], source_ids: [pasapalabra]}
+  - letter: C
+    clues:
+      - {id: c01, answer: CÈL·LULA, clue: "Unitat bàsica de què estan formats tots els éssers vius.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: c02, answer: CHON, clue: "Inicials dels quatre elements químics més abundants en els éssers vius.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: c03, answer: CARBONI, clue: "Element químic present en les substàncies orgàniques, però també en algunes d'inorgàniques.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: c04, answer: CITOPLASMA, clue: "Part de la cèl·lula on tenen lloc processos cel·lulars i es troben els orgànuls.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: c05, answer: CLOROPLAST, clue: "Orgànul de les cèl·lules vegetals que fa la fotosíntesi.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: c06, answer: CENTRÍOLS, clue: "Estructures de moltes cèl·lules animals que intervenen en l'organització dels microtúbuls durant la divisió.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: c07, answer: CORDATS, clue: "Fílum al qual pertany l'ésser humà.", objective_ids: [o5], source_ids: [pasapalabra]}
+      - {id: c08, answer: CETACIS, clue: "Grup de mamífers al qual pertanyen els dofins.", objective_ids: [o5], source_ids: [pasapalabra]}
+      - {id: c09, answer: CLASSE, clue: "Categoria taxonòmica situada entre fílum i orde.", objective_ids: [o5], source_ids: [pasapalabra]}
+  - letter: D
+    clues:
+      - {id: d01, answer: DESCOMPONEDORS, clue: "Organismes, com molts fongs i bacteris, que transformen les restes orgàniques en substàncies més senzilles.", objective_ids: [o3], source_ids: [pasapalabra]}
+      - {id: d02, answer: DETRITÍVORS, clue: "Animals que ingerixen restes d'altres éssers vius.", objective_ids: [o3], source_ids: [pasapalabra]}
+      - {id: d03, answer: DESCENDÈNCIA, clue: "Conjunt de nous individus que s'originen mitjançant la reproducció.", objective_ids: [o4], source_ids: [pasapalabra]}
+  - letter: E
+    clues:
+      - {id: e01, answer: EUCARIOTES, clue: "Cèl·lules amb el material genètic dins d'un nucli delimitat per membrana.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: e02, answer: ESPÈCIE, clue: "En la definició escolar, individus semblants que poden reproduir-se entre ells i tindre descendència fèrtil.", objective_ids: [o5], source_ids: [pasapalabra]}
+      - {id: e03, answer: ENERGIA, clue: "Juntament amb la matèria, allò que necessiten obtindre els éssers vius per a les seues funcions vitals.", objective_ids: [o3], source_ids: [pasapalabra]}
+      - {id: e04, answer: ÉSSERS VIUS, clue: "Organismes formats per cèl·lules que realitzen les funcions vitals.", objective_ids: [o1], source_ids: [pasapalabra]}
+  - letter: F
+    clues:
+      - {id: f01, answer: FUNCIONS VITALS, clue: "Conjunt de processos de nutrició, relació i reproducció que realitzen els éssers vius.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: f02, answer: FOTOSÍNTESI, clue: "Procés pel qual plantes, moltes algues i alguns bacteris fabriquen matèria orgànica utilitzant la llum.", objective_ids: [o3], source_ids: [pasapalabra]}
+      - {id: f03, answer: FAMÍLIA, clue: "Categoria taxonòmica situada entre orde i gènere.", objective_ids: [o5], source_ids: [pasapalabra]}
+      - {id: f04, answer: FÍLUM, clue: "Categoria taxonòmica situada entre regne i classe.", objective_ids: [o5], source_ids: [pasapalabra]}
+      - {id: f05, answer: FONGS, clue: "Grup d'éssers vius heteròtrofs entre els quals hi ha molts descomponedors.", objective_ids: [o6], source_ids: [pasapalabra]}
+  - letter: G
+    clues:
+      - {id: g01, answer: GLÚCIDS, clue: "Substàncies orgàniques que sovint aporten energia d'ús immediat.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: g02, answer: GÈNERE, clue: "Categoria taxonòmica situada immediatament abans de l'espècie.", objective_ids: [o5], source_ids: [pasapalabra]}
+  - letter: H
+    clues:
+      - {id: h01, answer: HETERÒTROFS, clue: "Éssers vius que obtenen matèria orgànica d'altres organismes o de les seues restes.", objective_ids: [o3], source_ids: [pasapalabra]}
+      - {id: h02, answer: HOMÍNIDS, clue: "Família taxonòmica a la qual pertany l'ésser humà.", objective_ids: [o5], source_ids: [pasapalabra]}
+      - {id: h03, answer: HOMO, clue: "Gènere al qual pertany la nostra espècie.", objective_ids: [o5], source_ids: [pasapalabra]}
+      - {id: h04, answer: HOMO SAPIENS, clue: "Nom científic de l'espècie humana.", objective_ids: [o5], source_ids: [pasapalabra]}
+      - {id: h05, answer: HÀBITAT, clue: "Lloc on viu un organisme; el conjunt dels éssers vius i dels llocs on viuen forma la biosfera.", objective_ids: [o1], source_ids: [pasapalabra]}
+  - letter: I
+    clues:
+      - {id: i01, answer: INORGÀNICA, clue: "Tipus de substància al qual pertanyen l'aigua i les sals minerals.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: i02, answer: INERT, clue: "Es diu de la matèria que no té vida.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: i03, answer: INDIVIDU, clue: "Cadascun dels organismes d'una espècie.", objective_ids: [o5], source_ids: [pasapalabra]}
+  - letter: L
+    clues:
+      - {id: l01, answer: LÍPIDS, clue: "Substàncies orgàniques que poden ser reserva energètica i formar part de les membranes cel·lulars.", objective_ids: [o1], source_ids: [pasapalabra]}
+  - letter: M
+    clues:
+      - {id: m01, answer: MATÈRIA ORGÀNICA, clue: "Matèria formada per substàncies com glúcids, lípids, proteïnes i àcids nucleics.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: m02, answer: MATÈRIA INORGÀNICA, clue: "Matèria que inclou substàncies com l'aigua, les sals minerals i el diòxid de carboni.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: m03, answer: MATÈRIA INERT, clue: "Matèria que no està viva, encara que pot contindre substàncies orgàniques.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: m04, answer: MEMBRANA CEL·LULAR, clue: "Estructura que envolta la cèl·lula i regula l'entrada i l'eixida de substàncies.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: m05, answer: MEMBRANA PLASMÀTICA, clue: "Un altre nom de l'estructura que envolta la cèl·lula i regula el pas de substàncies.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: m06, answer: MITOCÒNDRIA, clue: "Orgànul que intervé en l'obtenció d'energia utilitzable per la cèl·lula.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: m07, answer: MATERIAL GENÈTIC, clue: "Part de la cèl·lula que conté les instruccions necessàries per al seu funcionament.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: m08, answer: MAMÍFERS, clue: "Classe taxonòmica a la qual pertanyen els éssers humans i els dofins.", objective_ids: [o5], source_ids: [pasapalabra]}
+  - letter: N
+    clues:
+      - {id: n01, answer: NUTRICIÓ, clue: "Funció vital amb què els éssers vius obtenen matèria i energia.", objective_ids: [o3], source_ids: [pasapalabra]}
+      - {id: n02, answer: NUCLI, clue: "Estructura de les cèl·lules eucariotes que conté i protegix l'ADN.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: n03, answer: NOM CIENTÍFIC, clue: "Denominació compartida internacionalment d'una espècie, formada per dos paraules.", objective_ids: [o5], source_ids: [pasapalabra]}
+      - {id: n04, answer: NOM COMÚ, clue: "Manera d'anomenar un ésser viu que pot variar segons la llengua o la regió.", objective_ids: [o5], source_ids: [pasapalabra]}
+  - letter: O
+    clues:
+      - {id: o01, answer: ORGÀNULS, clue: "Estructures de l'interior de moltes cèl·lules que realitzen funcions específiques.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: o02, answer: ORDE, clue: "Categoria taxonòmica situada entre classe i família.", objective_ids: [o5], source_ids: [pasapalabra]}
+      - {id: o03, answer: ORGÀNICA, clue: "Es diu de la matèria formada per substàncies com els glúcids, els lípids i les proteïnes.", objective_ids: [o1], source_ids: [pasapalabra]}
+  - letter: P
+    clues:
+      - {id: p01, answer: PROCARIOTES, clue: "Cèl·lules sense nucli delimitat per membrana, amb l'ADN al citoplasma.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: p02, answer: PROTEÏNES, clue: "Substàncies orgàniques amb funcions estructurals, de transport i de defensa.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: p03, answer: PARÀSITS, clue: "Éssers vius que viuen a costa d'un altre organisme i el perjudiquen.", objective_ids: [o3], source_ids: [pasapalabra]}
+      - {id: p04, answer: PARET CEL·LULAR, clue: "Estructura que protegix i dona suport a determinades cèl·lules.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: p05, answer: PRIMATS, clue: "Orde taxonòmic al qual pertany l'ésser humà.", objective_ids: [o5], source_ids: [pasapalabra]}
+      - {id: p06, answer: PLURICEL·LULARS, clue: "Éssers vius formats per moltes cèl·lules.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: p07, answer: PROTOZOUS, clue: "Grup didàctic d'éssers vius en què s'inclouen les amebes; no és un regne universal.", objective_ids: [o6], source_ids: [pasapalabra]}
+  - letter: R
+    clues:
+      - {id: r01, answer: RELACIÓ, clue: "Funció vital que permet detectar canvis en el medi i respondre-hi.", objective_ids: [o4], source_ids: [pasapalabra]}
+      - {id: r02, answer: REPRODUCCIÓ, clue: "Funció vital que permet originar nous individus.", objective_ids: [o4], source_ids: [pasapalabra]}
+      - {id: r03, answer: RIBOSOMES, clue: "Orgànuls que fabriquen proteïnes a partir de la informació genètica.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: r04, answer: RETICLE ENDOPLASMÀTIC, clue: "Orgànul relacionat amb la fabricació de proteïnes i lípids.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: r05, answer: REGNE, clue: "Categoria taxonòmica més general de les utilitzades als apunts.", objective_ids: [o5], source_ids: [pasapalabra]}
+  - letter: S
+    clues:
+      - {id: s01, answer: SALS MINERALS, clue: "Substàncies inorgàniques que poden estar dissoltes o formar estructures com els ossos.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: s02, answer: SEXUAL, clue: "Reproducció en què s'unix material genètic de dos gàmetes.", objective_ids: [o4], source_ids: [pasapalabra]}
+      - {id: s03, answer: SAPIENS, clue: "Epítet específic que, juntament amb el gènere Homo, identifica l'espècie humana.", objective_ids: [o5], source_ids: [pasapalabra]}
+      - {id: s04, answer: SUBSTÀNCIES ORGÀNIQUES, clue: "Grup de substàncies que inclou glúcids, lípids, proteïnes i àcids nucleics.", objective_ids: [o1], source_ids: [pasapalabra]}
+      - {id: s05, answer: SUBSTÀNCIES INORGÀNIQUES, clue: "Grup de substàncies al qual pertanyen l'aigua i les sals minerals.", objective_ids: [o1], source_ids: [pasapalabra]}
+  - letter: T
+    clues:
+      - {id: t01, answer: TAXONOMIA, clue: "Disciplina que estudia la classificació dels éssers vius.", objective_ids: [o5], source_ids: [pasapalabra]}
+      - {id: t02, answer: TÀXONS, clue: "Grups o categories utilitzats per a classificar els éssers vius.", objective_ids: [o5], source_ids: [pasapalabra]}
+  - letter: U
+    clues:
+      - {id: u01, answer: UNICEL·LULARS, clue: "Éssers vius formats per una sola cèl·lula.", objective_ids: [o1], source_ids: [pasapalabra]}
+  - letter: V
+    clues:
+      - {id: v01, answer: VACÚOL, clue: "Orgànul que emmagatzema substàncies i que pot ocupar gran part d'una cèl·lula vegetal.", objective_ids: [o2], source_ids: [pasapalabra]}
+      - {id: v02, answer: VEGETAL, clue: "Tipus de cèl·lula eucariota que sol tindre paret cel·lular, cloroplasts i un gran vacúol central.", objective_ids: [o2], source_ids: [pasapalabra]}
+  - letter: X
+    mode: contains
+    clues:
+      - {id: x01, answer: ASEXUAL, clue: "Reproducció amb un sol progenitor i descendència habitualment molt semblant a este.", objective_ids: [o4], source_ids: [pasapalabra]}
+      - {id: x02, answer: SEXUAL, clue: "Reproducció en què la descendència combina característiques dels progenitors.", objective_ids: [o4], source_ids: [pasapalabra]}

@@ -9,6 +9,7 @@ import json
 import math
 import re
 import shutil
+import unicodedata
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from urllib.parse import urlparse
@@ -59,6 +60,15 @@ def optional_data(folder: Path):
     )
 
 
+def pasapalabra_data(folder: Path):
+    activity = folder / "pasapalabra.yml"
+    return read_yaml(activity) if activity.exists() else None
+
+
+def unaccented(value: str) -> str:
+    return "".join(char for char in unicodedata.normalize("NFD", value.upper()) if not unicodedata.combining(char))
+
+
 def validate():
     subjects = read_yaml(ROOT / "config/subjects.yml")["subjects"]
     errors = []
@@ -69,6 +79,7 @@ def validate():
         try:
             topic, notes, exercises, cards = data_for(path)
             vocabulary, diagrams = optional_data(path.parent)
+            pasapalabra = pasapalabra_data(path.parent)
             subject, course, slug = path.parts[-4:-1]
             if topic.get("subject") != subject or subject not in subjects:
                 errors.append(f"{label}: assignatura inconsistent")
@@ -126,6 +137,32 @@ def validate():
                 missing = objectives - covered
                 if missing:
                     errors.append(f"{label}: {group_name} no cobrix {', '.join(sorted(missing))}")
+            if pasapalabra:
+                pasapalabra_groups = pasapalabra.get("groups", [])
+                letters = [group.get("letter") for group in pasapalabra_groups]
+                if not pasapalabra.get("title") or not pasapalabra.get("intro") or not pasapalabra_groups:
+                    errors.append(f"{label}: pasapalabra incomplet")
+                if len(letters) != len(set(letters)):
+                    errors.append(f"{label}: lletres repetides en pasapalabra")
+                clue_ids = []
+                for group in pasapalabra_groups:
+                    letter = group.get("letter", "")
+                    mode = group.get("mode", "starts")
+                    if not re.fullmatch(r"[A-Z]", letter) or mode not in {"starts", "contains"} or not group.get("clues"):
+                        errors.append(f"{label}: grup de pasapalabra invàlid")
+                        continue
+                    for clue in group["clues"]:
+                        clue_ids.append(clue.get("id"))
+                        answer = str(clue.get("answer", ""))
+                        normalized = unaccented(answer)
+                        if not answer or not clue.get("clue") or (mode == "starts" and not normalized.startswith(letter)) or (mode == "contains" and letter not in normalized):
+                            errors.append(f"{label}: pista o resposta invàlida en {clue.get('id')}")
+                        if not set(clue.get("objective_ids", [])) or not set(clue["objective_ids"]) <= objectives:
+                            errors.append(f"{label}: objectius invàlids en pasapalabra")
+                        if not set(clue.get("source_ids", [])) or not set(clue["source_ids"]) <= sources:
+                            errors.append(f"{label}: fonts invàlides en pasapalabra")
+                if len(clue_ids) != len(set(clue_ids)) or not all(clue_ids):
+                    errors.append(f"{label}: identificadors de pasapalabra buits o repetits")
             vocabulary_ids = set()
             if topic.get("exam_vocabulary") and not vocabulary:
                 errors.append(f"{label}: falta vocabulary.yml per al vocabulari de l'examen")
@@ -206,7 +243,7 @@ def natural_key(value: str):
 UI = {
     "ca-valencia": {
         "notes": "Apunts", "exercises": "Exercicis", "solutions": "Solucionari",
-        "cards": "Targetes", "objectives": "Objectius",
+        "cards": "Targetes", "pasapalabra": "Pasapalabra", "objectives": "Objectius",
         "study_tips": "Com estudiar-ho", "self_check": "Comprovació final",
         "exercise": "Exercici", "prompt": "Enunciat",
         "answer": "Solució", "show_answer": "Mostra la solució", "print": "Imprimix / Desa en PDF",
@@ -216,10 +253,12 @@ UI = {
         "vocabulary": "Vocabulari de l'examen", "support_terms": "Altres termes de suport",
         "review_tips": "Trucs de repàs", "topic_index": "Torna als temes",
         "all_subjects": "Totes les assignatures",
+        "starts_with": "Comença per", "contains": "Conté la", "reveal_concept": "Mostra el concepte",
+        "write_answer": "Resposta", "answer_key": "Solucionari del Pasapalabra",
     },
     "es": {
         "notes": "Apuntes", "exercises": "Ejercicios", "solutions": "Solucionario",
-        "cards": "Tarjetas", "objectives": "Objetivos",
+        "cards": "Tarjetas", "pasapalabra": "Pasapalabra", "objectives": "Objetivos",
         "study_tips": "Cómo estudiarlo", "self_check": "Comprobación final",
         "exercise": "Ejercicio", "prompt": "Enunciado",
         "answer": "Solución", "show_answer": "Ver solución", "print": "Imprimir / Guardar en PDF",
@@ -229,6 +268,8 @@ UI = {
         "vocabulary": "Vocabulario del examen", "support_terms": "Otros términos de apoyo",
         "review_tips": "Trucos de repaso", "topic_index": "Volver a los temas",
         "all_subjects": "Todas las asignaturas",
+        "starts_with": "Empieza por", "contains": "Contiene la", "reveal_concept": "Mostrar el concepto",
+        "write_answer": "Respuesta", "answer_key": "Solucionario del Pasapalabra",
     },
 }
 
@@ -328,6 +369,7 @@ def prepare():
     for path in topics():
         topic, notes, exercises, cards = data_for(path)
         vocabulary, diagrams = optional_data(path.parent)
+        pasapalabra = pasapalabra_data(path.parent)
         diagrams_by_id = {entry["id"]: entry for entry in diagrams["diagrams"]} if diagrams else {}
         subject, course, slug = path.parts[-4:-1]
         language = topic["teaching_language"]
@@ -336,6 +378,8 @@ def prepare():
         dest.mkdir(parents=True)
         copy_diagrams(path.parent, dest, diagrams)
         materials = [(ui(language, key), key) for key in ("notes", "exercises", "cards")]
+        if pasapalabra:
+            materials.append((ui(language, "pasapalabra"), "pasapalabra"))
         course_path = Path("courses") / subject / course / "index.qmd"
         nav = (
             '<div class="material-nav">\n\n'
@@ -343,7 +387,7 @@ def prepare():
             + " | ".join(f"[{name}]({file}.qmd)" for name, file in materials)
             + '\n\n</div>'
         )
-        index_topics.setdefault(subject, {}).setdefault(course, []).append((topic["title"], language, rel))
+        index_topics.setdefault(subject, {}).setdefault(course, []).append((topic["title"], language, rel, bool(pasapalabra)))
         base = page_header(topic, course, ui(language, "notes")) + pdf_link(rel, "notes", language) + nav + f"\n\n## {ui(language, 'objectives')}\n\n"
         base += "\n".join(f"- {esc(o['text'])}" for o in topic["objectives"]) + "\n\n"
         for row in notes["sections"]:
@@ -409,6 +453,31 @@ def prepare():
                 card_page += '</div>\n'
         card_page += '</div>\n'
         (dest / "cards.qmd").write_text(card_page, encoding="utf-8")
+        if pasapalabra:
+            game = page_header(topic, course, pasapalabra["title"]) + pdf_link(rel, "pasapalabra", language) + nav + "\n\n"
+            game += f'<p class="pasapalabra-intro">{esc(pasapalabra["intro"])}</p>\n\n'
+            for group in pasapalabra["groups"]:
+                letter = group["letter"]
+                prompt = ui(language, "contains" if group.get("mode") == "contains" else "starts_with")
+                game += f'<section class="pasapalabra-group" aria-labelledby="letter-{esc(letter)}">\n<h2 id="letter-{esc(letter)}">{esc(letter)}</h2>\n<ol>\n'
+                for clue in group["clues"]:
+                    game += (
+                        f'<li class="pasapalabra-item" id="{esc(clue["id"])}">'
+                        f'<span class="pasapalabra-clue">{esc(prompt)} {esc(letter)}. {esc(clue["clue"])}</span>'
+                        f'<details class="pasapalabra-reveal"><summary>{ui(language, "reveal_concept")}</summary>'
+                        f'<strong class="pasapalabra-answer">{esc(clue["answer"])}</strong></details>'
+                        f'<span class="pasapalabra-write">{ui(language, "write_answer")}: <span></span></span>'
+                        '</li>\n'
+                    )
+                game += '</ol>\n</section>\n'
+            game += f'<section class="pasapalabra-key">\n<h2>{ui(language, "answer_key")}</h2>\n'
+            for group in pasapalabra["groups"]:
+                game += f'<div class="pasapalabra-key-group"><h3>{esc(group["letter"])}</h3><ol>\n'
+                for clue in group["clues"]:
+                    game += f'<li>{esc(clue["answer"])}</li>\n'
+                game += '</ol></div>\n'
+            game += '</section>\n'
+            (dest / "pasapalabra.qmd").write_text(game, encoding="utf-8")
     index = frontmatter("Martina Edu", toc=False) + "Materials per a estudiar en línia i imprimir en A4.\n\n## Assignatures\n\n"
     ordered_subjects = sorted(index_topics, key=lambda subject: subjects[subject]["label"].casefold())
     index += '<div class="subject-index">\n'
@@ -423,11 +492,12 @@ def prepare():
             title = f"{label} · {course_label(course, language)}"
             course_page = frontmatter(title, language, toc=False)
             course_page += f"[← {ui(language, 'all_subjects')}](../../../index.qmd)\n\n"
-            for topic_title, topic_language, rel in rows:
+            for topic_title, topic_language, rel, has_pasapalabra in rows:
                 course_page += f"::: {{.topic-entry}}\n## {esc(topic_title)}\n\n"
+                material_keys = ("notes", "exercises", "cards", "pasapalabra") if has_pasapalabra else ("notes", "exercises", "cards")
                 course_page += " | ".join(
                     f"[{ui(topic_language, key)}](../../../{rel.as_posix()}/{key}.qmd)"
-                    for key in ("notes", "exercises", "cards")
+                    for key in material_keys
                 ) + "\n\n:::\n\n"
             course_dest = GENERATED / course_rel
             course_dest.mkdir(parents=True, exist_ok=True)
@@ -463,13 +533,18 @@ def verify():
     from pypdf import PdfReader
 
     course_topics = {}
+    course_links = {}
+    extra_pages = 0
     for path in topics():
         subject, course, _ = path.parts[-4:-1]
         course_topics[(subject, course)] = course_topics.get((subject, course), 0) + 1
+        has_pasapalabra = (path.parent / "pasapalabra.yml").exists()
+        course_links[(subject, course)] = course_links.get((subject, course), 0) + 3 + int(has_pasapalabra)
+        extra_pages += int(has_pasapalabra)
     pages = sorted((SITE / "topics").rglob("*.html"))
     if not pages:
         raise SystemExit("Falten pàgines HTML")
-    if len(pages) != 3 * len(topics()) or any(page.name not in {"notes.html", "exercises.html", "cards.html"} for page in pages):
+    if len(pages) != 3 * len(topics()) + extra_pages or any(page.name not in {"notes.html", "exercises.html", "cards.html", "pasapalabra.html"} for page in pages):
         raise SystemExit("El nombre de pàgines web per tema no és correcte")
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
@@ -489,7 +564,7 @@ def verify():
             course_page.goto((SITE / link).resolve().as_uri(), wait_until="load")
             if (
                 course_page.locator(".topic-entry").count() != topic_count
-                or course_page.locator(".topic-entry p a").count() != 3 * topic_count
+                or course_page.locator(".topic-entry p a").count() != course_links[(subject, course)]
             ):
                 raise SystemExit(f"Falten temes o enllaços a {subject}/{course}")
             course_page.close()
@@ -561,6 +636,21 @@ def verify():
                     found_back = pattern.findall(reader.pages[2 * sheet_number + 1].extract_text())
                     if found_front != front or found_back != back:
                         raise SystemExit(f"Anversos i reversos desalineats al full {sheet_number + 1}")
+            if page_path.name == "pasapalabra.html":
+                activity = pasapalabra_data(folder)
+                clue_count = sum(len(group["clues"]) for group in activity["groups"])
+                if page.locator(".pasapalabra-item").count() != clue_count or page.locator(".pasapalabra-key li").count() != clue_count:
+                    raise SystemExit("Falten pistes o respostes del Pasapalabra")
+                if page.locator(".pasapalabra-key").is_visible() or page.locator(".pasapalabra-reveal[open]").count():
+                    raise SystemExit("El Pasapalabra mostra respostes abans del clic")
+                first_reveal = page.locator(".pasapalabra-reveal").first
+                if first_reveal.evaluate("element => element.open"):
+                    raise SystemExit("El concepte del Pasapalabra es mostra abans del clic")
+                first_reveal.locator("summary").click()
+                if not first_reveal.evaluate("element => element.open") or not first_reveal.locator(".pasapalabra-answer").is_visible():
+                    raise SystemExit("El concepte del Pasapalabra no es mostra en fer clic")
+                if len(reader.pages) < 2 or not any("Solucionari del Pasapalabra" in pdf_page.extract_text() for pdf_page in reader.pages):
+                    raise SystemExit("El PDF del Pasapalabra no inclou un solucionari separat")
             page.close()
         browser.close()
     print(f"Verificades {len(pages)} pàgines de tema, {len(course_topics)} índexs de curs, PDF i targetes interactives.")

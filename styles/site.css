@@ -34,6 +34,17 @@ h1, h2 { color: #164c5b; }
 .study-card[aria-pressed="true"] { background: #fff9e8; border-color: #b27516; }
 .study-card[aria-pressed="true"] .card-front { display: none; }
 .study-card[aria-pressed="true"] .card-back { display: block; }
+.pasapalabra-intro { max-width: 65ch; }
+.pasapalabra-group { margin: 1.5rem 0 2rem; padding-top: .85rem; border-top: 1px solid #d5e1e4; }
+.pasapalabra-group h2 { display: inline-flex; align-items: center; justify-content: center; min-width: 2.4rem; min-height: 2.4rem; margin: 0 0 .35rem; padding: 0; border: 0; border-radius: 50%; background: var(--accent); color: white; font-size: 1.25rem; line-height: 1; }
+.pasapalabra-group h2 .anchorjs-link { display: none !important; }
+.pasapalabra-group ol { margin: 0; padding: 0; list-style: none; }
+.pasapalabra-item { padding: .7rem .9rem; margin: .45rem 0; border: 1px solid #d5e1e4; border-radius: .45rem; background: #fff; }
+.pasapalabra-clue { display: block; }
+.pasapalabra-reveal { margin-top: .45rem; }
+.pasapalabra-reveal summary { width: fit-content; cursor: pointer; color: #0e6762; font-weight: 600; }
+.pasapalabra-answer { display: inline-block; margin-top: .35rem; padding: .3rem .55rem; border-radius: .3rem; background: var(--soft); }
+.pasapalabra-write, .pasapalabra-key { display: none; }
 @page { size: A4; margin: 15mm; }
 @media print {
   body { font-size: 10.5pt; color: #000; }
@@ -59,4 +70,20 @@ h1, h2 { color: #164c5b; }
   .cut-card { border: 1px dashed #555; padding: 4mm; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2mm; text-align: center; font-size: 10pt; break-inside: avoid; position: relative; min-height: 0; overflow: hidden; }
   .cut-card-id { position: absolute; top: 2mm; right: 3mm; color: #6b6b6b; font-size: 7pt; }
   .cut-card .card-diagram { max-height: 24mm; margin: 0; }
+  .pasapalabra-intro { margin-bottom: 4mm; }
+  .pasapalabra-group { margin: 2mm 0 3mm; padding-top: 0; border-top: 0; break-inside: avoid-page; page-break-inside: avoid; }
+  .pasapalabra-group h2 { min-width: 8mm; min-height: 8mm; margin: 0 0 1mm; background: #fff; color: #000; border: 1px solid #444; font-size: 12pt; print-color-adjust: exact; }
+  .pasapalabra-group ol { padding-left: 8mm; list-style: decimal; }
+  .pasapalabra-item { padding: 1mm 0; margin: 0; border: 0; border-bottom: 1px solid #d4d4d4; border-radius: 0; font-size: 9.5pt; break-inside: avoid; }
+  .pasapalabra-item::marker { color: #000; }
+  .pasapalabra-reveal { display: none !important; }
+  .pasapalabra-write { display: block; margin-top: 1mm; color: #555; font-size: 8.5pt; }
+  .pasapalabra-write span { display: inline-block; width: 70mm; border-bottom: 1px solid #666; }
+  .pasapalabra-key { display: block; break-before: page; }
+  .pasapalabra-key h2 { margin-bottom: 4mm; }
+  .pasapalabra-key-group { break-inside: avoid; margin: 0 0 4mm; }
+  .pasapalabra-key-group h3 { display: inline; font-size: 10pt; margin: 0 2mm 0 0; }
+  .pasapalabra-key-group ol { display: inline; padding: 0; margin: 0; list-style: none; }
+  .pasapalabra-key-group li { display: inline; }
+  .pasapalabra-key-group li + li::before { content: " · "; }
 }
