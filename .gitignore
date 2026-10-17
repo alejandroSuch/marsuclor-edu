@@ -1,9 +1,17 @@
-.venv/
-.venv-tts/
+.venv*/
 __pycache__/
 .pytest_cache/
 generated/
 site/
 models/
 audio/
+# Generated audio and Piper models, including accidental output outside audio/ or models/.
+*.mp3
+*.wav
+*.onnx
+*.onnx.json
+# Local environment variables; keep shareable examples.
+.env
+.env.*
+!.env.example
 .DS_Store

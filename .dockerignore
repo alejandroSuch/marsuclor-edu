@@ -1,6 +1,15 @@
 .git
-.venv
+.venv*
 generated
 site
+models
+audio
+*.mp3
+*.wav
+*.onnx
+*.onnx.json
+.env
+.env.*
+!.env.example
 __pycache__
 .DS_Store
