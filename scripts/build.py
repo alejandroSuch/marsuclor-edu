@@ -18,6 +18,11 @@ import yaml
 from podcast import parse_script, resolve_config, should_generate, spoken_text, topic_folder
 from tts import (PiperSynthesizer, audio_path, build_audio, context as tts_context,
                  download_voice, model_path, play_audio, resolve_tts_config, resolve_voice)
+from storage import StorageError, check_record, object_keys
+from storage.local import LocalStorage
+from storage.r2 import R2Storage
+from podcast_publish import (manifest as write_podcast_manifest, resolve as resolve_podcast,
+                             script_references, sync_one, verify_public_audio, write_local_provenance)
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content"
@@ -384,6 +389,8 @@ def prepare():
         encoding="utf-8",
     )
     config = read_yaml(ROOT / "config/subjects.yml")
+    manifest_path = ROOT / "audio" / "published.json"
+    published = read_yaml(manifest_path) if manifest_path.exists() else {}
     subjects = config["subjects"]
     index_topics = {}
     for path in topics():
@@ -507,6 +514,14 @@ def prepare():
             preview = frontmatter(f"{ui(language, 'podcast')} · {topic['title']}", language)
             preview += pdf_link(rel, "podcast", language) + nav + "\n\n"
             preview += f"<p>{esc(podcast['metadata']['title'])} · {esc(podcast['metadata']['estimated_duration_minutes'])} min</p>\n\n"
+            published_audio = published.get(f"{subject}/{course}/{slug}")
+            if published_audio:
+                url = published_audio.get("url", "")
+                if (not re.fullmatch(r"https://[a-z0-9.-]+\.workers\.dev/podcasts/"
+                                     r"[a-z0-9-]+/[1-4]-eso/[a-z0-9-]+/[0-9a-f]{64}\.mp3", url)
+                        or not url.endswith(f"/{published_audio.get('hash')}.mp3")):
+                    raise ValueError(f"URL de pòdcast publicada invàlida: {subject}/{course}/{slug}")
+                preview += f'<p><a href="{esc(url)}">Descarregar MP3</a></p>\n\n'
             for event in podcast["events"]:
                 if event["type"] == "chapter":
                     preview += f"## {esc(event['title'])}\n\n"
@@ -726,6 +741,18 @@ if __name__ == "__main__":
         action.add_argument("topic", help="assignatura/curs/tema")
         if name == "play":
             action.add_argument("--sample", action="store_true", help="Reproduïx la mostra en lloc del pòdcast")
+    for name in ("check", "inspect", "verify", "publish", "sync"):
+        action = tts_actions.add_parser(name)
+        if name != "check":
+            action.add_argument("topic", nargs="?" if name == "sync" else None,
+                                help="assignatura/curs/tema")
+        action.add_argument("--backend", choices=("local", "r2"), default="r2")
+        if name == "sync":
+            action.add_argument("--all", action="store_true")
+            action.add_argument("--manifest", type=Path, default=ROOT / "audio/published.json")
+            action.add_argument("--download-models", action="store_true")
+        if name == "publish":
+            action.add_argument("--file", type=Path, required=True)
     args = parser.parse_args()
     if args.command == "serve":
         from functools import partial
@@ -737,22 +764,58 @@ if __name__ == "__main__":
         ThreadingHTTPServer(("localhost", 8000), partial(SimpleHTTPRequestHandler, directory=str(SITE))).serve_forever()
     elif args.command == "tts":
         try:
-            _, settings, _, events, model = tts_context(ROOT, args.topic)
-            if args.action == "download":
-                print(f"Model descarregat: {download_voice(ROOT, model)}")
-            elif args.action == "play":
-                path = audio_path(ROOT, args.topic, sample=args.sample)
-                print(f"Reproduint {path}", flush=True)
-                play_audio(path)
+            if args.action in {"check", "inspect", "verify", "publish", "sync"}:
+                store = (LocalStorage(ROOT / "audio/store") if args.backend == "local" else R2Storage.from_env())
+                if args.action == "check":
+                    if args.backend == "r2":
+                        store.check_bucket()
+                    print("Emmagatzematge accessible")
+                elif args.action == "sync":
+                    if args.all == bool(args.topic):
+                        parser.error("Indica un tema o --all")
+                    references = script_references(ROOT) if args.all else [args.topic]
+                    rows = [sync_one(ROOT, reference, store, download=args.download_models) for reference in references
+                            if resolve_config(read_yaml(ROOT / "config/subjects.yml"), reference.split("/")[0],
+                                              read_yaml(topic_folder(CONTENT, reference) / "topic.yml"))["generation"] != "disabled"]
+                    if args.backend == "r2":
+                        for row in rows:
+                            verify_public_audio(row)
+                    write_podcast_manifest(rows, args.manifest)
+                    print(json.dumps(rows, ensure_ascii=False, indent=2))
+                else:
+                    state = resolve_podcast(ROOT, args.topic)
+                    if args.action == "publish":
+                        row = sync_one(ROOT, args.topic, store, local_mp3=args.file)
+                        if args.backend == "r2":
+                            verify_public_audio(row)
+                        print(json.dumps(row, ensure_ascii=False))
+                    else:
+                        record = check_record(store, args.topic, state["hash"])
+                        if record is None:
+                            parser.error("No existeix esta versió")
+                        print(json.dumps(record if args.action == "inspect" else
+                                         {"topic": args.topic, "hash": state["hash"],
+                                          "url": store.url(object_keys(args.topic, state["hash"])[0]), "valid": True},
+                                         ensure_ascii=False, indent=2))
             else:
-                path = audio_path(ROOT, args.topic, sample=args.action == "sample")
-                synthesizer = PiperSynthesizer(model_path(ROOT, model), settings)
-                result = build_audio(events, path, settings, synthesizer, sample=args.action == "sample")
-                print(f"MP3: {result['path']}\nVeu: {model}\nDuració aproximada: {result['duration_estimate']:.1f} s"
-                      f"\nPauses del guió: {result['explicit_pause_count']} ({result['explicit_pause_seconds']:.1f} s)"
-                      f"\nPauses totals: {result['pause_count']} ({result['pause_seconds']:.1f} s)"
-                      f"\nTemps de generació: {result['elapsed_seconds']:.1f} s")
-        except (OSError, KeyError, TypeError, ValueError, yaml.YAMLError) as exc:
+                _, settings, _, events, model = tts_context(ROOT, args.topic)
+                if args.action == "download":
+                    print(f"Model descarregat: {download_voice(ROOT, model)}")
+                elif args.action == "play":
+                    path = audio_path(ROOT, args.topic, sample=args.sample)
+                    print(f"Reproduint {path}", flush=True)
+                    play_audio(path)
+                else:
+                    path = audio_path(ROOT, args.topic, sample=args.action == "sample")
+                    synthesizer = PiperSynthesizer(model_path(ROOT, model), settings)
+                    result = build_audio(events, path, settings, synthesizer, sample=args.action == "sample")
+                    if args.action == "build":
+                        write_local_provenance(ROOT, args.topic, path)
+                    print(f"MP3: {result['path']}\nVeu: {model}\nDuració aproximada: {result['duration_estimate']:.1f} s"
+                          f"\nPauses del guió: {result['explicit_pause_count']} ({result['explicit_pause_seconds']:.1f} s)"
+                          f"\nPauses totals: {result['pause_count']} ({result['pause_seconds']:.1f} s)"
+                          f"\nTemps de generació: {result['elapsed_seconds']:.1f} s")
+        except (OSError, KeyError, TypeError, ValueError, StorageError, yaml.YAMLError) as exc:
             parser.error(str(exc))
     elif args.command == "podcast":
         try:

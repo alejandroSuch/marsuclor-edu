@@ -8,8 +8,8 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: podcast-pages-main
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,12 +18,33 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: '1.6.43'
-      - run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt -r requirements-publish.txt
       - run: python -m unittest discover -s tests
       - run: python scripts/build.py validate
+      - run: npm ci && npm test && npm run typecheck
+        working-directory: infrastructure/cloudflare
+      - name: Prepare bucket and deploy Worker
+        run: npm run bootstrap
+        working-directory: infrastructure/cloudflare
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_BOOTSTRAP_API_TOKEN: ${{ secrets.CLOUDFLARE_BOOTSTRAP_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          MARTINA_AUDIO_BASE_URL: ${{ vars.MARTINA_AUDIO_BASE_URL }}
+      - name: Reuse or synthesize published podcasts
+        run: python scripts/build.py tts sync --all --download-models
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: martina-edu-podcasts
+          MARTINA_AUDIO_BASE_URL: ${{ vars.MARTINA_AUDIO_BASE_URL }}
       - run: python scripts/build.py prepare
       - run: quarto render generated --to html
       - run: python -m playwright install --with-deps chromium

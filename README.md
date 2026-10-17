@@ -96,7 +96,7 @@ python -m unittest discover -s tests
 
 `text` extrae únicamente la voz. `inspect` devuelve metadatos y eventos ordenados de capítulo, voz y pausa en JSON. Para previsualizar, ejecuta el flujo web indicado abajo y después `python scripts/build.py serve`; abre `http://localhost:8000/topics/geografia/1-eso/els-fonaments-del-planeta-terra/podcast.html`. La página muestra capítulos y pausas, y ofrece PDF A4. El guion original sigue disponible como Markdown en `content/`.
 
-Codex genera y revisa el contenido; `scripts/podcast.py` valida y procesa el texto sin IA ni servicios externos; GitHub Actions ejecuta las pruebas, valida, construye y publica la vista web mediante el mismo código. La síntesis TTS local se describe a continuación y no forma parte de la publicación web.
+Codex genera y revisa el contenido; `scripts/podcast.py` valida y procesa el texto sin IA ni servicios externos. GitHub Actions valida y publica la web; para los guiones existentes reutiliza o sintetiza MP3 en R2 mediante la misma CLI local. La configuración inicial se describe en [Publicación de podcasts](docs/podcast-cloudflare.md).
 
 ### Síntesis TTS local de los guiones
 
@@ -112,7 +112,7 @@ python3.12 -m venv .venv-tts
 .venv-tts/bin/python scripts/build.py tts play geografia/1-eso/els-fonaments-del-planeta-terra
 ```
 
-`download` es el único paso que necesita red. Descarga el modelo y su JSON desde el catálogo de voces de Piper a `models/piper/`; `sample`, `build` y `play` funcionan sin red. La muestra selecciona frases completas hasta quedar entre 30 y 45 segundos; su duración exacta depende de la voz. Los MP3 están en `audio/<asignatura>/<curso>/<tema>/sample.mp3` y `podcast.mp3`. `play` usa `afplay` en macOS y busca `ffplay`, `mpg123` o `xdg-open` en Linux. `models/`, `audio/`, `.venv-tts/` y los temporales quedan fuera de Git. La síntesis lee el guion mediante el procesador existente, omite metadatos y títulos, introduce las pausas explícitas y añade las pausas configuradas entre frases y párrafos. No añade otra pausa corta junto a una pausa explícita. FFmpeg une, normaliza en dos pasadas y codifica el MP3.
+`download` es el único paso del flujo **local** que necesita red. Descarga el modelo y su JSON desde el catálogo de voces de Piper a `models/piper/`; `sample`, `build` y `play` funcionan sin red. La muestra selecciona frases completas hasta quedar entre 30 y 45 segundos; su duración exacta depende de la voz. Los MP3 están en `audio/<asignatura>/<curso>/<tema>/sample.mp3` y `podcast.mp3`. `play` usa `afplay` en macOS y busca `ffplay`, `mpg123` o `xdg-open` en Linux. `models/`, `audio/`, `.venv-tts/` y los temporales quedan fuera de Git. La síntesis lee el guion mediante el procesador existente, omite metadatos y títulos, introduce las pausas explícitas y añade las pausas configuradas entre frases y párrafos. No añade otra pausa corta junto a una pausa explícita. FFmpeg une, normaliza en dos pasadas y codifica el MP3.
 
 La configuración `materials.podcast.tts` de `config/subjects.yml` admite `engine`, `voices` por `teaching_language`, `length_scale` (más alto = narración más lenta), `noise_scale`, `noise_w_scale`, `volume`, `audio_format`, `output_sample_rate`, `mp3_bitrate_kbps`, `loudness_lufs`, `true_peak_db`, `sample_seconds`, `sentence_pause_seconds` y `paragraph_pause_seconds`. Para valenciano se eligió `ca_ES-upc_ona-medium` con `length_scale: 1.0`, pausas de frase/párrafo de 0,5/0,8 segundos y objetivo de −20 LUFS. Una asignatura o tema puede sobrescribir campos con el mismo bloque en su `subjects` o `topic.yml`; las entradas de `voices` se combinan por idioma. Los idiomas sin voz configurada producen un error explícito. Piper trabaja en CPU; no se necesita GPU.
 
@@ -150,7 +150,7 @@ docker compose run --rm tts build geografia/1-eso/els-fonaments-del-planeta-terr
 afplay audio/geografia/1-eso/els-fonaments-del-planeta-terra/podcast.mp3
 ```
 
-La descarga inicial del modelo requiere red; `sample` y `build` funcionan después sin ella. Para reproducir, usa el sistema anfitrión: el contenedor no tiene acceso a los altavoces. El servicio web mantiene su comportamiento anterior y no genera TTS automáticamente.
+La descarga inicial del modelo requiere red; `sample` y `build` funcionan después sin ella. Para reproducir, usa el sistema anfitrión: el contenedor no tiene acceso a los altavoces. El servicio web local no requiere Cloudflare.
 
 ### Sin Docker
 
@@ -174,4 +174,22 @@ Abre `site/index.html` o inicia `python -m http.server 8000 -d site`. Los PDF se
 
 `validate` comprueba la lengua y el curso, los identificadores, la cobertura de los objetivos en apuntes, ejercicios y tarjetas, el vocabulario de examen, las fuentes y los diagramas referenciados, y que cada ejercicio tenga respuesta. También comprueba las pistas y respuestas del Pasapalabra y la estructura de los guiones existentes. `verify` comprueba las páginas web por tema, sus PDF A4, las imágenes, las tarjetas interactivas, el orden de anversos y reversos, la revelación de conceptos del Pasapalabra y la vista textual del podcast. Los PDF de ejercicios y del Pasapalabra incluyen un solucionario al final. Estas comprobaciones no sustituyen la revisión pedagógica y visual.
 
-Cada cambio enviado a `main` ejecuta esas comprobaciones en GitHub Actions y publica `site/` en GitHub Pages si terminan correctamente. El repositorio y la web son públicos: no subas fotografías o escaneos con datos personales. Transcribe el contenido necesario y registra el original privado como fuente sin adjuntarlo.
+Cada cambio enviado a `main` ejecuta esas comprobaciones en GitHub Actions, despliega el Worker, reutiliza o genera los audios existentes y publica `site/` en GitHub Pages si todo termina correctamente. El repositorio y la web son públicos: no subas fotografías o escaneos con datos personales. Transcribe el contenido necesario y registra el original privado como fuente sin adjuntarlo.
+
+### Publicación de podcasts en R2
+
+El código del Worker, el bootstrap, los tests y el binding R2 están en `infrastructure/cloudflare/`; el almacenamiento Python está en `scripts/storage/` y la orquestación en `scripts/podcast_publish.py`. Los MP3 se guardan solo en el bucket privado y se sirven por `workers.dev`. La web enlaza únicamente las versiones verificadas del manifiesto temporal `audio/published.json`; no copia MP3 a Pages. La síntesis local anterior sigue funcionando sin credenciales.
+
+Comandos con `requirements-publish.txt` instalado:
+
+```sh
+python scripts/build.py tts check --backend local
+python scripts/build.py tts sync geografia/1-eso/els-fonaments-del-planeta-terra --backend local
+python scripts/build.py tts check --backend r2
+python scripts/build.py tts sync --all --download-models
+python scripts/build.py tts inspect geografia/1-eso/els-fonaments-del-planeta-terra
+python scripts/build.py tts verify geografia/1-eso/els-fonaments-del-planeta-terra
+python scripts/build.py tts publish geografia/1-eso/els-fonaments-del-planeta-terra --file audio/geografia/1-eso/els-fonaments-del-planeta-terra/podcast.mp3
+```
+
+`sync` calcula la huella antes de descargar el modelo. Si encuentra la versión válida, no ejecuta Piper ni FFmpeg ni vuelve a subirla. `tts build` deja junto al MP3 un archivo local `.provenance.json`; `publish` exige esa prueba de procedencia y verifica que el MP3 corresponda a la huella calculada en el entorno actual. Si la versión ya existe, la reutiliza. Los detalles del setup inicial, secretos, recuperación, reconstrucción y costes están en [docs/podcast-cloudflare.md](docs/podcast-cloudflare.md).
