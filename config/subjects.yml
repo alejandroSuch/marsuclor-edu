@@ -4,7 +4,7 @@ subjects:
   frances: {label: "Francès", teaching_language: configurable}
   angles: {label: "Anglès", teaching_language: configurable}
   geografia: {label: "Geografia", teaching_language: ca-valencia}
-  matematiques: {label: "Matemàtiques", teaching_language: es}
+  matematiques: {label: "Matemáticas", teaching_language: es}
   educacio-fisica: {label: "Educació física", teaching_language: configurable}
   llengua-castellana: {label: "Lengua castellana", teaching_language: es}
   musica: {label: "Música", teaching_language: es}

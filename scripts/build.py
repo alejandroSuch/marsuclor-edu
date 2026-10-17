@@ -361,7 +361,7 @@ def prepare():
         "project:\n  type: website\n  output-dir: ../site\n  render:\n    - '*.qmd'\n    - 'courses/**/*.qmd'\n    - 'topics/**/*.qmd'\nwebsite:\n  title: Martina Edu\n"
         "  navbar:\n    left:\n      - href: index.qmd\n        text: Inici\n"
         "format:\n  html:\n    theme: cosmo\n    css: styles/site.css\n    toc: true\n    lang: ca\n"
-        "    include-after-body: styles/cards.js\nexecute:\n  freeze: auto\n",
+        "    include-after-body:\n      - styles/cards.js\n      - styles/navigation.js\nexecute:\n  freeze: auto\n",
         encoding="utf-8",
     )
     subjects = read_yaml(ROOT / "config/subjects.yml")["subjects"]
