@@ -1,0 +1,584 @@
+exercises:
+- id: e01
+  kind: cálculo-escalonado
+  objective_ids:
+  - o1
+  source_ids:
+  - naturales-clase
+  question: 'Calcula por pasos: a) 18 - 4 · 3; b) 7 + 24 : 6; c) 5 · 6 - 8 · 2.'
+  answer: 'a) 18 - 12 = 6.
+
+
+    b) 7 + 4 = 11.
+
+
+    c) 30 - 16 = 14. Primero se hacen los productos y cocientes.'
+  answer_space_mm: 34
+- id: e02
+  kind: paréntesis
+  objective_ids:
+  - o1
+  source_ids:
+  - naturales-clase
+  question: 'Calcula: a) 4 · (9 - 3) + 5; b) 36 : (2 + 4) · 3; c) 50 - 2 · (7 + 8).'
+  answer: 'a) 4 · 6 + 5 = 24 + 5 = 29.
+
+
+    b) 36 : 6 · 3 = 6 · 3 = 18.
+
+
+    c) 50 - 2 · 15 = 50 - 30 = 20.'
+  answer_space_mm: 38
+- id: e03
+  kind: izquierda-a-derecha
+  objective_ids:
+  - o1
+  source_ids:
+  - naturales-clase
+  question: 'Resuelve y explica el orden: a) 48 : 6 · 2; b) 36 : 3 : 2; c) 18 - 7 + 4.'
+  answer: 'a) 48 : 6 = 8; 8 · 2 = 16.
+
+
+    b) 36 : 3 = 12; 12 : 2 = 6.
+
+
+    c) 18 - 7 = 11; 11 + 4 = 15. Las operaciones de la misma prioridad van de izquierda a derecha.'
+  answer_space_mm: 40
+- id: e04
+  kind: corchetes
+  objective_ids:
+  - o1
+  source_ids:
+  - naturales-clase
+  question: 'Calcula: a) 72 : [3 · (5 + 3)]; b) 3 · [20 - (4 + 2) · 2].'
+  answer: 'a) 5 + 3 = 8; 3 · 8 = 24; 72 : 24 = 3.
+
+
+    b) 4 + 2 = 6; 6 · 2 = 12; 20 - 12 = 8; 3 · 8 = 24.'
+  answer_space_mm: 40
+- id: e05
+  kind: detectar-error
+  objective_ids:
+  - o1
+  source_ids:
+  - naturales-clase
+  question: 'Una alumna calcula 30 - 12 : 3 = 18 : 3 = 6. Detecta el primer paso incorrecto y halla el resultado.'
+  answer: 'El primer paso es incorrecto: no se resta antes de dividir. Primero 12 : 3 = 4; después 30 - 4 = 26.'
+  answer_space_mm: 30
+- id: e06
+  kind: completar-paréntesis
+  objective_ids:
+  - o1
+  source_ids:
+  - naturales-clase
+  question: Añade paréntesis a 8 + 4 · 3 para obtener a) 20 y b) 36. Explica la diferencia.
+  answer: 'a) 8 + (4 · 3) = 8 + 12 = 20.
+
+
+    b) (8 + 4) · 3 = 12 · 3 = 36. Los paréntesis cambian qué se opera primero.'
+  answer_space_mm: 30
+- id: e07
+  kind: problema-de-compra
+  objective_ids:
+  - o1
+  source_ids:
+  - naturales-clase
+  question: Para una excursión se compran 7 cajas de 12 botellas y 5 cajas de 8. ¿Cuántas botellas hay? Escribe una sola expresión.
+  answer: 7 · 12 + 5 · 8 = 84 + 40 = 124 botellas. Cada producto cuenta las botellas de un tipo de caja; luego se suman.
+  answer_space_mm: 32
+- id: e08
+  kind: problema-de-reparto
+  objective_ids:
+  - o1
+  source_ids:
+  - naturales-clase
+  question: Hay 96 lápices. Se guardan 24 para clase y los demás se reparten por igual en 6 estuches. ¿Cuántos van en cada estuche?
+  answer: 'Primero quedan 96 - 24 = 72 lápices. Luego 72 : 6 = 12 lápices por estuche. Expresión: (96 - 24) : 6 = 12.'
+  answer_space_mm: 32
+- id: e09
+  kind: ordenar-enteros
+  objective_ids:
+  - o2
+  source_ids:
+  - enteros-clase
+  question: 'Ordena de menor a mayor: +4, -7, 0, -2, +1 y -5.'
+  answer: -7 < -5 < -2 < 0 < +1 < +4. En la recta, los negativos están a la izquierda de 0; entre ellos, el más alejado a la izquierda es menor.
+  answer_space_mm: 26
+- id: e10
+  kind: completar-recta
+  objective_ids:
+  - o2
+  source_ids:
+  - enteros-clase
+  question: Escribe los enteros que hay entre -4 y +3, sin incluir los extremos. ¿Cuántos son?
+  answer: '-3, -2, -1, 0, +1 y +2: son 6. Se avanza una unidad desde -4 hasta llegar antes de +3.'
+  answer_space_mm: 24
+- id: e11
+  kind: opuesto-y-valor-absoluto
+  objective_ids:
+  - o2
+  source_ids:
+  - enteros-clase
+  question: 'Completa para -9, 0 y +6: su opuesto y su valor absoluto.'
+  answer: '-9: opuesto +9 y valor absoluto 9. 0: opuesto 0 y valor absoluto 0. +6: opuesto -6 y valor absoluto 6. El opuesto cambia el signo; el valor absoluto mide la distancia a 0.'
+  answer_space_mm: 34
+- id: e12
+  kind: comparar-distancias
+  objective_ids:
+  - o2
+  source_ids:
+  - enteros-clase
+  question: ¿Cuál está más cerca de 0, -12 o +8? ¿Cuál de los dos números es mayor? Justifica ambas respuestas.
+  answer: '|-12| = 12 y |+8| = 8, por eso +8 está más cerca de 0. También +8 > -12 porque está a su derecha en la recta numérica.'
+  answer_space_mm: 29
+- id: e13
+  kind: traducir-situación
+  objective_ids:
+  - o2
+  source_ids:
+  - enteros-clase
+  question: 'Representa con un entero: a) una deuda de 15 €; b) 4 °C sobre cero; c) 3 plantas bajo la calle; d) ni ganancia ni pérdida.'
+  answer: 'a) -15 € (deuda).
+
+
+    b) +4 °C (sobre cero).
+
+
+    c) -3 (debajo de la planta 0).
+
+
+    d) 0 (sin cambio). El signo indica el lado de la referencia.'
+  answer_space_mm: 29
+- id: e14
+  kind: expresiones-con-signo
+  objective_ids:
+  - o2
+  source_ids:
+  - enteros-clase
+  question: 'Calcula: a) -(-7); b) |+7|; c) |-7|; d) -(+7). ¿Qué parejas tienen el mismo valor?'
+  answer: 'a) +7, porque se toma el opuesto de -7.
+
+
+    b) 7 y c) 7, por distancia a 0.
+
+
+    d) -7, opuesto de +7. a), b) y c) valen 7.'
+  answer_space_mm: 30
+- id: e15
+  kind: verdadero-o-falso
+  objective_ids:
+  - o2
+  source_ids:
+  - enteros-clase
+  question: 'Decide y corrige las falsas: a) |-11| = -11; b) -3 > -8; c) el opuesto de 0 es 0; d) -10 está a 10 unidades de 0.'
+  answer: 'a) Falsa: |-11| = 11; una distancia no es negativa.
+
+
+    b) Verdadera: -3 queda a la derecha de -8.
+
+
+    c) Verdadera.
+
+
+    d) Verdadera: |-10| = 10.'
+  answer_space_mm: 35
+- id: e16
+  kind: sumas-de-enteros
+  objective_ids:
+  - o3
+  source_ids:
+  - enteros-clase
+  question: 'Calcula: a) (-8) + (-5); b) (-12) + (+7); c) (+15) + (-15); d) (-3) + (+10).'
+  answer: 'a) -(8 + 5) = -13.
+
+
+    b) -(12 - 7) = -5: domina el 12 negativo.
+
+
+    c) 0: son opuestos.
+
+
+    d) +(10 - 3) = +7: domina el 10 positivo.'
+  answer_space_mm: 38
+- id: e17
+  kind: restas-de-enteros
+  objective_ids:
+  - o3
+  source_ids:
+  - enteros-clase
+  question: 'Transforma cada resta en suma del opuesto: a) 6 - (-4); b) -7 - (+5); c) -9 - (-12).'
+  answer: 'a) 6 + 4 = 10.
+
+
+    b) -7 + (-5) = -12.
+
+
+    c) -9 + 12 = 3. En cada caso se cambia el signo del segundo número y se suma.'
+  answer_space_mm: 34
+- id: e18
+  kind: cadena-de-sumas
+  objective_ids:
+  - o3
+  source_ids:
+  - enteros-clase
+  question: 'Calcula por pasos: a) -6 + 11 - 4 - 8; b) 9 - 14 + 6 - 3.'
+  answer: 'a) -6 + 11 = 5; 5 - 4 = 1; 1 - 8 = -7.
+
+
+    b) 9 - 14 = -5; -5 + 6 = 1; 1 - 3 = -2.'
+  answer_space_mm: 34
+- id: e19
+  kind: quitar-paréntesis
+  objective_ids:
+  - o3
+  source_ids:
+  - enteros-clase
+  question: 'Calcula de dos formas: 14 - (-5 + 9). Una, resolviendo el paréntesis; otra, quitándolo correctamente.'
+  answer: 'Dentro: -5 + 9 = 4; 14 - 4 = 10. Fuera: 14 + 5 - 9 = 19 - 9 = 10. El signo menos cambia los signos dentro del paréntesis.'
+  answer_space_mm: 38
+- id: e20
+  kind: producto-y-cociente
+  objective_ids:
+  - o3
+  source_ids:
+  - enteros-clase
+  question: 'Calcula y señala el signo antes del valor: a) (-6) · (+4); b) (-7) · (-3); c) (+36) : (-9); d) (-48) : (-6).'
+  answer: 'a) Signos distintos: -(6 · 4) = -24.
+
+
+    b) Iguales: +(7 · 3) = 21.
+
+
+    c) Distintos: -(36 : 9) = -4.
+
+
+    d) Iguales: +(48 : 6) = 8.'
+  answer_space_mm: 38
+- id: e21
+  kind: productos-sucesivos
+  objective_ids:
+  - o3
+  source_ids:
+  - enteros-clase
+  question: 'Calcula: a) (-2) · (-3) · (-4); b) (-5) · (+2) · (-3); c) (-1) · (-1) · (-1) · (-1).'
+  answer: 'a) (-2) · (-3) = +6; 6 · (-4) = -24.
+
+
+    b) (-5) · 2 = -10; -10 · (-3) = +30.
+
+
+    c) Dos pares de negativos dan (+1) · (+1) = +1.'
+  answer_space_mm: 36
+- id: e22
+  kind: operaciones-combinadas
+  objective_ids:
+  - o3
+  source_ids:
+  - enteros-clase
+  question: 'Calcula: a) 7 - 3 · (-4); b) (-24) : 6 + 9; c) -5 + (-2) · 8.'
+  answer: 'a) 3 · (-4) = -12; 7 - (-12) = 19.
+
+
+    b) -24 : 6 = -4; -4 + 9 = 5.
+
+
+    c) (-2) · 8 = -16; -5 - 16 = -21.'
+  answer_space_mm: 37
+- id: e23
+  kind: paréntesis-y-corchetes
+  objective_ids:
+  - o3
+  source_ids:
+  - enteros-clase
+  question: 'Calcula: (-3) · [7 - (10 - 4)] + 5.'
+  answer: Primero 10 - 4 = 6; después [7 - 6] = 1; luego (-3) · 1 = -3; por último -3 + 5 = 2.
+  answer_space_mm: 34
+- id: e24
+  kind: cociente-anidado
+  objective_ids:
+  - o3
+  source_ids:
+  - enteros-clase
+  question: 'Resuelve: (-60) : [(-2) · (8 - 3)]. Comprueba el divisor antes de dividir.'
+  answer: '8 - 3 = 5; (-2) · 5 = -10, que no es 0; (-60) : (-10) = +6. Signos iguales dan positivo.'
+  answer_space_mm: 34
+- id: e25
+  kind: detectar-error-de-signos
+  objective_ids:
+  - o3
+  source_ids:
+  - enteros-clase
+  question: 'Un alumno escribe -12 : (-3) = -4. Explica el error y comprueba la solución mediante una multiplicación.'
+  answer: 'Dos signos negativos en una división dan positivo: -12 : (-3) = +4. Comprobación: (+4) · (-3) = -12.'
+  answer_space_mm: 30
+- id: e26
+  kind: problema-de-temperatura
+  objective_ids:
+  - o3
+  source_ids:
+  - enteros-clase
+  question: A las 8:00 hay -4 °C. La temperatura sube 7 °C y luego baja 5 °C. ¿Cuál es la temperatura final?
+  answer: 'Se parte de -4. Tras subir: -4 + 7 = +3 °C. Tras bajar: 3 - 5 = -2 °C. Expresión: -4 + 7 - 5 = -2 °C.'
+  answer_space_mm: 32
+- id: e27
+  kind: problema-de-saldo
+  objective_ids:
+  - o3
+  source_ids:
+  - enteros-clase
+  question: Una cuenta tiene una deuda de 18 €. Se ingresan 25 € y se pagan 9 €. ¿Qué saldo queda?
+  answer: 'La deuda es -18 €. Después del ingreso: -18 + 25 = +7 €. Tras pagar: 7 - 9 = -2 €. Queda una deuda de 2 €.'
+  answer_space_mm: 32
+- id: e28
+  kind: encontrar-número
+  objective_ids:
+  - o3
+  source_ids:
+  - enteros-clase
+  question: 'Completa y justifica: a) □ + (-8) = -3; b) (-4) · □ = +20; c) □ : (-6) = -5.'
+  answer: 'a) □ = +5 porque 5 - 8 = -3.
+
+
+    b) □ = -5 porque (-4) · (-5) = +20.
+
+
+    c) □ = +30 porque 30 : (-6) = -5.'
+  answer_space_mm: 37
+- id: e29
+  kind: operaciones-combinadas
+  objective_ids:
+  - o1
+  source_ids: &id001
+  - naturales-clase
+  question: 'Calcula: a) 90 - 6 · (8 + 2); b) 4 · (15 - 9) + 18 : 3; c) 64 : (12 - 4) + 7 · 2.'
+  answer: 'a) 8 + 2 = 10; 6 · 10 = 60; 90 - 60 = 30.
+
+
+    b) 15 - 9 = 6; 4 · 6 = 24 y 18 : 3 = 6; 24 + 6 = 30.
+
+
+    c) 12 - 4 = 8; 64 : 8 = 8 y 7 · 2 = 14; 8 + 14 = 22.'
+  answer_space_mm: 42
+- id: e30
+  kind: corchetes-anidados
+  objective_ids:
+  - o1
+  source_ids: *id001
+  question: 'Resuelve: a) 120 : [5 · (7 - 3)]; b) 2 · [30 - 3 · (4 + 2)]; c) 81 : [3 · (6 - 3)].'
+  answer: 'a) 7 - 3 = 4; 5 · 4 = 20; 120 : 20 = 6.
+
+
+    b) 4 + 2 = 6; 3 · 6 = 18; 30 - 18 = 12; 2 · 12 = 24.
+
+
+    c) 6 - 3 = 3; 3 · 3 = 9; 81 : 9 = 9.'
+  answer_space_mm: 42
+- id: e31
+  kind: comparar-expresiones
+  objective_ids:
+  - o1
+  source_ids: *id001
+  question: 'Sin cambiar los números, compara 12 + 6 : 3 y (12 + 6) : 3. ¿Por qué no dan lo mismo?'
+  answer: 'Sin paréntesis: 6 : 3 = 2; 12 + 2 = 14. Con paréntesis: 12 + 6 = 18; 18 : 3 = 6. Son distintos porque el paréntesis altera la primera operación.'
+  answer_space_mm: 32
+- id: e32
+  kind: detectar-error-de-orden
+  objective_ids:
+  - o1
+  source_ids: *id001
+  question: 'Se propone 48 : 4 · 3 = 48 : 12 = 4. Localiza el error y corrige el cálculo.'
+  answer: 'División y multiplicación tienen la misma prioridad: se hacen de izquierda a derecha. Primero 48 : 4 = 12; luego 12 · 3 = 36. El 4 propuesto no corresponde a la expresión dada.'
+  answer_space_mm: 31
+- id: e33
+  kind: elegir-paréntesis
+  objective_ids:
+  - o1
+  source_ids: *id001
+  question: 'Coloca paréntesis en 24 : 4 + 2 para obtener a) 8 y b) 4. Muestra las cuentas.'
+  answer: 'a) (24 : 4) + 2 = 6 + 2 = 8.
+
+
+    b) 24 : (4 + 2) = 24 : 6 = 4. En a) también se obtiene 8 sin paréntesis, pero se han colocado para señalar el orden.'
+  answer_space_mm: 32
+- id: e34
+  kind: problema-de-material
+  objective_ids:
+  - o1
+  source_ids: *id001
+  question: Una clase recibe 6 paquetes de 15 folios y usa 38. Después reparte los restantes entre 4 grupos por igual. ¿Cuántos folios recibe cada grupo?
+  answer: 'Llegan 6 · 15 = 90 folios. Quedan 90 - 38 = 52. Reparto: 52 : 4 = 13 folios por grupo. Expresión: (6 · 15 - 38) : 4 = 13.'
+  answer_space_mm: 38
+- id: e35
+  kind: problema-de-asientos
+  objective_ids:
+  - o1
+  source_ids: *id001
+  question: En un salón hay 8 filas de 12 sillas. Se ocupan 57. ¿Cuántas sillas quedan libres?
+  answer: 'Capacidad: 8 · 12 = 96 sillas. Libres: 96 - 57 = 39 sillas. La multiplicación cuenta todas las plazas antes de restar las ocupadas.'
+  answer_space_mm: 30
+- id: e36
+  kind: problema-de-cajas
+  objective_ids:
+  - o1
+  source_ids: *id001
+  question: Hay 144 galletas. Se apartan 24 y el resto se guarda en cajas de 10. ¿Cuántas cajas completas se llenan y cuántas galletas sobran?
+  answer: 'Se guardan 144 - 24 = 120 galletas. 120 : 10 = 12, resto 0. Se llenan 12 cajas completas y no sobra ninguna galleta de las 120 destinadas a las cajas.'
+  answer_space_mm: 32
+- id: e37
+  kind: comparar-enteros
+  objective_ids:
+  - o2
+  source_ids: &id002
+  - enteros-clase
+  question: 'Escribe <, > o =: a) -6 □ -1; b) |-6| □ |-1|; c) -(-6) □ +6; d) 0 □ -9. Justifica.'
+  answer: 'a) -6 < -1 porque está más a la izquierda.
+
+
+    b) 6 > 1 porque esas son las distancias a 0.
+
+
+    c) +6 = +6, pues el opuesto de -6 es +6.
+
+
+    d) 0 > -9.'
+  answer_space_mm: 32
+- id: e38
+  kind: distancias-en-recta
+  objective_ids:
+  - o2
+  source_ids: *id002
+  question: ¿A qué distancia de 0 están -13 y +5? ¿Qué distancia hay entre ambos números?
+  answer: 'Distancias a 0: |-13| = 13 y |+5| = 5. Entre -13 y +5 se recorren 13 unidades hasta 0 y 5 más hasta +5: 13 + 5 = 18 unidades.'
+  answer_space_mm: 32
+- id: e39
+  kind: ordenar-situaciones
+  objective_ids:
+  - o2
+  source_ids: *id002
+  question: Un termómetro marca -3 °C, otro +2 °C y otro -8 °C. Ordénalos de menor a mayor y di cuál está más cerca de 0.
+  answer: 'Orden: -8 °C < -3 °C < +2 °C. Distancias a 0: 8, 3 y 2; por tanto +2 °C es el más cercano a 0.'
+  answer_space_mm: 28
+- id: e40
+  kind: encontrar-enteros
+  objective_ids:
+  - o2
+  source_ids: *id002
+  question: Escribe todos los enteros cuyo valor absoluto es a) 4; b) 0. ¿Puede |x| valer -2?
+  answer: 'a) +4 y -4: ambos están a 4 unidades de 0.
+
+
+    b) Solo 0. No puede valer -2 porque el valor absoluto mide una distancia y nunca es negativo.'
+  answer_space_mm: 31
+- id: e41
+  kind: opuestos-encadenados
+  objective_ids:
+  - o2
+  source_ids: *id002
+  question: 'Calcula: a) -(-(-5)); b) -[ -(+6) ]; c) |-(+9)|. Escribe un paso intermedio en cada caso.'
+  answer: 'a) -(-5) = +5 y -(+5) = -5.
+
+
+    b) -(+6) = -6 y -[-6] = +6.
+
+
+    c) -(+9) = -9 y |-9| = 9. Cada signo menos externo pide el opuesto.'
+  answer_space_mm: 34
+- id: e42
+  kind: suma-con-agrupación
+  objective_ids:
+  - o3
+  source_ids: *id002
+  question: 'Calcula agrupando positivos y negativos: a) -8 + 5 - 7 + 12; b) 14 - 9 - 6 + 3.'
+  answer: 'a) Positivos: 5 + 12 = 17; negativos: -8 - 7 = -15; total 17 - 15 = 2.
+
+
+    b) Positivos: 14 + 3 = 17; negativos: -9 - 6 = -15; total 17 - 15 = 2.'
+  answer_space_mm: 37
+- id: e43
+  kind: restar-paréntesis
+  objective_ids:
+  - o3
+  source_ids: *id002
+  question: 'Resuelve de dos maneras: 5 - (-8 + 3 - 6).'
+  answer: 'Dentro: -8 + 3 - 6 = -11; 5 - (-11) = 16. Quitando paréntesis: 5 + 8 - 3 + 6 = 13 - 3 + 6 = 16. El menos exterior cambia todos los signos.'
+  answer_space_mm: 36
+- id: e44
+  kind: cadena-producto-cociente
+  objective_ids:
+  - o3
+  source_ids: *id002
+  question: 'Calcula de izquierda a derecha: a) (-72) : (-8) · (-3); b) (-5) · (+6) : (-2); c) (+48) : (-6) : (+2).'
+  answer: 'a) (-72) : (-8) = +9; 9 · (-3) = -27.
+
+
+    b) (-5) · 6 = -30; -30 : (-2) = +15.
+
+
+    c) 48 : (-6) = -8; -8 : 2 = -4. Producto y cociente tienen igual prioridad.'
+  answer_space_mm: 40
+- id: e45
+  kind: operaciones-con-corchetes
+  objective_ids:
+  - o3
+  source_ids: *id002
+  question: 'Calcula: a) (-4) · [(-3) + (+7)]; b) (+30) : [(-2) - (-7)]; c) 12 - [(-5) · (-2)].'
+  answer: 'a) -3 + 7 = 4; -4 · 4 = -16.
+
+
+    b) -2 - (-7) = -2 + 7 = 5; 30 : 5 = 6.
+
+
+    c) (-5) · (-2) = 10; 12 - 10 = 2.'
+  answer_space_mm: 39
+- id: e46
+  kind: operaciones-anidadas
+  objective_ids:
+  - o3
+  source_ids: *id002
+  question: 'Resuelve: a) 18 - (-2) · [5 - (9 - 7)]; b) (-36) : [4 - (10 - 8)].'
+  answer: 'a) 9 - 7 = 2; 5 - 2 = 3; (-2) · 3 = -6; 18 - (-6) = 24.
+
+
+    b) 10 - 8 = 2; 4 - 2 = 2; -36 : 2 = -18.'
+  answer_space_mm: 38
+- id: e47
+  kind: detectar-error-de-parentesis
+  objective_ids:
+  - o3
+  source_ids: *id002
+  question: Una alumna escribe 6 - (-4 + 2) = 6 + 4 + 2 = 12. Explica el error y resuelve correctamente.
+  answer: 'El menos exterior cambia el signo de ambos términos: 6 - (-4 + 2) = 6 + 4 - 2 = 8. Comprobación por dentro: -4 + 2 = -2; 6 - (-2) = 8.'
+  answer_space_mm: 32
+- id: e48
+  kind: problema-de-saldo
+  objective_ids:
+  - o3
+  source_ids: *id002
+  question: Un saldo inicial es -12 €. Se realizan tres cargos de 4 € cada uno y luego un ingreso de 30 €. ¿Cuál es el saldo final?
+  answer: 'Tres cargos son 3 · (-4) = -12 €. Saldo tras cargos: -12 - 12 = -24 €. Tras el ingreso: -24 + 30 = +6 €. Quedan 6 € a favor.'
+  answer_space_mm: 34
+- id: e49
+  kind: problema-de-ascensor
+  objective_ids:
+  - o3
+  source_ids: *id002
+  question: Un ascensor está en la planta -2. Sube 7 plantas, baja 9 y vuelve a subir 3. ¿En qué planta termina?
+  answer: 'Comienza en -2. Sube: -2 + 7 = +5. Baja: 5 - 9 = -4. Sube: -4 + 3 = -1. Termina en la planta -1.'
+  answer_space_mm: 34
+- id: e50
+  kind: reto-mixto
+  objective_ids:
+  - o1
+  - o3
+  source_ids:
+  - naturales-clase
+  - enteros-clase
+  question: 'Calcula sin saltarte pasos: a) 3 · (8 - 11) + 24 : 6; b) 40 - [6 · (3 + 5) - 10]; c) (-2) · [(-7) + (+4)] - 12 : (-3).'
+  answer: 'a) 8 - 11 = -3; 3 · (-3) = -9 y 24 : 6 = 4; -9 + 4 = -5.
+
+
+    b) 3 + 5 = 8; 6 · 8 = 48; 48 - 10 = 38; 40 - 38 = 2.
+
+
+    c) -7 + 4 = -3; (-2) · (-3) = 6 y 12 : (-3) = -4; 6 - (-4) = 10.'
+  answer_space_mm: 48

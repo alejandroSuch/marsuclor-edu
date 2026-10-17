@@ -1,0 +1,39 @@
+sections:
+  - title: "1. Naturales: orden de cálculo"
+    objective_ids: [o1]
+    source_ids: [naturales-clase]
+    body: >-
+      Primero **paréntesis y corchetes** (de dentro hacia fuera); después
+      **multiplicaciones y divisiones** de izquierda a derecha; al final,
+      **sumas y restas** de izquierda a derecha. Ejemplo:
+      18 - 3 · (4 + 1) = 18 - 3 · 5 = 18 - 15 = 3.
+      En una división, el divisor nunca puede ser 0.
+  - title: "2. Enteros: orden y opuesto"
+    objective_ids: [o2]
+    source_ids: [enteros-clase]
+    body: >-
+      En la recta numérica, cuanto más a la derecha, mayor es el número:
+      -7 < -2 < 0 < 4. El **opuesto** cambia el signo: el opuesto de -5 es +5.
+  - title: "3. Valor absoluto y operaciones con enteros"
+    objective_ids: [o2, o3]
+    source_ids: [enteros-clase]
+    body: |-
+      El **valor absoluto** de un entero es su distancia a 0, sin signo:
+      |-4| = 4 y |+3| = 3.
+
+      Para sumar enteros del mismo signo, suma esos valores y conserva el
+      signo: (-4) + (-3) = -(4 + 3) = -7.
+      Con signos distintos, resta valores absolutos y toma el signo del mayor
+      en valor absoluto. Restar equivale a sumar el opuesto:
+      4 - (-3) = 4 + 3 = 7. En productos y divisiones, signos iguales dan
+      **positivo** y distintos dan **negativo**. Respeta también la jerarquía
+      del apartado 1; por ejemplo, -3 · (2 - 5) = -3 · (-3) = 9.
+study_tips:
+  - "Haz las operaciones por líneas y deja visible cada paso."
+  - "En problemas, escribe primero qué representa cada número y termina con la unidad."
+  - "Marca los ejercicios que falles y repítelos sin mirar la solución."
+self_check:
+  - "Resuelvo operaciones combinadas con naturales y enteros sin saltarme pasos."
+  - "Distingo número, opuesto y valor absoluto, y justifico el orden en la recta."
+  - "Sé resolver una misma expresión con paréntesis, corchetes y signos."
+  - "Sé detectar y corregir errores de orden de operaciones y de signos."

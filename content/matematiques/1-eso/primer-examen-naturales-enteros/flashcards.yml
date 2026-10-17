@@ -1,0 +1,11 @@
+cards:
+  - {id: c01, objective_ids: [o1], source_ids: [naturales-clase], front: "¿Qué se calcula antes: 6 + 2 · 5?", back: "El producto: 6 + 10 = 16."}
+  - {id: c02, objective_ids: [o1], source_ids: [naturales-clase], front: "En 24 : 3 · 2, ¿en qué dirección se opera?", back: "De izquierda a derecha: 24 : 3 = 8 y 8 · 2 = 16."}
+  - {id: c03, objective_ids: [o2], source_ids: [enteros-clase], front: "¿Cuál es el opuesto de -8?", back: "+8: está a la misma distancia de 0, al otro lado."}
+  - {id: c04, objective_ids: [o2], source_ids: [enteros-clase], front: "¿Cuál es el valor absoluto de -8?", back: "8, la distancia entre -8 y 0."}
+  - {id: c05, objective_ids: [o3], source_ids: [enteros-clase], front: "¿Qué ocurre al restar un número negativo?", back: "Se suma su opuesto: 5 - (-3) = 5 + 3 = 8."}
+  - {id: c06, objective_ids: [o3], source_ids: [enteros-clase], front: "¿Qué signo tiene el producto de dos negativos?", back: "Positivo: (-4) · (-3) = +12."}
+  - {id: c07, objective_ids: [o1], source_ids: [naturales-clase], front: "¿Qué cambia en 8 + 4 · 3 frente a (8 + 4) · 3?", back: "Sin paréntesis vale 20; con ellos, 36. El paréntesis obliga a sumar primero."}
+  - {id: c08, objective_ids: [o2], source_ids: [enteros-clase], front: "¿Cuál es mayor, -2 o -9?", back: "-2, porque queda más a la derecha en la recta numérica."}
+  - {id: c09, objective_ids: [o3], source_ids: [enteros-clase], front: "¿Cuánto vale (-18) : (-3) y por qué?", back: "+6: signos iguales dan positivo y 18 : 3 = 6."}
+  - {id: c10, objective_ids: [o3], source_ids: [enteros-clase], front: "¿Cómo empezarías -4 · [6 - (9 - 5)]?", back: "Por el paréntesis interior: 9 - 5 = 4; después el corchete, 6 - 4 = 2."}

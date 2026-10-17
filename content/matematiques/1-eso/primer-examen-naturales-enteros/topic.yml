@@ -1,0 +1,37 @@
+title: "Matemáticas · Primer examen: naturales y enteros"
+course: 1-eso
+subject: matematiques
+teaching_language: es
+status: "Práctica ajustada a los ejercicios de clase aportados"
+intro: >-
+  Repaso práctico de 1.º de ESO centrado en lo que se ha trabajado en los ejercicios
+  aportados: operaciones con naturales y enteros. Lee el recordatorio mínimo,
+  resuelve en papel y consulta después el procedimiento del solucionario.
+objectives:
+  - {id: o1, text: "Calcular con números naturales y respetar la jerarquía de operaciones."}
+  - {id: o2, text: "Situar, comparar e interpretar enteros, opuestos y valores absolutos."}
+  - {id: o3, text: "Operar con enteros y resolver expresiones combinadas y problemas sencillos."}
+sources:
+  - id: criterios
+    type: private-class-notes
+    title: "Criterios de calificación de Matemáticas, 1.º de ESO, página 1 del PDF familiar"
+    note: "Se usan para orientar la práctica y mostrar pasos; el escaneo privado no se publica."
+  - id: programa
+    type: private-class-notes
+    title: "Listado manuscrito de contenidos por evaluación, página 2 del PDF familiar"
+    note: "La primera evaluación enumera varios bloques, pero la práctica para este primer examen se limita a los desarrollados en las páginas siguientes."
+  - id: naturales-clase
+    type: private-class-notes
+    title: "Cuaderno de clase: operaciones combinadas y problemas con naturales, páginas 3-8 del PDF familiar"
+    note: "Referencia privada; ejercicios nuevos redactados a partir de las destrezas trabajadas."
+  - id: enteros-clase
+    type: private-class-notes
+    title: "Cuaderno de clase: enteros, valor absoluto, opuesto y operaciones, páginas 9-20 del PDF familiar"
+    note: "Referencia privada; algunas cuentas manuscritas parecen contener errores o correcciones y no se reproducen como soluciones."
+source_note: >-
+  El PDF original permanece fuera del repositorio público. La primera página explica
+  la evaluación y la segunda enumera los contenidos de toda la primera evaluación.
+  La familia ha precisado que para este primer examen se prepara solo aquello de lo
+  que hay ejercicios en las páginas 3-20: naturales y enteros. Divisibilidad,
+  potencias y raíces quedan fuera de este material. Los ejercicios, soluciones y
+  tarjetas son originales. No se reproducen nombres ni imágenes privadas.
