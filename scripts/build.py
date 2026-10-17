@@ -240,13 +240,12 @@ def page_header(topic, course, section):
         frontmatter(f"{section} · {topic['title']}", language)
         + f"**{esc(course_label(course, topic['teaching_language']))} · {esc(topic['title'])}**\n\n"
         + f"::: {{.callout-note}}\n{esc(topic['intro'])}\n:::\n\n"
-        + f'<button class="print-button" onclick="window.print()">{ui(language, "print")}</button>\n\n'
     )
 
 
 def pdf_link(relative: Path, filename: str, language: str) -> str:
     target = "../../../../pdf/" + relative.as_posix() + "/" + filename + ".pdf"
-    return f'<p class="pdf-link"><a href="{esc(target)}">{ui(language, "download")}</a></p>\n\n'
+    return f'<p class="pdf-link"><a class="download-button" href="{esc(target)}">{ui(language, "download")}</a></p>\n\n'
 
 
 def diagram_markup(diagrams_by_id, diagram_id: str, blank: bool = False) -> str:
@@ -299,6 +298,12 @@ def vocabulary_markup(vocabulary, language: str):
 
 def prepare():
     validate()
+    if SITE.exists():
+        for child in SITE.iterdir():
+            if child.is_dir():
+                shutil.rmtree(child)
+            else:
+                child.unlink()
     if GENERATED.exists():
         for child in GENERATED.iterdir():
             if child.is_dir():
@@ -355,13 +360,12 @@ def prepare():
         base += f"::: {{.source-list}}\n## {ui(language, 'sources')}\n\n" + source_list(topic) + "\n\n" + esc(topic.get("source_note", "")) + "\n\n:::\n"
         (dest / "notes.qmd").write_text(base, encoding="utf-8")
         exercise_page = page_header(topic, course, ui(language, "exercises")) + pdf_link(rel, "exercises", language) + nav + "\n\n"
-        solution_page = page_header(topic, course, ui(language, "solutions")) + pdf_link(rel, "solutions", language) + nav + "\n\n"
+        solution_page = f'::: {{.print-solutions}}\n## {ui(language, "solutions")}\n\n'
         for n, row in enumerate(exercises["exercises"], 1):
-            exercise_page += f"::: {{.exercise}}\n### {ui(language, 'exercise')} {n}\n\n{esc(row['question'])}\n\n"
+            exercise_page += f"::: {{.exercise style=\"--answer-space:{row.get('answer_space_mm', 30)}mm\"}}\n### {ui(language, 'exercise')} {n}\n\n{esc(row['question'])}\n\n"
             solution_page += (
                 f"::: {{.key-item}}\n### {ui(language, 'exercise')} {n}\n\n"
-                f"::: {{.solution-prompt}}\n**{ui(language, 'prompt')}**\n\n{esc(row['question'])}\n\n:::\n\n"
-                f"::: {{.solution-answer}}\n**{ui(language, 'answer')}**\n\n"
+                f"::: {{.solution-answer}}\n"
             )
             if row.get("diagram_id"):
                 exercise_page += diagram_markup(diagrams_by_id, row["diagram_id"], blank=True)
@@ -370,10 +374,10 @@ def prepare():
             if row.get("diagram_id"):
                 exercise_page += diagram_markup(diagrams_by_id, row["diagram_id"])
             exercise_page += '</details>\n\n'
-            exercise_page += f'<div class="answer-space" style="min-height:{row.get("answer_space_mm", 30)}mm"></div>\n\n:::\n\n'
+            exercise_page += ':::\n\n'
             solution_page += f"{esc(row['answer'])}\n\n:::\n\n:::\n\n"
+        exercise_page += solution_page + ':::\n'
         (dest / "exercises.qmd").write_text(exercise_page, encoding="utf-8")
-        (dest / "solutions.qmd").write_text(solution_page, encoding="utf-8")
         card_page = page_header(topic, course, ui(language, "cards")) + pdf_link(rel, "cards", language) + nav + "\n\n"
         card_page += ui(language, "card_instruction") + "\n\n"
         card_page += '<div class="card-grid web-cards">\n'
@@ -435,6 +439,8 @@ def verify():
     pages = sorted((SITE / "topics").rglob("*.html"))
     if not pages:
         raise SystemExit("Falten pàgines HTML")
+    if len(pages) != 3 * len(topics()) or any(page.name not in {"notes.html", "exercises.html", "cards.html"} for page in pages):
+        raise SystemExit("El nombre de pàgines web per tema no és correcte")
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
         for page_path in pages:
@@ -463,11 +469,15 @@ def verify():
                 exercise_count = len(read_yaml(folder / "exercises.yml")["exercises"])
                 if page.locator(".exercise").count() != exercise_count or page.locator(".exercise-solution").count() != exercise_count:
                     raise SystemExit("Falten exercicis o solucions en l'HTML")
+                if page.locator(".answer-space, .print-button").count() or page.locator(".print-solutions").evaluate("element => getComputedStyle(element).display") != "none":
+                    raise SystemExit("L'HTML mostra elements reservats al PDF")
+                if page.locator(".exercise").first.evaluate("element => getComputedStyle(element).borderBottomStyle") == "none":
+                    raise SystemExit("Falta la separació entre exercicis")
                 first_solution = page.locator(".exercise-solution").first
                 first_solution.locator("summary").click()
                 if not first_solution.evaluate("element => element.open"):
                     raise SystemExit("La solució no es mostra en fer clic")
-            if page_path.name == "solutions.html":
+            if page_path.name == "exercises.html":
                 items = page.locator(".key-item")
                 exercise_count = len(read_yaml(folder / "exercises.yml")["exercises"])
                 if items.count() != exercise_count:
@@ -476,7 +486,7 @@ def verify():
                     item = items.nth(number - 1)
                     if (
                         item.locator("h3").inner_text() != f"{ui(read_yaml(folder / 'topic.yml')['teaching_language'], 'exercise')} {number}"
-                        or item.locator(".solution-prompt").count() != 1
+                        or item.locator(".solution-prompt").count() != 0
                         or item.locator(".solution-answer").count() != 1
                         or item.evaluate("element => getComputedStyle(element).borderBottomStyle") == "none"
                     ):

@@ -70,6 +70,6 @@ Abre `site/index.html` o inicia `python -m http.server 8000 -d site`. Los PDF se
 
 ## Validación y publicación
 
-`validate` comprueba la lengua y el curso, los identificadores, la cobertura de los objetivos en apuntes, ejercicios y tarjetas, el vocabulario de examen, las fuentes y los diagramas referenciados, y que cada ejercicio tenga respuesta. `verify` comprueba las cuatro páginas web por tema, sus PDF A4, las imágenes, las tarjetas interactivas y el orden de anversos y reversos. Estas comprobaciones no sustituyen la revisión pedagógica y visual.
+`validate` comprueba la lengua y el curso, los identificadores, la cobertura de los objetivos en apuntes, ejercicios y tarjetas, el vocabulario de examen, las fuentes y los diagramas referenciados, y que cada ejercicio tenga respuesta. `verify` comprueba las tres páginas web por tema, sus PDF A4, las imágenes, las tarjetas interactivas y el orden de anversos y reversos. El PDF de ejercicios incluye el solucionario al final. Estas comprobaciones no sustituyen la revisión pedagógica y visual.
 
 Cada cambio enviado a `main` ejecuta esas comprobaciones en GitHub Actions y publica `site/` en GitHub Pages si terminan correctamente. El repositorio y la web son públicos: no subas fotografías o escaneos con datos personales. Transcribe el contenido necesario y registra el original privado como fuente sin adjuntarlo.
