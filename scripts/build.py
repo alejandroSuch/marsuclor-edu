@@ -15,6 +15,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import yaml
+from podcast import parse_script, resolve_config, should_generate, spoken_text, topic_folder
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content"
@@ -70,14 +71,24 @@ def unaccented(value: str) -> str:
 
 
 def validate():
-    subjects = read_yaml(ROOT / "config/subjects.yml")["subjects"]
+    config = read_yaml(ROOT / "config/subjects.yml")
+    subjects = config["subjects"]
     errors = []
+    for subject in subjects:
+        try:
+            resolve_config(config, subject, {})
+        except ValueError as exc:
+            errors.append(f"config/subjects.yml ({subject}): {exc}")
     if not topics():
         errors.append("No hi ha cap tema")
     for path in topics():
         label = str(path.relative_to(ROOT))
         try:
             topic, notes, exercises, cards = data_for(path)
+            policy = resolve_config(config, path.parts[-4], topic)
+            script = path.parent / "podcast" / "script.md"
+            if script.exists():
+                parse_script(script, topic, policy)
             vocabulary, diagrams = optional_data(path.parent)
             pasapalabra = pasapalabra_data(path.parent)
             subject, course, slug = path.parts[-4:-1]
@@ -242,6 +253,7 @@ def natural_key(value: str):
 
 UI = {
     "ca-valencia": {
+        "podcast": "Pòdcast", "pause": "Pausa per a pensar",
         "notes": "Apunts", "exercises": "Exercicis", "solutions": "Solucionari",
         "cards": "Targetes", "pasapalabra": "Pasapalabra", "objectives": "Objectius",
         "study_tips": "Com estudiar-ho", "self_check": "Comprovació final",
@@ -257,6 +269,7 @@ UI = {
         "write_answer": "Resposta", "answer_key": "Solucionari del Pasapalabra",
     },
     "es": {
+        "podcast": "Podcast", "pause": "Pausa para pensar",
         "notes": "Apuntes", "exercises": "Ejercicios", "solutions": "Solucionario",
         "cards": "Tarjetas", "pasapalabra": "Pasapalabra", "objectives": "Objetivos",
         "study_tips": "Cómo estudiarlo", "self_check": "Comprobación final",
@@ -364,12 +377,16 @@ def prepare():
         "    include-after-body:\n      - styles/cards.js\n      - styles/navigation.js\nexecute:\n  freeze: auto\n",
         encoding="utf-8",
     )
-    subjects = read_yaml(ROOT / "config/subjects.yml")["subjects"]
+    config = read_yaml(ROOT / "config/subjects.yml")
+    subjects = config["subjects"]
     index_topics = {}
     for path in topics():
         topic, notes, exercises, cards = data_for(path)
         vocabulary, diagrams = optional_data(path.parent)
         pasapalabra = pasapalabra_data(path.parent)
+        policy = resolve_config(config, path.parts[-4], topic)
+        script_path = path.parent / "podcast" / "script.md"
+        podcast = parse_script(script_path, topic, policy) if script_path.exists() else None
         diagrams_by_id = {entry["id"]: entry for entry in diagrams["diagrams"]} if diagrams else {}
         subject, course, slug = path.parts[-4:-1]
         language = topic["teaching_language"]
@@ -380,6 +397,8 @@ def prepare():
         materials = [(ui(language, key), key) for key in ("notes", "exercises", "cards")]
         if pasapalabra:
             materials.append((ui(language, "pasapalabra"), "pasapalabra"))
+        if podcast:
+            materials.append((ui(language, "podcast"), "podcast"))
         course_path = Path("courses") / subject / course / "index.qmd"
         nav = (
             '<div class="material-nav">\n\n'
@@ -387,7 +406,7 @@ def prepare():
             + " | ".join(f"[{name}]({file}.qmd)" for name, file in materials)
             + '\n\n</div>'
         )
-        index_topics.setdefault(subject, {}).setdefault(course, []).append((topic["title"], language, rel, bool(pasapalabra)))
+        index_topics.setdefault(subject, {}).setdefault(course, []).append((topic["title"], language, rel, bool(pasapalabra), bool(podcast)))
         base = page_header(topic, course, ui(language, "notes")) + pdf_link(rel, "notes", language) + nav + f"\n\n## {ui(language, 'objectives')}\n\n"
         base += "\n".join(f"- {esc(o['text'])}" for o in topic["objectives"]) + "\n\n"
         for row in notes["sections"]:
@@ -478,6 +497,18 @@ def prepare():
                 game += '</ol></div>\n'
             game += '</section>\n'
             (dest / "pasapalabra.qmd").write_text(game, encoding="utf-8")
+        if podcast:
+            preview = frontmatter(f"{ui(language, 'podcast')} · {topic['title']}", language)
+            preview += pdf_link(rel, "podcast", language) + nav + "\n\n"
+            preview += f"<p>{esc(podcast['metadata']['title'])} · {esc(podcast['metadata']['estimated_duration_minutes'])} min</p>\n\n"
+            for event in podcast["events"]:
+                if event["type"] == "chapter":
+                    preview += f"## {esc(event['title'])}\n\n"
+                elif event["type"] == "speech":
+                    preview += f"<p>{esc(event['text'])}</p>\n\n"
+                else:
+                    preview += f"<p class=\"podcast-pause\">{ui(language, 'pause')}: {event['duration_seconds']:g} s</p>\n\n"
+            (dest / "podcast.qmd").write_text(preview, encoding="utf-8")
     index = frontmatter("Martina Edu", toc=False) + "Materials per a estudiar en línia i imprimir en A4.\n\n## Assignatures\n\n"
     ordered_subjects = sorted(index_topics, key=lambda subject: subjects[subject]["label"].casefold())
     index += '<div class="subject-index">\n'
@@ -492,9 +523,11 @@ def prepare():
             title = f"{label} · {course_label(course, language)}"
             course_page = frontmatter(title, language, toc=False)
             course_page += f"[← {ui(language, 'all_subjects')}](../../../index.qmd)\n\n"
-            for topic_title, topic_language, rel, has_pasapalabra in rows:
+            for topic_title, topic_language, rel, has_pasapalabra, has_podcast in rows:
                 course_page += f"::: {{.topic-entry}}\n## {esc(topic_title)}\n\n"
                 material_keys = ("notes", "exercises", "cards", "pasapalabra") if has_pasapalabra else ("notes", "exercises", "cards")
+                if has_podcast:
+                    material_keys += ("podcast",)
                 course_page += " | ".join(
                     f"[{ui(topic_language, key)}](../../../{rel.as_posix()}/{key}.qmd)"
                     for key in material_keys
@@ -539,12 +572,13 @@ def verify():
         subject, course, _ = path.parts[-4:-1]
         course_topics[(subject, course)] = course_topics.get((subject, course), 0) + 1
         has_pasapalabra = (path.parent / "pasapalabra.yml").exists()
-        course_links[(subject, course)] = course_links.get((subject, course), 0) + 3 + int(has_pasapalabra)
-        extra_pages += int(has_pasapalabra)
+        has_podcast = (path.parent / "podcast" / "script.md").exists()
+        course_links[(subject, course)] = course_links.get((subject, course), 0) + 3 + int(has_pasapalabra) + int(has_podcast)
+        extra_pages += int(has_pasapalabra) + int(has_podcast)
     pages = sorted((SITE / "topics").rglob("*.html"))
     if not pages:
         raise SystemExit("Falten pàgines HTML")
-    if len(pages) != 3 * len(topics()) + extra_pages or any(page.name not in {"notes.html", "exercises.html", "cards.html", "pasapalabra.html"} for page in pages):
+    if len(pages) != 3 * len(topics()) + extra_pages or any(page.name not in {"notes.html", "exercises.html", "cards.html", "pasapalabra.html", "podcast.html"} for page in pages):
         raise SystemExit("El nombre de pàgines web per tema no és correcte")
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
@@ -572,6 +606,18 @@ def verify():
         for page_path in pages:
             page = browser.new_page()
             page.goto(page_path.resolve().as_uri(), wait_until="load")
+            relative = page_path.relative_to(SITE).parts
+            folder = CONTENT.joinpath(*relative[1:-1])
+            if page_path.name == "podcast.html":
+                topic = read_yaml(folder / "topic.yml")
+                policy = resolve_config(read_yaml(ROOT / "config/subjects.yml"), relative[1], topic)
+                parsed = parse_script(folder / "podcast" / "script.md", topic, policy)
+                chapter_count = sum(event["type"] == "chapter" for event in parsed["events"])
+                pause_count = sum(event["type"] == "pause" for event in parsed["events"])
+                if page.locator("main h2").count() < chapter_count or page.locator(".podcast-pause").count() != pause_count:
+                    raise SystemExit(f"Vista del pòdcast incompleta: {page_path}")
+                if page.locator("main").inner_text().find(next(event["text"] for event in parsed["events"] if event["type"] == "speech")) < 0:
+                    raise SystemExit(f"Text narrat absent: {page_path}")
             links = page.locator('a[href$=".pdf"]')
             if links.count() != 1:
                 raise SystemExit(f"Enllaç PDF absent o duplicat: {page_path}")
@@ -589,8 +635,6 @@ def verify():
                 "images => images.every(image => image.complete && image.naturalWidth > 0)"
             ):
                 raise SystemExit(f"Diagrama absent a {page_path}")
-            relative = page_path.relative_to(SITE).parts
-            folder = CONTENT.joinpath(*relative[1:-1])
             if page_path.name == "exercises.html":
                 exercise_count = len(read_yaml(folder / "exercises.yml")["exercises"])
                 if page.locator(".exercise").count() != exercise_count or page.locator(".exercise-solution").count() != exercise_count:
@@ -658,6 +702,45 @@ def verify():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("command", choices=["validate", "prepare", "pdf", "verify"])
-    command = parser.parse_args().command
-    {"validate": validate, "prepare": prepare, "pdf": pdf, "verify": verify}[command]()
+    commands = parser.add_subparsers(dest="command", required=True)
+    for name in ("validate", "prepare", "pdf", "verify", "serve"):
+        commands.add_parser(name)
+    podcast_command = commands.add_parser("podcast", help="Inspecció i validació de guions")
+    podcast_actions = podcast_command.add_subparsers(dest="action", required=True)
+    for name in ("validate", "text", "inspect", "policy"):
+        action = podcast_actions.add_parser(name)
+        action.add_argument("topic", help="assignatura/curs/tema")
+        if name == "policy":
+            action.add_argument("--all-materials", action="store_true")
+            action.add_argument("--explicit", action="store_true")
+    args = parser.parse_args()
+    if args.command == "serve":
+        from functools import partial
+        from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+
+        if not (SITE / "index.html").exists():
+            parser.error("Genera primer la web amb prepare i quarto render")
+        print("Previsualització: http://localhost:8000", flush=True)
+        ThreadingHTTPServer(("localhost", 8000), partial(SimpleHTTPRequestHandler, directory=str(SITE))).serve_forever()
+    elif args.command == "podcast":
+        try:
+            folder = topic_folder(CONTENT, args.topic)
+            topic = read_yaml(folder / "topic.yml")
+            policy = resolve_config(read_yaml(ROOT / "config/subjects.yml"), args.topic.split("/")[0], topic)
+            if args.action == "policy":
+                exists = (folder / "podcast" / "script.md").exists()
+                print(json.dumps({**policy, "generate": should_generate(policy, all_materials=args.all_materials,
+                                                                          explicit=args.explicit, script_exists=exists),
+                                  "script_exists": exists}, ensure_ascii=False, indent=2))
+            else:
+                parsed = parse_script(folder / "podcast" / "script.md", topic, policy)
+                if args.action == "validate":
+                    print(f"Guió vàlid: {args.topic}")
+                elif args.action == "text":
+                    print(spoken_text(parsed))
+                else:
+                    print(json.dumps(parsed, ensure_ascii=False, indent=2))
+        except (OSError, KeyError, TypeError, ValueError, yaml.YAMLError) as exc:
+            parser.error(str(exc))
+    else:
+        {"validate": validate, "prepare": prepare, "pdf": pdf, "verify": verify}[args.command]()

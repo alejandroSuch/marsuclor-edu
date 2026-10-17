@@ -1,10 +1,12 @@
+materials:
+  podcast: {generation: on_demand, format: narration, duration_minutes: 12}
 subjects:
-  valencia: {label: "Valencià", teaching_language: ca-valencia}
-  biologia: {label: "Biologia", teaching_language: ca-valencia}
+  valencia: {label: "Valencià", teaching_language: ca-valencia, materials: {podcast: {generation: default}}}
+  biologia: {label: "Biologia", teaching_language: ca-valencia, materials: {podcast: {generation: default}}}
   frances: {label: "Francès", teaching_language: configurable}
   angles: {label: "Anglès", teaching_language: configurable}
-  geografia: {label: "Geografia", teaching_language: ca-valencia}
+  geografia: {label: "Geografia", teaching_language: ca-valencia, materials: {podcast: {generation: default}}}
   matematiques: {label: "Matemáticas", teaching_language: es}
   educacio-fisica: {label: "Educació física", teaching_language: configurable}
-  llengua-castellana: {label: "Lengua castellana", teaching_language: es}
+  llengua-castellana: {label: "Lengua castellana", teaching_language: es, materials: {podcast: {generation: default}}}
   musica: {label: "Música", teaching_language: es}

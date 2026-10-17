@@ -1,10 +1,12 @@
 ---
 name: generar-materiales
-description: Crear o actualizar apuntes, ejercicios y solucionario de Martina Edu a partir de una petición cotidiana y material disponible.
+description: Crear o actualizar apuntes, ejercicios, solucionario y guiones de podcast de Martina Edu a partir de una petición cotidiana y material disponible.
 ---
 
 Resuelve los detalles técnicos con `AGENTS.md`, el archivo local de asignatura, `config/subjects.yml` y el modelo de `content/`; no pidas a la familia rutas, formatos o comandos. Si hay adjuntos o una guía externa, aplica antes `importar-materiales`.
 
 Para un tema nuevo, define objetivos y fuentes, incorpora la teoría disponible y redacta ejercicios variados con una solución inequívoca para cada uno. Asegura espacio de respuesta en A4 y usa diagramas reutilizables cuando permitan aprender o evaluar un objetivo. Para un tema existente, identifica el cambio pedido y conserva los bloques, identificadores y respuestas no afectados; actualiza solo las referencias y actividades que dependen del cambio. No conviertas una corrección localizada en una nueva redacción general.
+
+Para un podcast, localiza el tema y consulta `python scripts/build.py podcast policy <asignatura>/<curso>/<tema> --all-materials` si se piden todos los materiales, o `--explicit` si se pide el guion. Aplica su resultado: `default` lo incluye al crear todos los materiales, `on_demand` solo ante petición explícita y `disabled` lo impide hasta cambiar la configuración. Si ya hay guion, consérvalo salvo actualización pedida o cambios relevantes de la teoría. Si se pide solo el podcast, modifica únicamente `podcast/script.md`. Redáctalo desde `notes.yml`, objetivos y vocabulario validados, con el nivel del curso y `teaching_language` del tema; en idiomas distingue la lengua estudiada de la de explicación. Transforma la teoría en narración clara, ejemplos fieles, preguntas con pausas y recapitulación; describe verbalmente lo visual. Usa el formato del README y conserva `source_ids` y `objective_ids` en los metadatos. Comprueba el resultado con `podcast validate`, `podcast text` y `podcast inspect`. La duración es orientativa y no justifica relleno.
 
 Ejecuta el flujo de validación, generación web/PDF y verificación del `README.md`; comprueba visualmente las páginas imprimibles afectadas. Explica qué cambió, qué fuente lo respalda y cualquier corrección de contenido que requiera revisión.

@@ -45,9 +45,12 @@ h1, h2 { color: #164c5b; }
 .pasapalabra-reveal summary { width: fit-content; cursor: pointer; color: #0e6762; font-weight: 600; }
 .pasapalabra-answer { display: inline-block; margin-top: .35rem; padding: .3rem .55rem; border-radius: .3rem; background: var(--soft); }
 .pasapalabra-write, .pasapalabra-key { display: none; }
+.podcast-pause { display: inline-block; padding: .25rem .55rem; border-left: 3px solid var(--accent); background: var(--soft); color: #31505b; font-size: .9rem; }
 @page { size: A4; margin: 15mm; }
 @media print {
   body { font-size: 10.5pt; color: #000; }
+  body:has(.podcast-pause) { font-size: 10pt; line-height: 1.35; }
+  body:has(.podcast-pause) h2 { margin-top: 1rem; }
   nav, .navbar, .sidebar, .toc-active, #TOC, .quarto-title-banner, .pdf-link, .material-nav, .page-footer, .callout-note { display: none !important; }
   main { width: 100%; max-width: none; margin: 0; padding: 0; }
   h2, h3 { break-after: avoid; }
