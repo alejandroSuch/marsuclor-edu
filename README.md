@@ -140,6 +140,18 @@ docker compose up --build
 
 La validación, la generación y los PDF se ejecutan antes de abrir [http://localhost:8000](http://localhost:8000). Para incorporar cambios, detén el proceso y ejecuta `docker compose up` otra vez. Los archivos generados viven en volúmenes de Docker; `docker compose down -v` los elimina. La primera construcción descarga Quarto y Chromium y puede tardar unos minutos.
 
+La síntesis TTS también puede ejecutarse en Docker sin arrancar la web. El servicio opcional `tts` instala Piper y FFmpeg en una imagen aparte y deja modelos y MP3 en las carpetas locales `models/` y `audio/`:
+
+```sh
+docker compose build tts
+docker compose run --rm tts download geografia/1-eso/els-fonaments-del-planeta-terra
+docker compose run --rm tts sample geografia/1-eso/els-fonaments-del-planeta-terra
+docker compose run --rm tts build geografia/1-eso/els-fonaments-del-planeta-terra
+afplay audio/geografia/1-eso/els-fonaments-del-planeta-terra/podcast.mp3
+```
+
+La descarga inicial del modelo requiere red; `sample` y `build` funcionan después sin ella. Para reproducir, usa el sistema anfitrión: el contenedor no tiene acceso a los altavoces. El servicio web mantiene su comportamiento anterior y no genera TTS automáticamente.
+
 ### Sin Docker
 
 Se necesitan Python 3.11+, Quarto 1.6+ y Chromium de Playwright para los PDF.

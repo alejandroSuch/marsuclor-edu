@@ -8,6 +8,16 @@ services:
       - .:/app:ro
       - generated:/app/generated
       - site:/app/site
+  tts:
+    profiles: [tts]
+    build:
+      context: .
+      dockerfile: Dockerfile.tts
+    init: true
+    volumes:
+      - .:/app:ro
+      - ./models:/app/models
+      - ./audio:/app/audio
 
 volumes:
   generated:
