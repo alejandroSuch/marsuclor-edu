@@ -1,6 +1,6 @@
 # Martina Edu
 
-Materiales de estudio por asignatura, curso y tema. El contenido editable vive en `content/`; Quarto genera la web y Chromium imprime las mismas páginas en PDF A4. El primer tema completo, *Els fonaments del planeta Terra* (Geografía, 1.º ESO), sirve para comprobar el recorrido completo del generador.
+Materiales de estudio por asignatura, curso y tema. La portada muestra las asignaturas y sus cursos disponibles; cada curso tiene una página con los temas y enlaces a apuntes, ejercicios y tarjetas. El contenido editable vive en `content/`; Quarto genera la web y Chromium imprime las mismas páginas en PDF A4. El primer tema completo, *Els fonaments del planeta Terra* (Geografía, 1.º ESO), sirve para comprobar el recorrido completo del generador.
 
 ## Pedir materiales desde Codex
 

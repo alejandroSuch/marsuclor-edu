@@ -214,7 +214,8 @@ UI = {
         "card_instruction": "Prem una targeta per veure la resposta. Per al PDF A4, imprimix a doble cara, amb gir pel costat llarg i escala del 100 %; els reversos estan reflectits horitzontalment per a retallar.",
         "card_action": "Prem per veure la resposta", "blank_diagram": "Esquema sense etiquetes",
         "vocabulary": "Vocabulari de l'examen", "support_terms": "Altres termes de suport",
-        "review_tips": "Trucs de repàs",
+        "review_tips": "Trucs de repàs", "topic_index": "Torna als temes",
+        "all_subjects": "Totes les assignatures",
     },
     "es": {
         "notes": "Apuntes", "exercises": "Ejercicios", "solutions": "Solucionario",
@@ -226,7 +227,8 @@ UI = {
         "card_instruction": "Pulsa una tarjeta para ver la respuesta. Para el PDF A4, imprime a doble cara, girando por el borde largo y al 100 % de escala; los reversos están reflejados horizontalmente para recortar.",
         "card_action": "Pulsa para ver la respuesta", "blank_diagram": "Esquema sin etiquetas",
         "vocabulary": "Vocabulario del examen", "support_terms": "Otros términos de apoyo",
-        "review_tips": "Trucos de repaso",
+        "review_tips": "Trucos de repaso", "topic_index": "Volver a los temas",
+        "all_subjects": "Todas las asignaturas",
     },
 }
 
@@ -315,7 +317,7 @@ def prepare():
         GENERATED.mkdir()
     shutil.copytree(ROOT / "styles", GENERATED / "styles")
     (GENERATED / "_quarto.yml").write_text(
-        "project:\n  type: website\n  output-dir: ../site\n  render:\n    - '*.qmd'\n    - 'topics/**/*.qmd'\nwebsite:\n  title: Martina Edu\n"
+        "project:\n  type: website\n  output-dir: ../site\n  render:\n    - '*.qmd'\n    - 'courses/**/*.qmd'\n    - 'topics/**/*.qmd'\nwebsite:\n  title: Martina Edu\n"
         "  navbar:\n    left:\n      - href: index.qmd\n        text: Inici\n"
         "format:\n  html:\n    theme: cosmo\n    css: styles/site.css\n    toc: true\n    lang: ca\n"
         "    include-after-body: styles/cards.js\nexecute:\n  freeze: auto\n",
@@ -334,10 +336,14 @@ def prepare():
         dest.mkdir(parents=True)
         copy_diagrams(path.parent, dest, diagrams)
         materials = [(ui(language, key), key) for key in ("notes", "exercises", "cards")]
-        nav = '<div class="material-nav">\n\n' + " | ".join(
-            f"[{name}]({file}.qmd)" for name, file in materials
-        ) + '\n\n</div>'
-        index_topics.setdefault(subject, []).append((course, topic["title"], language, rel))
+        course_path = Path("courses") / subject / course / "index.qmd"
+        nav = (
+            '<div class="material-nav">\n\n'
+            + f"[← {ui(language, 'topic_index')}](../../../../{course_path.as_posix()}) · "
+            + " | ".join(f"[{name}]({file}.qmd)" for name, file in materials)
+            + '\n\n</div>'
+        )
+        index_topics.setdefault(subject, {}).setdefault(course, []).append((topic["title"], language, rel))
         base = page_header(topic, course, ui(language, "notes")) + pdf_link(rel, "notes", language) + nav + f"\n\n## {ui(language, 'objectives')}\n\n"
         base += "\n".join(f"- {esc(o['text'])}" for o in topic["objectives"]) + "\n\n"
         for row in notes["sections"]:
@@ -405,25 +411,29 @@ def prepare():
         (dest / "cards.qmd").write_text(card_page, encoding="utf-8")
     index = frontmatter("Martina Edu", toc=False) + "Materials per a estudiar en línia i imprimir en A4.\n\n## Assignatures\n\n"
     ordered_subjects = sorted(index_topics, key=lambda subject: subjects[subject]["label"].casefold())
-    index += '<nav class="subject-index" aria-label="Assignatures">\n'
+    index += '<div class="subject-index">\n'
     for subject in ordered_subjects:
         label = subjects[subject]["label"]
-        count = len(index_topics[subject])
-        index += (
-            f'<a href="#subject-{subject}"><strong>{esc(label)}</strong> '
-            f'<span>{count} {"tema" if count == 1 else "temes"}</span></a>\n'
-        )
-    index += "</nav>\n\n"
-    for subject in ordered_subjects:
-        index += f"## {esc(subjects[subject]['label'])} {{#subject-{subject}}}\n\n"
-        rows = sorted(index_topics[subject], key=lambda row: (int(row[0].split("-")[0]), natural_key(row[1])))
-        for course, title, language, rel in rows:
-            index += f"::: {{.topic-entry}}\n### {esc(title)}\n\n"
-            index += f'<p class="topic-course">{esc(course_label(course, language))}</p>\n\n'
-            index += " | ".join(
-                f"[{ui(language, key)}]({rel.as_posix()}/{key}.qmd)"
-                for key in ("notes", "exercises", "cards")
-            ) + "\n\n:::\n\n"
+        index += f'<section class="subject-entry"><h3>{esc(label)}</h3><ul>\n'
+        for course in sorted(index_topics[subject], key=lambda value: int(value.split("-")[0])):
+            rows = sorted(index_topics[subject][course], key=lambda row: natural_key(row[0]))
+            language = rows[0][1]
+            course_rel = Path("courses") / subject / course
+            index += f'<li><a class="course-link" href="{course_rel.as_posix()}/index.html">{esc(course_label(course, language))}</a></li>\n'
+            title = f"{label} · {course_label(course, language)}"
+            course_page = frontmatter(title, language, toc=False)
+            course_page += f"[← {ui(language, 'all_subjects')}](../../../index.qmd)\n\n"
+            for topic_title, topic_language, rel in rows:
+                course_page += f"::: {{.topic-entry}}\n## {esc(topic_title)}\n\n"
+                course_page += " | ".join(
+                    f"[{ui(topic_language, key)}](../../../{rel.as_posix()}/{key}.qmd)"
+                    for key in ("notes", "exercises", "cards")
+                ) + "\n\n:::\n\n"
+            course_dest = GENERATED / course_rel
+            course_dest.mkdir(parents=True, exist_ok=True)
+            (course_dest / "index.qmd").write_text(course_page, encoding="utf-8")
+        index += "</ul></section>\n"
+    index += "</div>\n"
     (GENERATED / "index.qmd").write_text(index, encoding="utf-8")
     print(f"Preparades {len(topics())} pàgines de tema per a Quarto.")
 
@@ -452,6 +462,10 @@ def verify():
     from playwright.sync_api import sync_playwright
     from pypdf import PdfReader
 
+    course_topics = {}
+    for path in topics():
+        subject, course, _ = path.parts[-4:-1]
+        course_topics[(subject, course)] = course_topics.get((subject, course), 0) + 1
     pages = sorted((SITE / "topics").rglob("*.html"))
     if not pages:
         raise SystemExit("Falten pàgines HTML")
@@ -459,6 +473,27 @@ def verify():
         raise SystemExit("El nombre de pàgines web per tema no és correcte")
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
+        home = browser.new_page()
+        home.goto((SITE / "index.html").resolve().as_uri(), wait_until="load")
+        if (
+            home.locator(".subject-entry").count() != len({subject for subject, _ in course_topics})
+            or home.locator(".course-link").count() != len(course_topics)
+            or home.locator(".topic-entry").count()
+        ):
+            raise SystemExit("L'índex principal no mostra assignatures i cursos correctament")
+        for (subject, course), topic_count in course_topics.items():
+            link = f"courses/{subject}/{course}/index.html"
+            if home.locator(f'.course-link[href="{link}"]').count() != 1:
+                raise SystemExit(f"Falta el curs {subject}/{course} a l'índex principal")
+            course_page = browser.new_page()
+            course_page.goto((SITE / link).resolve().as_uri(), wait_until="load")
+            if (
+                course_page.locator(".topic-entry").count() != topic_count
+                or course_page.locator(".topic-entry p a").count() != 3 * topic_count
+            ):
+                raise SystemExit(f"Falten temes o enllaços a {subject}/{course}")
+            course_page.close()
+        home.close()
         for page_path in pages:
             page = browser.new_page()
             page.goto(page_path.resolve().as_uri(), wait_until="load")
@@ -528,7 +563,7 @@ def verify():
                         raise SystemExit(f"Anversos i reversos desalineats al full {sheet_number + 1}")
             page.close()
         browser.close()
-    print(f"Verificades {len(pages)} pàgines, PDF i targetes interactives.")
+    print(f"Verificades {len(pages)} pàgines de tema, {len(course_topics)} índexs de curs, PDF i targetes interactives.")
 
 
 if __name__ == "__main__":
