@@ -14,8 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from tts import (PiperSynthesizer, apply_pronunciations, audio_path, build_audio,
                  context, paced_events, play_audio, resolve_tts_config, resolve_voice,
-                 run_command, silence_wav, wav_duration)  # noqa: E402
-from tts_compare import comparison_excerpt, profile_plan  # noqa: E402
+                 run_command, silence_wav, validate_wav_parts, wav_duration)  # noqa: E402
 
 
 class FakeSynthesizer:
@@ -99,6 +98,19 @@ class TTSTests(unittest.TestCase):
             with wave.open(str(output), "rb") as sound:
                 self.assertEqual(set(sound.readframes(sound.getnframes())), {0})
 
+    def test_wav_parts_require_a_consistent_format(self):
+        with tempfile.TemporaryDirectory() as temp:
+            first = Path(temp) / "first.wav"
+            second = Path(temp) / "second.wav"
+            FakeSynthesizer().synthesize("test", first)
+            with wave.open(str(second), "wb") as sound:
+                sound.setnchannels(1)
+                sound.setsampwidth(2)
+                sound.setframerate(2000)
+                sound.writeframes(b"\x00\x00" * 2000)
+            with self.assertRaisesRegex(ValueError, "formats diferents"):
+                validate_wav_parts([first, second])
+
     def test_audio_build_and_error_handling_without_piper(self):
         with tempfile.TemporaryDirectory() as temp:
             output = Path(temp) / "podcast.mp3"
@@ -153,24 +165,6 @@ class TTSTests(unittest.TestCase):
             with patch("tts.sys.platform", "darwin"), patch("tts.run_command") as call:
                 play_audio(path)
                 call.assert_called_once_with(["afplay", str(path)])
-
-    def test_comparison_uses_one_unchanged_paragraph_for_every_profile(self):
-        folder, settings, topic, _, _ = context(ROOT, self.ref)
-        policy = yaml.safe_load((ROOT / "config/subjects.yml").read_text())["materials"]["podcast"]
-        excerpt = comparison_excerpt(folder, topic, policy, "Girar sobre si mateixa")
-        self.assertTrue(excerpt.startswith("La Terra fa dos moviments principals."))
-        self.assertIn("vint-i-quatre hores", excerpt)
-        self.assertNotIn("##", excerpt)
-        profiles = profile_plan(settings)
-        self.assertEqual(len({profile["name"] for profile in profiles}), len(profiles))
-        self.assertEqual(profiles[0]["model"], "ca_ES-upc_ona-medium")
-        self.assertEqual(profiles[0]["settings"]["loudness_lufs"], -20)
-        self.assertEqual(profiles[5]["settings"]["loudness_lufs"], -18)
-        self.assertEqual(profiles[-1]["model"], "ca_ES-upc_pau-x_low")
-        self.assertTrue(all(profile["settings"]["audio_format"] == "mp3" for profile in profiles))
-        with self.assertRaisesRegex(ValueError, "No existeix"):
-            comparison_excerpt(folder, topic, policy, "Capítol absent")
-
 
 @unittest.skipUnless(os.getenv("MARTINA_TTS_INTEGRATION") == "1", "Integració Piper optativa")
 class PiperIntegrationTests(unittest.TestCase):

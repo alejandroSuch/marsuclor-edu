@@ -2,11 +2,9 @@
 
 from __future__ import annotations
 
-import math
 import json
 import re
 import shutil
-import struct
 import subprocess
 import sys
 import tempfile
@@ -138,26 +136,17 @@ def silence_wav(path: Path, seconds: float, example: Path) -> None:
             frames -= count
 
 
-def max_boundary_jump_dbfs(parts: list[Path]) -> float:
-    """Measure the largest sample discontinuity at WAV joins (a click risk)."""
-    largest = 0
-    previous_last = None
+def validate_wav_parts(parts: list[Path]) -> None:
+    """Ensure every WAV can be concatenated without changing audio format."""
     expected_format = None
     for path in parts:
         with wave.open(str(path), "rb") as sound:
             audio_format = (sound.getnchannels(), sound.getsampwidth(), sound.getframerate())
-            if audio_format[0:2] != (1, 2):
-                raise ValueError("Els fragments TTS han de ser PCM mono de 16 bits")
-            if expected_format is not None and audio_format != expected_format:
-                raise ValueError("Els fragments TTS tenen formats diferents")
-            expected_format = audio_format
-            first = struct.unpack("<h", sound.readframes(1))[0]
-            sound.setpos(sound.getnframes() - 1)
-            last = struct.unpack("<h", sound.readframes(1))[0]
-        if previous_last is not None:
-            largest = max(largest, abs(first - previous_last))
-        previous_last = last
-    return 20 * math.log10(largest / 32768) if largest else float("-inf")
+        if audio_format[0:2] != (1, 2):
+            raise ValueError("Els fragments TTS han de ser PCM mono de 16 bits")
+        if expected_format is not None and audio_format != expected_format:
+            raise ValueError("Els fragments TTS tenen formats diferents")
+        expected_format = audio_format
 
 
 def paced_events(events: list[dict], settings: dict) -> list[dict]:
@@ -202,9 +191,9 @@ class PiperSynthesizer:
             self.voice.synthesize_wav(text, target, syn_config=self.syn_config)
 
 
-def run_command(command: list[str], *, cwd: Path | None = None) -> subprocess.CompletedProcess:
+def run_command(command: list[str]) -> subprocess.CompletedProcess:
     try:
-        return subprocess.run(command, cwd=cwd, check=True, capture_output=True, text=True)
+        return subprocess.run(command, check=True, capture_output=True, text=True)
     except FileNotFoundError as exc:
         raise ValueError(f"No s'ha trobat {command[0]}. Instal·la la dependència local.") from exc
     except subprocess.CalledProcessError as exc:
@@ -301,12 +290,11 @@ def build_audio(events: list[dict], output: Path, settings: dict, synthesizer,
                 explicit_pause_seconds -= last_event["duration_seconds"]
         if not parts or (sample and not 30 <= speech_seconds + pause_seconds <= 45):
             raise ValueError("No es pot crear una mostra de 30–45 segons amb frases completes")
-        boundary_jump_dbfs = max_boundary_jump_dbfs(parts)
+        validate_wav_parts(parts)
         encode_mp3(parts, output, settings, runner=runner)
     return {"path": output, "duration_estimate": speech_seconds + pause_seconds,
             "pause_seconds": pause_seconds, "pause_count": pause_count,
             "explicit_pause_count": explicit_pause_count, "explicit_pause_seconds": explicit_pause_seconds,
-            "max_boundary_jump_dbfs": boundary_jump_dbfs,
             "elapsed_seconds": time.monotonic() - start}
 
 

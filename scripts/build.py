@@ -721,14 +721,11 @@ if __name__ == "__main__":
             action.add_argument("--explicit", action="store_true")
     tts_command = commands.add_parser("tts", help="Síntesi local de pòdcasts amb Piper i FFmpeg")
     tts_actions = tts_command.add_subparsers(dest="action", required=True)
-    for name in ("download", "sample", "build", "play", "compare"):
+    for name in ("download", "sample", "build", "play"):
         action = tts_actions.add_parser(name)
         action.add_argument("topic", help="assignatura/curs/tema")
         if name == "play":
             action.add_argument("--sample", action="store_true", help="Reproduïx la mostra en lloc del pòdcast")
-        if name == "compare":
-            action.add_argument("--chapter", required=True, help="Títol del capítol del guió")
-            action.add_argument("--paragraph-index", type=int, default=0, help="Paràgraf del capítol, des de zero")
     args = parser.parse_args()
     if args.command == "serve":
         from functools import partial
@@ -743,9 +740,6 @@ if __name__ == "__main__":
             _, settings, _, events, model = tts_context(ROOT, args.topic)
             if args.action == "download":
                 print(f"Model descarregat: {download_voice(ROOT, model)}")
-            elif args.action == "compare":
-                from tts_compare import generate_comparison
-                print(f"Comparació: {generate_comparison(ROOT, args.topic, args.chapter, args.paragraph_index)}")
             elif args.action == "play":
                 path = audio_path(ROOT, args.topic, sample=args.sample)
                 print(f"Reproduint {path}", flush=True)
