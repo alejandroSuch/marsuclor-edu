@@ -4,8 +4,8 @@ h1, h2 { color: #164c5b; }
 .download-button { display: inline-block; border-radius: .4rem; background: var(--accent); color: white; padding: .65rem 1rem; margin: .3rem 0; text-decoration: none; font-weight: 600; }
 .download-button:hover, .download-button:focus { color: white; background: #0f625e; }
 .subject-index { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .8rem; margin: 1rem 0 2rem; }
-.subject-entry { padding: .85rem 1rem; border: 1px solid #d5e1e4; border-radius: .5rem; }
-.subject-entry h3 { margin: 0 0 .7rem; }
+.subject-entry { display: flex; flex-direction: column; justify-content: flex-start; padding: .85rem 1rem; border: 1px solid #d5e1e4; border-radius: .5rem; }
+.subject-entry h3 { min-height: 2lh; margin: 0 0 .7rem; }
 .subject-entry ul { list-style: none; margin: 0; padding: 0; }
 .subject-entry li + li { margin-top: .5rem; }
 .subject-entry a.course-link { display: block; padding: .55rem .75rem; border: 1px solid #b8d8d3; border-radius: .4rem; background: var(--soft); text-decoration: none; }
