@@ -46,6 +46,8 @@ Por ejemplo, 500 episodios con dos versiones medias a 128 kbps ocuparían 11,52 
 
 [Workers Caching](https://developers.cloudflare.com/workers/cache/configuration/) funciona en `workers.dev` con activación explícita. Cloudflare elimina `Range` antes de invocar un Worker cacheable, almacena el `200` completo y devuelve `206` desde la caché; un `206` generado por el Worker no se almacena. El manejo actual de rangos sigue como respaldo para invocaciones directas. Vitest y Wrangler dry-run validan código/configuración, pero no demuestran un `HIT` real; medir `Cf-Cache-Status` tras desplegar.
 
+Una primera petición de rango con caché fría puede leer el MP3 completo para llenar la caché, en vez de solo el fragmento. Para los episodios actuales (~11 MB) cabe holgadamente bajo el límite documentado de caché de respuesta del plan Free (512 MB); la salida R2 no se factura por bytes. Medir latencia y tasa de aciertos antes de atribuir ahorro de operaciones. [Límites de respuesta Workers](https://developers.cloudflare.com/workers/platform/limits/).
+
 ## Operación automatizada y diagnóstico
 
 ```sh
