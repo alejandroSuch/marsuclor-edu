@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import shutil
+from datetime import datetime, timezone
 from pathlib import Path
 
 from . import InconsistentObject, sha256_file
@@ -23,6 +24,16 @@ class LocalStorage:
             return None
         digest_path = path.with_name(path.name + ".sha256")
         return {"size": path.stat().st_size, "sha256": digest_path.read_text() if digest_path.exists() else None}
+
+    def list_objects(self, prefix: str = "podcasts/"):
+        base = self.root / prefix
+        if not base.exists():
+            return
+        for path in sorted(base.rglob("*")):
+            if path.is_file() and not path.name.endswith(".sha256"):
+                yield {"key": path.relative_to(self.root).as_posix(), "size": path.stat().st_size,
+                       "last_modified": datetime.fromtimestamp(path.stat().st_mtime, timezone.utc).isoformat(),
+                       "storage_class": "STANDARD"}
 
     def read(self, key: str) -> bytes:
         return self._path(key).read_bytes()

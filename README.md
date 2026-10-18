@@ -205,6 +205,8 @@ Cada cambio enviado a `main` ejecuta esas comprobaciones en GitHub Actions, desp
 
 ### Publicación de podcasts en R2
 
+El inventario y los avisos semanales de capacidad se documentan en [I+D de almacenamiento de podcasts](docs/podcast-storage-rd.md). Usa `python scripts/build.py storage stats --backend r2 --manifest https://alejandrosuch.github.io/marsuclor-edu/podcast-manifest.json` para consultar capacidad y desglose; `storage list`, `storage versions <tema>` y `storage retention` inspeccionan versiones sin modificar objetos. Añade `--format json` para automatizaciones. `storage retention` exige el manifiesto publicado y no elimina archivos.
+
 El código del Worker, el bootstrap, los tests y el binding R2 están en `infrastructure/cloudflare/`; el almacenamiento Python está en `scripts/storage/` y la orquestación en `scripts/podcast_publish.py`. Los MP3 se guardan solo en el bucket privado y se sirven por `workers.dev`. La web enlaza únicamente las versiones verificadas del manifiesto temporal `audio/published.json`; no copia MP3 a Pages. La síntesis local anterior sigue funcionando sin credenciales.
 
 Comandos con `requirements-publish.txt` instalado:

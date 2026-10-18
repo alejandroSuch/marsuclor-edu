@@ -60,6 +60,26 @@ class R2Storage:
             return None
         return {"size": result["ContentLength"], "sha256": result.get("Metadata", {}).get("sha256")}
 
+    def list_objects(self, prefix: str = "podcasts/"):
+        """Yield every object; listing is read-only but billed as Class A."""
+        token = None
+        while True:
+            args = {"Prefix": prefix, "MaxKeys": 1000}
+            if token:
+                args["ContinuationToken"] = token
+            page = self._call(self.client.list_objects_v2, **args)
+            if page is None:
+                raise StorageError("R2 ListObjectsV2: el bucket no existeix")
+            for item in page.get("Contents", []):
+                yield {"key": item["Key"], "size": item["Size"],
+                       "last_modified": item["LastModified"].isoformat(),
+                       "storage_class": item.get("StorageClass", "STANDARD")}
+            if not page.get("IsTruncated"):
+                break
+            token = page.get("NextContinuationToken")
+            if not token:
+                raise StorageError("R2 ListObjectsV2: falta el token de continuació")
+
     def check_bucket(self) -> None:
         # Object-scoped tokens need not have bucket administration permissions.
         self.head("podcasts/.martina-connectivity-check")

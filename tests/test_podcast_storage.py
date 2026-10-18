@@ -17,6 +17,7 @@ from podcast_publish import fingerprint, resolve, sync_one, verify_public_audio,
 from storage import InconsistentObject, StorageError, canonical_bytes, check_record, object_keys, put_record, sha256_file  # noqa: E402
 from storage.local import LocalStorage  # noqa: E402
 from storage.r2 import R2Storage  # noqa: E402
+from storage.inventory import inventory, load_manifest, retention, summary  # noqa: E402
 
 
 REFERENCE = "geografia/1-eso/terra"
@@ -202,6 +203,65 @@ class StorageTests(unittest.TestCase):
             backend.put_file_once("key", self.mp3, "audio/mpeg", sha256_file(self.mp3))
         self.assertEqual(client.put_object.call_args.kwargs["IfNoneMatch"], "*")
         self.assertTrue(backend.url("key").endswith("/key"))
+
+    def test_inventory_published_history_and_incomplete_pairs_are_read_only(self):
+        put_record(self.store, REFERENCE, HASH, self.mp3, self.record)
+        previous = "a" * 64
+        old_mp3, _ = object_keys(REFERENCE, previous)
+        self.store.put_file_once(old_mp3, self.mp3, "audio/mpeg", sha256_file(self.mp3))
+        manifest = {REFERENCE: {"hash": HASH,
+                    "url": f"https://audio.example.workers.dev/podcasts/{REFERENCE}/{HASH}.mp3"}}
+        with patch.object(self.store, "put_file_once") as write_audio, \
+             patch.object(self.store, "put_bytes_once") as write_json:
+            report = inventory(self.store, manifest)
+        write_audio.assert_not_called()
+        write_json.assert_not_called()
+        self.assertEqual({row["status"] for row in report["versions"]}, {"unreferenced", "published"})
+        self.assertEqual(next(row for row in report["versions"] if row["status"] == "unreferenced")["problems"],
+                         ["pareja MP3/JSON incompleta"])
+        self.assertEqual(summary(report)["unreferenced_mp3_bytes"], 2048)
+        self.assertEqual(len(retention(report)["candidates"]), 1)
+        self.assertEqual(retention(report)["candidate_mp3_bytes"], 2048)
+        self.assertEqual(report["missing_published"], [])
+        self.assertTrue(all(row["published"] is None for row in inventory(self.store)["versions"]))
+        with self.assertRaisesRegex(ValueError, "manifest"):
+            retention(inventory(self.store))
+
+    def test_inventory_detects_missing_published_and_invalid_manifest(self):
+        absent = "d" * 64
+        manifest = {REFERENCE: {"hash": absent,
+                    "url": f"https://audio.example.workers.dev/podcasts/{REFERENCE}/{absent}.mp3"}}
+        report = inventory(self.store, manifest)
+        self.assertEqual(report["missing_published"][0]["hash"], absent)
+        manifest_path = self.root / "manifest.json"
+        manifest_path.write_text(json.dumps(manifest))
+        self.assertEqual(load_manifest(str(manifest_path)), manifest)
+        manifest[REFERENCE]["url"] = "https://invalid.example/audio.mp3"
+        manifest_path.write_text(json.dumps(manifest))
+        with self.assertRaises(StorageError):
+            load_manifest(str(manifest_path))
+
+    def test_inventory_capacity_levels_use_payload_estimate(self):
+        base = {"versions": [], "unexpected_objects": [], "missing_published": []}
+        for percentage, expected in ((69, "ok"), (70, "notice"), (85, "review"), (95, "intervention")):
+            report = {**base, "unexpected_objects": [{"size": percentage * 100_000_000}]}
+            self.assertEqual(summary(report)["capacity_level"], expected)
+
+    def test_r2_inventory_paginates_and_network_error_fails_closed(self):
+        backend = R2Storage.__new__(R2Storage)
+        backend.bucket = "bucket"
+        backend.client = Mock()
+        backend.client.list_objects_v2.side_effect = [
+            {"Contents": [{"Key": "podcasts/a.mp3", "Size": 3,
+                            "LastModified": __import__("datetime").datetime(2026, 1, 1)}],
+             "IsTruncated": True, "NextContinuationToken": "next"},
+            {"Contents": [], "IsTruncated": False},
+        ]
+        self.assertEqual(len(list(backend.list_objects())), 1)
+        self.assertEqual(backend.client.list_objects_v2.call_args_list[1].kwargs["ContinuationToken"], "next")
+        backend.client.list_objects_v2.side_effect = EndpointConnectionError(endpoint_url="https://invalid")
+        with self.assertRaises(StorageError):
+            list(backend.list_objects())
 
     def test_public_worker_head_must_match_remote_object(self):
         row = {"topic": REFERENCE, "url": "https://audio.example.workers.dev/podcasts/" + REFERENCE + "/" + HASH + ".mp3",

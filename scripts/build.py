@@ -21,6 +21,7 @@ from tts import (PiperSynthesizer, audio_path, build_audio, context as tts_conte
 from storage import StorageError, check_record, object_keys
 from storage.local import LocalStorage
 from storage.r2 import R2Storage
+from storage.inventory import inventory, load_manifest, retention, summary
 from podcast_publish import (manifest as write_podcast_manifest, resolve as resolve_podcast,
                              script_references, sync_one, verify_public_audio, write_local_provenance)
 from podcast_web import local_preview, player_markup, published_audio
@@ -778,6 +779,17 @@ if __name__ == "__main__":
             action.add_argument("--download-models", action="store_true")
         if name == "publish":
             action.add_argument("--file", type=Path, required=True)
+    storage_command = commands.add_parser("storage", help="Inventari de pòdcasts en només lectura")
+    storage_actions = storage_command.add_subparsers(dest="action", required=True)
+    for name in ("stats", "list", "versions", "retention"):
+        action = storage_actions.add_parser(name)
+        if name == "versions":
+            action.add_argument("topic", help="assignatura/curs/tema")
+        action.add_argument("--backend", choices=("local", "r2"), default="r2")
+        action.add_argument("--manifest", help="Ruta local o URL HTTPS del manifest realment publicat")
+        action.add_argument("--format", choices=("text", "json"), default="text")
+        if name == "stats":
+            action.add_argument("--fail-on-alert", action="store_true", help="Estat no zero a partir del 70 %%")
     args = parser.parse_args()
     preview_audio = None
     if args.command in ("prepare", "serve") and args.preview_audio:
@@ -845,6 +857,43 @@ if __name__ == "__main__":
         ThreadingHTTPServer(("localhost", 8000), partial(PreviewHandler, directory=str(SITE))).serve_forever()
     elif args.command == "prepare":
         prepare(preview_audio)
+    elif args.command == "storage":
+        try:
+            store = LocalStorage(ROOT / "audio/store") if args.backend == "local" else R2Storage.from_env()
+            report = inventory(store, load_manifest(args.manifest))
+            if args.action == "stats":
+                result = summary(report)
+            elif args.action == "retention":
+                result = retention(report)
+            elif args.action == "versions":
+                topic_folder(CONTENT, args.topic)
+                result = [row for row in report["versions"] if row["topic"] == args.topic]
+            else:
+                result = report
+            if args.format == "json":
+                print(json.dumps(result, ensure_ascii=False, indent=2))
+            elif args.action == "stats":
+                print(f"Pòdcasts: {result['podcasts']} · versions: {result['versions']} · "
+                      f"MP3: {result['mp3_bytes']} bytes · metadades: {result['metadata_bytes']} bytes")
+                print(f"Objectes totals: {result['total_object_bytes']} bytes · "
+                      f"{result['free_tier_payload_percent']} % de 10 GB (estimació de càrrega útil, no factura)")
+                print(f"Capacitat: {result['capacity_level']} · versions problemàtiques: "
+                      f"{result['incomplete_versions']} · publicades absents: {len(result['missing_published'])} · "
+                      f"objectes inesperats: {result['unexpected_objects']}")
+                if report["manifest_provided"]:
+                    print(f"MP3 sense referència en el manifest actual: {result['unreferenced_mp3_bytes']} bytes")
+                else:
+                    print("Sense manifest publicat: no es poden classificar versions antigues")
+                for name in ("subjects", "courses", "topics"):
+                    for key, row in result[name].items():
+                        print(f"{key}: {row['versions']} versions, {row['mp3_bytes']} bytes MP3")
+            else:
+                print(json.dumps(result, ensure_ascii=False, indent=2))
+            if args.action == "stats" and args.fail_on_alert and (result["capacity_level"] != "ok"
+                    or result["incomplete_versions"] or result["missing_published"] or result["unexpected_objects"]):
+                raise SystemExit(2)
+        except (OSError, KeyError, TypeError, ValueError, StorageError) as exc:
+            parser.error(str(exc))
     elif args.command == "tts":
         try:
             if args.action in {"check", "inspect", "verify", "publish", "sync"}:
