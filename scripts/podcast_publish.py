@@ -6,7 +6,6 @@ import hashlib
 import importlib.metadata
 import json
 import re
-import shutil
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -28,28 +27,21 @@ ENCODING_KEYS = ("output_sample_rate", "mp3_bitrate_kbps", "loudness_lufs", "tru
 def versions() -> dict:
     try:
         piper = importlib.metadata.version("piper-tts")
-        ffmpeg = shutil.which("ffmpeg")
-        if not ffmpeg:
-            raise FileNotFoundError("ffmpeg")
-        ffmpeg_digest = sha256_file(Path(ffmpeg))
-    except (FileNotFoundError, importlib.metadata.PackageNotFoundError) as exc:
-        raise ValueError("Calen Piper i FFmpeg per a calcular l'empremta") from exc
-    return {"piper": piper, "ffmpeg_binary_sha256": ffmpeg_digest}
+    except importlib.metadata.PackageNotFoundError as exc:
+        raise ValueError("Cal Piper per a calcular l'empremta") from exc
+    return {"piper": piper}
 
 
 def fingerprint(reference: str, parsed: dict, settings: dict, model: str,
                 model_checksum: str, model_config_checksum: str, tool_versions: dict,
                 replacements: dict[str, str]) -> tuple[str, dict]:
-    events = narration_events(parsed, replacements)
-    # Chapter headings are editorial; boundaries are relevant to chapter layout.
+    # Chapter headings are not narrated and do not change the encoded audio.
     ordered = []
     for event in parsed["events"]:
-        if event["type"] == "chapter":
-            ordered.append({"type": "chapter"})
-        elif event["type"] == "speech":
+        if event["type"] == "speech":
             from tts import apply_pronunciations
             ordered.append({"type": "speech", "text": apply_pronunciations(event["text"], replacements)})
-        else:
+        elif event["type"] == "pause":
             ordered.append({"type": "pause", "duration_seconds": event["duration_seconds"]})
     payload = {"schema": 1, "pipeline": PIPELINE_VERSION, "events": ordered,
                "voice": {"model": model, "sha256": model_checksum, "config_sha256": model_config_checksum},

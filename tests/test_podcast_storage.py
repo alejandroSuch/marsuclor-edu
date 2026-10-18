@@ -46,7 +46,7 @@ class StorageTests(unittest.TestCase):
                                       "output_sample_rate", "mp3_bitrate_kbps", "loudness_lufs", "true_peak_db",
                                       "sentence_pause_seconds", "paragraph_pause_seconds")}
         args = [REFERENCE, parsed, settings, "voice", "b" * 64, "c" * 64,
-                {"piper": "1", "ffmpeg": "ffmpeg version 1"}, {}]
+                {"piper": "1"}, {}]
         initial, _ = fingerprint(*args)
         self.assertEqual(initial, fingerprint(*args)[0])
         changed = copy.deepcopy(args)
@@ -63,6 +63,9 @@ class StorageTests(unittest.TestCase):
         self.assertNotEqual(initial, fingerprint(*changed)[0])
         changed = copy.deepcopy(args)
         changed[1]["events"][0]["title"] = "Títol editorial"
+        self.assertEqual(initial, fingerprint(*changed)[0])
+        changed = copy.deepcopy(args)
+        changed[1]["events"].insert(1, {"type": "chapter", "title": "Nou títol"})
         self.assertEqual(initial, fingerprint(*changed)[0])
 
     def test_local_creation_reuse_and_no_overwrite(self):
@@ -107,7 +110,7 @@ class StorageTests(unittest.TestCase):
         shutil.copy2(ROOT / "config/subjects.yml", self.root / "config/subjects.yml")
         for name in ("topic.yml", "podcast/script.md", "podcast/pronunciation.yml"):
             shutil.copy2(ROOT / "content" / reference / name, folder / name)
-        with patch("podcast_publish.versions", return_value={"piper": "1.8.0", "ffmpeg_binary_sha256": "d" * 64}):
+        with patch("podcast_publish.versions", return_value={"piper": "1.8.0"}):
             state = resolve(self.root, reference)
             generation = state["generation"]
             digest = state["hash"]
