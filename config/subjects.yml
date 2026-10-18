@@ -1,5 +1,25 @@
 materials:
-  podcast: {generation: on_demand, format: narration, duration_minutes: 12}
+  podcast:
+    generation: on_demand
+    format: narration
+    duration_minutes: 12
+    tts:
+      engine: piper
+      voices:
+        ca-valencia: {model: ca_ES-upc_ona-medium, sha256: fdb652db8c11a4475527346cf3241cb064d1ba393cf370f3f2ec09a872d118fd, config_sha256: 7f76acc9c06f4eda9e6aef2997b75782d97855aab48d4b401eb956a6e655eddc}
+        es: {model: es_ES-davefx-medium, sha256: 6658b03b1a6c316ee4c265a9896abc1393353c2d9e1bca7d66c2c442e222a917, config_sha256: 0e0dda87c732f6f38771ff274a6380d9252f327dca77aa2963d5fbdf9ec54842}
+      length_scale: 1.0
+      noise_scale: 0.667
+      noise_w_scale: 0.8
+      volume: 1.0
+      audio_format: mp3
+      output_sample_rate: 44100
+      mp3_bitrate_kbps: 128
+      loudness_lufs: -20
+      true_peak_db: -1.5
+      sample_seconds: 38
+      sentence_pause_seconds: 0.5
+      paragraph_pause_seconds: 0.8
 subjects:
   valencia: {label: "Valencià", teaching_language: ca-valencia, materials: {podcast: {generation: default}}}
   biologia: {label: "Biologia", teaching_language: ca-valencia, materials: {podcast: {generation: default}}}

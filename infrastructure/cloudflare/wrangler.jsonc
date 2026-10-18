@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "martina-edu-audio",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "preview_urls": false,
+  "vars": { "SITE_ORIGIN": "https://alejandrosuch.github.io" },
+  "r2_buckets": [
+    { "binding": "PODCASTS", "bucket_name": "martina-edu-podcasts" }
+  ]
+}
