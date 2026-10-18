@@ -220,6 +220,9 @@ class StorageTests(unittest.TestCase):
         self.assertEqual(next(row for row in report["versions"] if row["status"] == "unreferenced")["problems"],
                          ["pareja MP3/JSON incompleta"])
         self.assertEqual(summary(report)["unreferenced_mp3_bytes"], 2048)
+        self.assertEqual(summary(report)["subjects"]["geografia"]["versions"], 2)
+        self.assertEqual(summary(report)["courses"]["geografia/1-eso"]["mp3_bytes"], 4096)
+        self.assertEqual(summary(report)["topics"][REFERENCE]["versions"], 2)
         self.assertEqual(len(retention(report)["candidates"]), 1)
         self.assertEqual(retention(report)["candidate_mp3_bytes"], 2048)
         self.assertEqual(report["missing_published"], [])
