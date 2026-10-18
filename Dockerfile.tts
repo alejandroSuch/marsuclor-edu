@@ -4,8 +4,8 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements-tts.txt /tmp/requirements-tts.txt
-RUN pip install --no-cache-dir -r /tmp/requirements-tts.txt
+COPY requirements-tts.txt requirements-publish.txt /tmp/
+RUN pip install --no-cache-dir -r /tmp/requirements-publish.txt
 
 WORKDIR /app
 ENTRYPOINT ["python", "scripts/build.py", "tts"]

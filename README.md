@@ -140,17 +140,26 @@ docker compose up --build
 
 La validación, la generación y los PDF se ejecutan antes de abrir [http://localhost:8000](http://localhost:8000). Para incorporar cambios, detén el proceso y ejecuta `docker compose up` otra vez. Los archivos generados viven en volúmenes de Docker; `docker compose down -v` los elimina. La primera construcción descarga Quarto y Chromium y puede tardar unos minutos.
 
-La síntesis TTS también puede ejecutarse en Docker sin arrancar la web. El servicio opcional `tts` instala Piper y FFmpeg en una imagen aparte y deja modelos y MP3 en las carpetas locales `models/` y `audio/`:
+La síntesis y los comandos de almacenamiento también pueden ejecutarse en Docker sin arrancar la web. El servicio opcional `tts` instala Piper, FFmpeg y boto3 en una imagen aparte y deja modelos y MP3 en las carpetas locales `models/` y `audio/`:
 
 ```sh
 docker compose build tts
 docker compose run --rm tts download geografia/1-eso/els-fonaments-del-planeta-terra
 docker compose run --rm tts sample geografia/1-eso/els-fonaments-del-planeta-terra
 docker compose run --rm tts build geografia/1-eso/els-fonaments-del-planeta-terra
+docker compose run --rm tts check --backend local
+docker compose run --rm tts sync geografia/1-eso/els-fonaments-del-planeta-terra --backend local
 afplay audio/geografia/1-eso/els-fonaments-del-planeta-terra/podcast.mp3
 ```
 
-La descarga inicial del modelo requiere red; `sample` y `build` funcionan después sin ella. Para reproducir, usa el sistema anfitrión: el contenedor no tiene acceso a los altavoces. El servicio web local no requiere Cloudflare.
+La descarga inicial del modelo requiere red; `sample` y `build` funcionan después sin ella. Para usar R2, configura las credenciales en tu entorno y pásalas al contenedor sin guardarlas en el repositorio:
+
+```sh
+docker compose run --rm -e CLOUDFLARE_ACCOUNT_ID -e R2_ACCESS_KEY_ID -e R2_SECRET_ACCESS_KEY -e MARTINA_AUDIO_BASE_URL tts check --backend r2
+docker compose run --rm -e CLOUDFLARE_ACCOUNT_ID -e R2_ACCESS_KEY_ID -e R2_SECRET_ACCESS_KEY -e MARTINA_AUDIO_BASE_URL tts sync --all --download-models
+```
+
+Si usas otro nombre de bucket, pasa también `-e R2_BUCKET_NAME`. Los mismos argumentos sirven para `inspect`, `verify` y `publish`. Para reproducir, usa el sistema anfitrión: el contenedor no tiene acceso a los altavoces. El servicio web local no requiere Cloudflare.
 
 ### Sin Docker
 
