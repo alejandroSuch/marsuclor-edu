@@ -164,6 +164,14 @@ def verify_public_audio(row: dict) -> None:
                     or response.headers.get("Accept-Ranges") != "bytes"
                     or int(response.headers.get("Content-Length", "0")) != row["size"]):
                 raise ValueError(f"Worker no servix correctament {row['topic']}")
+        with urlopen(Request(row["url"], headers={"Range": "bytes=0-0"}), timeout=20) as response:
+            if (response.status != 206 or response.headers.get("Content-Range") != f"bytes 0-0/{row['size']}"
+                    or response.headers.get("Content-Length") != "1" or len(response.read()) != 1):
+                raise ValueError(f"Worker no servix rangs de bytes: {row['topic']}")
+        with urlopen(Request(row["url"] + "?download=1", method="HEAD"), timeout=20) as response:
+            if (response.status != 200 or not response.headers.get("Content-Disposition", "").startswith("attachment;")
+                    or response.headers.get("Content-Length") != str(row["size"])):
+                raise ValueError(f"Worker no permet la descàrrega: {row['topic']}")
     except (OSError, ValueError) as exc:
         raise ValueError(f"MP3 públic no disponible: {row['topic']}: {exc}") from exc
 

@@ -36,7 +36,8 @@ export function parseRange(raw: string, size: number): { offset: number; length:
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    const path = new URL(request.url).pathname;
+    const requested = new URL(request.url);
+    const path = requested.pathname;
     if (request.method !== "GET" && request.method !== "HEAD") {
       const responseHeaders = errorHeaders(env.SITE_ORIGIN);
       responseHeaders.set("Allow", "GET, HEAD");
@@ -48,10 +49,16 @@ export default {
     }
     const key = path.slice(1);
     if (!keyPattern.test(key)) return new Response(null, { status: 404, headers: errorHeaders(env.SITE_ORIGIN) });
+    if (requested.search && requested.search !== "?download=1") {
+      return new Response(null, { status: 404, headers: errorHeaders(env.SITE_ORIGIN) });
+    }
     const head = await env.PODCASTS.head(key);
     if (!head) return new Response(null, { status: 404, headers: errorHeaders(env.SITE_ORIGIN) });
     const responseHeaders = headers(env.SITE_ORIGIN);
     responseHeaders.set("ETag", head.httpEtag);
+    if (requested.search === "?download=1") {
+      responseHeaders.set("Content-Disposition", `attachment; filename="${key.split("/").at(-1)}"`);
+    }
     if (request.headers.get("If-None-Match") === head.httpEtag) {
       return new Response(null, { status: 304, headers: responseHeaders });
     }

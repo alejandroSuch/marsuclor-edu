@@ -23,6 +23,7 @@ from storage.local import LocalStorage
 from storage.r2 import R2Storage
 from podcast_publish import (manifest as write_podcast_manifest, resolve as resolve_podcast,
                              script_references, sync_one, verify_public_audio, write_local_provenance)
+from podcast_web import local_preview, player_markup, published_audio
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content"
@@ -264,7 +265,7 @@ def natural_key(value: str):
 
 UI = {
     "ca-valencia": {
-        "podcast": "Pòdcast", "pause": "Pausa per a pensar",
+        "podcast": "Pòdcast", "pause": "Pausa per a pensar", "transcription": "Transcripció", "chapters": "Capítols",
         "notes": "Apunts", "exercises": "Exercicis", "solutions": "Solucionari",
         "cards": "Targetes", "pasapalabra": "Pasapalabra", "objectives": "Objectius",
         "study_tips": "Com estudiar-ho", "self_check": "Comprovació final",
@@ -280,7 +281,7 @@ UI = {
         "write_answer": "Resposta", "answer_key": "Solucionari del Pasapalabra",
     },
     "es": {
-        "podcast": "Podcast", "pause": "Pausa para pensar",
+        "podcast": "Podcast", "pause": "Pausa para pensar", "transcription": "Transcripción", "chapters": "Capítulos",
         "notes": "Apuntes", "exercises": "Ejercicios", "solutions": "Solucionario",
         "cards": "Tarjetas", "pasapalabra": "Pasapalabra", "objectives": "Objetivos",
         "study_tips": "Cómo estudiarlo", "self_check": "Comprobación final",
@@ -364,7 +365,7 @@ def vocabulary_markup(vocabulary, language: str):
     return out
 
 
-def prepare():
+def prepare(preview_audio: tuple[str, Path] | None = None):
     validate()
     if SITE.exists():
         for child in SITE.iterdir():
@@ -385,12 +386,14 @@ def prepare():
         "project:\n  type: website\n  output-dir: ../site\n  render:\n    - '*.qmd'\n    - 'courses/**/*.qmd'\n    - 'topics/**/*.qmd'\nwebsite:\n  title: Martina Edu\n"
         "  navbar:\n    left:\n      - href: index.qmd\n        text: Inici\n"
         "format:\n  html:\n    theme: cosmo\n    css: styles/site.css\n    toc: true\n    lang: ca\n"
-        "    include-after-body:\n      - styles/cards.js\n      - styles/navigation.js\nexecute:\n  freeze: auto\n",
+        "    include-after-body:\n      - styles/cards.js\n      - styles/navigation.js\n      - styles/podcast.js\nexecute:\n  freeze: auto\n",
         encoding="utf-8",
     )
     config = read_yaml(ROOT / "config/subjects.yml")
     manifest_path = ROOT / "audio" / "published.json"
     published = read_yaml(manifest_path) if manifest_path.exists() else {}
+    if not isinstance(published, dict):
+        raise ValueError("El manifest de pòdcasts ha de ser un mapa")
     subjects = config["subjects"]
     index_topics = {}
     for path in topics():
@@ -513,22 +516,28 @@ def prepare():
         if podcast:
             preview = frontmatter(f"{ui(language, 'podcast')} · {topic['title']}", language)
             preview += pdf_link(rel, "podcast", language) + nav + "\n\n"
-            preview += f"<p>{esc(podcast['metadata']['title'])} · {esc(podcast['metadata']['estimated_duration_minutes'])} min</p>\n\n"
-            published_audio = published.get(f"{subject}/{course}/{slug}")
-            if published_audio:
-                url = published_audio.get("url", "")
-                if (not re.fullmatch(r"https://[a-z0-9.-]+\.workers\.dev/podcasts/"
-                                     r"[a-z0-9-]+/[1-4]-eso/[a-z0-9-]+/[0-9a-f]{64}\.mp3", url)
-                        or not url.endswith(f"/{published_audio.get('hash')}.mp3")):
-                    raise ValueError(f"URL de pòdcast publicada invàlida: {subject}/{course}/{slug}")
-                preview += f'<p><a href="{esc(url)}">Descarregar MP3</a></p>\n\n'
+            reference = f"{subject}/{course}/{slug}"
+            chapter_titles = [event["title"] for event in podcast["events"] if event["type"] == "chapter"]
+            audio = published_audio(published, reference, chapter_titles)
+            if preview_audio and preview_audio[0] == reference:
+                audio = local_preview(preview_audio[1], reference)
+            if audio:
+                preview += player_markup(audio, language)
+            preview += f'<section class="podcast-transcription" id="transcription" aria-label="{ui(language, "transcription")}">\n'
+            preview += f'<h2>{ui(language, "transcription")}</h2>\n'
+            preview += f'<p>{esc(podcast["metadata"]["title"])}</p>\n\n'
+            preview += f'<nav class="podcast-transcript-index" aria-label="{ui(language, "chapters")}"><ol>\n'
+            for number, title in enumerate(chapter_titles, 1):
+                preview += f'<li><a href="#chapter-{number}">{esc(title)}</a></li>\n'
+            preview += '</ol></nav>\n\n'
+            chapter_number = 0
             for event in podcast["events"]:
                 if event["type"] == "chapter":
-                    preview += f"## {esc(event['title'])}\n\n"
+                    chapter_number += 1
+                    preview += f'<h3 id="chapter-{chapter_number}">{esc(event["title"])}</h3>\n\n'
                 elif event["type"] == "speech":
                     preview += f"<p>{esc(event['text'])}</p>\n\n"
-                else:
-                    preview += f"<p class=\"podcast-pause\">{ui(language, 'pause')}: {event['duration_seconds']:g} s</p>\n\n"
+            preview += '</section>\n\n'
             (dest / "podcast.qmd").write_text(preview, encoding="utf-8")
     index = frontmatter("Martina Edu", toc=False) + "Materials per a estudiar en línia i imprimir en A4.\n\n## Assignatures\n\n"
     ordered_subjects = sorted(index_topics, key=lambda subject: subjects[subject]["label"].casefold())
@@ -634,11 +643,24 @@ def verify():
                 policy = resolve_config(read_yaml(ROOT / "config/subjects.yml"), relative[1], topic)
                 parsed = parse_script(folder / "podcast" / "script.md", topic, policy)
                 chapter_count = sum(event["type"] == "chapter" for event in parsed["events"])
-                pause_count = sum(event["type"] == "pause" for event in parsed["events"])
-                if page.locator("main h2").count() < chapter_count or page.locator(".podcast-pause").count() != pause_count:
+                if (page.locator(".podcast-transcription h3").count() != chapter_count
+                        or page.locator(".podcast-transcript-index li").count() != chapter_count
+                        or page.locator(".podcast-pause").count()):
                     raise SystemExit(f"Vista del pòdcast incompleta: {page_path}")
                 if page.locator("main").inner_text().find(next(event["text"] for event in parsed["events"] if event["type"] == "speech")) < 0:
                     raise SystemExit(f"Text narrat absent: {page_path}")
+                if page.locator(".podcast-player").count():
+                    if (page.locator(".podcast-player audio[controls]").count() != 1
+                            or page.locator(".podcast-speed option").count() != 4
+                            or page.locator('.podcast-actions a[href*="download=1"]').count() != 1):
+                        raise SystemExit(f"Controls de pòdcast incomplets: {page_path}")
+                    page.locator(".podcast-speed").select_option("1.25")
+                    if page.locator("audio").evaluate("audio => audio.playbackRate") != 1.25:
+                        raise SystemExit(f"Velocitat de pòdcast incorrecta: {page_path}")
+                    page.emulate_media(media="print")
+                    if page.locator(".podcast-player").is_visible() or not page.locator(".podcast-transcription").is_visible():
+                        raise SystemExit(f"Impressió del pòdcast incorrecta: {page_path}")
+                    page.emulate_media(media="screen")
             links = page.locator('a[href$=".pdf"]')
             if links.count() != 1:
                 raise SystemExit(f"Enllaç PDF absent o duplicat: {page_path}")
@@ -725,7 +747,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     commands = parser.add_subparsers(dest="command", required=True)
     for name in ("validate", "prepare", "pdf", "verify", "serve"):
-        commands.add_parser(name)
+        action = commands.add_parser(name)
+        if name in ("prepare", "serve"):
+            action.add_argument("--preview-audio", metavar="TEMA=RUTA_MP3",
+                                help="Utilitza un MP3 local només per a previsualitzar un tema")
     podcast_command = commands.add_parser("podcast", help="Inspecció i validació de guions")
     podcast_actions = podcast_command.add_subparsers(dest="action", required=True)
     for name in ("validate", "text", "inspect", "policy"):
@@ -754,14 +779,72 @@ if __name__ == "__main__":
         if name == "publish":
             action.add_argument("--file", type=Path, required=True)
     args = parser.parse_args()
+    preview_audio = None
+    if args.command in ("prepare", "serve") and args.preview_audio:
+        try:
+            reference, filename = args.preview_audio.split("=", 1)
+            preview_audio = (reference, Path(filename).resolve())
+            local_preview(preview_audio[1], reference)
+        except (ValueError, OSError) as exc:
+            parser.error(str(exc))
     if args.command == "serve":
         from functools import partial
         from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
         if not (SITE / "index.html").exists():
             parser.error("Genera primer la web amb prepare i quarto render")
+        class PreviewHandler(SimpleHTTPRequestHandler):
+            def do_HEAD(self):
+                if not self.local_audio():
+                    super().do_HEAD()
+
+            def do_GET(self):
+                if not self.local_audio():
+                    super().do_GET()
+
+            def local_audio(self):
+                if not preview_audio or self.path not in (
+                    f"/__local_audio/{preview_audio[0]}.mp3",
+                    f"/__local_audio/{preview_audio[0]}.mp3?download=1",
+                ):
+                    return False
+                path = preview_audio[1]
+                size = path.stat().st_size
+                match = re.fullmatch(r"bytes=(\d+)-(\d*)", self.headers.get("Range", ""))
+                start = int(match.group(1)) if match else 0
+                end = min(int(match.group(2)), size - 1) if match and match.group(2) else size - 1
+                if start >= size or end < start:
+                    self.send_response(416)
+                    self.send_header("Content-Range", f"bytes */{size}")
+                    self.end_headers()
+                    return True
+                self.send_response(206 if match else 200)
+                self.send_header("Content-Type", "audio/mpeg")
+                self.send_header("Accept-Ranges", "bytes")
+                if self.path.endswith("?download=1"):
+                    self.send_header("Content-Disposition", f'attachment; filename="{path.name}"')
+                self.send_header("Content-Length", str(end - start + 1))
+                if match:
+                    self.send_header("Content-Range", f"bytes {start}-{end}/{size}")
+                self.end_headers()
+                if self.command == "GET":
+                    try:
+                        with path.open("rb") as stream:
+                            stream.seek(start)
+                            remaining = end - start + 1
+                            while remaining:
+                                chunk = stream.read(min(65536, remaining))
+                                if not chunk:
+                                    break
+                                self.wfile.write(chunk)
+                                remaining -= len(chunk)
+                    except (BrokenPipeError, ConnectionResetError):
+                        pass  # El navegador pot cancel·lar un rang en buscar una altra posició.
+                return True
         print("Previsualització: http://localhost:8000", flush=True)
-        ThreadingHTTPServer(("localhost", 8000), partial(SimpleHTTPRequestHandler, directory=str(SITE))).serve_forever()
+        ThreadingHTTPServer(("localhost", 8000), partial(PreviewHandler, directory=str(SITE))).serve_forever()
+    elif args.command == "prepare":
+        prepare(preview_audio)
     elif args.command == "tts":
         try:
             if args.action in {"check", "inspect", "verify", "publish", "sync"}:
@@ -838,4 +921,4 @@ if __name__ == "__main__":
         except (OSError, KeyError, TypeError, ValueError, yaml.YAMLError) as exc:
             parser.error(str(exc))
     else:
-        {"validate": validate, "prepare": prepare, "pdf": pdf, "verify": verify}[args.command]()
+        {"validate": validate, "pdf": pdf, "verify": verify}[args.command]()

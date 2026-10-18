@@ -40,6 +40,7 @@ describe("read only podcast Worker", () => {
     expect(partial.status).toBe(206);
     expect(partial.headers.get("Content-Range")).toBe("bytes 2-5/10");
     expect(partial.headers.get("Content-Length")).toBe("4");
+    expect(partial.headers.get("Accept-Ranges")).toBe("bytes");
     expect(await partial.text()).toBe("2345");
     expect(get).toHaveBeenCalledWith(expect.any(String), { range: { offset: 2, length: 4 } });
     const suffix = await handler.fetch(new Request(url, { headers: { Range: "bytes=-3" } }), env);
@@ -48,6 +49,21 @@ describe("read only podcast Worker", () => {
     expect(invalid.status).toBe(416);
     expect(invalid.headers.get("Content-Range")).toBe("bytes */10");
     expect(parseRange("bytes=0-1,3-4", 10)).toBeNull();
+  });
+
+  it("downloads the immutable MP3 as an attachment without affecting playback", async () => {
+    const { env } = fixture();
+    const playback = await handler.fetch(new Request(url), env);
+    expect(playback.headers.get("Content-Disposition")).toBeNull();
+    const downloaded = await handler.fetch(new Request(url + "?download=1"), env);
+    expect(downloaded.status).toBe(200);
+    expect(downloaded.headers.get("Content-Disposition")).toBe(`attachment; filename="${digest}.mp3"`);
+    expect(await downloaded.text()).toBe("0123456789");
+    const partial = await handler.fetch(new Request(url + "?download=1", { headers: { Range: "bytes=5-" } }), env);
+    expect(partial.status).toBe(206);
+    expect(partial.headers.get("Content-Range")).toBe("bytes 5-9/10");
+    expect(partial.headers.get("Content-Disposition")).toContain("attachment");
+    expect((await handler.fetch(new Request(url + "?unknown=1"), env)).status).toBe(404);
   });
 
   it("returns 304, 404 and 405 as appropriate", async () => {

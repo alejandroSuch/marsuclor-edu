@@ -212,9 +212,24 @@ class StorageTests(unittest.TestCase):
         response.headers = {"Content-Type": "audio/mpeg", "Accept-Ranges": "bytes", "Content-Length": "2048"}
         response.__enter__ = Mock(return_value=response)
         response.__exit__ = Mock(return_value=False)
-        with patch("podcast_publish.urlopen", return_value=response) as fetch:
+        partial = MagicMock()
+        partial.status = 206
+        partial.headers = {"Content-Range": "bytes 0-0/2048", "Content-Length": "1"}
+        partial.read.return_value = b"a"
+        partial.__enter__ = Mock(return_value=partial)
+        partial.__exit__ = Mock(return_value=False)
+        download = MagicMock()
+        download.status = 200
+        download.headers = {"Content-Disposition": 'attachment; filename="test.mp3"', "Content-Length": "2048"}
+        download.__enter__ = Mock(return_value=download)
+        download.__exit__ = Mock(return_value=False)
+        with patch("podcast_publish.urlopen", side_effect=[response, partial, download]) as fetch:
             verify_public_audio(row)
-        self.assertEqual(fetch.call_args.args[0].get_method(), "HEAD")
+        self.assertEqual([call.args[0].get_method() for call in fetch.call_args_list], ["HEAD", "GET", "HEAD"])
+        partial.headers["Content-Range"] = "bytes 0-2/2048"
+        with patch("podcast_publish.urlopen", side_effect=[response, partial]):
+            with self.assertRaisesRegex(ValueError, "no disponible"):
+                verify_public_audio(row)
         response.headers["Content-Length"] = "17"
         with patch("podcast_publish.urlopen", return_value=response):
             with self.assertRaisesRegex(ValueError, "no disponible"):

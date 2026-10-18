@@ -94,7 +94,7 @@ python scripts/build.py podcast inspect geografia/1-eso/els-fonaments-del-planet
 python -m unittest discover -s tests
 ```
 
-`text` extrae únicamente la voz. `inspect` devuelve metadatos y eventos ordenados de capítulo, voz y pausa en JSON. Para previsualizar, ejecuta el flujo web indicado abajo y después `python scripts/build.py serve`; abre `http://localhost:8000/topics/geografia/1-eso/els-fonaments-del-planeta-terra/podcast.html`. La página muestra capítulos y pausas, y ofrece PDF A4. El guion original sigue disponible como Markdown en `content/`.
+`text` extrae únicamente la voz. `inspect` devuelve metadatos y eventos ordenados de capítulo, voz y pausa en JSON. Para previsualizar, ejecuta el flujo web indicado abajo y después `python scripts/build.py serve`; abre `http://localhost:8000/topics/geografia/1-eso/els-fonaments-del-planeta-terra/podcast.html`. La página ofrece la transcripción limpia, su índice de capítulos y PDF A4. El guion original sigue disponible como Markdown en `content/`.
 
 Codex genera y revisa el contenido; `scripts/podcast.py` valida y procesa el texto sin IA ni servicios externos. GitHub Actions valida y publica la web; para los guiones existentes reutiliza o sintetiza MP3 en R2 mediante la misma CLI local. La configuración inicial se describe en [Publicación de podcasts](docs/podcast-cloudflare.md).
 
@@ -179,9 +179,27 @@ python scripts/build.py verify
 
 Abre `site/index.html` o inicia `python -m http.server 8000 -d site`. Los PDF se generan en `site/pdf/`. Para las tarjetas, imprime el PDF a doble cara, girando por el borde largo y al 100 % de escala. No edites `generated/` ni `site/`: se regeneran desde `content/`.
 
+### Escuchar un podcast
+
+En la página del curso, entra en **Pòdcast/Podcast** del tema. Si existe una versión publicada, la página muestra el reproductor HTML5: reproducir, pausar y mover la posición se hacen con los controles del navegador; los botones ↶/↷ saltan 15 segundos y el selector cambia la velocidad entre 0,75× y 1,5× sin alterar el MP3. **Descarrega l'MP3/Descargar MP3** abre la descarga, y **Llig la transcripció/Leer transcripción** lleva al texto. El PDF A4 contiene esa misma transcripción. En un tema sin guion no aparece la opción de podcast; con guion pero sin audio publicado, se puede leer la transcripción sin reproductor vacío.
+
+La URL del audio viene exclusivamente de `audio/published.json`, generado tras verificar el MP3 en R2 y comprobar las respuestas del Worker. Incluye la huella de la versión en la ruta `https://<worker>.<cuenta>.workers.dev/podcasts/<asignatura>/<curso>/<tema>/<hash>.mp3`. La descarga añade `?download=1`; el Worker responde con `Content-Disposition: attachment`. La web no consulta R2, no usa claves y no incorpora MP3 a Pages. Si se produce un fallo en la siguiente síntesis o verificación, el workflow no despliega la nueva web y permanece la referencia anterior publicada.
+
+Para previsualizar un MP3 local sin Cloudflare, usa el mismo argumento en la preparación y en el servidor local:
+
+```sh
+python scripts/build.py prepare --preview-audio geografia/1-eso/els-fonaments-del-planeta-terra=audio/geografia/1-eso/els-fonaments-del-planeta-terra/podcast.mp3
+quarto render generated --to html
+python scripts/build.py pdf
+python scripts/build.py verify
+python scripts/build.py serve --preview-audio geografia/1-eso/els-fonaments-del-planeta-terra=audio/geografia/1-eso/els-fonaments-del-planeta-terra/podcast.mp3
+```
+
+Abre `http://localhost:8000/topics/geografia/1-eso/els-fonaments-del-planeta-terra/podcast.html`. El servidor local sirve ese único MP3 con `Range` y descarga; no lo copia a `site/`. Sin `--preview-audio`, la previsualización usa el manifiesto remoto si existe, y apuntes y ejercicios funcionan aunque no haya credenciales ni manifiesto. Los guiones actuales no contienen marcas temporales reales: el índice lleva a cada capítulo de la transcripción, pero no ofrece saltos de audio por capítulo hasta que el manifiesto incluya tiempos verificados.
+
 ## Validación y publicación
 
-`validate` comprueba la lengua y el curso, los identificadores, la cobertura de los objetivos en apuntes, ejercicios y tarjetas, el vocabulario de examen, las fuentes y los diagramas referenciados, y que cada ejercicio tenga respuesta. También comprueba las pistas y respuestas del Pasapalabra y la estructura de los guiones existentes. `verify` comprueba las páginas web por tema, sus PDF A4, las imágenes, las tarjetas interactivas, el orden de anversos y reversos, la revelación de conceptos del Pasapalabra y la vista textual del podcast. Los PDF de ejercicios y del Pasapalabra incluyen un solucionario al final. Estas comprobaciones no sustituyen la revisión pedagógica y visual.
+`validate` comprueba la lengua y el curso, los identificadores, la cobertura de los objetivos en apuntes, ejercicios y tarjetas, el vocabulario de examen, las fuentes y los diagramas referenciados, y que cada ejercicio tenga respuesta. También comprueba las pistas y respuestas del Pasapalabra y la estructura de los guiones existentes. `verify` comprueba las páginas web por tema, sus PDF A4, las imágenes, las tarjetas interactivas, el orden de anversos y reversos, la revelación de conceptos del Pasapalabra, la transcripción, los controles y la impresión del podcast. Los PDF de ejercicios y del Pasapalabra incluyen un solucionario al final. Estas comprobaciones no sustituyen la revisión pedagógica y visual.
 
 Cada cambio enviado a `main` ejecuta esas comprobaciones en GitHub Actions, despliega el Worker, reutiliza o genera los audios existentes y publica `site/` en GitHub Pages si todo termina correctamente. El repositorio y la web son públicos: no subas fotografías o escaneos con datos personales. Transcribe el contenido necesario y registra el original privado como fuente sin adjuntarlo.
 
