@@ -128,8 +128,15 @@ class StorageTests(unittest.TestCase):
                  patch("podcast_publish.download_voice") as download, \
                  patch.object(fresh_runner, "put_file_once") as upload:
                 row = sync_one(self.root, reference, fresh_runner, download=True)
+                model_file = self.root / "models/piper" / f"{state['model']}.onnx"
+                model_file.parent.mkdir(parents=True)
+                model_file.write_bytes(b"corrupted model cache")
+                Path(str(model_file) + ".json").write_bytes(b"corrupted config cache")
+                reused_with_bad_cache = sync_one(self.root, reference, fresh_runner, download=True)
         self.assertEqual(row["hash"], digest)
         self.assertTrue(row["reused"])
+        self.assertEqual(reused_with_bad_cache["hash"], digest)
+        self.assertTrue(reused_with_bad_cache["reused"])
         piper.assert_not_called()
         ffmpeg.assert_not_called()
         download.assert_not_called()

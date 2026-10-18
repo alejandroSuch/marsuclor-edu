@@ -12,7 +12,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 
 from podcast import parse_script, resolve_config, topic_folder
-from storage import InconsistentObject, canonical_bytes, check_record, object_keys, put_record, sha256_file
+from storage import canonical_bytes, check_record, object_keys, put_record, sha256_file
 from tts import (PiperSynthesizer, build_audio, download_voice, load_pronunciations, model_path,
                  narration_events, resolve_tts_config, resolve_voice)
 import yaml
@@ -74,10 +74,6 @@ def resolve(root: Path, reference: str, *, download: bool = False) -> dict:
         config_digest = sha256_file(Path(str(model_file) + ".json"))
     else:
         raise ValueError(f"Falten checksums de {model} o el model local")
-    if model_file.is_file() and sha256_file(model_file) != model_digest:
-        raise ValueError(f"Checksum del model incorrecte: {model}")
-    if Path(str(model_file) + ".json").is_file() and sha256_file(Path(str(model_file) + ".json")) != config_digest:
-        raise ValueError(f"Checksum de configuració del model incorrecte: {model}")
     replacements = load_pronunciations(folder)
     digest, payload = fingerprint(reference, parsed, settings, model, model_digest, config_digest,
                                   versions(), replacements)

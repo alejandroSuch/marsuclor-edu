@@ -16,7 +16,7 @@ export async function ensureBucket({ accountId, token, bucket, fetcher = fetch }
   }
   if (check.status !== 404) throw new Error(`Consulta de bucket fallida: HTTP ${check.status}`);
   const created = await fetcher(root, { method: "POST", headers,
-    body: JSON.stringify({ name: bucket, storage_class: "Standard" }) });
+    body: JSON.stringify({ name: bucket, storageClass: "Standard" }) });
   const result = await created.json();
   if (!created.ok || !result.success || result.result?.name !== bucket) {
     throw new Error(`Creació de bucket fallida: HTTP ${created.status}`);

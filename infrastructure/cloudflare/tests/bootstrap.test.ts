@@ -15,7 +15,7 @@ describe("non-destructive bootstrap", () => {
     });
     expect(await ensureBucket({ ...input, fetcher })).toBe("created");
     expect(fetcher.mock.calls[1][1].method).toBe("POST");
-    expect(fetcher.mock.calls[1][1].body).toContain("Standard");
+    expect(JSON.parse(fetcher.mock.calls[1][1].body)).toEqual({ name: input.bucket, storageClass: "Standard" });
   });
   it("fails closed on 403 and restricts worker URL", async () => {
     const fetcher = vi.fn(async () => ({ status: 403 }));
