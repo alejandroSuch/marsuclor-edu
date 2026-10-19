@@ -1,0 +1,26 @@
+name: Revisar almacenamiento de podcasts
+on:
+  schedule:
+    - cron: '17 7 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inventory:
+    if: vars.PODCAST_AUDIO_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-publish.txt
+      - name: Inventory and capacity alert
+        run: python scripts/build.py storage stats --backend r2 --manifest https://alejandrosuch.github.io/marsuclor-edu/podcast-manifest.json --fail-on-alert
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET_NAME: martina-edu-podcasts
+          MARTINA_AUDIO_BASE_URL: ${{ vars.MARTINA_AUDIO_BASE_URL }}

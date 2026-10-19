@@ -25,11 +25,13 @@ jobs:
         with:
           version: '1.6.43'
       - run: pip install -r requirements.txt -r requirements-publish.txt
+      - run: python -m playwright install --with-deps chromium
       - run: python -m unittest discover -s tests
       - run: python scripts/build.py validate
       - run: npm ci && npm test && npm run typecheck
         working-directory: infrastructure/cloudflare
       - name: Prepare bucket and deploy Worker
+        if: vars.PODCAST_AUDIO_ENABLED == 'true'
         run: npm run bootstrap
         working-directory: infrastructure/cloudflare
         env:
@@ -38,6 +40,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           MARTINA_AUDIO_BASE_URL: ${{ vars.MARTINA_AUDIO_BASE_URL }}
       - name: Reuse or synthesize published podcasts
+        if: vars.PODCAST_AUDIO_ENABLED == 'true'
         run: python scripts/build.py tts sync --all --download-models
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -47,9 +50,11 @@ jobs:
           MARTINA_AUDIO_BASE_URL: ${{ vars.MARTINA_AUDIO_BASE_URL }}
       - run: python scripts/build.py prepare
       - run: quarto render generated --to html
-      - run: python -m playwright install --with-deps chromium
       - run: python scripts/build.py pdf
       - run: python scripts/build.py verify
+      - name: Include verified podcast manifest in Pages
+        if: vars.PODCAST_AUDIO_ENABLED == 'true'
+        run: cp audio/published.json site/podcast-manifest.json
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
