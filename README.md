@@ -96,7 +96,7 @@ python -m unittest discover -s tests
 
 `text` extrae únicamente la voz. `inspect` devuelve metadatos y eventos ordenados de capítulo, voz y pausa en JSON. Para previsualizar, ejecuta el flujo web indicado abajo y después `python scripts/build.py serve`; abre `http://localhost:8000/topics/geografia/1-eso/els-fonaments-del-planeta-terra/podcast.html`. La página ofrece la transcripción limpia, su índice de capítulos y PDF A4. El guion original sigue disponible como Markdown en `content/`.
 
-Codex genera y revisa el contenido; `scripts/podcast.py` valida y procesa el texto sin IA ni servicios externos. GitHub Actions valida y publica la web; para los guiones existentes reutiliza o sintetiza MP3 en R2 mediante la misma CLI local. La configuración inicial se describe en [Publicación de podcasts](docs/podcast-cloudflare.md).
+Codex genera y revisa el contenido; `scripts/podcast.py` valida y procesa el texto sin IA ni servicios externos. GitHub Actions valida y publica la web. La variable de Actions `PODCAST_AUDIO_ENABLED=true` activa la reutilización o síntesis de MP3 en R2; sin ella, publica la web y las transcripciones sin audio ni credenciales Cloudflare. La configuración inicial se describe en [Publicación de podcasts](docs/podcast-cloudflare.md).
 
 ### Síntesis TTS local de los guiones
 
@@ -201,7 +201,7 @@ Abre `http://localhost:8000/topics/geografia/1-eso/els-fonaments-del-planeta-ter
 
 `validate` comprueba la lengua y el curso, los identificadores, la cobertura de los objetivos en apuntes, ejercicios y tarjetas, el vocabulario de examen, las fuentes y los diagramas referenciados, y que cada ejercicio tenga respuesta. También comprueba las pistas y respuestas del Pasapalabra y la estructura de los guiones existentes. `verify` comprueba las páginas web por tema, sus PDF A4, las imágenes, las tarjetas interactivas, el orden de anversos y reversos, la revelación de conceptos del Pasapalabra, la transcripción, los controles y la impresión del podcast. Los PDF de ejercicios y del Pasapalabra incluyen un solucionario al final. Estas comprobaciones no sustituyen la revisión pedagógica y visual.
 
-Cada cambio enviado a `main` ejecuta esas comprobaciones en GitHub Actions, despliega el Worker, reutiliza o genera los audios existentes y publica `site/` en GitHub Pages si todo termina correctamente. El repositorio y la web son públicos: no subas fotografías o escaneos con datos personales. Transcribe el contenido necesario y registra el original privado como fuente sin adjuntarlo.
+Cada cambio enviado a `main` ejecuta esas comprobaciones en GitHub Actions y publica `site/` en GitHub Pages si todo termina correctamente. Solo con `PODCAST_AUDIO_ENABLED=true` despliega el Worker y reutiliza o genera los audios existentes; sin el flag, conserva las transcripciones y no necesita Cloudflare. El repositorio y la web son públicos: no subas fotografías o escaneos con datos personales. Transcribe el contenido necesario y registra el original privado como fuente sin adjuntarlo.
 
 ### Publicación de podcasts en R2
 
