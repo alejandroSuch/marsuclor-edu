@@ -207,3 +207,270 @@ exercises:
       comunicación. d) Teatral o dramático. e) Invariable, adverbio.
       f) flor- lexema y -ista sufijo derivativo.
     answer_space_mm: 48
+  - id: e17
+    kind: separación-silábica
+    objective_ids: [o1]
+    source_ids: [textbook-syllables, syllable-guide]
+    question: >-
+      Separa todas las sílabas de estas palabras y señala en cuáles se
+      divide el grupo cc: constipado, construir, acceso, escribir,
+      carretera y aquella.
+    answer: >-
+      Cons-ti-pa-do; cons-truir; ac-ce-so (se divide cc);
+      es-cri-bir; ca-rre-te-ra; a-que-lla. En las demás no aparece cc.
+    answer_space_mm: 39
+  - id: e18
+    kind: clasificar-y-justificar
+    objective_ids: [o1]
+    source_ids: [syllable-guide, workbook]
+    question: >-
+      Separa la palabra completa y clasifica el encuentro vocálico
+      indicado: búho (úo), después (ué), teatro (ea), actuáis (uái),
+      oído (oí) y reina (ei). Justifica los dos hiatos con vocal cerrada.
+    answer: >-
+      Bú-ho: hiato ú-o porque la ú es cerrada tónica; des-pués:
+      diptongo ué; te-a-tro: hiato e-a entre dos abiertas; ac-tuáis:
+      triptongo uái; o-í-do: hiato o-í porque la í es cerrada tónica;
+      rei-na: diptongo ei. La h de búho no impide el hiato.
+    answer_space_mm: 50
+  - id: e19
+    kind: corrección-razonada
+    objective_ids: [o1]
+    source_ids: [textbook-syllables, syllable-guide]
+    question: >-
+      Revisa estas separaciones. Copia las correctas y corrige las demás
+      con una razón breve: a) frí-o; b) con-struir; c) ca-lle;
+      d) a-cción; e) poe-ta; f) bue-y.
+    answer: >-
+      a) frí-o es correcta: í tónica y o forman hiato. b) cons-truir:
+      no se separa str de ese modo. c) ca-lle es correcta: ll no se
+      divide. d) ac-ción: cc se divide. e) po-e-ta: dos vocales
+      abiertas forman hiato. f) buey: es monosílaba con triptongo.
+    answer_space_mm: 47
+  - id: e20
+    kind: clasificación
+    objective_ids: [o2]
+    source_ids: [textbook-texts, essential]
+    question: >-
+      Identifica la forma predominante y escribe su finalidad:
+      a) «La mochila es verde y tiene tres bolsillos»;
+      b) «—¿Trajiste el mapa? —Sí, aquí está»;
+      c) «El mapa representa un territorio a escala»;
+      d) «Consultad la leyenda antes de seguir la ruta»;
+      e) «Ayer perdimos el mapa y volvimos a buscarlo»;
+      f) «Conviene llevar un mapa porque evita despistes».
+    answer: >-
+      a) Descriptiva: dice cómo es. b) Dialogada: intercambia mensajes.
+      c) Expositiva: informa o explica. d) Prescriptiva o instructiva:
+      indica qué hacer. e) Narrativa: cuenta hechos. f) Argumentativa:
+      defiende una idea con una razón.
+    answer_space_mm: 48
+  - id: e21
+    kind: clasificación-razonada
+    objective_ids: [o2]
+    source_ids: [textbook-texts, essential]
+    question: >-
+      «La sala era estrecha, luminosa y silenciosa. Sus paredes azules
+      estaban cubiertas de dibujos. Ayer entramos para recoger un libro».
+      ¿Qué forma predomina? Identifica otra forma presente y explica
+      qué parte del fragmento te da cada pista.
+    answer: >-
+      Predomina la descripción: las dos primeras oraciones dicen cómo
+      es la sala. También hay narración en la última oración, que cuenta
+      lo que hicimos ayer. Se clasifica por la forma predominante.
+    answer_space_mm: 39
+  - id: e22
+    kind: distinguir-conceptos
+    objective_ids: [o2]
+    source_ids: [textbook-texts, essential]
+    question: >-
+      Compara: A) «La biblioteca abre a las nueve y dispone de una sala
+      de lectura». B) «Deberíamos ir a la biblioteca: su sala tranquila
+      nos ayudará a concentrarnos». Indica la forma predominante de cada
+      texto y explica qué cambia en la finalidad.
+    answer: >-
+      A) Expositiva: aporta información sobre la biblioteca. B)
+      Argumentativa: intenta convencer de ir y ofrece una razón. Aunque
+      ambos hablan de la biblioteca, sus finalidades son distintas.
+    answer_space_mm: 36
+  - id: e23
+    kind: relacionar
+    objective_ids: [o3]
+    source_ids: [textbook-texts]
+    question: >-
+      Asigna un ámbito a cada situación y di qué pista has usado:
+      a) Un compañero deja un aviso en el tablón del edificio.
+      b) Una profesora explica un concepto ante la clase.
+      c) Una periodista entrevista a un deportista para la radio.
+      d) Un alumno consulta una entrada de diccionario para un trabajo.
+    answer: >-
+      a) Vida diaria y relaciones sociales: aviso del edificio.
+      b) Vida académica: explicación de clase. c) Medios de comunicación:
+      entrevista emitida por radio. d) Vida académica: consulta del
+      diccionario para estudiar.
+    answer_space_mm: 39
+  - id: e24
+    kind: distinguir-conceptos
+    objective_ids: [o3]
+    source_ids: [textbook-texts, exam-list]
+    question: >-
+      La frase «Primero lee las instrucciones; después completa la ficha»
+      aparece a) en una nota familiar, b) en una actividad del libro de
+      clase y c) en un vídeo informativo de un periódico digital.
+      Indica el ámbito en cada caso y explica por qué la misma forma
+      instructiva no fija el ámbito.
+    answer: >-
+      a) Vida diaria y relaciones sociales. b) Vida académica.
+      c) Medios de comunicación. La frase da pasos en los tres casos;
+      el ámbito depende de la situación en la que se difunde.
+    answer_space_mm: 39
+  - id: e25
+    kind: clasificación-razonada
+    objective_ids: [o3]
+    source_ids: [textbook-texts]
+    question: >-
+      Una alumna lee una noticia del periódico digital sobre un eclipse
+      y luego expone en clase las mismas ideas. ¿A qué ámbito pertenece
+      cada texto? ¿Cambia necesariamente su finalidad informativa?
+      Justifica las dos respuestas.
+    answer: >-
+      La noticia pertenece a los medios de comunicación porque se
+      publica en un periódico digital. La exposición de la alumna
+      pertenece a la vida académica porque ocurre en clase. No cambia
+      necesariamente la finalidad: ambos pueden informar o explicar.
+    answer_space_mm: 37
+  - id: e26
+    kind: géneros-literarios
+    objective_ids: [o4]
+    source_ids: [genres-sheet, essential]
+    question: >-
+      Identifica el género y la pista decisiva: a) Un poema en verso
+      relata cómo una viajera venció a un gigante. b) Un texto expresa
+      la nostalgia de una voz por su pueblo. c) Una historia se
+      desarrolla con acciones y diálogos para representarse en escena.
+    answer: >-
+      a) Narrativo: cuenta acontecimientos, aunque esté en verso.
+      b) Lírico: expresa un sentimiento. c) Teatral o dramático:
+      está concebido para representarse mediante acciones y diálogos.
+    answer_space_mm: 39
+  - id: e27
+    kind: clasificación-razonada
+    objective_ids: [o4]
+    source_ids: [genres-sheet, essential]
+    question: >-
+      Un cuento incluye una conversación larga entre dos personajes.
+      Otro texto está escrito en versos, pero cuenta el viaje de un héroe.
+      ¿A qué género pertenece cada obra completa? Explica por qué ni
+      el diálogo ni el verso bastan por sí solos para decidir el género.
+    answer: >-
+      El cuento es narrativo porque cuenta acontecimientos, aunque
+      incluya diálogo. El poema sobre el viaje también es narrativo
+      porque relata hechos. El género depende de la función de la obra:
+      el diálogo puede aparecer en una narración y el verso puede
+      servir para narrar.
+    answer_space_mm: 39
+  - id: e28
+    kind: relacionar
+    objective_ids: [o4]
+    source_ids: [genres-sheet]
+    question: >-
+      Agrupa novela, tragedia, leyenda, comedia, fábula, drama y poema
+      que expresa alegría en los tres géneros. Después explica qué
+      tienen en común la tragedia y la comedia pese a su diferencia.
+    answer: >-
+      Narrativo: novela, leyenda y fábula. Teatral: tragedia, comedia
+      y drama. Lírico: poema que expresa alegría. Tragedia y comedia
+      son obras concebidas para la representación mediante acciones
+      y diálogos de personajes.
+    answer_space_mm: 36
+  - id: e29
+    kind: clasificación
+    objective_ids: [o5]
+    source_ids: [textbook-words, workbook]
+    question: >-
+      Clasifica cada palabra destacada por su clase y por ser variable
+      o invariable: «**Esos** **alumnos** **leyeron** **ayer**, **pero**
+      **ellos** **aún** **preguntan** **por** el final». No analices
+      las palabras que no están destacadas.
+    answer: >-
+      Esos: determinante variable; alumnos: sustantivo variable;
+      leyeron: verbo variable; ayer: adverbio invariable; pero:
+      conjunción invariable; ellos: pronombre variable; aún:
+      adverbio invariable; preguntan: verbo variable; por:
+      preposición invariable.
+    answer_space_mm: 50
+  - id: e30
+    kind: contraste
+    objective_ids: [o5]
+    source_ids: [textbook-words, workbook]
+    question: >-
+      En «Estos cuadernos son nuevos; aquellos son antiguos», clasifica
+      «estos» y «aquellos» como determinante o pronombre y justifica.
+      Después cambia «cuadernos» por «carpetas» y escribe la forma
+      concordante de las dos palabras.
+    answer: >-
+      «Estos» es determinante porque acompaña a «cuadernos»;
+      «aquellos» es pronombre porque sustituye a un sustantivo.
+      Con «carpetas» se dice «estas carpetas son nuevas; aquellas
+      son antiguas». Estas y aquellas son formas variables.
+    answer_space_mm: 39
+  - id: e31
+    kind: corrección-razonada
+    objective_ids: [o5]
+    source_ids: [textbook-words, workbook]
+    question: >-
+      Corrige estas afirmaciones si hace falta: a) «Alto» es invariable
+      porque aparece junto a «muy» en «muy alto». b) «Muy» es variable
+      porque puede acompañar a «altas». c) «Nosotros» es variable y
+      «con» es invariable. Da una prueba con formas cuando sea posible.
+    answer: >-
+      a) Falsa: alto es un adjetivo variable (alto, alta, altos, altas).
+      b) Falsa: muy es un adverbio invariable; no cambia en «muy alto»
+      y «muy altas». c) Verdadera: nosotros es pronombre variable
+      (nosotros/nosotras), mientras que la preposición con no cambia.
+    answer_space_mm: 43
+  - id: e32
+    kind: análisis-de-palabras
+    objective_ids: [o6]
+    source_ids: [textbook-words, workbook]
+    question: >-
+      Analiza gatitas y mesitas. Separa lexema, morfema derivativo y
+      morfemas flexivos; explica qué aporta cada tipo de morfema.
+    answer: >-
+      Gat-it-a-s: gat- es lexema, -it- es sufijo derivativo diminutivo,
+      -a- indica femenino y -s plural. Mes-it-a-s: mes- es lexema,
+      -it- es sufijo derivativo diminutivo, -a- indica femenino y -s
+      plural. Los derivativos crean palabras; los flexivos expresan
+      información gramatical.
+    answer_space_mm: 43
+  - id: e33
+    kind: familia-léxica
+    objective_ids: [o6]
+    source_ids: [textbook-words, essential]
+    question: >-
+      Compara zapato, zapatero y zapateros. Señala el lexema común,
+      identifica el sufijo que crea una palabra nueva y el morfema que
+      solo cambia el número. Explica qué par muestra derivación y
+      qué par muestra flexión.
+    answer: >-
+      El lexema común es zapat-. En zapatero se añade -ero, sufijo
+      derivativo que crea otra palabra; zapato/zapatero muestra
+      derivación. En zapateros, -s marca plural; zapatero/zapateros
+      muestra flexión.
+    answer_space_mm: 41
+  - id: e34
+    kind: prefijos-y-sufijos
+    objective_ids: [o6]
+    source_ids: [textbook-words, workbook]
+    question: >-
+      Analiza desigual, igualdad e iguales a partir de igual.
+      Señala el lexema común, los morfemas derivativos y el flexivo.
+      Indica cuáles son prefijos y cuáles sufijos, y explica qué
+      palabra se forma por flexión.
+    answer: >-
+      El lexema común es igual-. Des-igual lleva el prefijo
+      derivativo des-. Igual-dad lleva el sufijo derivativo -dad.
+      Igual-es lleva el morfema flexivo plural -es. Iguales es la
+      forma flexionada de igual; desigual e igualdad son palabras
+      derivadas.
+    answer_space_mm: 43
