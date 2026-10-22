@@ -56,15 +56,74 @@ sections:
       Para distinguirlos, pregunta: ¿se narran hechos?, ¿se expresan sentimientos?, ¿está escrito para representarse?
   - title: "5. La palabra: variables e invariables"
     objective_ids: [o5]
-    source_ids: [textbook-words, workbook]
+    source_ids: [textbook-words, workbook, simulacro-2026, rae-determiners]
     body: |
       Una **palabra** es una unidad de la lengua asociada a un significado; en la escritura aparece separada de las demás por espacios. En *Mi libro llegó ayer* hay cuatro palabras.
 
-      Las **variables** pueden cambiar de forma para expresar género, número, persona o tiempo: **sustantivos** (*libro/libros*), **adjetivos** (*alto/altas*), **verbos** (*canto/cantamos*), **determinantes** (*este/estas*) y **pronombres** (*él/ellos*).
+      Las **variables** pueden cambiar de forma para expresar género, número, persona o tiempo: **sustantivos** (*libro/libros*), **adjetivos** (*alto/altas*), **verbos** (*canto/cantamos*), muchos **determinantes** (*este/estas*) y muchos **pronombres** (*él/ellos*). Algunas formas de estas clases, como el determinante *cada*, no cambian.
 
       Las **invariables** mantienen normalmente la misma forma: **adverbios** (*ayer*), **preposiciones** (*con*), **conjunciones** (*pero*) e **interjecciones** (*¡ay!*).
 
       **Pista:** *esta* es determinante en *esta mochila* porque acompaña al sustantivo; es pronombre en *esta es mía* porque lo sustituye.
+
+      Para reconocer la **categoría gramatical**, mira qué hace la palabra en la oración, además de comprobar si puede variar:
+
+      | Categoría | Cómo reconocerla | Ejemplo |
+      |---|---|---|
+      | Sustantivo | Nombra seres, objetos, lugares o ideas. | *libro*, *paciencia* |
+      | Adjetivo | Expresa una cualidad del sustantivo y suele concordar con él. | *libro nuevo*, *libros nuevos* |
+      | Verbo | Expresa una acción, un proceso o un estado; se conjuga. | *leo*, *leíamos* |
+      | Determinante | Acompaña y concreta a un sustantivo; incluye artículos como *el* y *una*. | *estas páginas* |
+      | Pronombre | Se usa en lugar de un sustantivo. | *Ella lee*; *estas son mías* |
+      | Adverbio | Aporta información de tiempo, lugar, modo o cantidad, entre otras. | *lee hoy*; *muy lejos* |
+      | Preposición | Relaciona palabras dentro de la oración. | *libro de Ana* |
+      | Conjunción | Une palabras u oraciones. | *lee y escribe* |
+      | Interjección | Expresa una reacción y suele aparecer entre signos de exclamación. | *¡Ay!* |
+
+      **Comprueba el contexto:** una misma forma puede cambiar de función. En *esta carpeta*, *esta* acompaña al nombre y es determinante; en *esta es nueva*, lo sustituye y es pronombre. Para buscar palabras invariables en un texto, elige ejemplos claros como *ayer*, *con* o *pero*; no te guíes solo por que una forma concreta no cambie en esa frase.
+  - title: "5.1. Listas de determinantes, preposiciones, conjunciones y adverbios"
+    objective_ids: [o5]
+    source_ids: [rae-determiners, rae-prepositions, rae-conjunctions, rae-adverbs]
+    body: |
+      **Determinantes.** Acompañan a un sustantivo. Estas son las clases que conviene reconocer en 1.º de ESO; los ejemplos muestran la palabra dentro de un grupo nominal.
+
+      | Clase | Formas y ejemplos |
+      |---|---|
+      | Artículos determinados | *el, la, los, las*: *la mochila*. |
+      | Artículos indeterminados | *un, una, unos, unas*: *unos libros*. |
+      | Demostrativos | *este, esta, estos, estas; ese, esa, esos, esas; aquel, aquella, aquellos, aquellas*: *aquella casa*. |
+      | Posesivos | *mi/mis, tu/tus, su/sus, nuestro/a/os/as, vuestro/a/os/as*: *mis apuntes*. |
+      | Numerales | Cardinales como *dos* y *tres*; ordinales como *primer* y *segundo*: *dos páginas*, *primer día*. |
+      | Indefinidos | *algún, ninguna, varios, muchas, pocos, cada, cualquier*: *varias preguntas*. |
+      | Interrogativos y exclamativos | *qué, cuánto/a/os/as*: *¿Qué libro?*, *¡Cuántas páginas!* |
+      | Relativos posesivos | *cuyo/a/os/as*: *la autora cuyo libro leí*. Reconócelo, pero no es prioritario memorizarlo para este repaso. |
+
+      **Preposiciones.** Relacionan palabras y son invariables. Para este repaso, aprende esta lista: **a, ante, bajo, cabe, con, contra, de, desde, durante, en, entre, hacia, hasta, mediante, para, por, según, sin, so, sobre, tras**. *Cabe* y *so* casi no se usan hoy de forma independiente. Para el examen, practica sobre todo las frecuentes en frases: *voy a casa*, *vengo de clase*, *escribo con lápiz*, *paso por el parque*, *estudio para mañana*.
+
+      **Conjunciones.** Unen palabras u oraciones. No hay una lista escolar única que incluya todos los usos y locuciones; estas son las más útiles para reconocer:
+
+      | Relación | Formas frecuentes | Ejemplo |
+      |---|---|---|
+      | Suma (copulativas) | *y, e, ni* | *Ana e Inés leen*; *ni salta ni corre*. |
+      | Elección (disyuntivas) | *o, u* | *agua u horchata*. |
+      | Oposición (adversativas) | *pero, mas, sino* | *Quería ir, pero llovía*. |
+      | Dependencia entre oraciones (subordinantes) | *que, si, porque, aunque* | *Creo que vendrá*; *saldré aunque llueva*. |
+
+      *E* sustituye a *y* ante sonido /i/ (*Ana e Inés*) y *u* sustituye a *o* ante sonido /o/ (*agua u horchata*). *Mas* sin tilde equivale a *pero*; *más* con tilde expresa cantidad. Expresiones de varias palabras como *ya que* y *para que* funcionan como nexos, pero no son una sola conjunción.
+
+      **Adverbios.** Suelen modificar al verbo, a un adjetivo o a otro adverbio, y son invariables. Hay muchos, por lo que conviene aprenderlos por su significado:
+
+      | Clase | Ejemplos | Pregunta orientativa |
+      |---|---|---|
+      | Lugar | *aquí, ahí, allí, cerca, lejos, arriba, abajo* | ¿Dónde? |
+      | Tiempo | *ayer, hoy, mañana, ahora, antes, después, siempre* | ¿Cuándo? |
+      | Modo | *bien, mal, así, despacio, rápidamente* | ¿Cómo? |
+      | Cantidad | *muy, poco, mucho, bastante, demasiado, casi* | ¿Cuánto? |
+      | Afirmación | *sí, también* | Confirma lo dicho. |
+      | Negación | *no, tampoco* | Niega lo dicho. |
+      | Duda | *quizá, acaso, probablemente* | Expresa posibilidad. |
+
+      **No clasifiques solo por la forma:** *muchos* es determinante en *muchos libros* porque acompaña al sustantivo; *mucho* es adverbio en *leo mucho* porque indica cantidad de la acción. *Si* sin tilde puede ser conjunción (*si vienes*); *sí* con tilde puede ser adverbio de afirmación (*sí, voy*).
   - title: "6. Lexemas y clases de morfemas"
     objective_ids: [o6]
     source_ids: [textbook-words, essential, workbook]
@@ -75,14 +134,30 @@ sections:
       - **Morfemas derivativos:** forman palabras nuevas. Los **prefijos** van delante del lexema (*des-hacer, re-leer*) y los **sufijos**, detrás (*pan-adero, flor-ista*).
 
       No confundas **flexión** (*niño/niños*) con **derivación** (*pan/panadero*). Para el análisis, señala cada parte y explica qué aporta.
+  - title: "7. Palabras simples, derivadas y compuestas"
+    objective_ids: [o7]
+    source_ids: [simulacro-2026, textbook-words, workbook]
+    body: |
+      Para clasificar una palabra por su **formación**, busca si hay un morfema derivativo o si se unen dos palabras o lexemas. El plural y otras terminaciones flexivas no cambian el tipo de formación.
+
+      - **Simple:** no tiene prefijo ni sufijo derivativo y no reúne dos lexemas. Puede llevar marcas flexivas: *libro* y *libros* son formas de una palabra simple.
+      - **Derivada:** se crea al añadir un prefijo o un sufijo derivativo a una base: *flor-ero*, *des-igual*, *gat-it-o*. Puede llevar también flexión: *flor-ero-s* sigue siendo derivada.
+      - **Compuesta:** une dos palabras o lexemas: *abre-latas* (de *abrir* y *lata*) y *saca-puntas* (de *sacar* y *punta*). El plural, si lo hay, no la convierte en derivada.
+
+      **Método de examen:** compara con una palabra de la misma familia y señala las partes. Si solo cambia el número, no hay derivación; si aparece un prefijo o sufijo que crea otra palabra, es derivada; si se unen dos bases, es compuesta.
 study_tips:
   - "Estudia en dos pasadas: primero explica cada regla con un ejemplo; después resuelve ejercicios mezclados sin mirar."
   - "Al separar sílabas, escribe siempre la palabra completa y justifica el encuentro vocálico."
   - "En tipos de texto, responde con la finalidad predominante, no solo con una palabra memorizada."
   - "Para morfemas, comprueba si la parte cambia información gramatical o crea una palabra nueva."
+  - "En categorías gramaticales, identifica primero qué palabra acompaña o enlaza y después decide su clase."
+  - "Para clasificar palabras por formación, busca primero prefijos o sufijos y después comprueba si se han unido dos bases."
 self_check:
   - "Sé separar palabras con consonantes agrupadas y clasificar diptongo, hiato o triptongo."
   - "Reconozco los seis tipos de texto y los tres ámbitos con un ejemplo."
   - "Distingo narrativo, lírico y teatral por lo que hace cada obra."
   - "Puedo clasificar una palabra como variable o invariable y explicar por qué."
+  - "Reconozco las nueve categorías gramaticales por su función en una oración."
+  - "Reconozco las preposiciones frecuentes y distingo tipos de determinantes, conjunciones y adverbios en frases."
   - "Puedo identificar lexema, prefijo, sufijo y morfemas flexivos en ejemplos sencillos."
+  - "Distingo palabras simples, derivadas y compuestas aunque lleven plural."

@@ -79,3 +79,23 @@ cards:
     source_ids: [textbook-words, workbook]
     front: "¿Cómo distingues un morfema flexivo de uno derivativo? Usa «flores» y «florista»."
     back: "El flexivo aporta información gramatical: flor-es. El derivativo forma otra palabra: flor-ista."
+  - id: c17
+    objective_ids: [o5]
+    source_ids: [simulacro-2026, textbook-words, workbook]
+    front: "En «¡Ay! Estas niñas leen hoy en casa», ¿qué categorías son ¡ay!, estas, niñas, leen, hoy y en?"
+    back: "Interjección, determinante, sustantivo, verbo, adverbio y preposición, respectivamente."
+  - id: c18
+    objective_ids: [o7]
+    source_ids: [simulacro-2026, textbook-words, workbook]
+    front: "Clasifica libros, florero y abrelatas por su formación. ¿Por qué el plural de libros no cambia su grupo?"
+    back: "Libros: simple; florero: derivada por -ero; abrelatas: compuesta por dos bases. -s solo marca plural, no crea otra palabra."
+  - id: c19
+    objective_ids: [o5]
+    source_ids: [rae-prepositions, rae-conjunctions]
+    front: "En «Voy con Ana y Luis», ¿qué categoría tienen «con» e «y» y qué hace cada una?"
+    back: "Con es preposición: introduce la compañía. Y es conjunción copulativa: une Ana y Luis."
+  - id: c20
+    objective_ids: [o5]
+    source_ids: [rae-determiners, rae-adverbs]
+    front: "¿Por qué «muchos» es determinante en «muchos libros» y «mucho» es adverbio en «leo mucho»?"
+    back: "Muchos acompaña al sustantivo libros; mucho indica la cantidad de la acción de leer."

@@ -474,3 +474,235 @@ exercises:
       forma flexionada de igual; desigual e igualdad son palabras
       derivadas.
     answer_space_mm: 43
+  - id: e35
+    kind: escribir-oraciones
+    objective_ids: [o5]
+    source_ids: [simulacro-2026, textbook-words]
+    question: >-
+      Escribe una oración completa con cada una de estas palabras:
+      esfuerzo y paciencia. Debe quedar claro por el contexto qué
+      significa cada una.
+    answer: >-
+      Respuesta modelo: «Con esfuerzo terminé el proyecto» y «Tuve
+      paciencia mientras esperaba mi turno». Se aceptan otras
+      oraciones completas que usen ambas palabras con sentido.
+    answer_space_mm: 38
+  - id: e36
+    kind: relacionar
+    objective_ids: [o3]
+    source_ids: [simulacro-2026, textbook-texts]
+    question: >-
+      Coloca cada ejemplo en vida diaria, vida académica o medios de
+      comunicación: una nota en la nevera, un libro de ciencias, un
+      informativo de radio, un diccionario de clase, un aviso del
+      vecindario y una noticia en un periódico.
+    answer: >-
+      Vida diaria: nota en la nevera y aviso del vecindario. Vida
+      académica: libro de ciencias y diccionario de clase. Medios
+      de comunicación: informativo de radio y noticia en un periódico.
+    answer_space_mm: 40
+  - id: e37
+    kind: definición-y-producción
+    objective_ids: [o2]
+    source_ids: [simulacro-2026, textbook-texts, essential]
+    question: >-
+      Explica dos características de un texto descriptivo y dos de uno
+      dialogado. Después escribe un texto descriptivo de tres oraciones
+      sobre un lugar que conozcas. Deben aparecer al menos dos rasgos
+      concretos de ese lugar.
+    answer: >-
+      Descriptivo: dice cómo es alguien o algo y aporta rasgos o
+      cualidades. Dialogado: intercambia mensajes y presenta dos o más
+      voces. Modelo: «La biblioteca del barrio es pequeña y luminosa.
+      Tiene estanterías altas junto a las ventanas. Sus mesas son
+      redondas y de madera». Se aceptan otras descripciones de tres
+      oraciones con al menos dos rasgos concretos.
+    answer_space_mm: 55
+  - id: e38
+    kind: géneros-literarios
+    objective_ids: [o4]
+    source_ids: [simulacro-2026, genres-sheet, essential]
+    question: >-
+      Define con una frase cada género literario: narrativo, lírico y
+      teatral. Añade un ejemplo de forma teatral y explica por qué una
+      comedia pertenece a ese género.
+    answer: >-
+      Narrativo: cuenta hechos que les suceden a personajes. Lírico:
+      expresa sentimientos o emociones. Teatral: presenta acciones y
+      diálogos para representarlos. La comedia es una forma teatral
+      porque se escribe para ser representada por personajes.
+    answer_space_mm: 47
+  - id: e39
+    kind: definición-y-recuento
+    objective_ids: [o5]
+    source_ids: [simulacro-2026, textbook-words]
+    question: >-
+      Define qué es una palabra y cuenta las palabras de «La niña lee
+      tranquilamente en casa». Explica cómo se distinguen en la
+      escritura.
+    answer: >-
+      Una palabra es una unidad de la lengua asociada a un significado.
+      Hay seis: La, niña, lee, tranquilamente, en y casa. En la
+      escritura, cada una queda separada de las demás por espacios.
+    answer_space_mm: 31
+  - id: e40
+    kind: clasificación-en-texto
+    objective_ids: [o5]
+    source_ids: [simulacro-2026, textbook-words, workbook]
+    question: >-
+      Lee el texto y copia cinco palabras variables y cinco
+      invariables. Escribe también la categoría gramatical de cada
+      una: «Ayer, las niñas curiosas caminaron lentamente por el parque
+      y después jugaron allí».
+    answer: >-
+      Cinco variables posibles: las (determinante), niñas (sustantivo),
+      curiosas (adjetivo), caminaron (verbo) y parque (sustantivo).
+      Cinco invariables posibles: ayer (adverbio), lentamente
+      (adverbio), por (preposición), y (conjunción) y después
+      (adverbio). También vale allí (adverbio). Se aceptan otras
+      selecciones correctas del texto; el y jugaron son variables.
+    answer_space_mm: 51
+  - id: e41
+    kind: categorías-gramaticales
+    objective_ids: [o5]
+    source_ids: [simulacro-2026, textbook-words, workbook]
+    question: >-
+      Identifica la categoría de cada palabra destacada: «**¡Ay!**
+      **Aquellas** **niñas** **curiosas** **leen** **hoy** **en** casa
+      **y** **ellas** sonríen». Indica cuáles son variables y cuáles
+      invariables.
+    answer: >-
+      ¡Ay!: interjección invariable; aquellas: determinante variable;
+      niñas: sustantivo variable; curiosas: adjetivo variable; leen:
+      verbo variable; hoy: adverbio invariable; en: preposición
+      invariable; y: conjunción invariable; ellas: pronombre variable.
+    answer_space_mm: 48
+  - id: e42
+    kind: análisis-de-palabras
+    objective_ids: [o6]
+    source_ids: [simulacro-2026, textbook-words, workbook]
+    question: >-
+      Separa el lexema y los morfemas de gatitas, perras y desigual.
+      Clasifica cada morfema como derivativo o flexivo.
+    answer: >-
+      gat-it-a-s: gat- es lexema, -it- derivativo diminutivo, -a-
+      flexivo de femenino y -s flexivo de plural. perr-a-s: perr- es
+      lexema, -a- flexivo de femenino y -s flexivo de plural.
+      des-igual: igual- es la base o lexema y des- es prefijo derivativo.
+    answer_space_mm: 43
+  - id: e43
+    kind: flexión-o-derivación
+    objective_ids: [o6]
+    source_ids: [simulacro-2026, textbook-words, workbook]
+    question: >-
+      En niños, niñitos, releer y florero, señala qué partes expresan
+      género o número y cuáles crean una palabra nueva. Indica si el
+      derivativo es prefijo o sufijo.
+    answer: >-
+      niñ-o-s: -o- indica masculino y -s plural, ambos flexivos.
+      niñ-it-o-s: -it- es sufijo derivativo diminutivo; -o- y -s
+      son flexivos. re-leer: re- es prefijo derivativo. flor-ero:
+      -ero es sufijo derivativo. No hay que interpretar la -o de
+      -ero como morfema flexivo independiente en este análisis.
+    answer_space_mm: 48
+  - id: e44
+    kind: separación-silábica-justificada
+    objective_ids: [o1]
+    source_ids: [simulacro-2026, textbook-syllables, syllable-guide]
+    question: >-
+      Separa en sílabas museo, cuidado, comprar, carro y acción.
+      Justifica en cada caso el encuentro vocálico o la regla de
+      consonantes que explica la separación.
+    answer: >-
+      mu-se-o: e-o es hiato de dos vocales abiertas; cui-da-do:
+      u-i es diptongo de dos cerradas distintas; com-prar: pr
+      permanece unido; ca-rro: rr permanece unido; ac-ción: cc
+      se divide y la terminación ió forma diptongo.
+    answer_space_mm: 48
+  - id: e45
+    kind: formación-de-palabras
+    objective_ids: [o7]
+    source_ids: [simulacro-2026, textbook-words, workbook]
+    question: >-
+      Clasifica por su formación ventanas, florero, desigual,
+      abrelatas, sacapuntas y cuadernos en simples, derivadas o
+      compuestas. Justifica al menos un ejemplo de cada grupo.
+    answer: >-
+      Simples: ventanas y cuadernos; el plural no crea otra palabra.
+      Derivadas: florero (flor + sufijo -ero) y desigual (prefijo
+      des- + igual). Compuestas: abrelatas (abrir + lata) y
+      sacapuntas (sacar + punta), porque unen dos bases.
+    answer_space_mm: 46
+  - id: e46
+    kind: preposiciones-en-contexto
+    objective_ids: [o5]
+    source_ids: [rae-prepositions]
+    question: >-
+      Copia las preposiciones de esta oración: «Salí de casa con mi hermana,
+      pasé por el parque y llegué hasta la biblioteca». Explica por qué
+      «y» no es una preposición.
+    answer: >-
+      Las preposiciones son de, con, por y hasta: introducen relaciones
+      con casa, mi hermana, el parque y la biblioteca. «Y» es una
+      conjunción copulativa porque une dos partes de la oración.
+    answer_space_mm: 38
+  - id: e47
+    kind: conjunciones-en-contexto
+    objective_ids: [o5]
+    source_ids: [rae-conjunctions]
+    question: >-
+      Identifica y clasifica las conjunciones destacadas: a) «Ana **e**
+      Inés leyeron, **pero** salieron **porque** hacía sol»;
+      b) «¿Agua **u** horchata?»; c) «**Si** llueve, iremos al cine».
+      Explica qué relación expresa cada una.
+    answer: >-
+      e: copulativa, suma; pero: adversativa, oposición; porque:
+      subordinante causal, causa; u: disyuntiva, elección; si:
+      subordinante condicional, condición. E y u son variantes de
+      y y o ante los sonidos /i/ y /o/, respectivamente.
+    answer_space_mm: 46
+  - id: e48
+    kind: clases-de-determinantes
+    objective_ids: [o5]
+    source_ids: [rae-determiners]
+    question: >-
+      Clasifica los determinantes destacados por su clase: «**Mis**
+      **dos** amigas guardaron **esas** cartas en **una** caja.
+      **Algunas** respuestas eran correctas. ¿**Qué** libro eliges?».
+      Indica el sustantivo al que acompaña cada uno.
+    answer: >-
+      Mis: posesivo de amigas; dos: numeral cardinal de amigas;
+      esas: demostrativo de cartas; una: artículo indeterminado de
+      caja; algunas: indefinido de respuestas; qué: interrogativo
+      de libro.
+    answer_space_mm: 44
+  - id: e49
+    kind: clases-de-adverbios
+    objective_ids: [o5]
+    source_ids: [rae-adverbs]
+    question: >-
+      Clasifica por su significado estos adverbios: ayer, aquí,
+      despacio, muy, sí, no y quizá. Después escribe una oración
+      que contenga uno de tiempo y otro de lugar.
+    answer: >-
+      Ayer: tiempo; aquí: lugar; despacio: modo; muy: cantidad;
+      sí: afirmación; no: negación; quizá: duda. Modelo de oración:
+      «Ayer estudié aquí». Se aceptan otras oraciones correctas
+      con un adverbio de tiempo y otro de lugar.
+    answer_space_mm: 41
+  - id: e50
+    kind: contraste-determinante-adverbio
+    objective_ids: [o5]
+    source_ids: [rae-determiners, rae-adverbs]
+    question: >-
+      Explica la categoría de las palabras destacadas: a) «Tengo
+      **muchos** libros»; b) «Leo **mucho**»; c) «Queda **bastante**
+      tiempo»; d) «Estudié **bastante**». ¿Qué palabra acompaña
+      cada forma en su oración?
+    answer: >-
+      a) Muchos es determinante: acompaña a libros. b) Mucho es
+      adverbio de cantidad: modifica a leo. c) Bastante es
+      determinante: acompaña a tiempo. d) Bastante es adverbio
+      de cantidad: modifica a estudié. La función depende del
+      contexto, no solo de la forma.
+    answer_space_mm: 44

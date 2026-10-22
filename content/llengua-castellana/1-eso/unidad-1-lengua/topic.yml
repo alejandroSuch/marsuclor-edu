@@ -12,8 +12,9 @@ objectives:
   - {id: o2, text: "Distinguir los seis tipos de texto por su finalidad."}
   - {id: o3, text: "Reconocer los ámbitos de uso cotidiano, académico y de los medios de comunicación."}
   - {id: o4, text: "Identificar los géneros literarios narrativo, lírico y teatral."}
-  - {id: o5, text: "Explicar qué es una palabra y clasificar palabras variables e invariables."}
+  - {id: o5, text: "Explicar qué es una palabra, reconocer las categorías gramaticales y clasificar palabras variables e invariables."}
   - {id: o6, text: "Separar lexemas y morfemas y distinguir morfemas flexivos y derivativos."}
+  - {id: o7, text: "Distinguir palabras simples, derivadas y compuestas por su formación."}
 sources:
   - id: exam-list
     type: private-class-notes
@@ -47,11 +48,37 @@ sources:
     type: developed-guide
     title: "Cuadernillo de Lengua, unidades 1 y 2 (1.º de ESO)"
     note: "Documento de Google facilitado por la familia; enlace privado no publicado."
+  - id: simulacro-2026
+    type: private-class-notes
+    title: "Simulacro corregido del primer examen de Lengua castellana, 1.ª evaluación"
+    note: "PDF facilitado el 22 de octubre de 2026; contiene escritura manuscrita identificable y se conserva fuera del repositorio público. Se usan solo los tipos de pregunta y la indicación de repasar categorías gramaticales."
+  - id: rae-prepositions
+    type: external
+    title: "RAE-ASALE, Nueva gramática básica: las preposiciones del español"
+    url: "https://www.rae.es/gram%C3%A1tica-b%C3%A1sica/la-preposici%C3%B3n-la-conjunci%C3%B3n-la-interjecci%C3%B3n/la-preposici%C3%B3n/las-preposiciones-del-espa%C3%B1ol"
+  - id: rae-conjunctions
+    type: external
+    title: "RAE-ASALE, Nueva gramática básica: la conjunción"
+    url: "https://www.rae.es/gram%C3%A1tica-b%C3%A1sica/la-preposici%C3%B3n-la-conjunci%C3%B3n-la-interjecci%C3%B3n/la-conjunci%C3%B3n"
+  - id: rae-determiners
+    type: external
+    title: "RAE-ASALE, Nueva gramática básica: clases de determinantes"
+    url: "https://www.rae.es/gram%C3%A1tica-b%C3%A1sica/determinantes-y-pronombres/los-determinantes/clases-de-determinantes"
+  - id: rae-adverbs
+    type: external
+    title: "RAE-ASALE, Nueva gramática básica: clases de adverbios según su significado"
+    url: "https://www.rae.es/gram%C3%A1tica-b%C3%A1sica/el-adverbio/clases-de-adverbios-seg%C3%BAn-su-significado"
 source_note: >-
   La fotografía manuscrita fija el alcance del examen. El cuadernillo desarrolla
   la separación silábica y la estructura de las palabras; el esquema y las
   páginas de clase sustentan los apartados de textos, ámbitos y géneros. El
   cuadernillo contiene otros contenidos de significado de las palabras que no
-  figuran en la lista del examen y no se incluyen aquí. Los ejercicios, las
+  figuran en la lista del examen y no se incluyen aquí. El simulacro reciente
+  confirma los formatos de pregunta y añade la clasificación de palabras por
+  formación; la explicación nueva y los ejemplos son una elaboración didáctica,
+  no una transcripción del examen ni de sus respuestas manuscritas. Los ejercicios, las
   soluciones y las tarjetas son elaboraciones didácticas, no copias de los
-  documentos. Los archivos originales permanecen fuera del repositorio público.
+  documentos. Las listas ampliadas de categorías gramaticales proceden de la
+  Nueva gramática básica de la RAE-ASALE y son una ampliación de repaso, no
+  una transcripción atribuida a las páginas de clase. Los archivos originales
+  permanecen fuera del repositorio público.
