@@ -1,0 +1,234 @@
+exercises:
+  - id: e01
+    kind: comprensio-lectora
+    objective_ids: [o1]
+    source_ids: [textbook-reading, class-notes]
+    question: >-
+      Llig el recordatori de Felip Marlot dels apunts. Qui conta la història?
+      En quin moment del dia parla al començament? Explica per què està content.
+    answer: >-
+      La conta el mateix Felip Marlot en primera persona. Parla al matí,
+      després de despertar-se. Està content perquè ha eixit uns segons al
+      telenotícies i pensa que això podria portar-li més faena.
+    answer_space_mm: 42
+  - id: e02
+    kind: ordenar-fets
+    objective_ids: [o1]
+    source_ids: [textbook-reading, class-notes]
+    question: >-
+      Ordena els fets de més antic a més recent: A) Felip telefona a
+      l'inspector; B) resol el cas de les corbates; C) es desperta i
+      recorda la televisió; D) veu la furgoneta robada; E) la policia
+      deté un lladre.
+    answer: "B, D, A, E, C."
+    answer_space_mm: 30
+  - id: e03
+    kind: vocabulari-en-context
+    objective_ids: [o1]
+    source_ids: [textbook-reading, class-notes]
+    question: >-
+      Relaciona cada expressió amb el significat: pujar-li els fums,
+      fer nosa, barrar el pas, pispa, embús. Significats: lladre;
+      impedir avançar; acumulació de vehicles; tornar-se vanitós;
+      molestar.
+    answer: >-
+      Pujar-li els fums: tornar-se vanitós. Fer nosa: molestar.
+      Barrar el pas: impedir avançar. Pispa: lladre. Embús:
+      acumulació de vehicles.
+    answer_space_mm: 39
+  - id: e04
+    kind: nombres-i-data
+    objective_ids: [o2]
+    source_ids: [class-notes]
+    question: >-
+      Escriu amb lletres 8, 17, 21, 32 i 80. Després escriu en valencià
+      la data «miércoles, 14 de octubre».
+    answer: >-
+      Huit, dèsset, vint-i-u, trenta-dos i huitanta. La data és
+      «dimecres, 14 d'octubre».
+    answer_space_mm: 38
+  - id: e05
+    kind: sequencia
+    objective_ids: [o2]
+    source_ids: [class-notes]
+    question: >-
+      Completa en orde: dilluns, dimarts, __, dijous, __, dissabte,
+      diumenge. Escriu també el mes que va després d'agost i les
+      estacions entre hivern i tardor.
+    answer: >-
+      Dimecres i divendres. Després d'agost va setembre. Entre hivern
+      i tardor van primavera i estiu.
+    answer_space_mm: 32
+  - id: e06
+    kind: traduccio-curta
+    objective_ids: [o2]
+    source_ids: [class-notes]
+    question: >-
+      Escriu en valencià: «rojo», «azul», «amarillo» i «naranja».
+      Després traduïx «¿Puedo ir al baño?» i «Mañana iré de excursión
+      a la playa».
+    answer: >-
+      Roig, blau, groc i taronja. «Puc anar al bany?» i
+      «Demà aniré d'excursió a la platja».
+    answer_space_mm: 44
+  - id: e07
+    kind: completar-verbs
+    objective_ids: [o3]
+    source_ids: [class-notes]
+    question: >-
+      Completa amb el present del verb entre parèntesis: Jo __ a classe
+      (estar); tu __ dotze anys (tindre); ella __ la delegada (ser);
+      nosaltres __ un cartell (fer); vosaltres __ entrar (poder);
+      ells __ a la biblioteca (estar).
+    answer: >-
+      Jo estic a classe; tu tens dotze anys; ella és la delegada;
+      nosaltres fem un cartell; vosaltres podeu entrar; ells estan
+      a la biblioteca.
+    answer_space_mm: 46
+  - id: e08
+    kind: conjugar-i-revisar
+    objective_ids: [o3]
+    source_ids: [class-notes]
+    question: >-
+      Escriu les sis persones del present de «poder». Després corregix
+      els accents de «ell es», «tu estas», «ella te» i «ells son».
+    answer: >-
+      Jo puc, tu pots, ell/ella pot, nosaltres podem, vosaltres podeu,
+      ells/elles poden. Les formes corregides són «ell és», «tu estàs»,
+      «ella té» i «ells són».
+    answer_space_mm: 46
+  - id: e09
+    kind: analisi-comunicacio
+    objective_ids: [o4]
+    source_ids: [class-notes, editorial-examples]
+    question: >-
+      Laia escriu a Marc «Ens veiem a la biblioteca» en un missatge de
+      mòbil. Identifica emissor, receptor, missatge, codi i canal.
+    answer: >-
+      Emissora: Laia. Receptor: Marc. Missatge: «Ens veiem a la
+      biblioteca». Codi: verbal escrit en valencià. Canal: internet
+      a través del mòbil.
+    answer_space_mm: 45
+  - id: e10
+    kind: comparar-codis
+    objective_ids: [o4]
+    source_ids: [class-notes, editorial-examples]
+    question: >-
+      Un pare diu «Molt bé!» a la seua filla i alça el polze a casa.
+      Quin element és verbal i quin no verbal? Quin és el canal de
+      les paraules? Explica si el context és formal/acadèmic o
+      familiar/informal.
+    answer: >-
+      «Molt bé!» és codi verbal; alçar el polze és codi no verbal.
+      Les paraules arriben per l'aire. És una situació familiar i
+      informal, perquè el pare parla a la seua filla a casa.
+    answer_space_mm: 45
+  - id: e11
+    kind: diferenciar-codi-canal
+    objective_ids: [o4]
+    source_ids: [class-notes]
+    question: >-
+      Explica per què «les paraules» són un codi i «el paper» és un
+      canal. Posa un exemple de missatge verbal escrit en paper.
+    answer: >-
+      Les paraules són signes amb significat i formen part del codi;
+      el paper és el suport pel qual arriba el missatge, per això
+      és un canal. Exemple vàlid: una nota de paper que diu
+      «Torne a les cinc».
+    answer_space_mm: 39
+  - id: e12
+    kind: arbre-genealogic
+    objective_ids: [o5]
+    source_ids: [class-notes, editorial-examples]
+    question: >-
+      En una família inventada, Anna i Pau són germans; Anna és la
+      mare de Clara i Pau és el pare de Nil. Quina relació té Pau
+      amb Clara? I Clara amb Pau? Quina relació hi ha entre Clara
+      i Nil?
+    answer: >-
+      Pau és l'oncle de Clara; Clara és la neboda de Pau;
+      Clara i Nil són cosins.
+    answer_space_mm: 39
+  - id: e13
+    kind: vocabulari-parentiu
+    objective_ids: [o5]
+    source_ids: [class-notes]
+    question: >-
+      Escriu el terme corresponent: a) mare del besavi; b) persona
+      nascuda en el mateix part que una altra; c) parent d'una
+      generació anterior; d) pare de la parella; e) fill o filla
+      per adopció.
+    answer: >-
+      a) Rebesàvia. b) Bessó o bessona. c) Avantpassat.
+      d) Sogre. e) Fill adoptiu o filla adoptiva.
+    answer_space_mm: 43
+  - id: e14
+    kind: raonar-parentiu
+    objective_ids: [o5]
+    source_ids: [class-notes, editorial-examples]
+    question: >-
+      Marc és la parella de Júlia. Teresa és la mare de Júlia i
+      Irene és la mare de Marc. Com anomena Marc a Teresa?
+      Quina relació tenen Teresa i Irene? Explica des de quina
+      persona mires cada relació.
+    answer: >-
+      Per a Marc, Teresa és la seua sogra perquè és la mare de Júlia,
+      la seua parella. Teresa i Irene són consogres perquè són les
+      mares dels dos membres de la parella.
+    answer_space_mm: 42
+  - id: e15
+    kind: reconeixer-digrafs
+    objective_ids: [o6]
+    source_ids: [class-notes]
+    question: >-
+      Copia el grup de lletres estudiat de cadascuna: pinya, gossa, cotxe, platja,
+      paisatge, dotze, bitllet i novel·la.
+    answer: >-
+      Pinya: ny; gossa: ss; cotxe: tx; platja: tj; paisatge: tg;
+      dotze: tz; bitllet: tll; novel·la: l·l.
+    answer_space_mm: 41
+  - id: e16
+    kind: contrast-digraf
+    objective_ids: [o6]
+    source_ids: [class-notes]
+    question: >-
+      En cada parella, tria la paraula en què les lletres destacades
+      representen un sol so i explica per què: foguera/guanyador
+      (gu), esquena/cinquanta (qu), boig/resignat (ig).
+    answer: >-
+      Foguera: gu representa un sol so perquè la u és muda davant
+      de e. Esquena: qu representa un sol so perquè la u és muda
+      davant de e. Boig: ig final representa un so. En guanyador
+      i cinquanta es pronuncia la u; en resignat, i i g no formen
+      un dígraf.
+    answer_space_mm: 53
+  - id: e17
+    kind: expressio-escrita
+    objective_ids: [o7]
+    source_ids: [class-notes, editorial-examples]
+    question: >-
+      Escriu quatre frases per presentar una fotografia imaginària:
+      digues què mostra, on i quan es va fer, què passava i per què
+      la recordes. Pots inventar els detalls; mantín l'orde demanat.
+    answer: >-
+      Resposta model: «Esta fotografia mostra una excursió de classe.
+      La vam fer al parc un dissabte de primavera. Estàvem plantant
+      arbres. La recorde perquè vaig aprendre a cuidar-los».
+      S'admeten altres quatre frases que incloguen què, on i quan,
+      una acció i un motiu personal, en eixe orde.
+    answer_space_mm: 72
+  - id: e18
+    kind: expressio-oral
+    objective_ids: [o7, o3]
+    source_ids: [class-notes, editorial-examples]
+    question: >-
+      Prepara tres frases per a una explicació oral: quin superpoder
+      voldries tindre, què faries amb ell i per què. Inclou una
+      forma correcta de «poder» i la paraula «perquè».
+    answer: >-
+      Resposta model: «M'agradaria poder volar. Amb eixe poder
+      podria ajudar persones lluny de casa. El triaria perquè
+      arribaria ràpidament». S'admet qualsevol proposta coherent
+      de tres frases amb superpoder, acció, motiu, «poder» ben usat
+      i «perquè» amb accent.
+    answer_space_mm: 59

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="305" viewBox="0 0 900 305" role="img" aria-labelledby="title desc">
+  <title id="title">Elements de la comunicació: un missatge de Laia a Marc</title>
+  <desc id="desc">Laia és l'emissora i envia a Marc, el receptor, el missatge Ens veiem a la biblioteca. El codi són paraules escrites, el canal és internet i el context és una trobada informal.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto">
+      <path d="M1 1 L10 5.5 L1 10" fill="none" stroke="#176579" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="900" height="305" rx="18" fill="#fff"/>
+  <text x="450" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#183b49">Qui comunica què, com i en quina situació?</text>
+
+  <rect x="30" y="43" width="202" height="121" rx="15" fill="#e5f3f6" stroke="#176579" stroke-width="2"/>
+  <circle cx="66" cy="83" r="15" fill="#176579"/>
+  <path d="M41 128 Q43 104 66 104 Q89 104 91 128" fill="#176579"/>
+  <text x="107" y="86" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#176579">EMISSORA</text>
+  <text x="107" y="116" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#183b49">Laia</text>
+  <text x="131" y="149" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#183b49">Envia la informació</text>
+
+  <path d="M234 104 H277" fill="none" stroke="#176579" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="286" y="43" width="328" height="121" rx="15" fill="#fff5dc" stroke="#9d6b00" stroke-width="2"/>
+  <text x="450" y="79" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#805600">MISSATGE</text>
+  <text x="450" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#183b49">«Ens veiem a la biblioteca»</text>
+  <text x="450" y="148" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#183b49">Allò que es comunica</text>
+  <path d="M616 104 H659" fill="none" stroke="#176579" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="668" y="43" width="202" height="121" rx="15" fill="#e7f2e9" stroke="#327448" stroke-width="2"/>
+  <circle cx="704" cy="83" r="15" fill="#327448"/>
+  <path d="M679 128 Q681 104 704 104 Q727 104 729 128" fill="#327448"/>
+  <text x="744" y="86" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#327448">RECEPTOR</text>
+  <text x="744" y="116" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#183b49">Marc</text>
+  <text x="769" y="149" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#183b49">Rep la informació</text>
+
+  <rect x="96" y="178" width="340" height="54" rx="12" fill="#edf0fb" stroke="#5267a0" stroke-width="2"/>
+  <text x="114" y="201" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#334983">CODI · signes</text>
+  <text x="114" y="222" font-family="Arial, sans-serif" font-size="16" fill="#183b49">Paraules escrites (verbal)</text>
+  <rect x="464" y="178" width="340" height="54" rx="12" fill="#e9f4f3" stroke="#34857c" stroke-width="2"/>
+  <text x="482" y="201" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#226b62">CANAL · mitjà</text>
+  <text x="482" y="222" font-family="Arial, sans-serif" font-size="16" fill="#183b49">Internet (missatge de mòbil)</text>
+
+  <rect x="96" y="246" width="708" height="46" rx="12" fill="#f4f5f6" stroke="#798991" stroke-width="2"/>
+  <text x="450" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#183b49"><tspan font-weight="700">CONTEXT · situació:</tspan> dos companys queden (informal)</text>
+</svg>

@@ -1,0 +1,58 @@
+title: "Tema 1 · De la A a la Z"
+course: 1-eso
+subject: valencia
+teaching_language: ca-valencia
+status: "elaborat a partir dels materials de classe"
+intro: >-
+  Guia de Valencià de 1r d'ESO per a comprendre una narració, usar vocabulari
+  quotidià, comunicar-se amb claredat i reconéixer els dígrafs. Estudia els
+  exemples, resol els exercicis i comprova les respostes amb les targetes.
+objectives:
+  - {id: o1, text: "Comprendre una narració i distingir narrador, ordre dels fets i expressions del text."}
+  - {id: o2, text: "Usar amb correcció nombres, dates, colors i expressions quotidianes en valencià."}
+  - {id: o3, text: "Conjugar i usar en present ser, estar, tindre, fer i poder."}
+  - {id: o4, text: "Identificar emissor, receptor, missatge, codi, canal i situació en actes de comunicació."}
+  - {id: o5, text: "Reconéixer relacions de parentiu i interpretar un arbre genealògic senzill."}
+  - {id: o6, text: "Reconéixer els dígrafs treballats a classe i distingir quan gu, qu i ig representen un so o dos."}
+  - {id: o7, text: "Preparar una presentació breu i una explicació personal ordenada i entenedora."}
+sources:
+  - id: class-notes
+    type: private-class-notes
+    title: "Quadern de Valencià, tema 1, pàgines 2 i 5–14"
+    note: >-
+      PDF escanejat facilitat per la família el 26 d'octubre de 2026.
+      Conté escriptura manuscrita i informació personal; es conserva fora
+      del repositori públic. La pàgina 1 conté organització i avaluació
+      de l'assignatura, no teoria del tema.
+  - id: textbook-reading
+    type: private-class-notes
+    title: "Lectura de classe «El detectiu Felip Marlot», pàgines 77–78"
+    note: >-
+      Pàgines 3–4 del PDF adjunt; fragment adaptat d'una obra de Joaquim
+      Carbó publicada per Barcanova. S'usa com a referència privada:
+      no se'n reproduïx el text ni les imatges.
+  - id: editorial-examples
+    type: editorial
+    title: "Exemples, activitats i síntesis didàctiques originals"
+    note: >-
+      Redacció pròpia basada en els objectius i els continguts de classe;
+      els exemples nous no són transcripcions dels apunts ni del llibre.
+  - id: avl-gnv
+    type: external
+    title: "Acadèmia Valenciana de la Llengua, Gramàtica normativa valenciana, § 3.1.2"
+    url: "https://www.upv.es/entidades/spnl/wp-content/uploads/2023/11/gramatica_normativa_valenciana.pdf"
+source_note: >-
+  El títol «De la A a la Z» ha sigut confirmat per la família. El contingut
+  del tema s'ha deduït de les pàgines 2–14 del PDF. La primera
+  pàgina s'ha revisat com a context de l'assignatura, però no s'hi inclouen
+  dades de contacte, noms, qualificacions ni normes d'avaluació. La lectura
+  de Felip Marlot es resumix amb paraules pròpies per a no publicar el
+  fragment del llibre; qui dispose del llibre pot rellegir-ne les pàgines
+  77–78. Les formes manuscrites amb errades o dubtes d'OCR s'han contrastat
+  amb la imatge i s'han normalitzat en la guia. En l'exercici del quadern
+  sobre dígrafs, la correcció de «resignat» i «cinquanta» s'ha respectat:
+  les lletres ig i qu no formen dígraf en eixos casos. Les activitats,
+  solucions i targetes són elaboració didàctica original. La gramàtica de
+  l'AVL agrupa alguns casos com a «dígrafs o lletres compostes»; la guia
+  aclareix esta distinció perquè la llista manuscrita inclou tll i l·l
+  sota el títol general de dígrafs.

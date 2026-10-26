@@ -1,0 +1,101 @@
+cards:
+  - id: c01
+    objective_ids: [o1]
+    source_ids: [textbook-reading]
+    front: "Qui narra «El detectiu Felip Marlot» i des de quin moment recorda els fets?"
+    back: "Felip Marlot narra en primera persona; al matí recorda els fets del dia anterior."
+  - id: c02
+    objective_ids: [o1]
+    source_ids: [textbook-reading]
+    front: "Com va descobrir Felip qui s'emportava les corbates?"
+    back: "Va observar que un empleat entrava al teatre sense corbata i n'eixia amb una posada."
+  - id: c03
+    objective_ids: [o1]
+    source_ids: [textbook-reading]
+    front: "Què significa «barrar el pas»? En quin moment del cas passa?"
+    back: "Impedir avançar; la policia barra el pas a la furgoneta dels lladres."
+  - id: c04
+    objective_ids: [o2]
+    source_ids: [class-notes]
+    front: "Com s'escriuen 21 i 32 en valencià?"
+    back: "Vint-i-u i trenta-dos: entre vint i u hi ha -i-; entre trenta i dos, només guionet."
+  - id: c05
+    objective_ids: [o2]
+    source_ids: [class-notes]
+    front: "Quins dies van entre dimarts i dissabte?"
+    back: "Dimecres, dijous i divendres."
+  - id: c06
+    objective_ids: [o2]
+    source_ids: [class-notes]
+    front: "Traduïx «rojo, azul, amarillo, naranja» al valencià."
+    back: "Roig, blau, groc i taronja."
+  - id: c07
+    objective_ids: [o2]
+    source_ids: [class-notes]
+    front: "Com dius en valencià «mañana iré de excursión a la playa»?"
+    back: "Demà aniré d'excursió a la platja."
+  - id: c08
+    objective_ids: [o3]
+    source_ids: [class-notes]
+    front: "Completa: jo __ (tindre), nosaltres __ (fer), ells __ (poder)."
+    back: "Jo tinc, nosaltres fem, ells poden."
+  - id: c09
+    objective_ids: [o3]
+    source_ids: [class-notes]
+    front: "Quines formes de ser i estar porten accent en «ell __» i «tu __»?"
+    back: "Ell és i tu estàs."
+  - id: c10
+    objective_ids: [o3]
+    source_ids: [class-notes]
+    front: "Completa: vosaltres __ (tindre) i vosaltres __ (poder)."
+    back: "Vosaltres teniu i vosaltres podeu."
+  - id: c11
+    objective_ids: [o4]
+    source_ids: [class-notes]
+    front: "En «Laia escriu a Marc», qui és l'emissor i qui el receptor?"
+    back: "Laia és l'emissora perquè envia el missatge; Marc és el receptor perquè el rep."
+  - id: c12
+    objective_ids: [o4]
+    source_ids: [class-notes]
+    front: "En una nota de paper, què és codi i què és canal?"
+    back: "Les paraules escrites són codi verbal; el paper és el canal o suport."
+  - id: c13
+    objective_ids: [o4]
+    source_ids: [class-notes]
+    front: "Alçar el polze per dir que tot va bé és codi verbal o no verbal?"
+    back: "És codi no verbal: un gest transmet la idea sense paraules."
+  - id: c14
+    objective_ids: [o5]
+    source_ids: [class-notes]
+    front: "El germà de ta mare té una filla. Què és ella per a tu?"
+    back: "És la teua cosina: filla d'un oncle."
+  - id: c15
+    objective_ids: [o5]
+    source_ids: [class-notes]
+    front: "Quina diferència hi ha entre sogra i consogra?"
+    back: "Sogra és la mare de la parella; consogra és la mare de la parella d'un fill o una filla."
+  - id: c16
+    objective_ids: [o5]
+    source_ids: [class-notes]
+    front: "Què és una rebesàvia i què és una bessona?"
+    back: "Rebesàvia: mare d'un besavi o besàvia. Bessona: nascuda en el mateix part que una altra persona."
+  - id: c17
+    objective_ids: [o6]
+    source_ids: [class-notes]
+    front: "Per què gu és dígraf en foguera però no en guanyador?"
+    back: "En foguera la u és muda i gu representa un so; en guanyador la u es pronuncia."
+  - id: c18
+    objective_ids: [o6]
+    source_ids: [class-notes]
+    front: "Quina paraula té qu com a dígraf: esquena o cinquanta?"
+    back: "Esquena: la u és muda. En cinquanta, la u es pronuncia."
+  - id: c19
+    objective_ids: [o6]
+    source_ids: [class-notes]
+    front: "Per què ig és dígraf en boig i no en resignat?"
+    back: "En boig, ig final representa un so; en resignat, i i g corresponen a sons diferents."
+  - id: c20
+    objective_ids: [o7]
+    source_ids: [class-notes, editorial-examples]
+    front: "Quines quatre dades ordenen una presentació breu d'una fotografia?"
+    back: "Què mostra, on i quan es va fer, què passava i per què la recordes."

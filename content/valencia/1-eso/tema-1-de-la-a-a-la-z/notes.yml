@@ -1,0 +1,99 @@
+sections:
+  - title: "1. Comprensió lectora: El detectiu Felip Marlot"
+    objective_ids: [o1]
+    source_ids: [textbook-reading, class-notes]
+    body: |
+      **Abans de llegir:** el fragment de classe està narrat en **primera persona** pel detectiu Felip Marlot. Al començament, Felip parla des del matí següent als fets i recorda què va passar el dia anterior. Per això combina el present de la narració amb fets passats.
+
+      **Recordatori de la història, amb paraules pròpies:** Felip està content perquè ha aparegut uns segons en el telenotícies. Pensa que la publicitat li podria portar més faena. El dia anterior havia resolt al teatre la desaparició d'unes corbates: un empleat entrava sense corbata i eixia amb una posada. L'empresari, amic seu, el va convidar a una estrena. De tornada, Felip va seguir una furgoneta robada. Els lladres llançaven pernils per distraure els qui els perseguien. Quan la furgoneta va quedar atrapada en un embús, Felip va apuntar-ne la matrícula i va telefonar a l'inspector Crostó. La policia va detindre un dels lladres i les càmeres van gravar una salutació entre l'inspector i Felip.
+
+      **Per a comprendre un relat**, pregunta't qui conta els fets, quan els conta, què passa primer i quina informació és essencial. Una resposta completa no es limita a repetir una paraula: explica la causa o la conseqüència.
+
+      Algunes expressions de la lectura: **pujar-li els fums** és tornar-se vanitós; **no tocar de peus a terra** és ser poc realista; **aigualir l'èxit** és llevar alegria a un èxit; **fer nosa** és molestar; **barrar el pas** és impedir avançar; **pispa** vol dir lladre; **embús** és una acumulació de vehicles que dificulta la circulació. *Mandra* vol dir peresa i *badallar*, obrir la boca involuntàriament quan es té son.
+  - title: "2. Paraules de cada dia"
+    objective_ids: [o2]
+    source_ids: [class-notes]
+    body: |
+      **Nombres:** 0 *zero*, 1 *u*, 2 *dos*, 3 *tres*, 4 *quatre*, 5 *cinc*, 6 *sis*, 7 *set*, 8 *huit*, 9 *nou*, 10 *deu*. De l'11 al 19: *onze, dotze, tretze, catorze, quinze, setze, dèsset, díhuit, dènou*. Algunes desenes: *vint, trenta, quaranta, cinquanta, seixanta, setanta, huitanta, noranta* i *cent*. Entre desenes i unitats escrivim un guionet (*trenta-dos*); entre vint i les unitats, afegim **-i-** (*vint-i-u*).
+
+      **Dies:** dilluns, dimarts, dimecres, dijous, divendres, dissabte i diumenge. **Mesos:** gener, febrer, març, abril, maig, juny, juliol, agost, setembre, octubre, novembre i desembre. **Estacions:** hivern, primavera, estiu i tardor. Escriu-los en minúscula quan no encapçalen una oració.
+
+      **Colors treballats:** groc, taronja, roig i blau. En una frase: *La carpeta és roja i el bolígraf és blau.*
+
+      **Expressions útils:** *Puc anar al bany?*; *M'agrada molt l'institut*; *Hui dine a casa del meu oncle*; *Demà aniré d'excursió a la platja*; *Ahir vaig sopar peix amb creïlles*. Fixa't en **hui, demà i ahir** i en les apostrofacions: *m'agrada*, *l'institut*, *d'excursió*.
+  - title: "3. Cinc verbs freqüents en present"
+    objective_ids: [o3]
+    source_ids: [class-notes]
+    body: |
+      | Persona | Ser | Estar | Tindre |
+      |---|---|---|---|
+      | Jo | soc | estic | tinc |
+      | Tu | ets | estàs | tens |
+      | Ell/ella | és | està | té |
+      | Nosaltres | som | estem | tenim |
+      | Vosaltres | sou | esteu | teniu |
+      | Ells/elles | són | estan | tenen |
+
+      | Persona | Fer | Poder |
+      |---|---|---|
+      | Jo | faig | puc |
+      | Tu | fas | pots |
+      | Ell/ella | fa | pot |
+      | Nosaltres | fem | podem |
+      | Vosaltres | feu | podeu |
+      | Ells/elles | fan | poden |
+
+      Tria la forma segons **qui** fa l'acció: *Jo tinc un llibre; nosaltres tenim dos llibres.* No oblides els accents de *és, estàs, està, té* i *són*. En classe també s'ha practicat explicar un superpoder; per exemple: *Si poguera volar, ajudaria la gent perquè podria arribar de pressa.* La forma **perquè** introduïx la raó.
+  - title: "4. Els elements de la comunicació"
+    objective_ids: [o4]
+    source_ids: [class-notes, editorial-examples]
+    diagram_ids: [elements-comunicacio]
+    body: |
+      Quan una persona transmet informació a una altra, hi ha un **emissor** (qui l'envia), un **receptor** (qui la rep) i un **missatge** (allò que es comunica). El **codi** és el conjunt de signes utilitzats: pot ser **verbal** (paraules) o **no verbal** (gestos, senyals, símbols, icones o sons). El **canal** és el mitjà pel qual arriba el missatge, com l'aire en una conversa, el paper en una nota o internet en un correu. La **situació o context** ajuda a interpretar-lo; a classe s'han distingit les situacions acadèmiques o formals i les familiars o informals.
+
+      **Exemple:** Laia escriu a Marc «Ens veiem a la biblioteca» en un missatge de mòbil. Laia és l'emissora, Marc el receptor i la frase és el missatge. Les paraules són codi verbal escrit; internet és el canal. Si un entrenador alça el polze per felicitar una jugadora, el gest és un codi no verbal visual.
+
+      **No confundisques codi i canal:** les paraules són signes del codi; el paper, la veu en l'aire i la xarxa són mitjans de transmissió. En un mateix acte poden combinar-se paraules i gestos.
+
+      **Esquema visual:** seguix la fletxa de Laia a Marc. El missatge viatja pel canal, està escrit amb un codi i s'interpreta en una situació concreta.
+  - title: "5. La família i les relacions de parentiu"
+    objective_ids: [o5]
+    source_ids: [class-notes, editorial-examples]
+    diagram_ids: [arbre-familiar]
+    body: |
+      Un **arbre genealògic** representa persones de diverses generacions i les seues relacions. Comença identificant la persona de referència: la mateixa persona pot ser *filla* d'algú i *mare* d'una altra.
+
+      - **Besavi/besàvia:** pare o mare d'un avi o una àvia. **Rebesavi/rebesàvia:** pare o mare d'un besavi o una besàvia.
+      - **Oncle/tia:** germà o germana del pare o de la mare. **Cosí/cosina:** fill o filla d'un oncle o una tia. **Nebot/neboda:** fill o filla d'un germà o una germana.
+      - **Cunyat/cunyada:** germà o germana de la parella, o parella d'un germà o una germana. **Gendre/nora:** parella del fill o de la filla. **Sogre/sogra:** pare o mare de la parella. **Consogre/consogra:** pare o mare de la parella d'un fill o una filla.
+      - **Avantpassat:** familiar d'una generació anterior. **Bessó/bessona:** persona nascuda en el mateix part que una altra. **Vidu/vídua:** persona a qui se li ha mort el cònjuge o la parella. **Orfe/òrfena:** persona a qui se li ha mort el pare, la mare o tots dos. **Fill adoptiu/filla adoptiva:** fill o filla per adopció; és una relació familiar plena.
+
+      **Exemple inventat:** Anna i Pau són germans. Anna és la mare de Clara. Pau és l'oncle de Clara, i Clara és la neboda de Pau.
+
+      **Llig l'arbre:** Teresa és la mare d'Anna i Pau i l'àvia de Clara i Nil. Clara i Nil són cosins perquè els seus pares són germans.
+  - title: "6. Els dígrafs"
+    objective_ids: [o6]
+    source_ids: [class-notes, avl-gnv]
+    body: |
+      Un **dígraf** és una parella de lletres que representa **un sol so** en una paraula. A classe s'han treballat, entre altres, **gu** (*foguera*), **qu** (*esquena*), **ll** (*llavi*), **ny** (*pinya*), **rr** (*gerro*), **ss** (*gossa*), **tg** (*paisatge*), **tj** (*platja*), **tx** (*cotxe*), **tz** (*dotze*), **ig** al final d'algunes paraules (*boig*) i **ix** (*caixa*). En la mateixa llista del quadern també apareixen **l·l** (*novel·la*) i **tll** (*bitllet*). La gramàtica de l'AVL els agrupa amb altres dígrafs sota la denominació «dígrafs o lletres compostes»; *tll* té tres lletres i, per tant, no és una parella de lletres.
+
+      **Mira el so i el context, no només les dues lletres.** En *foguera*, **gu** representa el so de *g* davant de *e* i la *u* no es pronuncia; en *guanyador*, se senten *g* i *u*, i no té eixe valor de dígraf. En *esquena*, **qu** representa un sol so davant de *e*; en *cinquanta*, la *u* es pronuncia. En *boig*, **ig** final representa un so; en *resignat*, les lletres *i* i *g* pertanyen a sons diferents.
+
+      **Mètode:** 1) encercla la parella de lletres; 2) pronuncia la paraula; 3) decidix si representa un sol so; 4) explica la diferència amb un exemple pròxim.
+  - title: "7. Em presente i explique una idea"
+    objective_ids: [o7]
+    source_ids: [class-notes, editorial-examples]
+    body: |
+      En la presentació de classe es descrivia una fotografia i s'explicava **on** i **quan** s'havia fet. Perquè el text siga clar, ordena'l així: 1) presenta la imatge o la idea; 2) situa-la en un lloc i un moment; 3) conta una acció o un detall; 4) acaba amb una frase personal.
+
+      **Model original:** *Esta fotografia és d'una excursió amb la classe. La vam fer a la platja un dissabte de primavera. Estàvem mirant les petxines de l'arena. Recorde aquell dia perquè vaig aprendre a reconéixer-les.*
+
+      Si expliques un superpoder imaginari, digues quin és, què faries i **per què**: *M'agradaria poder volar. Aniria de pressa a ajudar les persones que ho necessiten.* Revisa els accents i el lèxic valencià abans de llegir-ho en veu alta.
+self_check:
+  - "Puc resumir la lectura de Felip Marlot i explicar qui la conta."
+  - "Escric dies, mesos, colors i nombres freqüents en valencià."
+  - "Use en frases les formes de ser, estar, tindre, fer i poder."
+  - "Sé distingir emissor, receptor, missatge, codi, canal i context."
+  - "Puc explicar parentius senzills en un arbre."
+  - "Reconec els dígrafs de classe i les excepcions treballades."
+  - "Prepare una presentació breu amb lloc, moment, detall i tancament."

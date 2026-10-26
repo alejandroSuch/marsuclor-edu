@@ -1,0 +1,13 @@
+diagrams:
+  - id: elements-comunicacio
+    title: Elements de la comunicació en un missatge de Laia a Marc
+    file: elements-comunicacio.svg
+    objective_ids: [o4]
+    source_ids: [class-notes, editorial-examples]
+    vocabulary_ids: []
+  - id: arbre-familiar
+    title: Arbre familiar inventat de Teresa, Anna, Pau, Clara i Nil
+    file: arbre-familiar.svg
+    objective_ids: [o5]
+    source_ids: [class-notes, editorial-examples]
+    vocabulary_ids: []

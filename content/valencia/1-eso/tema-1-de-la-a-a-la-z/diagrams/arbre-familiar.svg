@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="290" viewBox="0 0 900 290" role="img" aria-labelledby="title desc">
+  <title id="title">Arbre familiar inventat: Teresa, Anna, Pau, Clara i Nil</title>
+  <desc id="desc">Teresa és mare d'Anna i Pau, que són germans, i àvia de Clara i Nil. Anna és mare de Clara i Pau és pare de Nil. Pau és oncle de Clara, Clara és neboda de Pau i Clara i Nil són cosins.</desc>
+  <rect width="900" height="290" rx="18" fill="#fff"/>
+  <text x="450" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#183b49">Tres generacions, diferents relacions</text>
+
+  <path d="M450 97 V105 H250 V119 M450 105 H650 V119 M250 183 V214 M650 183 V214" fill="none" stroke="#526b77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="355" y="42" width="190" height="55" rx="12" fill="#f2eaf7" stroke="#82559a" stroke-width="2"/>
+  <text x="450" y="67" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#183b49">Teresa</text>
+  <text x="450" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#74428d">àvia de Clara i Nil</text>
+
+  <rect x="155" y="120" width="190" height="64" rx="12" fill="#e5f3f6" stroke="#176579" stroke-width="2"/>
+  <text x="250" y="149" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#183b49">Anna</text>
+  <text x="250" y="172" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#176579">mare de Clara</text>
+  <rect x="555" y="120" width="190" height="64" rx="12" fill="#e5f3f6" stroke="#176579" stroke-width="2"/>
+  <text x="650" y="149" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#183b49">Pau</text>
+  <text x="650" y="172" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#176579">pare de Nil</text>
+  <text x="450" y="152" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#805600">germans</text>
+
+  <rect x="155" y="214" width="190" height="50" rx="12" fill="#e7f2e9" stroke="#327448" stroke-width="2"/>
+  <text x="250" y="246" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#183b49">Clara</text>
+  <rect x="555" y="214" width="190" height="50" rx="12" fill="#e7f2e9" stroke="#327448" stroke-width="2"/>
+  <text x="650" y="246" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#183b49">Nil</text>
+  <path d="M347 239 H553" fill="none" stroke="#9d6b00" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="450" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#805600">cosins</text>
+  <text x="450" y="282" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#405b67">Pau és oncle de Clara · Clara és neboda de Pau</text>
+</svg>
