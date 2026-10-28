@@ -167,15 +167,30 @@ exercises:
     objective_ids: [o5]
     source_ids: [class-notes, editorial-examples]
     question: >-
-      Marc és la parella de Júlia. Teresa és la mare de Júlia i
-      Irene és la mare de Marc. Com anomena Marc a Teresa?
-      Quina relació tenen Teresa i Irene? Explica des de quina
+      Biel és la parella de Mireia. Amàlia és la mare de Mireia i
+      Irene és la mare de Biel. Com anomena Biel a Amàlia?
+      Quina relació tenen Amàlia i Irene? Explica des de quina
       persona mires cada relació.
     answer: >-
-      Per a Marc, Teresa és la seua sogra perquè és la mare de Júlia,
-      la seua parella. Teresa i Irene són consogres perquè són les
+      Per a Biel, Amàlia és la seua sogra perquè és la mare de Mireia,
+      la seua parella. Amàlia i Irene són consogres perquè són les
       mares dels dos membres de la parella.
     answer_space_mm: 42
+  - id: e19
+    kind: parentiu-per-parella
+    objective_ids: [o5]
+    source_ids: [class-notes, editorial-examples]
+    question: >-
+      En l'arbre d'estos apunts, Anna i Oriol són parella, i Pau i Júlia
+      també. Anna i Pau són fills de Teresa. Quin parentiu tenen Oriol
+      i Júlia amb Teresa? I Teresa amb ells? Qui són el nét i la neta
+      de Teresa?
+    answer: >-
+      Oriol és el gendre de Teresa perquè és la parella de la seua filla
+      Anna. Júlia és la nora de Teresa perquè és la parella del seu fill
+      Pau. Teresa és la sogra d'Oriol i de Júlia. Nil és el nét de
+      Teresa i Clara és la seua neta.
+    answer_space_mm: 48
   - id: e15
     kind: reconeixer-digrafs
     objective_ids: [o6]

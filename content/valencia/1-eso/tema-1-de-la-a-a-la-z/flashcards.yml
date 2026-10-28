@@ -79,6 +79,11 @@ cards:
     source_ids: [class-notes]
     front: "Què és una rebesàvia i què és una bessona?"
     back: "Rebesàvia: mare d'un besavi o besàvia. Bessona: nascuda en el mateix part que una altra persona."
+  - id: c21
+    objective_ids: [o5]
+    source_ids: [class-notes, editorial-examples]
+    front: "Teresa té una filla, Anna, i un fill, Pau. Oriol és la parella d'Anna i Júlia és la parella de Pau. Qui és el gendre i qui és la nora de Teresa?"
+    back: "Oriol és el gendre, perquè és la parella de la filla; Júlia és la nora, perquè és la parella del fill."
   - id: c17
     objective_ids: [o6]
     source_ids: [class-notes]

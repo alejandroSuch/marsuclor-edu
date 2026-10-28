@@ -63,14 +63,15 @@ sections:
     body: |
       Un **arbre genealògic** representa persones de diverses generacions i les seues relacions. Comença identificant la persona de referència: la mateixa persona pot ser *filla* d'algú i *mare* d'una altra.
 
-      - **Besavi/besàvia:** pare o mare d'un avi o una àvia. **Rebesavi/rebesàvia:** pare o mare d'un besavi o una besàvia.
+      - **Pare/mare:** progenitor o progenitora d'un fill o una filla. **Fill/filla:** persona respecte dels seus pares. **Germà/germana:** persona que compartix pare, mare o tots dos amb una altra. **Marit/muller:** persones casades entre si.
+      - **Avi/àvia:** pare o mare del pare o de la mare. **Nét/neta:** fill o filla d'un fill o una filla. **Besavi/besàvia:** pare o mare d'un avi o una àvia. **Rebesavi/rebesàvia:** pare o mare d'un besavi o una besàvia.
       - **Oncle/tia:** germà o germana del pare o de la mare. **Cosí/cosina:** fill o filla d'un oncle o una tia. **Nebot/neboda:** fill o filla d'un germà o una germana.
-      - **Cunyat/cunyada:** germà o germana de la parella, o parella d'un germà o una germana. **Gendre/nora:** parella del fill o de la filla. **Sogre/sogra:** pare o mare de la parella. **Consogre/consogra:** pare o mare de la parella d'un fill o una filla.
+      - **Cunyat/cunyada:** germà o germana de la parella, o parella d'un germà o una germana. **Gendre:** parella d'una filla. **Nora:** parella d'un fill. **Sogre/sogra:** pare o mare de la parella. **Consogre/consogra:** pare o mare de la parella d'un fill o una filla.
       - **Avantpassat:** familiar d'una generació anterior. **Bessó/bessona:** persona nascuda en el mateix part que una altra. **Vidu/vídua:** persona a qui se li ha mort el cònjuge o la parella. **Orfe/òrfena:** persona a qui se li ha mort el pare, la mare o tots dos. **Fill adoptiu/filla adoptiva:** fill o filla per adopció; és una relació familiar plena.
 
-      **Exemple inventat:** Anna i Pau són germans. Anna és la mare de Clara. Pau és l'oncle de Clara, i Clara és la neboda de Pau.
+      **Exemple inventat:** Anna i Pau són germans. Anna i Oriol són els pares de Clara; Pau i Júlia són els pares de Nil. Pau és l'oncle de Clara, i Clara és la neboda de Pau.
 
-      **Llig l'arbre:** Teresa és la mare d'Anna i Pau i l'àvia de Clara i Nil. Clara i Nil són cosins perquè els seus pares són germans.
+      **Llig l'arbre:** Teresa és la mare d'Anna i Pau i l'àvia de Clara i Nil; Clara i Nil són els seus nets. Oriol és el gendre de Teresa perquè és la parella d'Anna, i Júlia és la seua nora perquè és la parella de Pau. Teresa és la sogra d'Oriol i de Júlia. Oriol és cunyat de Pau i Júlia és cunyada d'Anna. Clara i Nil són cosins perquè Anna i Pau són germans. Els altres termes del vocabulari, com *rebesàvia*, *vidu* o *fill adoptiu*, no es poden deduir d'este arbre.
   - title: "6. Els dígrafs"
     objective_ids: [o6]
     source_ids: [class-notes, avl-gnv]

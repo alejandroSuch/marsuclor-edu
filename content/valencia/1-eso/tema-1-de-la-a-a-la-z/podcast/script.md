@@ -69,7 +69,7 @@ Són el codi. El paper és el canal o suport. Si canvies el paper per un missatg
 
 Un arbre genealògic mostra persones de diverses generacions. Per interpretar-lo, tria sempre la persona des de la qual mires. Una dona pot ser filla de sa mare i mare de la seua filla. Un oncle és germà del pare o de la mare. Un cosí és fill d'un oncle o d'una tia. Un nebot és fill d'un germà o d'una germana.
 
-Imagina que Anna i Pau són germans. Anna és la mare de Clara. Pau és l'oncle de Clara i Clara és la neboda de Pau. Si Pau té un fill, Nil, Clara i Nil són cosins. La relació canvia de nom segons les persones que compares.
+Imagina que Anna i Pau són germans i fills de Teresa. Anna i Oriol són els pares de Clara. Pau i Júlia són els pares de Nil. Teresa és l'àvia de Clara i Nil, que són els seus nets. Pau és l'oncle de Clara i Clara és la neboda de Pau. Clara i Nil són cosins. Oriol és el gendre de Teresa perquè és la parella de la seua filla Anna. Júlia és la nora de Teresa perquè és la parella del seu fill Pau. La relació canvia de nom segons les persones que compares.
 
 També s'han treballat altres termes. La mare d'un besavi és una rebesàvia. Una bessona és una persona nascuda en el mateix part que una altra. Un avantpassat és un familiar d'una generació anterior. La sogra és la mare de la parella; la consogra és la mare de la parella d'un fill o d'una filla. Un fill adoptiu és fill per adopció i forma part plenament de la família.
 

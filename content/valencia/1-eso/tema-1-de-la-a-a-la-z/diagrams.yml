@@ -6,7 +6,7 @@ diagrams:
     source_ids: [class-notes, editorial-examples]
     vocabulary_ids: []
   - id: arbre-familiar
-    title: Arbre familiar inventat de Teresa, Anna, Pau, Clara i Nil
+    title: Arbre familiar inventat de Teresa i els seus descendents
     file: arbre-familiar.svg
     objective_ids: [o5]
     source_ids: [class-notes, editorial-examples]
