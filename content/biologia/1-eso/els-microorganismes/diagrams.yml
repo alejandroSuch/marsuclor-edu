@@ -1,0 +1,13 @@
+diagrams:
+  - id: bolet-miceli
+    title: Parts d'un fong amb bolet
+    file: bolet-miceli.svg
+    objective_ids: [o5]
+    source_ids: [apunts, quadern]
+    vocabulary_ids: []
+  - id: parts-virus
+    title: Parts d'un virus amb embolcall
+    file: parts-virus.svg
+    objective_ids: [o6]
+    source_ids: [apunts]
+    vocabulary_ids: []

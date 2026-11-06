@@ -1,0 +1,19 @@
+cards:
+  - {id: c01, objective_ids: [o1], source_ids: [apunts, quadern], front: "Què és un microorganisme?", back: "Un ésser viu tan menut que individualment cal microscopi per a observar-lo."}
+  - {id: c02, objective_ids: [o1], source_ids: [apunts, quadern], front: "Quins quatre regnes de microorganismes estudia el quadern?", back: "Bacteria, Protozoa, Chromista i Fungi, dins de la seua classificació de set regnes."}
+  - {id: c03, objective_ids: [o1], source_ids: [apunts, quadern], front: "On situa el parameci cada material?", back: "Els apunts el situen amb els protozous; el quadern, en Chromista."}
+  - {id: c04, objective_ids: [o2], source_ids: [apunts], front: "Què vol dir que un bacteri és procariota?", back: "Que no té un nucli delimitat per membrana."}
+  - {id: c05, objective_ids: [o2], source_ids: [apunts, quadern], front: "Quines formes tenen coc, bacil, vibrió i espiril?", back: "Arredonida, allargada, corbada i helicoidal, respectivament."}
+  - {id: c06, objective_ids: [o2], source_ids: [apunts], front: "En què es diferencien bipartició i espora de resistència bacteriana?", back: "La bipartició forma dos cèl·lules; l'espora de resistència ajuda a sobreviure, sense reproduir-se."}
+  - {id: c07, objective_ids: [o2, o7], source_ids: [apunts], front: "Quin bacteri dels apunts fa fotosíntesi?", back: "Les cianobacteris."}
+  - {id: c08, objective_ids: [o3], source_ids: [apunts, quadern], front: "Com es mouen ameba, parameci i tripanosoma?", back: "Amb pseudòpodes, cilis i un flagel, respectivament."}
+  - {id: c09, objective_ids: [o3, o7], source_ids: [apunts, quadern], front: "Quin microorganisme causa la malària segons els materials?", back: "El plasmodi; es transmet per determinats mosquits."}
+  - {id: c10, objective_ids: [o4], source_ids: [apunts, quadern], front: "En què es diferencien una diatomea i una alga parda gran?", back: "La diatomea és unicel·lular i microscòpica; l'alga parda gran, pluricel·lular i visible a ull nu."}
+  - {id: c11, objective_ids: [o4], source_ids: [apunts], front: "Què necessiten les algues per a fer fotosíntesi?", back: "Llum, aigua, diòxid de carboni i sals minerals."}
+  - {id: c12, objective_ids: [o4, o7], source_ids: [apunts], front: "Per què són importants les algues del plàncton?", back: "Produïxen matèria orgànica i oxigen i alimenten molts animals aquàtics."}
+  - {id: c13, objective_ids: [o5], source_ids: [apunts, quadern], front: "Què són les hifes i el miceli?", back: "Les hifes són filaments del fong; la seua xarxa forma el miceli."}
+  - {id: c14, objective_ids: [o5], source_ids: [apunts, quadern], front: "En què es diferencien gemmació del llevat i espores del bolet?", back: "En la gemmació naix una cèl·lula d'una protuberància; les espores del bolet poden germinar i formar noves hifes."}
+  - {id: c15, objective_ids: [o5, o7], source_ids: [apunts], front: "Per què un bolet no representa tot el fong?", back: "És una estructura reproductora; el miceli també és part del fong i sol quedar ocult."}
+  - {id: c16, objective_ids: [o6], source_ids: [apunts], front: "Quines parts té un virus amb embolcall?", back: "Àcid nucleic, càpsida de proteïnes i embolcall exterior."}
+  - {id: c17, objective_ids: [o6], source_ids: [apunts, quadern], front: "Quan pot multiplicar-se un virus?", back: "Només dins d'una cèl·lula hoste."}
+  - {id: c18, objective_ids: [o7], source_ids: [apunts, quadern], front: "Dona dos beneficis de microorganismes. Per què no tots són perjudicials?", back: "Per exemple, bacteris del iogurt i fongs descomponedors; molts microorganismes tenen funcions útils."}

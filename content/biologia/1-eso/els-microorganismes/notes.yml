@@ -1,0 +1,104 @@
+sections:
+  - title: "1. Què són els microorganismes?"
+    objective_ids: [o1]
+    source_ids: [apunts, quadern]
+    body: |
+      Els **microorganismes** són éssers vius tan menuts que, individualment, cal un **microscopi** per a observar-los. La **microbiologia** els estudia. Molts són **unicel·lulars** (una cèl·lula) i poden viure a l'aigua, a l'aire, al sòl, sobre la pell o a l'intestí. No tots causen malalties: alguns fabriquen aliments o reciclen la matèria.
+
+      Els dos materials utilitzen **esquemes de classificació diferents**. Els apunts parlen de «moneres» (bacteris i arqueus) i «protoctists» (protozous i algues). El quadern de la professora utilitza set regnes i, per a esta unitat, anomena **Bacteria, Protozoa, Chromista i Fungi**. En eixe quadern les algues pardes i les diatomees s'estudien en Chromista; les verdes i les roges s'esmenten en Plantae. Esta diferència de noms no canvia les característiques observables d'una ameba, una diatomea o un fong.
+
+      **Per a estudiar:** reconeix l'organisme per les seues cèl·lules, la nutrició i el moviment; quan escrigues un regne, indica si seguixes els apunts o el quadern. Els virus es tracten al final: no tenen cèl·lules i no són microorganismes vius en la definició usada ací.
+  - title: "2. Els bacteris"
+    objective_ids: [o2, o7]
+    source_ids: [apunts, quadern]
+    body: |
+      Els **bacteris** són unicel·lulars i **procariotes**: tenen membrana plasmàtica, citoplasma i material genètic, però no un nucli envoltat per membrana. Un bacteri aïllat no es veu a ull nu; una colònia molt gran sí que pot veure's com a conjunt. Els apunts també mencionen els **arqueus**, que poden viure en ambients extrems; no s'han de confondre amb tots els bacteris.
+
+      | Forma | Com és | Exemple dels materials |
+      |---|---|---|
+      | Coc | Arredonida | Alguns bacteris del iogurt. |
+      | Bacil | Allargada, com un bastonet | Bacteri del tètanus. |
+      | Vibrió | Corbada, com una coma | Bacteri del còlera. |
+      | Espiril | Helicoidal | Bacteri de la sífilis. |
+
+      Alguns bacteris són **autòtrofs**, com les cianobacteris que fan fotosíntesi. Altres són **heteròtrofs**: els sapròfits o descomponedors aprofiten restes; els simbiòtics s'associen amb altres organismes i els dos obtenen beneficis; els paràsits viuen a costa d'un hoste i el perjudiquen. Un exemple de simbiosi és la relació de bacteris intestinals amb les persones.
+
+      La reproducció habitual és **asexual per bipartició**: una cèl·lula es dividix i en forma dos. En condicions desfavorables, alguns bacteris formen **espores de resistència**; estes ajuden a sobreviure i no són una forma de reproducció. Poden viure aïllats o en colònies.
+
+      Alguns causen malalties, com el còlera o el tètanus. Altres descomponen restes, alliberen oxigen per fotosíntesi o s'utilitzen per a fer iogurt, formatge, vinagre i medicaments. La insulina produïda amb bacteris s'obté mitjançant biotecnologia. Per això és incorrecte dir que tots els bacteris són perjudicials.
+  - title: "3. Els protozous"
+    objective_ids: [o3, o7]
+    source_ids: [apunts, quadern]
+    body: |
+      Els **protozous** dels apunts són unicel·lulars, **eucariotes** (amb nucli), heteròtrofs i habitualment aquàtics. Poden alimentar-se de bacteris, de restes o viure com a paràsits. Molts es desplacen. En condicions adverses, alguns formen **quists** resistents.
+
+      | Grup dels apunts | Desplaçament | Exemple |
+      |---|---|---|
+      | Flagel·lats | Amb un flagel llarg | Tripanosoma. |
+      | Ciliats | Amb molts cilis menuts | Parameci. |
+      | Rizòpodes | Amb pseudòpodes, prolongacions del citoplasma | Ameba. |
+      | Esporozous | Sense estructures locomotores en l'esquema escolar | Plasmodi. |
+
+      Alguns protozous formen part del plàncton i alimenten animals aquàtics. Altres contribuïxen a depurar l'aigua perquè consumixen bacteris i restes. Alguns causen malalties: el **plasmodi** provoca la malària i es transmet per determinats mosquits. Beure aigua no tractada pot exposar-nos a microorganismes patògens.
+
+      **Atenció a la classificació:** els apunts posen parameci i plasmodi amb els protozous; el quadern els presenta dins de **Chromista**. Conserva esta diferència quan resolgues activitats de cada material.
+  - title: "4. Les algues i el grup Chromista del quadern"
+    objective_ids: [o4, o7]
+    source_ids: [apunts, quadern]
+    body: |
+      Les **algues** dels apunts són eucariotes, aquàtiques i fotosintètiques. Poden ser unicel·lulars, com les **diatomees**, o pluricel·lulars, com moltes algues pardes. Les microscòpiques no es veuen individualment a ull nu; les macroscòpiques sí. També n'hi ha de filamentoses. Els apunts distingixen algues **verdes, pardes i roges** pel color. No tenen els teixits veritables propis de les plantes terrestres.
+
+      Per a fer **fotosíntesi**, utilitzen llum, aigua, diòxid de carboni i sals minerals; fabriquen matèria orgànica i alliberen oxigen. Algunes es mouen amb flagels, com l'exemple d'**Euglena** dels apunts. Les unicel·lulars poden dividir-se per bipartició; en algues pluricel·lulars hi ha diferents formes de reproducció sexual i asexual.
+
+      Les algues microscòpiques formen part del **plàncton**, base alimentària de molts animals aquàtics. Les grans poden formar refugis submarins. També tenen usos alimentaris i industrials, com l'**agar-agar** que s'utilitza en cultius de laboratori.
+
+      | En el quadern de set regnes | Característica |
+      |---|---|
+      | Alga parda i diatomea (Chromista) | Fotosintètiques; la primera pot ser pluricel·lular, la segona unicel·lular. |
+      | Parameci i plasmodi (Chromista) | No fan fotosíntesi en els exemples del quadern. |
+
+      El **quadern** posa les algues verdes i roges en Plantae. Els **apunts** parlen de les tres per colors sense usar eixa separació. Si un exercici demana «Chromista segons el quadern», aplica la seua taula.
+  - title: "5. Els fongs"
+    objective_ids: [o5, o7]
+    source_ids: [apunts, quadern]
+    diagram_ids: [bolet-miceli]
+    body: |
+      Els **fongs** són eucariotes i **heteròtrofs**: no fan fotosíntesi. Els **llevats** són unicel·lulars; les **floridures** i molts fongs amb bolet són pluricel·lulars. En els fongs filamentosos, les cèl·lules formen **hifes**; la xarxa d'hifes és el **miceli**, que sovint queda ocult al substrat. El **bolet** és una estructura reproductora d'alguns fongs, no tot l'organisme.
+
+      En el dibuix dels apunts, el bolet té **barret**, **làmines** i **cama**. A les làmines es formen **espores**; quan arriben a un medi adequat, poden germinar i donar lloc a noves hifes i un altre miceli. Els llevats es poden reproduir asexualment per **gemmació**: apareix una protuberància que origina una altra cèl·lula. També hi ha fongs pluricel·lulars sense bolet visible que formen espores.
+
+      Molts fongs són **descomponedors**. Altres són paràsits, com els que causen el peu d'atleta. Poden establir simbiosi: en els **líquens**, el fong s'associa amb un organisme fotosintètic; en les **micorrizes**, amb arrels de plantes. Els llevats ajuden a fer pa i algunes begudes; de floridures com *Penicillium* es van obtindre antibiòtics. Hi ha bolets comestibles i altres de verinosos: no en menges si no han sigut identificats amb seguretat.
+  - title: "6. Els virus"
+    objective_ids: [o6, o7]
+    source_ids: [apunts, quadern]
+    diagram_ids: [parts-virus]
+    body: |
+      Els **virus** no tenen cèl·lules. En este curs no es consideren éssers vius perquè no realitzen per si sols les funcions vitals. Consten d'**àcid nucleic** amb informació genètica i una **càpsida** de proteïnes que l'envolta. Alguns, com els coronavirus, tenen també un **embolcall** exterior. El dibuix mostra un virus amb embolcall; no tots en tenen.
+
+      Un virus pot trobar-se fora d'una cèl·lula, però **només es multiplica dins d'una cèl·lula hoste**. Pot infectar organismes de grups diferents, inclosos bacteris. Alguns causen malalties com la grip. Per a reduir contagis, convé llavar-se les mans, tossir al colze i seguir les vacunes recomanades.
+  - title: "7. Comparació per a repassar"
+    objective_ids: [o1, o2, o3, o4, o5, o6, o7]
+    source_ids: [apunts, quadern]
+    body: |
+      | Exemple | Cèl·lules | Nutrició habitual | Pista per a recordar-lo |
+      |---|---|---|---|
+      | Bacteri del iogurt | Una, procariota | Heteròtrofa | Pot transformar llet en iogurt. |
+      | Ameba | Una, eucariota | Heteròtrofa | Es mou amb pseudòpodes. |
+      | Diatomea | Una, eucariota | Fotosintètica | Alga microscòpica del plàncton. |
+      | Llevat | Una, eucariota | Heteròtrofa | Fong que pot fer gemmació. |
+      | Fong amb bolet | Moltes, eucariotes | Heteròtrofa | Miceli d'hifes i, en alguns, bolet. |
+      | Virus | Cap | No fa nutrició pròpia | Necessita una cèl·lula per a multiplicar-se. |
+
+      Estes són característiques dels **exemples**, no regles per a totes les espècies d'un grup. Si compares els reines dels dos materials, utilitza la nota de classificació de l'apartat 1.
+study_tips:
+  - "Practica les quatre formes bacterianes i relaciona-les amb un exemple."
+  - "Explica en veu alta com es mouen ameba, parameci i tripanosoma."
+  - "Dibuixa el bolet i assenyala barret, làmines, cama, hifes i miceli."
+  - "Compara les dos classificacions sense canviar els noms dels organismes."
+self_check:
+  - "Definisc microorganisme i distingisc els noms de grup dels dos materials."
+  - "Explique bipartició, nutrició i beneficis o riscos dels bacteris."
+  - "Identifique pseudòpodes, cilis, flagel i quists en els exemples."
+  - "Explique la fotosíntesi i la importància de les algues."
+  - "Distingisc llevat, floridura i fong amb bolet, i identifique el miceli."
+  - "Identifique àcid nucleic, càpsida i embolcall en un virus."

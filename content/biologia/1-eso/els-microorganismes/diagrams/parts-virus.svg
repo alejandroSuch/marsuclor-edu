@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">Parts d'un virus amb embolcall</title>
+  <desc id="desc">Esquema original basat en el dibuix dels apunts: un embolcall exterior envolta una càpsida de proteïnes; dins hi ha àcid nucleic. Només alguns virus tenen embolcall.</desc>
+  <rect width="900" height="420" fill="#fffdf8"/>
+  <circle cx="450" cy="195" r="138" fill="#f2cbd5" stroke="#9a455c" stroke-width="7"/>
+  <circle cx="450" cy="195" r="104" fill="#f8edf2" stroke="#7f5666" stroke-width="7"/>
+  <path d="M386 180C415 108 475 111 498 155C523 205 456 212 431 235C405 258 463 287 494 242" fill="none" stroke="#8b4f99" stroke-width="12" stroke-linecap="round"/>
+  <g stroke="#9a455c" stroke-width="7" stroke-linecap="round"><path d="M450 56V24M526 80L545 53M586 138L617 122M589 252L619 267M528 314L548 342M374 80L354 52M312 138L281 122M312 252L282 267M372 315L352 343"/></g>
+  <g fill="#d6a84e" stroke="#8f6a2c" stroke-width="2"><circle cx="450" cy="22" r="9"/><circle cx="548" cy="49" r="9"/><circle cx="621" cy="120" r="9"/><circle cx="623" cy="269" r="9"/><circle cx="550" cy="346" r="9"/><circle cx="352" cy="49" r="9"/><circle cx="278" cy="120" r="9"/><circle cx="278" cy="269" r="9"/><circle cx="350" cy="346" r="9"/></g>
+  <g fill="none" stroke="#424d59" stroke-width="2.5"><path d="M166 78H270L330 123"/><path d="M727 145H634L551 150"/><path d="M177 316H284L416 232"/></g>
+  <g fill="#173b4a" font-family="Arial,sans-serif" font-size="20"><text x="38" y="75">A</text><text class="diagram-answer" x="64" y="75">Embolcall</text><text x="734" y="141">B</text><text class="diagram-answer" x="759" y="141">Càpsida</text><text x="38" y="312">C</text><text class="diagram-answer" x="65" y="312">Àcid nucleic</text></g>
+  <text x="450" y="393" text-anchor="middle" fill="#52616c" font-family="Arial,sans-serif" font-size="15">No tots els virus tenen embolcall.</text>
+</svg>

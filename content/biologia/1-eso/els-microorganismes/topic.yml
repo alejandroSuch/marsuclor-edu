@@ -1,0 +1,44 @@
+title: Els microorganismes
+course: 1-eso
+subject: biologia
+teaching_language: ca-valencia
+status: Elaborat a partir dels apunts de classe i del quadern adaptat de la professora
+intro: >-
+  Tema 5 de Biologia i Geologia de 1r d'ESO. Estudia els microorganismes,
+  els bacteris, els protozous, les algues, els fongs i els virus; practica
+  amb activitats i comprova les solucions.
+objectives:
+  - {id: o1, text: Definir microorganisme i comparar les dos classificacions presents en els materials.}
+  - {id: o2, text: Reconéixer l'estructura, les formes, les funcions vitals i la importància dels bacteris.}
+  - {id: o3, text: Identificar els protozous pels seus moviments, nutrició i paper en el medi.}
+  - {id: o4, text: Comparar algues microscòpiques i macroscòpiques, fotosíntesi i importància ecològica.}
+  - {id: o5, text: Distingir llevats, floridures i fongs amb bolet, i explicar el miceli i la reproducció.}
+  - {id: o6, text: Identificar les parts d'un virus i explicar per què necessita una cèl·lula per a multiplicar-se.}
+  - {id: o7, text: Relacionar exemples amb grups i valorar beneficis, riscos i hàbits de prevenció.}
+sources:
+  - id: apunts
+    type: private-class-notes
+    title: Apunts manuscrits de classe, Tema 5, 16 pàgines (21/10–6/11/2026)
+    note: PDF 21102026.pdf conservat fora del repositori públic; s'han revisat els dibuixos de formes bacterianes, cèl·lula bacteriana, bolet i virus.
+  - id: quadern
+    type: private-teacher-workbook
+    title: UD 5 Cuaderno adaptado · Descubrimos los microorganismos (1.º ESO), 13 pàgines
+    note: Cuadern de la professora amb fitxes, activitats i solucionari; l'original amb camp per al nom de l'alumne es conserva fora del repositori públic.
+source_note: >-
+  Els apunts agrupen bacteris i arqueus en «moneres», i protozous i algues en
+  «protoctists»; el quadern treballa la classificació de set regnes i separa
+  Bacteria, Protozoa, Chromista i Fungi. A més, situa parameci i plasmodi en
+  Chromista, mentre que els apunts els posen amb els protozous. El tema
+  conserva els exemples i mostra explícitament a quin esquema correspon cada
+  etiqueta, sense presentar les dos taules com si foren idèntiques.
+  Propostes de precisió: les cianobacteris fan fotosíntesi, per això la
+  resposta «cap bacteri fa fotosíntesi» del repàs del quadern és falsa; una
+  colònia bacteriana pot ser visible però no permet veure cada bacteri a ull
+  nu; les espores de resistència bacterianes no són espores reproductores;
+  no tots els fongs pluricel·lulars formen bolets ni totes les espores dels
+  fongs provenen d'un bolet; els virus poden romandre fora de cèl·lules però
+  només es multipliquen dins d'una cèl·lula hoste. El solucionari del quadern
+  menciona activitats de microscopi i un taller de llevats que no figuren en
+  les fitxes lliurades; no s'han convertit en objectius. Els apunts, exercicis,
+  solucions, targetes i diagrames nous són una elaboració didàctica amb
+  procedència indicada per bloc.

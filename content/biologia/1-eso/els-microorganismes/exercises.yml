@@ -1,0 +1,150 @@
+exercises:
+  - id: e01
+    kind: resposta-curta
+    objective_ids: [o1]
+    source_ids: [apunts, quadern]
+    question: "Què és un microorganisme? Per què cal un microscopi per a veure un bacteri aïllat?"
+    answer: "És un ésser viu molt menut. Un bacteri individual és massa menut per a distingir-lo a ull nu; una colònia gran pot ser visible com a conjunt."
+    answer_space_mm: 30
+  - id: e02
+    kind: comparacio
+    objective_ids: [o1]
+    source_ids: [apunts, quadern]
+    question: "Escriu com agrupen protozous i algues els apunts i quins quatre regnes de microorganismes estudia el quadern de la professora."
+    answer: "Els apunts agrupen protozous i algues en els protoctists. El quadern estudia Bacteria, Protozoa, Chromista i Fungi dins d'un esquema de set regnes."
+    answer_space_mm: 36
+  - id: e03
+    kind: relacionar
+    objective_ids: [o2]
+    source_ids: [apunts, quadern]
+    question: "Relaciona coc, bacil, vibrió i espiril amb forma arredonida, allargada, corbada i helicoidal."
+    answer: "Coc: arredonida; bacil: allargada; vibrió: corbada; espiril: helicoidal."
+    answer_space_mm: 22
+  - id: e04
+    kind: completar
+    objective_ids: [o2]
+    source_ids: [apunts]
+    question: "Completa: els bacteris són ________ i ________. Tenen membrana, citoplasma i ADN, però no tenen un ________ delimitat per membrana."
+    answer: "Unicel·lulars; procariotes; nucli."
+    answer_space_mm: 22
+  - id: e05
+    kind: classificar
+    objective_ids: [o2, o7]
+    source_ids: [apunts]
+    question: "Classifica: cianobacteri que fa fotosíntesi, bacteri que descompon restes, bacteri intestinal que ens ajuda i bacteri que causa tuberculosi. Usa autòtrof, sapròfit, simbiòtic i paràsit."
+    answer: "Cianobacteri: autòtrof fotosintètic; descomponedor: sapròfit; intestinal beneficiós: simbiòtic; causant de tuberculosi: paràsit."
+    answer_space_mm: 38
+  - id: e06
+    kind: seqüencia
+    objective_ids: [o2]
+    source_ids: [apunts, quadern]
+    question: "Explica què ocorre en la bipartició bacteriana i per què una espora de resistència no és un nou bacteri."
+    answer: "En la bipartició una cèl·lula es dividix en dos cèl·lules filles. L'espora de resistència és una forma que ajuda alguns bacteris a sobreviure a condicions desfavorables; no és reproducció."
+    answer_space_mm: 38
+  - id: e07
+    kind: raonament
+    objective_ids: [o2, o7]
+    source_ids: [apunts, quadern]
+    question: "Dona dos beneficis dels bacteris i un exemple de malaltia bacteriana. És correcte dir que cap bacteri fa fotosíntesi?"
+    answer: "Per exemple, elaboren iogurt i descomponen restes; alguns causen còlera. No: les cianobacteris fan fotosíntesi."
+    answer_space_mm: 34
+  - id: e08
+    kind: relacionar
+    objective_ids: [o3]
+    source_ids: [apunts, quadern]
+    question: "Relaciona ameba, parameci, tripanosoma i plasmodi amb pseudòpodes, cilis, flagel i absència d'estructura locomotora en l'esquema dels apunts."
+    answer: "Ameba: pseudòpodes; parameci: cilis; tripanosoma: flagel; plasmodi: sense estructura locomotora en l'esquema dels apunts."
+    answer_space_mm: 30
+  - id: e09
+    kind: resposta-curta
+    objective_ids: [o3, o7]
+    source_ids: [apunts, quadern]
+    question: "Explica una funció beneficiosa dels protozous en l'aigua i un risc per a la salut. Què és un quist?"
+    answer: "Alguns consumixen bacteris i restes i contribuïxen a depurar l'aigua; altres poden causar malalties, com la malària pel plasmodi. Un quist és una forma resistent d'alguns protozous davant condicions adverses."
+    answer_space_mm: 42
+  - id: e10
+    kind: comparacio
+    objective_ids: [o1, o3, o4]
+    source_ids: [apunts, quadern]
+    question: "El parameci apareix amb els protozous als apunts i dins de Chromista al quadern. Explica per què les dos respostes poden aparéixer en esta unitat i escriu com es mou."
+    answer: "Els materials utilitzen esquemes de classificació diferents. En els apunts és un ciliat dels protozous; en el quadern és un exemple de Chromista. Es mou amb cilis."
+    answer_space_mm: 38
+  - id: e11
+    kind: completar
+    objective_ids: [o4]
+    source_ids: [apunts]
+    question: "Quines quatre coses utilitza una alga fotosintètica per a fabricar matèria orgànica? Quin gas allibera?"
+    answer: "Llum, aigua, diòxid de carboni i sals minerals; allibera oxigen."
+    answer_space_mm: 28
+  - id: e12
+    kind: classificar
+    objective_ids: [o4]
+    source_ids: [apunts, quadern]
+    question: "Compara una diatomea amb una alga parda gran: nombre de cèl·lules, mida observable i presència de fotosíntesi."
+    answer: "La diatomea és unicel·lular i microscòpica; una alga parda gran és pluricel·lular i macroscòpica. Les dos fan fotosíntesi en els exemples dels materials."
+    answer_space_mm: 36
+  - id: e13
+    kind: aplicacio
+    objective_ids: [o4, o7]
+    source_ids: [apunts, quadern]
+    question: "Per què són importants les algues microscòpiques per als animals aquàtics? Escriu un ús humà de les algues dels apunts."
+    answer: "Formen part del plàncton que alimenta molts animals i produïxen matèria orgànica i oxigen. Un ús és obtindre agar-agar o aliments."
+    answer_space_mm: 32
+  - id: e14
+    kind: classificar
+    objective_ids: [o5]
+    source_ids: [apunts, quadern]
+    question: "Classifica llevat, floridura del pa i fong amb bolet. Indica quin és unicel·lular i quins són pluricel·lulars."
+    answer: "El llevat és un fong unicel·lular. La floridura i el fong amb bolet són pluricel·lulars."
+    answer_space_mm: 26
+  - id: e15
+    kind: diagrama
+    objective_ids: [o5]
+    source_ids: [apunts, quadern]
+    diagram_id: bolet-miceli
+    question: "Identifica A–E en el diagrama del fong. Quina part queda habitualment oculta al sòl?"
+    answer: "A: barret; B: làmines; C: cama; D: hifes; E: miceli. El miceli sol quedar ocult al sòl o al substrat."
+    answer_space_mm: 37
+  - id: e16
+    kind: seqüencia
+    objective_ids: [o5]
+    source_ids: [apunts, quadern]
+    question: "Ordena: es formen espores al bolet; apareixen hifes; les espores germinen; les hifes formen un miceli. Explica també com es reproduïx asexualment un llevat."
+    answer: "Es formen espores al bolet → les espores germinen → apareixen hifes → les hifes formen un miceli. El llevat pot fer gemmació: una protuberància origina una nova cèl·lula."
+    answer_space_mm: 42
+  - id: e17
+    kind: raonament
+    objective_ids: [o5, o7]
+    source_ids: [apunts, quadern]
+    question: "Dona un benefici i un risc dels fongs. Per què el bolet que veiem no és tot el fong?"
+    answer: "Benefici: descomposició, elaboració de pa o antibiòtics. Risc: bolets verinosos o malalties. El bolet és una estructura reproductora; el miceli d'hifes també forma part del fong i sol estar ocult."
+    answer_space_mm: 40
+  - id: e18
+    kind: diagrama
+    objective_ids: [o6]
+    source_ids: [apunts]
+    diagram_id: parts-virus
+    question: "Identifica A, B i C en el virus dibuixat. Quina part no està present en tots els virus?"
+    answer: "A: embolcall; B: càpsida; C: àcid nucleic. L'embolcall no apareix en tots els virus."
+    answer_space_mm: 30
+  - id: e19
+    kind: explicacio
+    objective_ids: [o6, o7]
+    source_ids: [apunts, quadern]
+    question: "Per què este curs no considera els virus éssers vius? Explica en quina situació es poden multiplicar."
+    answer: "No tenen cèl·lules ni realitzen per si sols les funcions vitals. Poden multiplicar-se només dins d'una cèl·lula hoste."
+    answer_space_mm: 32
+  - id: e20
+    kind: vertader-fals
+    objective_ids: [o7]
+    source_ids: [apunts, quadern]
+    question: "Marca V o F i corregix les falses: a) Tots els microorganismes causen malalties. b) Els fongs són plantes. c) Cal llavar-se les mans abans de menjar. d) Una diatomea és una alga microscòpica."
+    answer: "a) F: molts són beneficiosos. b) F: els fongs són un grup diferent i no fan fotosíntesi. c) V. d) V."
+    answer_space_mm: 37
+  - id: e21
+    kind: taula
+    objective_ids: [o1, o2, o3, o4, o5, o6, o7]
+    source_ids: [apunts, quadern]
+    question: "Fes una taula per a bacteri del iogurt, ameba, diatomea, llevat i virus: indica si tenen cèl·lula, si esta té nucli i un tret distintiu."
+    answer: "Bacteri: una cèl·lula sense nucli, transforma la llet; ameba: una amb nucli, pseudòpodes; diatomea: una amb nucli, fotosíntesi; llevat: una amb nucli, gemmació; virus: sense cèl·lula ni nucli, només es multiplica en una cèl·lula hoste."
+    answer_space_mm: 65

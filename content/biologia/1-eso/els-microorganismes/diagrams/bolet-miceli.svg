@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" role="img" aria-labelledby="title desc">
+  <title id="title">Parts d'un fong amb bolet</title>
+  <desc id="desc">Esquema original basat en els apunts: el barret i les làmines es troben damunt de la cama; davall del sòl hi ha hifes que formen el miceli. Les espores ixen de les làmines.</desc>
+  <rect width="900" height="500" fill="#fffdf8"/>
+  <path d="M70 305H830" stroke="#92775e" stroke-width="5"/>
+  <path d="M405 305L419 174H481L495 305Z" fill="#ecd3af" stroke="#735437" stroke-width="4"/>
+  <path d="M250 175Q293 60 450 68Q607 60 650 175Z" fill="#c96055" stroke="#733e36" stroke-width="5"/>
+  <path d="M250 175Q450 226 650 175Q602 215 450 224Q298 215 250 175Z" fill="#f3d8ab" stroke="#735437" stroke-width="4"/>
+  <g stroke="#9b6c4f" stroke-width="3"><path d="M300 187L316 204M355 200L363 215M410 207L413 222M465 209L465 223M520 205L516 220M574 194L566 212M618 184L601 205"/></g>
+  <g fill="#7552a0"><circle cx="663" cy="209" r="6"/><circle cx="684" cy="227" r="5"/><circle cx="650" cy="245" r="5"/><circle cx="700" cy="254" r="6"/></g>
+  <path d="M449 306Q410 342 345 362Q302 393 247 423M449 307Q477 341 543 367Q579 395 644 425M449 310Q433 364 416 451M448 311Q489 367 504 451M353 360Q335 386 312 406M542 367Q553 389 574 408M415 392Q394 413 378 437" fill="none" stroke="#74543a" stroke-width="5" stroke-linecap="round"/>
+  <g fill="none" stroke="#424d59" stroke-width="2.5"><path d="M185 91H281L320 122"/><path d="M722 132H650L587 189"/><path d="M176 268H350L421 267"/><path d="M745 349H651L557 378"/><path d="M176 438H289L379 423"/></g>
+  <g fill="#173b4a" font-family="Arial,sans-serif" font-size="20"><text x="38" y="89">A</text><text class="diagram-answer" x="65" y="89">Barret</text><text x="732" y="129">B</text><text class="diagram-answer" x="757" y="129">Làmines</text><text x="37" y="264">C</text><text class="diagram-answer" x="63" y="264">Cama</text><text x="754" y="346">D</text><text class="diagram-answer" x="778" y="346">Hifes</text><text x="38" y="435">E</text><text class="diagram-answer" x="62" y="435">Miceli</text></g>
+  <text x="661" y="284" fill="#554372" font-family="Arial,sans-serif" font-size="17">Espores</text>
+  <text x="450" y="485" text-anchor="middle" fill="#52616c" font-family="Arial,sans-serif" font-size="15">Esquema didàctic; el bolet és una estructura d'alguns fongs.</text>
+</svg>
