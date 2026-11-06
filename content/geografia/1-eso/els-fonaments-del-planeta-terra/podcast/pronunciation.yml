@@ -1,3 +1,0 @@
-# Correcció només per a la síntesi: espeak-ng llig «ix» com el número romà IX.
-replacements:
-  ix: Ix

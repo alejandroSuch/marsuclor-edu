@@ -8,53 +8,26 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: podcast-pages-main
+  group: pages-main
   cancel-in-progress: false
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
       - uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: '1.6.43'
-      - run: pip install -r requirements.txt -r requirements-publish.txt
+      - run: pip install -r requirements.txt
       - run: python -m playwright install --with-deps chromium
-      - run: python -m unittest discover -s tests
       - run: python scripts/build.py validate
-      - run: npm ci && npm test && npm run typecheck
-        working-directory: infrastructure/cloudflare
-      - name: Prepare bucket and deploy Worker
-        if: vars.PODCAST_AUDIO_ENABLED == 'true'
-        run: npm run bootstrap
-        working-directory: infrastructure/cloudflare
-        env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_BOOTSTRAP_API_TOKEN: ${{ secrets.CLOUDFLARE_BOOTSTRAP_API_TOKEN }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          MARTINA_AUDIO_BASE_URL: ${{ vars.MARTINA_AUDIO_BASE_URL }}
-      - name: Reuse or synthesize published podcasts
-        if: vars.PODCAST_AUDIO_ENABLED == 'true'
-        run: python scripts/build.py tts sync --all --download-models
-        env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          R2_BUCKET_NAME: martina-edu-podcasts
-          MARTINA_AUDIO_BASE_URL: ${{ vars.MARTINA_AUDIO_BASE_URL }}
       - run: python scripts/build.py prepare
       - run: quarto render generated --to html
       - run: python scripts/build.py pdf
       - run: python scripts/build.py verify
-      - name: Include verified podcast manifest in Pages
-        if: vars.PODCAST_AUDIO_ENABLED == 'true'
-        run: cp audio/published.json site/podcast-manifest.json
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
@@ -62,7 +35,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
     steps:
       - id: deployment
