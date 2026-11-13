@@ -342,7 +342,6 @@ def vocabulary_markup(vocabulary, language: str):
 
 
 def prepare():
-    validate()
     if SITE.exists():
         for child in SITE.iterdir():
             if child.is_dir():
@@ -533,7 +532,6 @@ def pdf():
 
 def verify():
     from playwright.sync_api import sync_playwright
-    from pypdf import PdfReader
 
     course_topics = {}
     course_links = {}
@@ -577,19 +575,6 @@ def verify():
             page.goto(page_path.resolve().as_uri(), wait_until="load")
             relative = page_path.relative_to(SITE).parts
             folder = CONTENT.joinpath(*relative[1:-1])
-            links = page.locator('a[href$=".pdf"]')
-            if links.count() != 1:
-                raise SystemExit(f"Enllaç PDF absent o duplicat: {page_path}")
-            pdf_path = (page_path.parent / links.first.get_attribute("href")).resolve()
-            if not pdf_path.is_file() or pdf_path.stat().st_size < 1000:
-                raise SystemExit(f"PDF absent o buit: {pdf_path}")
-            reader = PdfReader(str(pdf_path))
-            if not reader.pages or any(
-                abs(float(pdf_page.mediabox.width) - 595) > 3
-                or abs(float(pdf_page.mediabox.height) - 842) > 3
-                for pdf_page in reader.pages
-            ):
-                raise SystemExit(f"Pàgines PDF fora de format A4: {pdf_path}")
             if not page.locator("img.topic-diagram, img.card-diagram").evaluate_all(
                 "images => images.every(image => image.complete && image.naturalWidth > 0)"
             ):
@@ -627,18 +612,6 @@ def verify():
                 card.click()
                 if card.get_attribute("aria-pressed") != "true":
                     raise SystemExit("La targeta no mostra la resposta")
-                card_rows = read_yaml(folder / "flashcards.yml")["cards"]
-                if len(reader.pages) != 2 * math.ceil(len(card_rows) / 8):
-                    raise SystemExit("Els anversos i reversos no ocupen parelles de pàgines A4")
-                ids = [row["id"] for row in card_rows]
-                pattern = re.compile(r"\b(?:" + "|".join(map(re.escape, ids)) + r")\b")
-                for sheet_number, start in enumerate(range(0, len(ids), 8)):
-                    front = ids[start:start + 8]
-                    back = [item for index in range(0, len(front), 2) for item in front[index:index + 2][::-1]]
-                    found_front = pattern.findall(reader.pages[2 * sheet_number].extract_text())
-                    found_back = pattern.findall(reader.pages[2 * sheet_number + 1].extract_text())
-                    if found_front != front or found_back != back:
-                        raise SystemExit(f"Anversos i reversos desalineats al full {sheet_number + 1}")
             if page_path.name == "pasapalabra.html":
                 activity = pasapalabra_data(folder)
                 clue_count = sum(len(group["clues"]) for group in activity["groups"])
@@ -652,20 +625,59 @@ def verify():
                 first_reveal.locator("summary").click()
                 if not first_reveal.evaluate("element => element.open") or not first_reveal.locator(".pasapalabra-answer").is_visible():
                     raise SystemExit("El concepte del Pasapalabra no es mostra en fer clic")
-                if len(reader.pages) < 2 or not any("Solucionari del Pasapalabra" in pdf_page.extract_text() for pdf_page in reader.pages):
-                    raise SystemExit("El PDF del Pasapalabra no inclou un solucionari separat")
             page.close()
         browser.close()
-    print(f"Verificades {len(pages)} pàgines de tema, {len(course_topics)} índexs de curs, PDF i targetes interactives.")
+    print(f"Verificades {len(pages)} pàgines de tema, {len(course_topics)} índexs de curs i targetes interactives.")
+
+
+def verify_pdf():
+    from pypdf import PdfReader
+
+    pages = sorted((SITE / "topics").rglob("*.html"))
+    if not pages:
+        raise SystemExit("Falten pàgines HTML")
+    for page_path in pages:
+        relative = page_path.relative_to(SITE)
+        folder = CONTENT.joinpath(*relative.parts[1:-1])
+        pdf_path = SITE / "pdf" / relative.with_suffix(".pdf")
+        links = re.findall(r'href="([^"]+\.pdf)"', page_path.read_text(encoding="utf-8"))
+        if len(links) != 1 or (page_path.parent / html.unescape(links[0])).resolve() != pdf_path.resolve():
+            raise SystemExit(f"Enllaç PDF absent o duplicat: {page_path}")
+        if not pdf_path.is_file() or pdf_path.stat().st_size < 1000:
+            raise SystemExit(f"PDF absent o buit: {pdf_path}")
+        reader = PdfReader(str(pdf_path))
+        if not reader.pages or any(
+            abs(float(pdf_page.mediabox.width) - 595) > 3
+            or abs(float(pdf_page.mediabox.height) - 842) > 3
+            for pdf_page in reader.pages
+        ):
+            raise SystemExit(f"Pàgines PDF fora de format A4: {pdf_path}")
+        if page_path.name == "cards.html":
+            card_rows = read_yaml(folder / "flashcards.yml")["cards"]
+            if len(reader.pages) != 2 * math.ceil(len(card_rows) / 8):
+                raise SystemExit("Els anversos i reversos no ocupen parelles de pàgines A4")
+            ids = [row["id"] for row in card_rows]
+            pattern = re.compile(r"\b(?:" + "|".join(map(re.escape, ids)) + r")\b")
+            for sheet_number, start in enumerate(range(0, len(ids), 8)):
+                front = ids[start:start + 8]
+                back = [item for index in range(0, len(front), 2) for item in front[index:index + 2][::-1]]
+                found_front = pattern.findall(reader.pages[2 * sheet_number].extract_text())
+                found_back = pattern.findall(reader.pages[2 * sheet_number + 1].extract_text())
+                if found_front != front or found_back != back:
+                    raise SystemExit(f"Anversos i reversos desalineats al full {sheet_number + 1}")
+        if page_path.name == "pasapalabra.html":
+            if len(reader.pages) < 2 or not any("Solucionari del Pasapalabra" in pdf_page.extract_text() for pdf_page in reader.pages):
+                raise SystemExit("El PDF del Pasapalabra no inclou un solucionari separat")
+    print(f"Verificats {len(pages)} PDF A4.")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     commands = parser.add_subparsers(dest="command", required=True)
-    for name in ("validate", "prepare", "pdf", "verify"):
+    for name in ("validate", "prepare", "pdf", "verify", "verify-pdf"):
         commands.add_parser(name)
     args = parser.parse_args()
     if args.command == "prepare":
         prepare()
     else:
-        {"validate": validate, "pdf": pdf, "verify": verify}[args.command]()
+        {"validate": validate, "pdf": pdf, "verify": verify, "verify-pdf": verify_pdf}[args.command]()

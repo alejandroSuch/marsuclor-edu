@@ -22,11 +22,11 @@ Una petición de preparar un tema completo produce apuntes, ejercicios, solucion
 
 1. Codex busca primero `content/<asignatura>/<curso>/<tema>/` y lee las fuentes disponibles. Si hay una guía desarrollada, conserva su teoría; los apuntes originales sirven para contrastar objetivos, vocabulario y lenguaje de clase. Si falta acceso a la guía, solicita una copia antes de trabajar en esa teoría.
 2. Para un tema nuevo, crea el contenido estructurado y los materiales que correspondan según la configuración. Para uno existente, compara la petición con el contenido actual, conserva secciones e identificadores vigentes y cambia solo los elementos afectados, incluidas sus soluciones y tarjetas cuando corresponda.
-3. Codex valida cobertura, fuentes y referencias, genera web y PDF y ejecuta la verificación automática. La inspección visual del PDF se hace ante un problema señalado o un riesgo concreto de maquetación. Una corrección científica se comunica con su justificación; no se oculta dentro de una reescritura general.
+3. Codex valida cobertura, fuentes y referencias, y genera web y PDF. La verificación de la web se reserva para cambios del generador o de la presentación, problemas detectados y publicación. La verificación o inspección del PDF se hace solo por petición expresa. Una corrección científica se comunica con su justificación; no se oculta dentro de una reescritura general.
 
 Los archivos principales de cada tema son `topic.yml` (metadatos, objetivos, fuentes y vocabulario del examen), `notes.yml` (secciones), `exercises.yml` (preguntas y soluciones) y `flashcards.yml`. `vocabulary.yml` y `diagrams.yml` con SVG se usan cuando el tema los necesita. Un tema puede incluir `pasapalabra.yml` para añadir una página propia: cada grupo tiene `letter`, un posible `mode: contains` y una lista `clues` con `id`, `answer`, `clue`, `objective_ids` y `source_ids`. La web oculta cada respuesta hasta pulsar su control; el PDF deja espacio para responder y reúne las soluciones al final. Cada bloque lleva los identificadores de objetivos y fuentes que lo respaldan. Los `source_ids` de una ampliación deben apuntar a su fuente real, no a los apuntes de clase por comodidad. Las fuentes y notas de procedencia permanecen en los YAML para la revisión editorial; no aparecen como citas por apartado ni como listado final en la web o los PDF. El tema de Geografía muestra el formato completo; su contenido educativo no es una plantilla para otros temas.
 
-Al preparar un tema se revisan también los esquemas de los apuntes, incluidos los manuscritos. Si aclaran una relación, un proceso o una estructura vinculada a un objetivo, se redibujan como SVG propio con etiquetas fieles a clase, explicación textual y procedencia en los YAML. Las comparaciones sencillas pueden quedar en una tabla. Un diagrama puede reutilizarse en los apuntes, en una actividad sin etiquetas y en una tarjeta; su lectura se comprueba en web y mediante la verificación del PDF A4; se inspecciona visualmente cuando haya riesgo concreto de maquetación. El escaneo original privado no se publica y no se fuerza un número de diagramas por tema.
+Al preparar un tema se revisan también los esquemas de los apuntes, incluidos los manuscritos. Si aclaran una relación, un proceso o una estructura vinculada a un objetivo, se redibujan como SVG propio con etiquetas fieles a clase, explicación textual y procedencia en los YAML. Las comparaciones sencillas pueden quedar en una tabla. Un diagrama puede reutilizarse en los apuntes, en una actividad sin etiquetas y en una tarjeta; su lectura en web se comprueba cuando haya un riesgo concreto de presentación. La verificación del PDF A4 se hace solo por petición expresa. El escaneo original privado no se publica y no se fuerza un número de diagramas por tema.
 
 ### Dónde vive cada regla
 
@@ -50,7 +50,7 @@ Con Docker instalado y en marcha, desde la raíz del repositorio:
 docker compose up --build
 ```
 
-La validación, la generación y los PDF se ejecutan antes de abrir [http://localhost:8000](http://localhost:8000). Para incorporar cambios, detén el proceso y ejecuta `docker compose up` otra vez. Los archivos generados viven en volúmenes de Docker; `docker compose down -v` los elimina. La primera construcción descarga Quarto y Chromium y puede tardar unos minutos.
+La validación, la generación y los PDF se ejecutan antes de abrir [http://localhost:8000](http://localhost:8000). La verificación de las salidas no se ejecuta al arrancar. Para incorporar cambios, detén el proceso y ejecuta `docker compose up` otra vez. Los archivos generados viven en volúmenes de Docker; `docker compose down -v` los elimina. La primera construcción descarga Quarto y Chromium y puede tardar unos minutos.
 
 ### Sin Docker
 
@@ -65,13 +65,21 @@ python scripts/build.py prepare
 quarto render generated --to html
 python -m playwright install chromium
 python scripts/build.py pdf
-python scripts/build.py verify
 ```
 
 Abre `site/index.html` o inicia `python -m http.server 8000 -d site`. Los PDF se generan en `site/pdf/`. Para las tarjetas, imprime el PDF a doble cara, girando por el borde largo y al 100 % de escala. No edites `generated/` ni `site/`: se regeneran desde `content/`.
 
 ## Validación y publicación
 
-`validate` comprueba la lengua y el curso, los identificadores, la cobertura de los objetivos en apuntes, ejercicios y tarjetas, el vocabulario de examen, las fuentes y los diagramas referenciados, y que cada ejercicio tenga respuesta. También comprueba las pistas y respuestas del Pasapalabra. `verify` comprueba las páginas web por tema, sus PDF A4, las imágenes, las tarjetas interactivas, el orden de anversos y reversos, la revelación de conceptos del Pasapalabra. Los PDF de ejercicios y del Pasapalabra incluyen un solucionario al final. Estas comprobaciones no sustituyen la revisión pedagógica. La inspección visual de los PDF se reserva para un problema señalado o un riesgo concreto de maquetación; si el usuario señala un fallo visual, un subagente revisa las páginas afectadas para poder corregirlo.
+`validate` comprueba la lengua y el curso, los identificadores, la cobertura de los objetivos en apuntes, ejercicios y tarjetas, el vocabulario de examen, las fuentes y los diagramas referenciados, y que cada ejercicio tenga respuesta. También comprueba las pistas y respuestas del Pasapalabra. `prepare` solo prepara las páginas para Quarto. La generación web y PDF no ejecuta verificaciones de salida por sí sola.
 
-Cada cambio enviado a `main` ejecuta esas comprobaciones en GitHub Actions y publica `site/` en GitHub Pages si todo termina correctamente. El repositorio y la web son públicos: no subas fotografías o escaneos con datos personales. Transcribe el contenido necesario y registra el original privado como fuente sin adjuntarlo.
+`verify` comprueba las páginas web por tema, las imágenes, las tarjetas interactivas y la revelación de conceptos del Pasapalabra. Se usa ante cambios del generador o de la presentación web, un problema web detectado y como comprobación de publicación. `verify-pdf` comprueba la existencia y el formato A4 de los PDF, la correspondencia de anversos y reversos de las tarjetas y el solucionario del Pasapalabra. Se ejecuta, al igual que la inspección visual de los PDF, solo si el usuario lo pide expresamente:
+
+```sh
+python scripts/build.py verify       # Web
+python scripts/build.py verify-pdf   # PDF, solo bajo petición
+```
+
+Los PDF de ejercicios y del Pasapalabra incluyen un solucionario al final. Estas comprobaciones no sustituyen la revisión pedagógica.
+
+Cada cambio enviado a `main` ejecuta `validate`, genera web y PDF, comprueba la web con `verify` y publica `site/` en GitHub Pages si todo termina correctamente. La verificación del PDF no forma parte de ese flujo. El repositorio y la web son públicos: no subas fotografías o escaneos con datos personales. Transcribe el contenido necesario y registra el original privado como fuente sin adjuntarlo.
