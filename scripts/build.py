@@ -409,7 +409,8 @@ def prepare():
         exercise_page = page_header(topic, course, ui(language, "exercises")) + pdf_link(rel, "exercises", language) + nav + "\n\n"
         solution_page = f'::: {{.print-solutions}}\n## {ui(language, "solutions")}\n\n'
         for n, row in enumerate(exercises["exercises"], 1):
-            exercise_page += f"::: {{.exercise style=\"--answer-space:{row.get('answer_space_mm', 30)}mm\"}}\n### {ui(language, 'exercise')} {n}\n\n{esc(row['question'])}\n\n"
+            page_break_class = " .page-break-before" if row.get("page_break_before") else ""
+            exercise_page += f"::: {{.exercise{page_break_class} style=\"--answer-space:{row.get('answer_space_mm', 30)}mm\"}}\n### {ui(language, 'exercise')} {n}\n\n{esc(row['question'])}\n\n"
             solution_page += (
                 f"::: {{.key-item}}\n### {ui(language, 'exercise')} {n}\n\n"
                 f"::: {{.solution-answer}}\n"

@@ -1,0 +1,49 @@
+title: 'Matemáticas · Tema 2: Divisibilidad'
+course: 1-eso
+subject: matematiques
+teaching_language: es
+status: Preparado a partir del cuaderno y la ficha de ejercicios de clase
+intro: Aprende a reconocer divisores y múltiplos, aplicar criterios de divisibilidad, descomponer en primos
+  y usar el MCD y el mcm. Practica cuentas por separado y después problemas de dificultad creciente.
+objectives:
+- id: o1
+  text: Reconocer la relación de divisibilidad, los divisores y los múltiplos, y aplicar los criterios de 2,
+    3, 5, 9, 10 y 11.
+- id: o2
+  text: Distinguir números primos y compuestos y descomponer números naturales en factores primos.
+- id: o3
+  text: Calcular el máximo común divisor y el mínimo común múltiplo mediante listas y factorización.
+- id: o4
+  text: Elegir y justificar MCD o mcm en problemas de reparto, agrupación y coincidencia.
+- id: o5
+  text: Resolver problemas de divisibilidad con varias condiciones y comprobar unidades, restos y horarios.
+sources:
+- id: cuaderno
+  type: private-class-notes
+  title: 'Cuaderno manuscrito de Matemáticas, tema 2: divisibilidad, páginas 1–21 del PDF familiar'
+  note: Original privado fuera del repositorio. Incluye relaciones de divisibilidad, criterios, primos, factorización,
+    MCD, mcm y problemas de clase. Se revisó el esquema de descomposición en factores.
+- id: ficha
+  type: private-teacher-worksheet
+  title: Ficha «Problemas de divisibilidad 1.º ESO», páginas 22–23 del PDF familiar
+  note: Ficha con problemas tipo de clase y datos personales escritos; no se publica el original ni el nombre.
+    Sirve de modelo para crear problemas nuevos.
+- id: elaboracion
+  type: editorial
+  title: Elaboración didáctica original de Martina Edu
+  note: Explicaciones, números, problemas, soluciones y tarjetas redactados de nuevo para graduar la práctica.
+source_note: 'El PDF 20102026.pdf permanece fuera del repositorio público. Las páginas 22–23 son una ficha
+  de problemas tipo y contienen un nombre de alumna; solo se incorpora el patrón matemático. En el cuaderno
+  aparecen cuentas con correcciones. Se verifican todas las soluciones originales antes de publicarlas. Precisión
+  propuesta: en una página del cuaderno se indica que el MCD de 8 y 15 es 1, pero la descomposición dibujada
+  de 8 como 2·5 es errónea; 8 = 2³ y 15 = 3·5. En un problema de tres relojes de la ficha, el mcm de 60, 90
+  y 150 minutos es 900 minutos = 15 horas; desde las 9:00 coinciden a las 00:00 del día siguiente. Estas propuestas
+  no alteran los originales.'
+study_tips:
+- Empieza por decidir qué se repite o qué se reparte. Escribe «mcm» o «MCD» y explica por qué.
+- Descompón cada número y subraya los factores comunes; en el mcm incluye también los no comunes.
+- En problemas de tiempo, convierte minutos y escribe el día si se cruza la medianoche.
+self_check:
+- Puedo decidir si un número es divisible por otro y justificarlo.
+- Sé hallar factores primos y calcular MCD y mcm sin confundir exponentes.
+- Puedo explicar por qué un problema requiere MCD o mcm y comprobar la respuesta.

@@ -1,0 +1,136 @@
+cards:
+- id: c01
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  front: ¿Qué significa que 42 es divisible por 7?
+  back: 'Que 42 : 7 es exacta: cociente 6 y resto 0.'
+- id: c02
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  front: Si 9 es divisor de 63, ¿qué relación tiene 63 con 9?
+  back: 63 es múltiplo de 9.
+- id: c03
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  front: ¿Cómo decides si un número es divisible por 3 y por 9?
+  back: Suma sus cifras; la suma debe ser múltiplo de 3 o de 9, respectivamente.
+- id: c04
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  front: ¿Qué condición conjunta permite saber si un número es divisible por 6?
+  back: Que sea divisible por 2 y por 3.
+- id: c05
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  front: ¿Es primo el 1? ¿Y el 2?
+  back: El 1 no es primo ni compuesto; el 2 es primo y el único primo par.
+- id: c06
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  front: ¿Por qué 21 es compuesto?
+  back: 'Porque tiene más de dos divisores: 21 = 3 · 7.'
+- id: c07
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  front: ¿Cuál es la descomposición prima de 60?
+  back: 60 = 2² · 3 · 5.
+- id: c08
+  objective_ids:
+  - o3
+  source_ids:
+  - cuaderno
+  - elaboracion
+  front: ¿Qué factores tomas para calcular el MCD por factorización?
+  back: Solo los comunes, con el menor exponente.
+- id: c09
+  objective_ids:
+  - o3
+  source_ids:
+  - cuaderno
+  - elaboracion
+  front: ¿Qué factores tomas para calcular el mcm por factorización?
+  back: Todos los presentes, comunes o no, con el mayor exponente.
+- id: c10
+  objective_ids:
+  - o3
+  source_ids:
+  - cuaderno
+  - elaboracion
+  front: ¿Cuánto valen MCD(12, 18) y mcm(12, 18)?
+  back: 6 y 36, respectivamente.
+- id: c11
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - ficha
+  - elaboracion
+  front: Si quieres el mayor número de cajas iguales sin sobrantes, ¿qué calculas?
+  back: El MCD de las cantidades; después divides cada cantidad entre él.
+- id: c12
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - ficha
+  - elaboracion
+  front: Si dos timbres se repiten y quieres su primera coincidencia, ¿qué calculas?
+  back: El mcm de sus intervalos.
+- id: c13
+  objective_ids:
+  - o4
+  - o5
+  source_ids:
+  - cuaderno
+  - ficha
+  - elaboracion
+  front: Un MCD vale 8 para 24 y 40 piezas. ¿Qué representa el 8 en un reparto en grupos?
+  back: El máximo número de grupos iguales; cada uno contiene 3 piezas del primer tipo y 5 del segundo.
+- id: c14
+  objective_ids:
+  - o5
+  source_ids:
+  - cuaderno
+  - ficha
+  - elaboracion
+  front: Un mcm es 75 minutos. ¿Cómo lo interpretas en una hora de reloj?
+  back: 1 hora y 15 minutos; se suman a la hora inicial.
+- id: c15
+  objective_ids:
+  - o5
+  source_ids:
+  - cuaderno
+  - ficha
+  - elaboracion
+  front: ¿Cómo compruebas una solución de reparto sin sobrantes?
+  back: Multiplica grupos por piezas de cada tipo y recupera todas las cantidades iniciales.
+- id: c16
+  objective_ids:
+  - o5
+  source_ids:
+  - cuaderno
+  - ficha
+  - elaboracion
+  front: ¿Qué haces si un problema pide todas las cantidades dentro de un intervalo?
+  back: Enumera los múltiplos o divisores pertinentes en ese intervalo y verifica cada condición.

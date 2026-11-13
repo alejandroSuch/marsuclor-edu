@@ -55,6 +55,7 @@ h1, h2 { color: #164c5b; }
   .vocab-entry { padding: 1mm 2mm; margin: 1mm 0; }
   .topic-diagram { max-width: 100%; max-height: 160mm; }
   .exercise { border-bottom: 0; padding-bottom: 0; }
+  .exercise.page-break-before { break-before: page; page-break-before: always; }
   .exercise::after { content: ""; display: block; min-height: var(--answer-space, 30mm); border-bottom: 1px solid #bac9d1; }
   .exercise-solution { display: none !important; }
   .print-solutions { display: block; break-before: page; }

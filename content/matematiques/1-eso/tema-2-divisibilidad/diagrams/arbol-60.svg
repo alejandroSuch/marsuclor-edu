@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="310" viewBox="0 0 680 310" role="img" aria-labelledby="title desc">
+  <title id="title">Árbol de factores de 60</title>
+  <desc id="desc">60 se descompone en 6 por 10; 6 en 2 por 3 y 10 en 2 por 5. Los factores primos son 2, 2, 3 y 5.</desc>
+  <rect x="1" y="1" width="678" height="308" rx="14" fill="#f8fbff" stroke="#b8c9dd" stroke-width="2"/>
+  <g stroke="#52739a" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M340 66 L210 112 M340 66 L470 112 M210 150 L120 206 M210 150 L300 206 M470 150 L390 206 M470 150 L560 206"/>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="25" font-weight="700" text-anchor="middle">
+    <g fill="#ffffff" stroke="#245583" stroke-width="2"><rect x="302" y="23" width="76" height="46" rx="10"/><rect x="172" y="110" width="76" height="46" rx="10"/><rect x="432" y="110" width="76" height="46" rx="10"/></g>
+    <g fill="#245583" stroke="#245583" stroke-width="2"><rect x="86" y="205" width="68" height="46" rx="10"/><rect x="266" y="205" width="68" height="46" rx="10"/><rect x="356" y="205" width="68" height="46" rx="10"/><rect x="526" y="205" width="68" height="46" rx="10"/></g>
+    <g fill="#172b45"><text x="340" y="55">60</text><text x="210" y="141">6</text><text x="470" y="141">10</text></g>
+    <g fill="#ffffff"><text x="120" y="236">2</text><text x="300" y="236">3</text><text x="390" y="236">2</text><text x="560" y="236">5</text></g>
+  </g>
+  <text x="340" y="287" font-family="Arial,sans-serif" font-size="20" fill="#172b45" text-anchor="middle">60 = 2 × 3 × 2 × 5 = 2² × 3 × 5</text>
+</svg>

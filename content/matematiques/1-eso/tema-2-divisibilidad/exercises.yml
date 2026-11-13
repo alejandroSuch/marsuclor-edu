@@ -1,0 +1,447 @@
+exercises:
+- id: e01
+  kind: operaciones · divisibilidad
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Decide con división exacta: a) ¿54 es múltiplo de 9? b) ¿7 es divisor de 65? c) ¿96 es divisible por
+    12?'
+  answer: 'a) 54 : 9 = 6, resto 0: sí. b) 65 : 7 = 9, resto 2: no. c) 96 : 12 = 8, resto 0: sí.'
+  answer_space_mm: 38
+- id: e02
+  kind: operaciones · divisores
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Escribe todos los divisores positivos de 18, 25 y 36.
+  answer: '18: 1, 2, 3, 6, 9, 18. 25: 1, 5, 25. 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. Se comprueba multiplicando cada
+    pareja de divisores.'
+  answer_space_mm: 46
+- id: e03
+  kind: operaciones · múltiplos
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Escribe los cinco primeros múltiplos positivos de 8, 12 y 15. Rodea el primer múltiplo común de 8 y
+    12.
+  answer: 'De 8: 8, 16, 24, 32, 40. De 12: 12, 24, 36, 48, 60. De 15: 15, 30, 45, 60, 75. El primero común de 8
+    y 12 es 24.'
+  answer_space_mm: 42
+- id: e04
+  kind: operaciones · criterios
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Sin dividir, indica cuáles de 234, 315, 508 y 990 son divisibles por 2, 3, 5, 9 y 10. Justifica con
+    la última cifra o la suma de cifras.
+  answer: '234: por 2 y 3 (2 + 3 + 4 = 9), también por 9; no por 5 ni 10. 315: por 3, 5 y 9 (3 + 1 + 5 = 9); no
+    por 2 ni 10. 508: por 2; suma 13, no por 3 ni 9; no por 5 ni 10. 990: por 2, 3, 5, 9 y 10; suma 18 y termina
+    en 0.'
+  answer_space_mm: 55
+- id: e05
+  kind: operaciones · cifras
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Sustituye □ por todas las cifras posibles para que 4□2 sea divisible por 3. ¿Cuáles lo hacen divisible
+    también por 9?
+  answer: '4 + □ + 2 = 6 + □. Para 3, □ = 0, 3, 6, 9. Para 9, la suma debe ser 9: □ = 3. Así, 432 es divisible por
+    ambos.'
+  answer_space_mm: 38
+- id: e06
+  kind: operaciones · primo o compuesto
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Clasifica 1, 2, 17, 21, 29 y 35 en primos, compuestos o ninguno. Da un divisor que pruebe cada caso
+    compuesto.
+  answer: '1: ninguno. Primos: 2, 17, 29 (solo 1 y ellos mismos). Compuestos: 21 = 3 · 7 y 35 = 5 · 7.'
+  answer_space_mm: 42
+- id: e07
+  kind: operaciones · factores primos
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Descompón en factores primos 48, 75, 84 y 150. Comprueba multiplicando.
+  answer: 48 = 2⁴ · 3 = 16 · 3. 75 = 3 · 5² = 3 · 25. 84 = 2² · 3 · 7 = 4 · 3 · 7. 150 = 2 · 3 · 5² = 2 · 3 · 25.
+  answer_space_mm: 54
+- id: e08
+  kind: operaciones · error de factorización
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Un alumno escribe 90 = 2 · 3 · 5. Señala el factor que falta y demuestra la descomposición correcta.
+  answer: '2 · 3 · 5 = 30, no 90. 90 : 2 = 45; 45 : 3 = 15; 15 : 3 = 5; 5 : 5 = 1. Falta otro 3: 90 = 2 · 3² · 5.'
+  answer_space_mm: 40
+- id: e09
+  kind: operaciones · listas
+  objective_ids:
+  - o3
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Calcula por listas MCD(12, 20) y mcm(6, 8). Escribe los divisores y los primeros múltiplos que necesites.
+  answer: D(12) = 1, 2, 3, 4, 6, 12; D(20) = 1, 2, 4, 5, 10, 20; MCD = 4. M(6) = 6, 12, 18, 24…; M(8) = 8, 16, 24…;
+    mcm = 24.
+  answer_space_mm: 50
+- id: e10
+  kind: operaciones · MCD
+  objective_ids:
+  - o3
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Calcula por factorización MCD(36, 48), MCD(45, 60) y MCD(14, 25).
+  answer: '36 = 2² · 3² y 48 = 2⁴ · 3: MCD = 2² · 3 = 12. 45 = 3² · 5 y 60 = 2² · 3 · 5: MCD = 3 · 5 = 15. 14 =
+    2 · 7 y 25 = 5²: no hay factores comunes, MCD = 1.'
+  answer_space_mm: 58
+- id: e11
+  kind: operaciones · mcm
+  objective_ids:
+  - o3
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Calcula por factorización mcm(18, 24), mcm(28, 35) y mcm(12, 15, 20).
+  answer: '18 = 2 · 3² y 24 = 2³ · 3: mcm = 2³ · 3² = 72. 28 = 2² · 7 y 35 = 5 · 7: mcm = 2² · 5 · 7 = 140. 12 =
+    2² · 3, 15 = 3 · 5, 20 = 2² · 5: mcm = 2² · 3 · 5 = 60.'
+  answer_space_mm: 58
+- id: e12
+  kind: operaciones · ambos
+  objective_ids:
+  - o3
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Halla MCD y mcm de 24 y 40. Comprueba que su producto es 24 · 40.
+  answer: 24 = 2³ · 3 y 40 = 2³ · 5. MCD = 2³ = 8; mcm = 2³ · 3 · 5 = 120. 8 · 120 = 960 = 24 · 40.
+  answer_space_mm: 44
+- id: e13
+  kind: operaciones · tres números
+  objective_ids:
+  - o3
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Halla MCD(18, 30, 42) y mcm(18, 30, 42).
+  answer: '18 = 2 · 3²; 30 = 2 · 3 · 5; 42 = 2 · 3 · 7. Comunes al menor exponente: 2 · 3 = 6. Todos al mayor exponente:
+    2 · 3² · 5 · 7 = 630.'
+  answer_space_mm: 50
+- id: e14
+  kind: operaciones · detectar error
+  objective_ids:
+  - o3
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Para 12 = 2² · 3 y 18 = 2 · 3², alguien calcula mcm = 2 · 3 = 6. Explica el error y calcula MCD y mcm.
+  answer: '2 · 3 = 6 toma los menores exponentes: es el MCD. Para el mcm hay que tomar los mayores: 2² · 3² = 36.
+    Además, 6 no es múltiplo de 12 ni de 18.'
+  answer_space_mm: 42
+- id: e15
+  kind: problema 1 · inicial
+  objective_ids:
+  - o1
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Hay 30 cuadernos. ¿Se pueden hacer paquetes iguales de 2, 3, 4, 5 y 6 cuadernos sin que sobre ninguno?
+    Explica cada caso.
+  answer: '30 es divisible por 2 (termina en 0), por 3 (3 + 0 = 3), por 5 (termina en 0) y por 6 (lo es por 2 y
+    3). No por 4: 30 : 4 deja resto 2.'
+  answer_space_mm: 40
+- id: e16
+  kind: problema 2 · inicial
+  objective_ids:
+  - o1
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Una profesora tiene 24 fichas y quiere poner la misma cantidad en cada sobre, usando todos los sobres
+    y sin sobrantes. ¿Qué cantidades de fichas por sobre son posibles?
+  answer: 'Son los divisores de 24: 1, 2, 3, 4, 6, 8, 12 y 24 fichas por sobre. Para cada opción, el número de sobres
+    es 24 dividido entre esa cantidad.'
+  answer_space_mm: 40
+- id: e17
+  kind: problema 3 · inicial
+  objective_ids:
+  - o1
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: En una clase de 32 estudiantes se forman equipos iguales de al menos 2 estudiantes. ¿Qué tamaños de
+    equipo son posibles? ¿Cuántos equipos se forman en cada caso?
+  answer: Los divisores de 32 mayores o iguales que 2 son 2, 4, 8, 16 y 32. Se forman 16, 8, 4, 2 y 1 equipos, respectivamente.
+  answer_space_mm: 42
+- id: e18
+  kind: problema 4 · inicial
+  objective_ids:
+  - o2
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Se preparan 37 lápices en bolsas iguales, sin sobrantes. Se quiere usar más de una bolsa y más de un
+    lápiz por bolsa. ¿Es posible? Justifica con divisores.
+  answer: 'No. 37 es primo: solo tiene divisores 1 y 37. Con 37 bolsas habría un lápiz en cada una; con una bolsa,
+    37 lápices.'
+  answer_space_mm: 38
+- id: e19
+  kind: problema 5 · básico
+  objective_ids:
+  - o3
+  - o4
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Dos timbres suenan cada 6 y 8 minutos y acaban de sonar juntos. ¿Cuántos minutos pasarán hasta la siguiente
+    coincidencia?
+  answer: Es mcm porque se busca la primera repetición común. 6 = 2 · 3 y 8 = 2³; mcm = 2³ · 3 = 24 minutos.
+  answer_space_mm: 38
+- id: e20
+  kind: problema 6 · básico
+  objective_ids:
+  - o3
+  - o4
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Se reparten 18 rotuladores rojos y 24 azules en el mayor número posible de estuches iguales, sin mezclarlos
+    fuera de cada estuche ni dejar sobrantes. ¿Cuántos estuches? ¿Qué lleva cada uno?
+  answer: 'Es MCD(18, 24): 18 = 2 · 3² y 24 = 2³ · 3; MCD = 2 · 3 = 6 estuches. Cada uno lleva 18 : 6 = 3 rojos
+    y 24 : 6 = 4 azules.'
+  answer_space_mm: 46
+- id: e21
+  kind: problema 7 · básico
+  objective_ids:
+  - o3
+  - o4
+  source_ids:
+  - cuaderno
+  - ficha
+  - elaboracion
+  question: Un tren pasa cada 12 minutos y otro cada 18. Si coinciden a las 10:00, ¿a qué hora volverán a coincidir?
+  answer: mcm(12, 18) = 2² · 3² = 36 minutos. 10:00 + 36 minutos = 10:36.
+  answer_space_mm: 38
+- id: e22
+  kind: problema 8 · básico
+  objective_ids:
+  - o3
+  - o4
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Se quieren cortar cintas de 36 cm y 48 cm en trozos iguales de la mayor longitud posible, sin desperdiciar
+    cinta. ¿Cuánto medirá cada trozo y cuántos habrá de cada cinta?
+  answer: 'MCD(36, 48) = 12 cm. De la primera salen 36 : 12 = 3 trozos y de la segunda 48 : 12 = 4.'
+  answer_space_mm: 44
+- id: e23
+  kind: problema 9 · intermedio
+  objective_ids:
+  - o1
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Una editorial tiene entre 100 y 130 pegatinas. Puede ponerlas en montones de 6 o de 8 sin sobrantes.
+    ¿Cuántas pegatinas tiene?
+  answer: Deben ser múltiplos de mcm(6, 8) = 24. En el intervalo están 120 (24 · 5); 96 queda por debajo y 144 por
+    encima. Tiene 120 pegatinas.
+  answer_space_mm: 42
+- id: e24
+  kind: problema 10 · intermedio
+  objective_ids:
+  - o3
+  - o4
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Hay 42 novelas y 56 cómics. Se quieren formar el máximo número de lotes iguales, cada uno con ambos
+    tipos y sin sobrantes. ¿Cuántos lotes y cuántos libros de cada tipo por lote?
+  answer: 'MCD(42, 56) = 14 lotes. Cada lote contiene 42 : 14 = 3 novelas y 56 : 14 = 4 cómics; 14 · 3 = 42 y 14
+    · 4 = 56.'
+  answer_space_mm: 46
+- id: e25
+  kind: problema 11 · intermedio
+  objective_ids:
+  - o3
+  - o4
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Tres luces se encienden cada 8, 12 y 15 segundos. Se encienden juntas ahora. ¿Cuándo se encenderán juntas
+    por primera vez?
+  answer: 8 = 2³, 12 = 2² · 3 y 15 = 3 · 5. mcm = 2³ · 3 · 5 = 120 segundos = 2 minutos.
+  answer_space_mm: 44
+- id: e26
+  kind: problema 12 · intermedio
+  objective_ids:
+  - o3
+  - o4
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Una tienda tiene 54 manzanas, 72 peras y 90 mandarinas. Quiere hacer el mayor número de bolsas idénticas
+    con las tres frutas, sin sobrantes. ¿Cuántas bolsas y qué lleva cada una?
+  answer: 54 = 2 · 3³, 72 = 2³ · 3² y 90 = 2 · 3² · 5. MCD = 2 · 3² = 18 bolsas. Cada una lleva 3 manzanas, 4 peras
+    y 5 mandarinas.
+  answer_space_mm: 50
+- id: e27
+  kind: problema 13 · intermedio
+  objective_ids:
+  - o3
+  - o4
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Dos actividades se repiten cada 20 y 30 días. Se han realizado juntas hoy. ¿Cuántas veces coincidirán
+    en los próximos 180 días, sin contar hoy?
+  answer: 'mcm(20, 30) = 60 días. Coinciden a los 60, 120 y 180 días: 3 veces. Se excluye hoy y se incluye el día
+    180.'
+  answer_space_mm: 42
+- id: e28
+  kind: problema 14 · intermedio
+  objective_ids:
+  - o1
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Busca todos los números entre 200 y 230 que sean divisibles por 3 y por 5. Comprueba cada respuesta
+    con criterios.
+  answer: 'Ser divisible por 3 y 5 equivale a ser múltiplo de 15. En el intervalo: 210 y 225. Ambos terminan en
+    0 o 5; 2 + 1 + 0 = 3 y 2 + 2 + 5 = 9, múltiplos de 3.'
+  answer_space_mm: 42
+- id: e29
+  kind: problema 15 · avanzado
+  objective_ids:
+  - o3
+  - o4
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Tres autobuses salen de una estación cada 18, 24 y 30 minutos. Coinciden el viernes a las 23:40. ¿Cuándo
+    será la siguiente salida conjunta?
+  answer: 18 = 2 · 3², 24 = 2³ · 3 y 30 = 2 · 3 · 5. mcm = 2³ · 3² · 5 = 360 minutos = 6 horas. Viernes 23:40 +
+    6 h = sábado 05:40.
+  answer_space_mm: 50
+- id: e30
+  kind: problema 16 · avanzado
+  objective_ids:
+  - o3
+  - o4
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Un almacén tiene 84 vasos, 126 platos y 210 servilletas. Quiere preparar el mayor número de lotes idénticos
+    sin sobrantes. ¿Cuántos lotes puede hacer y qué contiene cada uno?
+  answer: '84 = 2² · 3 · 7; 126 = 2 · 3² · 7; 210 = 2 · 3 · 5 · 7. MCD = 2 · 3 · 7 = 42 lotes. Cada lote: 2 vasos,
+    3 platos y 5 servilletas.'
+  answer_space_mm: 50
+- id: e31
+  kind: problema 17 · avanzado
+  objective_ids:
+  - o3
+  - o4
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Un libro tiene entre 250 y 300 páginas. El número de páginas es divisible por 4, por 6 y por 9. ¿Cuántas
+    páginas puede tener? Averigua todas las posibilidades.
+  answer: mcm(4, 6, 9) = 2² · 3² = 36. Los múltiplos en el intervalo son 252 = 36 · 7 y 288 = 36 · 8. Ambas posibilidades
+    cumplen; 216 es menor y 324 mayor.
+  answer_space_mm: 46
+- id: e32
+  kind: problema 18 · avanzado
+  objective_ids:
+  - o3
+  - o4
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Para montar mosaicos cuadrados iguales del mayor tamaño posible se tienen rectángulos de 72 cm × 120
+    cm. Los cuadrados no pueden cortarse. ¿Cuánto mide su lado y cuántos cuadrados se necesitan?
+  answer: 'El lado debe dividir ambas longitudes: MCD(72, 120) = 24 cm. A lo largo caben 72 : 24 = 3 y a lo ancho
+    120 : 24 = 5; en total 3 · 5 = 15 cuadrados.'
+  answer_space_mm: 48
+- id: e33
+  kind: problema 19 · reto
+  objective_ids:
+  - o3
+  - o4
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Tres señales se repiten cada 40, 60 y 90 minutos. Coinciden el lunes a las 15:30. ¿A qué hora y qué
+    día coincidirán de nuevo?
+  answer: 40 = 2³ · 5, 60 = 2² · 3 · 5, 90 = 2 · 3² · 5. mcm = 2³ · 3² · 5 = 360 minutos = 6 horas. Vuelven a coincidir
+    el lunes a las 21:30.
+  answer_space_mm: 50
+- id: e34
+  kind: problema 20 · reto
+  objective_ids:
+  - o3
+  - o4
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Se tienen 96 galletas de avena y 144 de chocolate. Se hacen el máximo número de cajas idénticas sin
+    sobrantes. Después se entregan 5 cajas. ¿Cuántas cajas quedan y cuántas galletas de cada tipo se han entregado?
+  answer: 'MCD(96, 144) = 48 cajas. Cada caja lleva 96 : 48 = 2 de avena y 144 : 48 = 3 de chocolate. Quedan 48
+    - 5 = 43 cajas; se han entregado 5 · 2 = 10 de avena y 5 · 3 = 15 de chocolate.'
+  answer_space_mm: 52
+  page_break_before: true
+- id: e35
+  kind: problema 21 · reto
+  objective_ids:
+  - o3
+  - o4
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Dos fuentes lanzan agua cada 28 y 42 segundos. Una tercera lo hace cada 63 segundos. Si coinciden a
+    las 11:58:30, ¿cuándo vuelven a coincidir?
+  answer: 28 = 2² · 7, 42 = 2 · 3 · 7 y 63 = 3² · 7. mcm = 2² · 3² · 7 = 252 segundos = 4 minutos y 12 segundos.
+    11:58:30 + 4:12 = 12:02:42.
+  answer_space_mm: 52
+- id: e36
+  kind: problema 22 · reto
+  objective_ids:
+  - o1
+  - o3
+  - o5
+  source_ids:
+  - ficha
+  - elaboracion
+  question: Una tienda recibe entre 300 y 350 tornillos. Puede repartirlos en cajas de 12 o de 18 sin sobrantes.
+    Además, la cantidad total es divisible por 5. ¿Cuántos tornillos recibió?
+  answer: mcm(12, 18) = 36; entre 300 y 350, el único múltiplo de 36 es 324, que no es divisible por 5. Por tanto,
+    no hay solución. También mcm(12, 18, 5) = 180; sus múltiplos vecinos son 180 y 360, fuera del intervalo.
+  answer_space_mm: 50

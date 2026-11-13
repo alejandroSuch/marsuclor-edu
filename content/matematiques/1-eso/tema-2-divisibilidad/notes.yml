@@ -1,0 +1,108 @@
+sections:
+- title: 1. Divisores, múltiplos y división exacta
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  body: 'Si 42 : 7 = 6 y el resto es 0, **42 es divisible por 7**. También se dice que 7 es **divisor** de
+    42 y que 42 es **múltiplo** de 7. Son tres formas de describir la misma relación. En una división no exacta,
+    como 43 : 7 = 6 y resto 1, ninguna de esas tres afirmaciones se cumple.
+
+
+    Los divisores de 12 son 1, 2, 3, 4, 6 y 12. Los primeros múltiplos positivos de 12 son 12, 24, 36, 48…
+    Un número tiene un número limitado de divisores y una cantidad ilimitada de múltiplos.'
+- title: 2. Criterios de divisibilidad
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  body: 'Un criterio permite decidir si la división será exacta sin hacerla completa.
+
+
+    | Divisible por | Comprueba… | Ejemplo |
+
+    |---|---|---|
+
+    | 2 | La última cifra es par: 0, 2, 4, 6 u 8. | 348 sí. |
+
+    | 3 | La suma de cifras es múltiplo de 3. | 354: 3 + 5 + 4 = 12, sí. |
+
+    | 5 | Termina en 0 o 5. | 125 sí. |
+
+    | 9 | La suma de cifras es múltiplo de 9. | 729: 7 + 2 + 9 = 18, sí. |
+
+    | 10 | Termina en 0. | 430 sí. |
+
+    | 11 | La diferencia entre las sumas de cifras alternas es 0 o múltiplo de 11. | 121: (1 + 1) - 2 = 0,
+    sí. |
+
+
+    Si un número es divisible por 6, debe ser divisible por **2 y por 3**. Terminar en cifra par, por sí solo,
+    no basta. Para comprobar una respuesta, puedes hacer la división y verificar que el resto sea 0.'
+- title: 3. Primos y descomposición factorial
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  body: 'Un **número primo** tiene exactamente dos divisores positivos: 1 y él mismo. Ejemplos: 2, 3, 5, 7,
+    11. El 2 es el único primo par. Un **número compuesto** tiene más de dos divisores. El 1 no es primo ni
+    compuesto.
+
+
+    Para descomponer 60, divide sucesivamente entre números primos: 60 : 2 = 30; 30 : 2 = 15; 15 : 3 = 5; 5
+    : 5 = 1. Por tanto, **60 = 2² · 3 · 5**. El diagrama muestra la misma descomposición como árbol: las hojas
+    son factores primos. Multiplica los factores al final para comprobar que recuperas 60.'
+  diagram_ids:
+  - arbol-60
+- title: 4. Máximo común divisor (MCD)
+  objective_ids:
+  - o3
+  - o4
+  source_ids:
+  - cuaderno
+  - ficha
+  - elaboracion
+  body: 'El **MCD** es el mayor número que divide exactamente a todos los números dados. Por listas: divisores
+    de 12 = 1, 2, 3, 4, 6, 12; divisores de 18 = 1, 2, 3, 6, 9, 18. El mayor común es **MCD(12, 18) = 6**.
+
+
+    Por factores primos, toma solo los **factores comunes con el menor exponente**. Como 24 = 2³ · 3 y 36 =
+    2² · 3², MCD(24, 36) = 2² · 3 = 12. Úsalo cuando quieras hacer el **mayor número de grupos iguales** o
+    piezas del **mayor tamaño posible**, sin sobras y sin mezclar tipos. Después divide cada cantidad entre
+    el MCD para saber qué lleva cada grupo.'
+- title: 5. Mínimo común múltiplo (mcm)
+  objective_ids:
+  - o3
+  - o4
+  source_ids:
+  - cuaderno
+  - ficha
+  - elaboracion
+  body: 'El **mcm** es el menor múltiplo positivo común. Por listas: múltiplos de 12 = 12, 24, 36…; de 18 =
+    18, 36…; así, **mcm(12, 18) = 36**.
+
+
+    Por factores primos, toma **todos los factores, comunes o no, con el mayor exponente**. Como 24 = 2³ ·
+    3 y 36 = 2² · 3², mcm(24, 36) = 2³ · 3² = 72. Úsalo para hallar la **primera coincidencia** de procesos
+    repetidos. Si hay que transformar 72 minutos, son 1 hora y 12 minutos. Suma ese tiempo a la hora inicial
+    y comprueba si cambia el día.'
+- title: 6. Cómo plantear problemas
+  objective_ids:
+  - o4
+  - o5
+  source_ids:
+  - cuaderno
+  - ficha
+  - elaboracion
+  body: '1. Señala los datos y qué pide la pregunta. 2. Si se **reparte en el mayor número de grupos iguales**,
+    busca el MCD; si se busca la **primera coincidencia** o una cantidad común mínima, busca el mcm. 3. Calcula
+    y traduce el resultado: el MCD puede ser el número de cajas, pero para saber las piezas por caja hace falta
+    dividir. 4. Comprueba que no sobren piezas, que las cantidades coincidan y que la unidad final sea correcta.
+
+
+    Algunas situaciones exigen algo más que calcular: buscar un número dentro de un intervalo, enumerar **todas**
+    las soluciones o descartar resultados que no cumplen una condición. En esos casos, escribe primero las
+    condiciones y comprueba cada candidato.'

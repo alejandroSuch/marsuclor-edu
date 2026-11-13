@@ -1,0 +1,10 @@
+diagrams:
+- id: arbol-60
+  title: Árbol de factores de 60
+  file: arbol-60.svg
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  vocabulary_ids: []
