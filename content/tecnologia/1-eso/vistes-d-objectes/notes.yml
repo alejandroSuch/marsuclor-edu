@@ -21,7 +21,8 @@ sections:
     amplària i alçària a la quadrícula. 3. Per a la planta, mira des de dalt i trasllada amplària i profunditat;
     la part davantera queda a la part inferior del requadre. 4. Per al perfil dret, mira des de la dreta
     i trasllada profunditat i alçària; la part davantera queda a l'esquerra. 5. Marca el contorn i les
-    arestes visibles que separen plans a distinta profunditat o alçària. Les línies grises discontínues
+    arestes visibles que separen plans a distinta profunditat o alçària. Si dos blocs formen una mateixa
+    cara plana, no marques la seua unió perquè no és una aresta de la peça. Les línies grises discontínues
     només guien el traç; les línies fosques del solucionari són la resposta. Comprova que l'amplària de
     l'alçat coincidix amb la de la planta, l'alçària amb la del perfil i la profunditat de la planta amb
     la del perfil.

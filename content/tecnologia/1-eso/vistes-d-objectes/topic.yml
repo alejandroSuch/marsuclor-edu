@@ -30,4 +30,6 @@ source_note: S'han revisat visualment les pàgines 6–10. Les fitxes utilitzen 
   quadrícula i peces de blocs en perspectiva; aquesta sèrie empra peces noves. La cara frontal fosca i
   la cara dreta clara fixen explícitament la direcció de cada vista per a evitar ambigüitats. Les línies
   grises de la quadrícula són guies de dibuix; en les solucions només les línies fosques representen arestes
-  visibles. El PDF original, amb dades personals, es conserva fora del repositori públic.
+  visibles. S'han eliminat de les perspectives i de les solucions les juntes de construcció entre blocs
+  coplanaris perquè no representen arestes reals de la peça. El PDF original, amb dades personals, es conserva
+  fora del repositori públic.
