@@ -1,0 +1,33 @@
+title: 'Vistes d''objectes: de la perspectiva a l''alçat, la planta i el perfil'
+course: 1-eso
+subject: tecnologia
+teaching_language: ca-valencia
+status: Pràctica original basada en els apunts i les fitxes de classe
+intro: Practica les tres vistes principals de peces dibuixades en perspectiva isomètrica. Cada exercici
+  té quadrícules per a l'alçat, el perfil dret i la planta, i una solució dibuixada.
+objectives:
+- id: o1
+  text: Reconéixer l'alçat, la planta i el perfil, i identificar des d'on es mira cada vista.
+- id: o2
+  text: Dibuixar les tres vistes principals de peces senzilles a partir d'una perspectiva isomètrica.
+sources:
+- id: apunts
+  type: private-class-notes
+  title: Tècniques d'expressió i comunicació gràfica, 1r d'ESO, pàgines 6–7
+  note: PDF familiar de 10 pàgines conservat fora del repositori públic. Defineix perspectiva, alçat,
+    planta i perfil, i mostra un esquema de projecció.
+- id: fitxes
+  type: private-teacher-worksheet
+  title: Exercicis de vistes · nivell elemental, pàgines 8–10 del PDF familiar
+  note: Fitxes de classe amb peces isomètriques i quadrícules per a les vistes. El PDF inclou dades manuscrites
+    d'una alumna i no es publica.
+- id: editorial
+  type: editorial
+  title: Elaboració didàctica original de Martina Edu
+  note: Les 12 peces, les perspectives vectorials, les solucions i les targetes són noves. Les peces de
+    les fitxes només fixen el nivell i el tipus d'activitat.
+source_note: S'han revisat visualment les pàgines 6–10. Les fitxes utilitzen alçat, planta i perfil amb
+  quadrícula i peces de blocs en perspectiva; aquesta sèrie empra peces noves. La cara frontal fosca i
+  la cara dreta clara fixen explícitament la direcció de cada vista per a evitar ambigüitats. Les línies
+  grises de la quadrícula són guies de dibuix; en les solucions només les línies fosques representen arestes
+  visibles. El PDF original, amb dades personals, es conserva fora del repositori públic.

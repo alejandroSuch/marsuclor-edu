@@ -198,6 +198,9 @@ def validate():
                         errors.append(f"{label}: diagrama absent: {entry['file']}")
                     else:
                         ET.parse(svg)
+                    blank_svg = path.parent / "diagrams" / f"{entry['id']}-blank.svg"
+                    if blank_svg.is_file():
+                        ET.parse(blank_svg)
                     if not entry.get("objective_ids") or not set(entry["objective_ids"]) <= objectives:
                         errors.append(f"{label}: objectius de diagrama invàlids")
                     if not entry.get("source_ids") or not set(entry["source_ids"]) <= sources:
@@ -307,7 +310,8 @@ def copy_diagrams(folder: Path, dest: Path, diagrams):
     for entry in diagrams["diagrams"]:
         svg = (folder / "diagrams" / entry["file"]).read_text(encoding="utf-8")
         (target / f"{entry['id']}.svg").write_text(svg, encoding="utf-8")
-        blank = re.sub(
+        blank_file = folder / "diagrams" / f"{entry['id']}-blank.svg"
+        blank = blank_file.read_text(encoding="utf-8") if blank_file.is_file() else re.sub(
             r'(<text class="diagram-answer"[^>]*>)[^<]*(</text>)',
             lambda match: match.group(1) + "________" + match.group(2),
             svg,

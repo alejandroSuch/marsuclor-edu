@@ -8,3 +8,4 @@ subjects:
   educacio-fisica: {label: "Educació física", teaching_language: configurable}
   llengua-castellana: {label: "Lengua castellana", teaching_language: es}
   musica: {label: "Música", teaching_language: es}
+  tecnologia: {label: "Tecnologia", teaching_language: ca-valencia}

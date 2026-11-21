@@ -1,0 +1,170 @@
+exercises:
+- id: e01
+  kind: dibuix-de-vistes
+  objective_ids:
+  - o1
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  question: 'Peça A (dos graons paral·lels): dibuixa l''alçat, la planta i el perfil dret sobre les quadrícules. Traça el
+    contorn i les arestes visibles.'
+  answer: 'Alçat, planta i perfil dret: vegeu les línies fosques del dibuix resolt. Comprovació d''alçades: alçat, d''esquerra
+    a dreta, 2, 1; perfil dret, del davant cap al fons, 2, 2. Alçades de la planta per files, del davant cap al fons: 2 1
+    / 2 1 (0 = buit).'
+  diagram_id: peca-01
+  answer_space_mm: 8
+- id: e02
+  kind: dibuix-de-vistes
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  question: 'Peça B (un cantó elevat): dibuixa l''alçat, la planta i el perfil dret sobre les quadrícules. Traça el contorn
+    i les arestes visibles.'
+  answer: 'Alçat, planta i perfil dret: vegeu les línies fosques del dibuix resolt. Comprovació d''alçades: alçat, d''esquerra
+    a dreta, 2, 1; perfil dret, del davant cap al fons, 2, 1. Alçades de la planta per files, del davant cap al fons: 2 1
+    / 1 1 (0 = buit).'
+  diagram_id: peca-02
+  answer_space_mm: 8
+- id: e03
+  kind: dibuix-de-vistes
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  question: 'Peça C (dos cantons oposats): dibuixa l''alçat, la planta i el perfil dret sobre les quadrícules. Traça el contorn
+    i les arestes visibles.'
+  answer: 'Alçat, planta i perfil dret: vegeu les línies fosques del dibuix resolt. Comprovació d''alçades: alçat, d''esquerra
+    a dreta, 2, 2; perfil dret, del davant cap al fons, 2, 2. Alçades de la planta per files, del davant cap al fons: 2 1
+    / 1 2 (0 = buit).'
+  diagram_id: peca-03
+  answer_space_mm: 8
+- id: e04
+  kind: dibuix-de-vistes
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  question: 'Peça D (peça en forma de l): dibuixa l''alçat, la planta i el perfil dret sobre les quadrícules. Traça el contorn
+    i les arestes visibles.'
+  answer: 'Alçat, planta i perfil dret: vegeu les línies fosques del dibuix resolt. Comprovació d''alçades: alçat, d''esquerra
+    a dreta, 2, 2; perfil dret, del davant cap al fons, 2, 2. Alçades de la planta per files, del davant cap al fons: 2 2
+    / 2 0 (0 = buit).'
+  diagram_id: peca-04
+  answer_space_mm: 8
+- id: e05
+  kind: dibuix-de-vistes
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  question: 'Peça E (escaló al fons): dibuixa l''alçat, la planta i el perfil dret sobre les quadrícules. Traça el contorn
+    i les arestes visibles.'
+  answer: 'Alçat, planta i perfil dret: vegeu les línies fosques del dibuix resolt. Comprovació d''alçades: alçat, d''esquerra
+    a dreta, 2, 2; perfil dret, del davant cap al fons, 1, 2. Alçades de la planta per files, del davant cap al fons: 1 1
+    / 2 2 (0 = buit).'
+  diagram_id: peca-05
+  answer_space_mm: 8
+- id: e06
+  kind: dibuix-de-vistes
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  question: 'Peça F (tres nivells en dos files): dibuixa l''alçat, la planta i el perfil dret sobre les quadrícules. Traça
+    el contorn i les arestes visibles.'
+  answer: 'Alçat, planta i perfil dret: vegeu les línies fosques del dibuix resolt. Comprovació d''alçades: alçat, d''esquerra
+    a dreta, 3, 2; perfil dret, del davant cap al fons, 3, 2. Alçades de la planta per files, del davant cap al fons: 3 1
+    / 2 2 (0 = buit).'
+  diagram_id: peca-06
+  answer_space_mm: 8
+- id: e07
+  kind: dibuix-de-vistes
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  question: 'Peça G (passadís central): dibuixa l''alçat, la planta i el perfil dret sobre les quadrícules. Traça el contorn
+    i les arestes visibles.'
+  answer: 'Alçat, planta i perfil dret: vegeu les línies fosques del dibuix resolt. Comprovació d''alçades: alçat, d''esquerra
+    a dreta, 2, 1, 2; perfil dret, del davant cap al fons, 2, 2. Alçades de la planta per files, del davant cap al fons: 2
+    1 2 / 2 1 2 (0 = buit).'
+  diagram_id: peca-07
+  answer_space_mm: 8
+- id: e08
+  kind: dibuix-de-vistes
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  question: 'Peça H (escala de tres nivells): dibuixa l''alçat, la planta i el perfil dret sobre les quadrícules. Traça el
+    contorn i les arestes visibles.'
+  answer: 'Alçat, planta i perfil dret: vegeu les línies fosques del dibuix resolt. Comprovació d''alçades: alçat, d''esquerra
+    a dreta, 3, 2, 1; perfil dret, del davant cap al fons, 3, 3. Alçades de la planta per files, del davant cap al fons: 3
+    2 1 / 3 2 1 (0 = buit).'
+  diagram_id: peca-08
+  answer_space_mm: 8
+- id: e09
+  kind: dibuix-de-vistes
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  question: 'Peça I (buit en el cantó davanter): dibuixa l''alçat, la planta i el perfil dret sobre les quadrícules. Traça
+    el contorn i les arestes visibles.'
+  answer: 'Alçat, planta i perfil dret: vegeu les línies fosques del dibuix resolt. Comprovació d''alçades: alçat, d''esquerra
+    a dreta, 1, 2, 1; perfil dret, del davant cap al fons, 2, 2. Alçades de la planta per files, del davant cap al fons: 0
+    2 1 / 1 2 1 (0 = buit).'
+  diagram_id: peca-09
+  answer_space_mm: 8
+- id: e10
+  kind: dibuix-de-vistes
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  question: 'Peça J (extrem elevat): dibuixa l''alçat, la planta i el perfil dret sobre les quadrícules. Traça el contorn
+    i les arestes visibles.'
+  answer: 'Alçat, planta i perfil dret: vegeu les línies fosques del dibuix resolt. Comprovació d''alçades: alçat, d''esquerra
+    a dreta, 2, 1, 2; perfil dret, del davant cap al fons, 2, 2. Alçades de la planta per files, del davant cap al fons: 1
+    1 2 / 2 1 2 (0 = buit).'
+  diagram_id: peca-10
+  answer_space_mm: 8
+- id: e11
+  kind: dibuix-de-vistes
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  question: 'Peça K (dos braços i un entrant): dibuixa l''alçat, la planta i el perfil dret sobre les quadrícules. Traça el
+    contorn i les arestes visibles.'
+  answer: 'Alçat, planta i perfil dret: vegeu les línies fosques del dibuix resolt. Comprovació d''alçades: alçat, d''esquerra
+    a dreta, 2, 1, 2; perfil dret, del davant cap al fons, 2, 2. Alçades de la planta per files, del davant cap al fons: 2
+    1 2 / 2 0 1 (0 = buit).'
+  diagram_id: peca-11
+  answer_space_mm: 8
+- id: e12
+  kind: dibuix-de-vistes
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  question: 'Peça L (cim altern): dibuixa l''alçat, la planta i el perfil dret sobre les quadrícules. Traça el contorn i les
+    arestes visibles.'
+  answer: 'Alçat, planta i perfil dret: vegeu les línies fosques del dibuix resolt. Comprovació d''alçades: alçat, d''esquerra
+    a dreta, 3, 2, 2; perfil dret, del davant cap al fons, 3, 2. Alçades de la planta per files, del davant cap al fons: 3
+    1 2 / 2 2 1 (0 = buit).'
+  diagram_id: peca-12
+  answer_space_mm: 8

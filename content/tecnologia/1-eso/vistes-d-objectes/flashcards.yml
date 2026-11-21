@@ -1,0 +1,45 @@
+cards:
+- id: c01
+  objective_ids:
+  - o1
+  source_ids:
+  - apunts
+  front: Des d'on es mira una peça per a dibuixar l'alçat?
+  back: Des del davant; l'alçat mostra amplària i alçària.
+- id: c02
+  objective_ids:
+  - o1
+  source_ids:
+  - apunts
+  front: Quines dimensions mostra la planta?
+  back: Amplària i profunditat, mirant la peça des de dalt.
+- id: c03
+  objective_ids:
+  - o1
+  - o2
+  source_ids:
+  - apunts
+  - editorial
+  front: En aquestes fitxes, quin costat es mira per a dibuixar el perfil i on queda la part davantera?
+  back: El costat dret; la part davantera queda a l'esquerra del requadre del perfil.
+- id: c04
+  objective_ids:
+  - o2
+  source_ids:
+  - editorial
+  front: Quina dimensió han de tindre en comú l'alçat i la planta?
+  back: L'amplària.
+- id: c05
+  objective_ids:
+  - o2
+  source_ids:
+  - editorial
+  front: Quina dimensió han de tindre en comú l'alçat i el perfil?
+  back: L'alçària.
+- id: c06
+  objective_ids:
+  - o2
+  source_ids:
+  - editorial
+  front: Quina dimensió han de tindre en comú la planta i el perfil?
+  back: La profunditat.

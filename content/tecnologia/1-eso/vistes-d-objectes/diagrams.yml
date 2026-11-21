@@ -1,0 +1,109 @@
+diagrams:
+- id: peca-01
+  title: 'Peça A: Dos graons paral·lels'
+  file: peca-01.svg
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  vocabulary_ids: []
+- id: peca-02
+  title: 'Peça B: Un cantó elevat'
+  file: peca-02.svg
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  vocabulary_ids: []
+- id: peca-03
+  title: 'Peça C: Dos cantons oposats'
+  file: peca-03.svg
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  vocabulary_ids: []
+- id: peca-04
+  title: 'Peça D: Peça en forma de L'
+  file: peca-04.svg
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  vocabulary_ids: []
+- id: peca-05
+  title: 'Peça E: Escaló al fons'
+  file: peca-05.svg
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  vocabulary_ids: []
+- id: peca-06
+  title: 'Peça F: Tres nivells en dos files'
+  file: peca-06.svg
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  vocabulary_ids: []
+- id: peca-07
+  title: 'Peça G: Passadís central'
+  file: peca-07.svg
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  vocabulary_ids: []
+- id: peca-08
+  title: 'Peça H: Escala de tres nivells'
+  file: peca-08.svg
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  vocabulary_ids: []
+- id: peca-09
+  title: 'Peça I: Buit en el cantó davanter'
+  file: peca-09.svg
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  vocabulary_ids: []
+- id: peca-10
+  title: 'Peça J: Extrem elevat'
+  file: peca-10.svg
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  vocabulary_ids: []
+- id: peca-11
+  title: 'Peça K: Dos braços i un entrant'
+  file: peca-11.svg
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  vocabulary_ids: []
+- id: peca-12
+  title: 'Peça L: Cim altern'
+  file: peca-12.svg
+  objective_ids:
+  - o2
+  source_ids:
+  - fitxes
+  - editorial
+  vocabulary_ids: []

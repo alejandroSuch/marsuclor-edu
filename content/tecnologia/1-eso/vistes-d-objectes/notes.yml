@@ -1,0 +1,30 @@
+sections:
+- title: Les tres vistes principals
+  objective_ids:
+  - o1
+  source_ids:
+  - apunts
+  body: 'Una peça té alçària, amplària i profunditat. La **perspectiva** deixa veure les tres dimensions
+    en un sol dibuix. Les **vistes** representen la peça des de direccions concretes: l''**alçat** des
+    del davant, la **planta** des de dalt i el **perfil** des d''un costat. En aquestes activitats, el
+    perfil és el **dret**. La cara fosca de la perspectiva marca el davant; la cara clara marca el costat
+    dret.'
+- title: Com resoldre les peces
+  objective_ids:
+  - o1
+  - o2
+  source_ids:
+  - apunts
+  - fitxes
+  - editorial
+  body: 1. Localitza el davant i el costat dret de la peça. 2. Per a l'alçat, mira de front i trasllada
+    amplària i alçària a la quadrícula. 3. Per a la planta, mira des de dalt i trasllada amplària i profunditat;
+    la part davantera queda a la part inferior del requadre. 4. Per al perfil dret, mira des de la dreta
+    i trasllada profunditat i alçària; la part davantera queda a l'esquerra. 5. Marca el contorn i les
+    arestes visibles que separen plans a distinta profunditat o alçària. Les línies grises discontínues
+    només guien el traç; les línies fosques del solucionari són la resposta. Comprova que l'amplària de
+    l'alçat coincidix amb la de la planta, l'alçària amb la del perfil i la profunditat de la planta amb
+    la del perfil.
+study_tips:
+- 'Comença per la peça A i avança fins a la L: les últimes tenen més quadrats i nivells.'
+- Tapa el solucionari fins que hages completat les tres vistes.
