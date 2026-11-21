@@ -207,6 +207,15 @@ def validate():
                         errors.append(f"{label}: font de diagrama invàlida")
                     if not set(entry.get("vocabulary_ids", [])) <= vocabulary_ids:
                         errors.append(f"{label}: vocabulari de diagrama invàlid")
+                    heights = entry.get("heights")
+                    if heights is not None and (
+                        not isinstance(heights, list) or not heights
+                        or any(not isinstance(row, list) or not row for row in heights)
+                        or len({len(row) for row in heights}) != 1
+                        or any(type(height) is not int or height < 0 or height > 8 for row in heights for height in row)
+                        or not any(height > 0 for row in heights for height in row)
+                    ):
+                        errors.append(f"{label}: matriu d'alçades invàlida en {entry['id']}")
             for group_name, rows in groups:
                 for row in rows:
                     if not set(row.get("vocabulary_ids", [])) <= vocabulary_ids:
@@ -302,6 +311,27 @@ def diagram_markup(diagrams_by_id, diagram_id: str, blank: bool = False) -> str:
     return f"![{esc(entry['title'])}](diagrams/{diagram_id}{suffix}.svg){{.topic-diagram}}\n\n"
 
 
+def viewer_markup(diagrams_by_id, diagram_id: str) -> str:
+    entry = diagrams_by_id[diagram_id]
+    if not entry.get("heights"):
+        return ""
+    heights = esc(json.dumps(entry["heights"], separators=(",", ":")))
+    return (
+        f'<div class="object-viewer" data-heights="{heights}" data-title="{esc(entry["title"])}">'
+        '<p class="viewer-heading">Explora la peça en 3D</p>'
+        '<p class="viewer-help">Arrossega per girar-la o tria una vista. El davant correspon a l’alçat; la part davantera queda baix en la planta i a l’esquerra en el perfil dret.</p>'
+        '<div class="viewer-controls" role="group" aria-label="Orientació de la peça">'
+        '<button type="button" data-view="iso" aria-pressed="true">Com en l’exercici</button>'
+        '<button type="button" data-view="front" aria-pressed="false">Alçat</button>'
+        '<button type="button" data-view="top" aria-pressed="false">Planta</button>'
+        '<button type="button" data-view="right" aria-pressed="false">Perfil dret</button>'
+        '</div>'
+        f'<canvas class="viewer-canvas" role="img" tabindex="0" aria-label="Peça 3D giratòria: {esc(entry["title"])}. Arrossega o usa les fletxes del teclat per girar-la."></canvas>'
+        '<p class="viewer-status" aria-live="polite">Perspectiva del dibuix</p>'
+        '</div>\n\n'
+    )
+
+
 def copy_diagrams(folder: Path, dest: Path, diagrams):
     if not diagrams:
         return
@@ -365,7 +395,7 @@ def prepare():
         "project:\n  type: website\n  output-dir: ../site\n  render:\n    - '*.qmd'\n    - 'courses/**/*.qmd'\n    - 'topics/**/*.qmd'\nwebsite:\n  title: Martina Edu\n"
         "  navbar:\n    left:\n      - href: index.qmd\n        text: Inici\n"
         "format:\n  html:\n    theme: cosmo\n    css: styles/site.css\n    toc: true\n    lang: ca\n"
-        "    include-after-body:\n      - styles/cards.js\n      - styles/navigation.js\nexecute:\n  freeze: auto\n",
+        "    include-after-body:\n      - styles/cards.js\n      - styles/navigation.js\n      - styles/object-viewer.js\nexecute:\n  freeze: auto\n",
         encoding="utf-8",
     )
     config = read_yaml(ROOT / "config/subjects.yml")
@@ -420,6 +450,7 @@ def prepare():
             )
             if row.get("diagram_id"):
                 exercise_page += diagram_markup(diagrams_by_id, row["diagram_id"], blank=True)
+                exercise_page += viewer_markup(diagrams_by_id, row["diagram_id"])
                 solution_page += diagram_markup(diagrams_by_id, row["diagram_id"])
             exercise_page += f'<details class="exercise-solution"><summary>{ui(language, "show_answer")}</summary>\n\n{esc(row["answer"])}\n\n'
             if row.get("diagram_id"):
@@ -595,6 +626,35 @@ def verify():
                 first_solution.locator("summary").click()
                 if not first_solution.evaluate("element => element.open"):
                     raise SystemExit("La solució no es mostra en fer clic")
+                diagram_file = folder / "diagrams.yml"
+                if diagram_file.is_file():
+                    modeled = {entry["id"] for entry in read_yaml(diagram_file)["diagrams"] if entry.get("heights")}
+                    model_count = sum(row.get("diagram_id") in modeled for row in read_yaml(folder / "exercises.yml")["exercises"])
+                    if model_count:
+                        viewers = page.locator(".object-viewer")
+                        if viewers.count() != model_count:
+                            raise SystemExit("Falten visors 3D en els exercicis")
+                        viewer = viewers.first
+                        canvas = viewer.locator("canvas")
+                        canvas.scroll_into_view_if_needed()
+                        original = canvas.evaluate("element => element.toDataURL()")
+                        box = canvas.bounding_box()
+                        x, y = box["x"] + box["width"] / 2, box["y"] + box["height"] / 2
+                        page.mouse.move(x, y)
+                        page.mouse.down()
+                        page.mouse.move(x + 80, y + 20, steps=5)
+                        page.mouse.up()
+                        if canvas.evaluate("element => element.toDataURL()") == original:
+                            raise SystemExit("El visor 3D no gira amb el ratolí")
+                        viewer.locator('[data-view="iso"]').click()
+                        if canvas.evaluate("element => element.toDataURL()") != original:
+                            raise SystemExit("El visor 3D no recupera la perspectiva inicial")
+                        views = {original}
+                        for name in ("front", "top", "right"):
+                            viewer.locator(f'[data-view="{name}"]').click()
+                            views.add(canvas.evaluate("element => element.toDataURL()"))
+                        if len(views) != 4:
+                            raise SystemExit("Les vistes del visor 3D no són distintes")
             if page_path.name == "exercises.html":
                 items = page.locator(".key-item")
                 exercise_count = len(read_yaml(folder / "exercises.yml")["exercises"])

@@ -2,6 +2,7 @@ diagrams:
 - id: peca-01
   title: 'Peça A: Dos graons paral·lels'
   file: peca-01.svg
+  heights: [[2, 1], [2, 1]] # files: davant -> fons; columnes: esquerra -> dreta
   objective_ids:
   - o2
   source_ids:
@@ -11,6 +12,7 @@ diagrams:
 - id: peca-02
   title: 'Peça B: Un cantó elevat'
   file: peca-02.svg
+  heights: [[2, 1], [1, 1]]
   objective_ids:
   - o2
   source_ids:
@@ -20,6 +22,7 @@ diagrams:
 - id: peca-03
   title: 'Peça C: Dos cantons oposats'
   file: peca-03.svg
+  heights: [[2, 1], [1, 2]]
   objective_ids:
   - o2
   source_ids:
@@ -29,6 +32,7 @@ diagrams:
 - id: peca-04
   title: 'Peça D: Peça en forma de L'
   file: peca-04.svg
+  heights: [[2, 2], [2, 0]]
   objective_ids:
   - o2
   source_ids:
@@ -38,6 +42,7 @@ diagrams:
 - id: peca-05
   title: 'Peça E: Escaló al fons'
   file: peca-05.svg
+  heights: [[1, 1], [2, 2]]
   objective_ids:
   - o2
   source_ids:
@@ -47,6 +52,7 @@ diagrams:
 - id: peca-06
   title: 'Peça F: Tres nivells en dos files'
   file: peca-06.svg
+  heights: [[3, 1], [2, 2]]
   objective_ids:
   - o2
   source_ids:
@@ -56,6 +62,7 @@ diagrams:
 - id: peca-07
   title: 'Peça G: Passadís central'
   file: peca-07.svg
+  heights: [[2, 1, 2], [2, 1, 2]]
   objective_ids:
   - o2
   source_ids:
@@ -65,6 +72,7 @@ diagrams:
 - id: peca-08
   title: 'Peça H: Escala de tres nivells'
   file: peca-08.svg
+  heights: [[3, 2, 1], [3, 2, 1]]
   objective_ids:
   - o2
   source_ids:
@@ -74,6 +82,7 @@ diagrams:
 - id: peca-09
   title: 'Peça I: Buit en el cantó davanter'
   file: peca-09.svg
+  heights: [[0, 2, 1], [1, 2, 1]]
   objective_ids:
   - o2
   source_ids:
@@ -83,6 +92,7 @@ diagrams:
 - id: peca-10
   title: 'Peça J: Extrem elevat'
   file: peca-10.svg
+  heights: [[1, 1, 2], [2, 1, 2]]
   objective_ids:
   - o2
   source_ids:
@@ -92,6 +102,7 @@ diagrams:
 - id: peca-11
   title: 'Peça K: Dos braços i un entrant'
   file: peca-11.svg
+  heights: [[2, 1, 2], [2, 0, 1]]
   objective_ids:
   - o2
   source_ids:
@@ -101,6 +112,7 @@ diagrams:
 - id: peca-12
   title: 'Peça L: Cim altern'
   file: peca-12.svg
+  heights: [[3, 1, 2], [2, 2, 1]]
   objective_ids:
   - o2
   source_ids:

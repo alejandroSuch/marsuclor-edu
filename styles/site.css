@@ -24,6 +24,16 @@ h1, h2 { color: #164c5b; }
 .solution-answer { margin-top: .45rem; background: var(--soft); border-left: 3px solid var(--accent); }
 .solution-prompt p:last-child, .solution-answer p:last-child { margin-bottom: 0; }
 .topic-diagram { display: block; width: 100%; max-width: 880px; max-height: 190mm; margin: 1rem auto; }
+.object-viewer { max-width: 880px; margin: .8rem auto 1.3rem; padding: .8rem; border: 1px solid #b8d8d3; border-radius: .55rem; background: #f8fbfc; }
+.viewer-heading { margin: 0 0 .25rem; font-weight: 700; color: #164c5b; }
+.viewer-help { margin: 0 0 .65rem; font-size: .9rem; }
+.viewer-controls { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .65rem; }
+.viewer-controls button { padding: .35rem .65rem; border: 1px solid #8ebdb8; border-radius: .35rem; background: white; color: #164c5b; cursor: pointer; }
+.viewer-controls button:hover, .viewer-controls button:focus-visible, .viewer-controls button[aria-pressed="true"] { background: #d8f0eb; border-color: var(--accent); }
+.viewer-canvas { display: block; width: 100%; height: clamp(210px, 36vw, 320px); border-radius: .3rem; background: white; cursor: grab; touch-action: none; }
+.viewer-canvas:active { cursor: grabbing; }
+.viewer-canvas:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.viewer-status { margin: .45rem 0 0; font-size: .85rem; color: #465e68; }
 .vocab-entry { margin: .3rem 0; padding: .3rem .5rem; border-left: 2px solid #b8d8d3; }
 .vocab-entry small { color: #536971; }
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; margin: 1.5rem 0; }
@@ -48,7 +58,7 @@ h1, h2 { color: #164c5b; }
 @page { size: A4; margin: 15mm; }
 @media print {
   body { font-size: 10.5pt; color: #000; }
-  nav, .navbar, .sidebar, .toc-active, #TOC, .quarto-title-banner, .pdf-link, .material-nav, .page-footer, .callout-note { display: none !important; }
+  nav, .navbar, .sidebar, .toc-active, #TOC, .quarto-title-banner, .pdf-link, .material-nav, .page-footer, .callout-note, .object-viewer { display: none !important; }
   main { width: 100%; max-width: none; margin: 0; padding: 0; }
   h2, h3 { break-after: avoid; }
   .callout, .vocab-entry, .topic-diagram, .exercise, .key-item { break-inside: avoid; }
