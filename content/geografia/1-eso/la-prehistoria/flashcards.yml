@@ -1,0 +1,100 @@
+cards:
+  - id: c01
+    objective_ids: [o1]
+    source_ids: [class-notes, smithsonian-evolution]
+    front: "Què és l'hominització?"
+    back: "El procés llarg i ramificat d'evolució de la línia humana."
+  - id: c02
+    objective_ids: [o1]
+    source_ids: [class-notes, smithsonian-evolution]
+    front: "Quin avantatge pràctic va aportar el bipedisme a les mans?"
+    back: "Va deixar les mans disponibles per a manipular i transportar objectes."
+  - id: c03
+    objective_ids: [o1]
+    source_ids: [class-worksheets, smithsonian-sapiens]
+    front: "On va aparéixer Homo sapiens i fa aproximadament quant de temps?"
+    back: "A Àfrica, fa uns 300.000 anys."
+  - id: c04
+    objective_ids: [o1]
+    source_ids: [class-notes, atapuerca-antecessor]
+    front: "Quin jaciment peninsular s'associa a Homo antecessor?"
+    back: "Atapuerca, a Burgos. El parentiu exacte de l'espècie continua en estudi."
+  - id: c05
+    objective_ids: [o1]
+    source_ids: [class-worksheets, smithsonian-sapiens]
+    diagram_id: expansio-hominins
+    front: "En el mapa, quin continent és el punt d'origen i què signifiquen les fletxes?"
+    back: "Àfrica. Les fletxes mostren direccions generals d'expansió, no una ruta única."
+  - id: c06
+    objective_ids: [o2]
+    source_ids: [class-plan, class-notes]
+    front: "Com obtenien principalment els aliments els grups paleolítics?"
+    back: "Amb la caça, la pesca i la recol·lecció de plantes."
+  - id: c07
+    objective_ids: [o2]
+    source_ids: [class-notes]
+    front: "Per què el nomadisme podia ajudar una comunitat caçadora-recol·lectora?"
+    back: "Permetia traslladar-se per trobar recursos segons les estacions o la disponibilitat d'aliments."
+  - id: c08
+    objective_ids: [o2]
+    source_ids: [class-worksheets]
+    front: "Quines dos utilitats tenia el foc en el Paleolític?"
+    back: "Per exemple, coure aliments i calfar-se; també il·luminar-se i protegir-se."
+  - id: c09
+    objective_ids: [o3]
+    source_ids: [class-notes]
+    front: "Quina diferència hi ha entre economia caçadora-recol·lectora i productora?"
+    back: "La primera obté aliments de recursos silvestres; la segona cultiva plantes i cria animals."
+  - id: c10
+    objective_ids: [o3]
+    source_ids: [class-notes]
+    front: "Com afavoriren l'agricultura i la ramaderia el sedentarisme?"
+    back: "Cuidar camps i ramats afavoria quedar-se prop d'ells i formar poblats estables."
+  - id: c11
+    objective_ids: [o3]
+    source_ids: [class-notes, class-worksheets]
+    front: "Per a què servien la falç i el molí de mà?"
+    back: "La falç servia per a segar; el molí de mà, per a moldre gra."
+  - id: c12
+    objective_ids: [o2, o3, o4]
+    source_ids: [class-notes]
+    diagram_id: eix-prehistoria
+    front: "Quines tres etapes ordena l'eix i quin canvi identifica el Neolític?"
+    back: "Paleolític → Neolític → edat dels metalls; el Neolític s'associa a agricultura i ramaderia."
+  - id: c13
+    objective_ids: [o4]
+    source_ids: [class-plan, class-notes]
+    front: "Quin és l'ordre habitual dels tres metalls que donen nom a les etapes?"
+    back: "Coure → bronze → ferro."
+  - id: c14
+    objective_ids: [o4]
+    source_ids: [class-notes]
+    front: "De quins dos metalls està fet el bronze?"
+    back: "De coure i estany: és un aliatge."
+  - id: c15
+    objective_ids: [o4]
+    source_ids: [class-plan, class-notes]
+    front: "A quines etapes s'associen Los Millares i El Argar?"
+    back: "Los Millares, al coure; El Argar, al bronze."
+  - id: c16
+    objective_ids: [o5]
+    source_ids: [class-notes, unesco-levantine]
+    front: "Quina diferència visual ajuda a distingir Altamira de la Valltorta?"
+    back: "Altamira destaca per animals detallats en una cova; la Valltorta, per escenes dinàmiques amb figures humanes i animals en abrics."
+  - id: c17
+    objective_ids: [o5]
+    source_ids: [class-worksheets]
+    diagram_id: formes-megalitiques
+    front: "En el diagrama, quins números corresponen a menhir, dolmen i cromlec?"
+    back: "Menhir 1; dolmen 2; cromlec 3."
+  - id: c18
+    objective_ids: [o5]
+    source_ids: [class-worksheets]
+    diagram_id: formes-megalitiques
+    front: "Quines formes 4, 5 i 6 del diagrama destaquen a les Illes Balears?"
+    back: "4 naveta, 5 taula i 6 talaiot."
+  - id: c19
+    objective_ids: [o5]
+    source_ids: [class-notes, class-worksheets]
+    front: "Per què la funció de les 'venus' paleolítiques no es pot donar per segura?"
+    back: "Perquè les explicacions sobre rituals o fertilitat són hipòtesis; no hi ha una funció demostrada per a totes."

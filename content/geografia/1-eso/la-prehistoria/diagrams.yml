@@ -1,0 +1,19 @@
+diagrams:
+  - id: eix-prehistoria
+    title: Etapes i canvis de la prehistòria
+    file: eix-prehistoria.svg
+    objective_ids: [o2, o3, o4]
+    source_ids: [class-notes]
+    vocabulary_ids: []
+  - id: expansio-hominins
+    title: Origen africà i expansió general dels hominins
+    file: expansio-hominins.svg
+    objective_ids: [o1]
+    source_ids: [class-plan, class-worksheets, smithsonian-evolution, smithsonian-sapiens]
+    vocabulary_ids: []
+  - id: formes-megalitiques
+    title: Formes de construccions megalítiques
+    file: formes-megalitiques.svg
+    objective_ids: [o5]
+    source_ids: [class-plan, class-worksheets]
+    vocabulary_ids: []

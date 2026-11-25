@@ -1,0 +1,57 @@
+title: La prehistòria
+course: 1-eso
+subject: geografia
+teaching_language: ca-valencia
+status: preparat a partir dels apunts de classe
+intro: >-
+  Guia d'estudi de 1r d'ESO sobre l'evolució humana i les etapes de la prehistòria.
+  Reunix els coneixements bàsics indicats en classe, amb exercicis, solucions i
+  targetes de repàs.
+objectives:
+  - {id: o1, text: Explicar els canvis principals de l'hominització i situar l'origen africà i l'expansió dels hominins.}
+  - {id: o2, text: Descriure la vida, l'economia i les ferramentes del Paleolític.}
+  - {id: o3, text: Relacionar agricultura i ramaderia amb el sedentarisme i els canvis del Neolític.}
+  - {id: o4, text: Reconéixer la metal·lúrgia, les etapes de l'edat dels metalls i les restes de Los Millares i El Argar.}
+  - {id: o5, text: Distingir l'art cantàbric, el llevantí i les construccions megalítiques amb exemples.}
+sources:
+  - id: class-plan
+    type: private-class-notes
+    title: Prehistoria.pdf, pàgina 1 — coneixements bàsics de classe
+    note: Escaneig privat de 17 pàgines; no es publica. La pàgina fixa l'abast del tema.
+  - id: class-notes
+    type: private-class-notes
+    title: Prehistoria.pdf, pàgines 2–9 i 17 — apunts, cronologia i taules
+    note: Apunts de classe amb cronologia, hominins, Neolític i art; transcripció editorial.
+  - id: class-worksheets
+    type: private-class-notes
+    title: Prehistoria.pdf, pàgines 10–16 — activitats de classe
+    note: Fitxes editorials i respostes manuscrites amb dades personals; no es publiquen ni es reprodueixen les il·lustracions.
+  - id: smithsonian-evolution
+    type: external
+    title: Smithsonian Human Origins — Introduction to Human Evolution
+    url: https://humanorigins.si.edu/education/introduction-human-evolution
+  - id: smithsonian-sapiens
+    type: external
+    title: Smithsonian Human Origins — Homo sapiens
+    url: https://humanorigins.si.edu/evidence/human-fossils/species/homo-sapiens
+  - id: atapuerca-antecessor
+    type: external
+    title: Fundación Atapuerca — Las proteínas de Homo antecessor
+    url: https://www.atapuerca.org/en/ficha/Z487FDAB8-DCAA-2342-3C7AB9CB198092BE/las-proteinas-de-homo-antecessor
+  - id: unesco-levantine
+    type: external
+    title: UNESCO — Rock Art of the Mediterranean Basin on the Iberian Peninsula
+    url: https://whc.unesco.org/en/list/874
+source_note: >-
+  Els exercicis i les targetes són elaboracions didàctiques dels apunts. La taula
+  de classe és orientativa: les dates de la prehistòria varien segons la regió;
+  «Homo sapiens, fa 176.000 anys» s'actualitza a aproximadament 300.000 anys
+  segons Smithsonian. La fitxa que presenta Homo erectus com el primer bípede
+  es corregix: el bipedisme és molt anterior. No es presenta Homo antecessor
+  com a avantpassat directe segur de sapiens i neandertals; la seua posició és
+  objecte d'estudi segons Atapuerca. L'art llevantí no es reduïx sense matisos
+  al Neolític, ni s'assigna una data única; UNESCO el descriu com a art de la
+  prehistòria tardana. Los Millares i El Argar es denominen cultures, no
+  «primeres civilitzacions». Les interpretacions rituals de les pintures i les
+  figures femenines són hipòtesis. La font privada inclou nom d'alumna i
+  material editorial fotocopiable: no s'incorpora cap pàgina, imatge ni nom.

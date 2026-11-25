@@ -54,6 +54,17 @@ docker compose up --build
 
 La validación, la generación y los PDF se ejecutan antes de abrir [http://localhost:8000](http://localhost:8000). La verificación de las salidas no se ejecuta al arrancar. Para incorporar cambios, detén el proceso y ejecuta `docker compose up` otra vez. Los archivos generados viven en volúmenes de Docker; `docker compose down -v` los elimina. La primera construcción descarga Quarto y Chromium y puede tardar unos minutos.
 
+### Leer apuntes escaneados
+
+El OCR usa una imagen Docker independiente de la web. Acepta PDF, PNG, JPEG, TIFF y BMP; genera un PDF con texto seleccionable y un `.txt` en la carpeta del original, o en la carpeta de salida indicada. La imagen se construye automáticamente la primera vez y el escaneo se procesa sin red. No copies originales privados al repositorio público.
+
+```sh
+scripts/ocr-scan.sh "/ruta/privada/apuntes.pdf"
+scripts/ocr-scan.sh "/ruta/privada/apuntes.pdf" "/ruta/privada/ocr" eng
+```
+
+Por defecto reconoce catalán/valenciano y castellano (`cat+spa`); el tercer argumento permite elegir otros idiomas instalados (`eng`, `fra` o una combinación). El OCR ayuda a localizar texto, pero hay que contrastar los nombres, las fórmulas, los esquemas y las partes manuscritas con el escaneo original. El script no sobrescribe resultados anteriores.
+
 ### Sin Docker
 
 Se necesitan Python 3.11+, Quarto 1.6+ y Chromium de Playwright para los PDF.

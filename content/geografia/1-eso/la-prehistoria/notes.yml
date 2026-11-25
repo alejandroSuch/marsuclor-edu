@@ -1,0 +1,91 @@
+sections:
+  - title: Què és la prehistòria i com s'ordena?
+    objective_ids: [o1, o2, o3, o4]
+    source_ids: [class-plan, class-notes]
+    diagram_ids: [eix-prehistoria]
+    body: |
+      La **prehistòria** és el llarg període anterior a l'aparició de l'escriptura. L'estudiem amb restes materials: ferramentes, ossos, habitatges, pintures i sepultures. No va acabar al mateix temps en totes les regions.
+
+      | Etapa | Canvi que ajuda a reconéixer-la |
+      |---|---|
+      | **Paleolític** | Obtenció d'aliments mitjançant la caça, la pesca i la recol·lecció; pedra tallada. |
+      | **Neolític** | Agricultura i ramaderia; poblats estables i pedra polida. |
+      | **Edat dels metalls** | Ús progressiu del coure, el bronze i el ferro; la metal·lúrgia amplia les ferramentes i les armes. |
+
+      L'eix cronològic ordena les etapes, però els canvis van ser graduals i no van succeir arreu en una mateixa data. «Abans de Crist» (**aC**) indica una data anterior a l'any 1.
+  - title: L'evolució humana i l'expansió
+    objective_ids: [o1]
+    source_ids: [class-plan, class-notes, class-worksheets, smithsonian-evolution, smithsonian-sapiens, atapuerca-antecessor]
+    diagram_ids: [expansio-hominins]
+    body: |
+      L'**hominització** és un procés llarg d'evolució, no una escala recta en què cada espècie substituïx l'anterior. Diferents espècies humanes van arribar a coexistir. L'origen de la nostra línia evolutiva es troba a **Àfrica**.
+
+      - El **bipedisme** permet caminar habitualment sobre dos peus i deixa les mans disponibles per a manipular objectes. Ja existia en hominins molt anteriors a *Homo erectus*.
+      - Amb el temps van canviar el cos i el crani, van aparéixer ferramentes més elaborades i es van desenvolupar formes de comunicació i vida social. No tots els canvis van aparéixer alhora.
+      - La **capacitat cranial** és una mesura del volum del crani, però una xifra per si sola no mesura la intel·ligència.
+
+      | Grup esmentat en els apunts | Idea clau per a situar-lo |
+      |---|---|
+      | *Australopithecus* | Hominins africans amb bipedisme; vivien molt abans del gènere *Homo*. |
+      | *Homo habilis* | Hominí africà associat a algunes de les primeres ferramentes de pedra. |
+      | *Homo erectus* | Cos apte per a caminar llargues distàncies; es va estendre fora d'Àfrica cap a Àsia. |
+      | *Homo antecessor* | Restes importants a Atapuerca, a la península Ibèrica; el seu parentiu exacte continua en estudi. |
+      | *Homo heidelbergensis* i neandertals | Hominins coneguts per restes europees; els neandertals també van viure a l'Àsia occidental. |
+      | *Homo sapiens* | La nostra espècie va aparéixer a Àfrica fa uns 300.000 anys i, molt més tard, s'estengué per altres continents. |
+
+      El mapa esquemàtic mostra **Àfrica → Àsia i Europa → Oceania i Amèrica** com a recorreguts generals de dispersió, no com una ruta única seguida per tots els grups. La península Aràbiga forma part d'Àsia, no és un continent. **Atapuerca** (Burgos) és un conjunt de jaciments fonamental per a estudiar la presència humana antiga a Europa.
+  - title: La vida en el Paleolític
+    objective_ids: [o2]
+    source_ids: [class-plan, class-notes, class-worksheets]
+    body: |
+      Les comunitats paleolítiques practicaven una economia **caçadora-recol·lectora**: obtenien aliments de la caça, la pesca i la recol·lecció de plantes. Quan els recursos d'un lloc disminuïen o canviaven amb les estacions, els grups es traslladaven; això és el **nomadisme**. Podien viure en campaments, abrics rocosos o coves.
+
+      Fabricaven ferramentes de **pedra tallada**, fusta i os, com destrals de mà, rascadors o puntes. El domini del **foc** va permetre calfar-se, il·luminar-se, protegir-se i coure aliments. Les restes d'Atapuerca ajuden a estudiar diferents poblacions humanes antigues; no representen una sola etapa ni una sola espècie.
+
+      **Relació clau:** recursos obtinguts de la natura → desplaçaments per trobar-los → nomadisme.
+  - title: La revolució neolítica
+    objective_ids: [o3]
+    source_ids: [class-plan, class-notes, class-worksheets]
+    body: |
+      En diversos llocs del món, les persones van començar a **cultivar plantes** i **criar animals**. Això és una economia productora. El Neolític va sorgir en diferents regions; un focus molt important per a la seua difusió cap a Europa fou el Pròxim Orient.
+
+      Cultivar i cuidar ramats afavoria quedar-se prop dels camps i dels animals. Per això es van formar **poblats estables** i es va estendre el **sedentarisme**. També van créixer alguns poblats, es van repartir les tasques i es van desenvolupar la ceràmica, el teixit i les ferramentes de **pedra polida**. Un falç servia per a segar i un molí de mà per a moldre gra.
+
+      **Cadena de causes:** agricultura i ramaderia → producció d'aliments → permanència prop dels cultius i ramats → poblats sedentaris. El canvi fou gradual: caçar i recol·lectar no van desaparéixer immediatament.
+  - title: L'edat dels metalls
+    objective_ids: [o4]
+    source_ids: [class-plan, class-notes, class-worksheets]
+    body: |
+      La **metal·lúrgia** és el conjunt de tècniques per a obtindre i treballar metalls. Se sol distingir, segons el metall predominant, **edat del coure → edat del bronze → edat del ferro**. El bronze és un aliatge de coure i estany. Els metalls van fer possibles nous estris, armes i ornaments; la pedra, l'os i la fusta es continuaren utilitzant.
+
+      La mineria, l'artesania i els intercanvis es van desenvolupar en moltes comunitats. Alguns poblats tenien muralles i mostraven diferències socials, observables en habitatges i aixovars funeraris. Les restes materials ens permeten formular hipòtesis sobre la vida de les persones.
+
+      A la península Ibèrica destaquen **Los Millares**, cultura de l'edat del coure, i **El Argar**, cultura de l'edat del bronze. Un objecte de coure, com la destral de l'home conservat en gel estudiat en la fitxa de classe, és una pista per a situar un conjunt de restes, però cal considerar tots els objectes i el jaciment.
+  - title: L'art i els monuments prehistòrics
+    objective_ids: [o5]
+    source_ids: [class-plan, class-notes, class-worksheets, unesco-levantine]
+    diagram_ids: [formes-megalitiques]
+    body: |
+      L'**art rupestre** és l'art realitzat sobre roca. L'art **parietal** es troba en parets rocoses; l'art **moble** es fa en objectes que es poden transportar, com figures d'os o pedra. Les figures femenines anomenades «venus» són exemples d'art moble. El seu significat exacte no és segur: les explicacions sobre fertilitat o rituals són hipòtesis.
+
+      | | Art cantàbric | Art llevantí |
+      |---|---|---|
+      | **Exemple** | Altamira (Cantàbria) | La Valltorta (Castelló) |
+      | **Lloc** | Interior de coves | Abrics rocosos del vessant mediterrani |
+      | **Imatges habituals** | Animals de gran grandària, amb detall i colors | Figures humanes i animals; escenes dinàmiques, sovint de caça |
+      | **Context general** | Paleolític superior | Prehistòria tardana; no té una única data per a tots els abrics |
+
+      Una construcció **megalítica** utilitza grans pedres. Un **menhir (1)** és una pedra dreta; un **dolmen (2)** té pedres verticals que sostenen una llosa; i un **cromlec (3)** disposa pedres formant un cercle. A les Illes Balears destaquen també la **naveta (4)**, una construcció allargada; la **taula (5)**, amb forma de T; i el **talaiot (6)**, una torre de pedra. Les il·lustracions del diagrama són originals i esquemàtiques.
+
+      Les pintures i els monuments indiquen capacitat simbòlica i organització social, però no coneixem amb certesa totes les seues funcions.
+study_tips:
+  - "Ordena les etapes i explica quin canvi econòmic identifica cada una."
+  - "Tapa una columna de la comparació i explica la diferència entre Paleolític i Neolític."
+  - "Seguix les fletxes del mapa i recorda que són rutes generals, no itineraris individuals."
+  - "Practica els noms dels monuments amb el dibuix numerat."
+self_check:
+  - "Puc explicar el bipedisme i situar l'origen africà de Homo sapiens."
+  - "Sé relacionar caça i recol·lecció amb nomadisme."
+  - "Sé explicar per què agricultura i ramaderia afavoriren el sedentarisme."
+  - "Puc ordenar coure, bronze i ferro i identificar Los Millares i El Argar."
+  - "Puc diferenciar Altamira, la Valltorta i tres formes megalítiques."

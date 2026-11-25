@@ -1,0 +1,116 @@
+exercises:
+  - id: e01
+    kind: ordenar-i-explicar
+    objective_ids: [o2, o3, o4]
+    source_ids: [class-plan, class-notes]
+    diagram_id: eix-prehistoria
+    question: "Ordena Paleolític, Neolític i edat dels metalls. Escriu una activitat o tècnica que caracteritze cada etapa i explica per què no tenen una data de començament universal."
+    answer: "Paleolític: caça i recol·lecció, pedra tallada. Neolític: agricultura i ramaderia, pedra polida. Edat dels metalls: metal·lúrgia del coure, bronze i ferro. Les novetats es van difondre gradualment i en moments diferents segons la regió."
+    answer_space_mm: 45
+  - id: e02
+    kind: resposta-curta
+    objective_ids: [o1]
+    source_ids: [class-notes, smithsonian-evolution]
+    question: "Explica què és l'hominització i indica dos canvis físics o de comportament. Per què no s'ha de dibuixar com una fila recta d'espècies?"
+    answer: "És el llarg procés d'evolució de la línia humana. Exemples: bipedisme, canvis del crani, fabricació de ferramentes i comunicació cada vegada més complexa. No és una fila recta perquè diferents espècies van coexistir i l'evolució presenta ramificacions."
+    answer_space_mm: 42
+  - id: e03
+    kind: vertader-fals
+    objective_ids: [o1]
+    source_ids: [class-worksheets, smithsonian-evolution, smithsonian-sapiens]
+    question: "Marca V o F i corregix les falses: a) Homo erectus va ser el primer hominí bípede. b) Homo sapiens va aparéixer a Àfrica. c) La capacitat cranial, per si sola, mesura la intel·ligència. d) Diferents espècies humanes van coexistir."
+    answer: "a) F: el bipedisme és molt anterior a Homo erectus. b) V. c) F: és una mesura del volum del crani, no una mesura directa de la intel·ligència. d) V."
+    answer_space_mm: 39
+  - id: e04
+    kind: mapa
+    objective_ids: [o1]
+    source_ids: [class-worksheets, smithsonian-sapiens]
+    diagram_id: expansio-hominins
+    question: "Observa el mapa: indica el continent d'origen de Homo sapiens, dos continents als quals s'estengué i el continent on es troba la península Aràbiga. Què vol dir que les fletxes són orientatives?"
+    answer: "L'origen és Àfrica. Es va estendre, entre altres llocs, per Àsia i Europa (també Oceania i Amèrica). La península Aràbiga és a Àsia. Les fletxes representen recorreguts generals de dispersió, no una ruta única ni una data precisa."
+    answer_space_mm: 43
+  - id: e05
+    kind: relacionar
+    objective_ids: [o1]
+    source_ids: [class-notes, smithsonian-sapiens, atapuerca-antecessor]
+    question: "Relaciona: 1) Australopithecus, 2) Homo habilis, 3) Homo antecessor, 4) Homo sapiens. A) Associat a primeres ferramentes de pedra. B) La nostra espècie, originada a Àfrica. C) Hominins bípedes africans antics. D) Restes importants a Atapuerca."
+    answer: "1-C, 2-A, 3-D, 4-B."
+    answer_space_mm: 20
+  - id: e06
+    kind: raonament
+    objective_ids: [o2]
+    source_ids: [class-plan, class-notes]
+    question: "Una comunitat depén de la caça, la pesca i les plantes silvestres. Explica per què podria traslladar el campament al llarg de l'any i dona nom a aquesta forma de vida."
+    answer: "Pot traslladar-se quan canvien les estacions o escassegen els recursos. És una forma de vida nòmada basada en la caça, la pesca i la recol·lecció."
+    answer_space_mm: 33
+  - id: e07
+    kind: completar
+    objective_ids: [o2]
+    source_ids: [class-notes, class-worksheets]
+    question: "Completa i explica una utilitat: en el Paleolític es treballava sobretot la pedra ________; el domini del ________ permetia coure aliments i calfar-se. Esmenta una altra matèria primera usada per a fer estris."
+    answer: "Pedra tallada; foc. També s'empraven fusta i os, per exemple per a mànecs o puntes."
+    answer_space_mm: 27
+  - id: e08
+    kind: comparar
+    objective_ids: [o2, o3]
+    source_ids: [class-plan, class-notes]
+    question: "Compara Paleolític i Neolític en quatre aspectes: obtenció d'aliments, tipus de poblament, ferramentes de pedra i habitatges habituals."
+    answer: "Paleolític: caça, pesca i recol·lecció; nomadisme; pedra tallada; campaments, abrics o coves. Neolític: agricultura i ramaderia; sedentarisme; pedra polida; poblats amb cabanyes i cases. Són tendències generals, no regles absolutes."
+    answer_space_mm: 55
+  - id: e09
+    kind: causa-efecte
+    objective_ids: [o3]
+    source_ids: [class-notes]
+    question: "Explica, pas a pas, com l'agricultura i la ramaderia afavoriren el sedentarisme. Indica una conseqüència per a la població o el treball."
+    answer: "Produir aliments exigia cuidar cultius i ramats; quedar-se a prop afavorí poblats estables i sedentarisme. En alguns llocs augmentà la població i es diversificaren les tasques."
+    answer_space_mm: 40
+  - id: e10
+    kind: identificar
+    objective_ids: [o3]
+    source_ids: [class-notes, class-worksheets]
+    question: "Per a què servien una falç, un molí de mà i un recipient de ceràmica en una comunitat neolítica?"
+    answer: "La falç servia per a segar; el molí de mà, per a moldre gra; el recipient de ceràmica, per a guardar, preparar o transportar aliments i líquids."
+    answer_space_mm: 34
+  - id: e11
+    kind: ordenar-i-definir
+    objective_ids: [o4]
+    source_ids: [class-plan, class-notes]
+    question: "Ordena coure, ferro i bronze segons la seqüència habitual de l'edat dels metalls. Definix metal·lúrgia i explica de què està fet el bronze."
+    answer: "Coure → bronze → ferro. La metal·lúrgia agrupa les tècniques per a obtindre i treballar metalls. El bronze és un aliatge de coure i estany."
+    answer_space_mm: 35
+  - id: e12
+    kind: fonts-historiques
+    objective_ids: [o4]
+    source_ids: [class-worksheets]
+    question: "En una sepultura apareixen una destral de coure, teixits, aliments i puntes de pedra. Quines activitats o tècniques indiquen aquestes restes? Per què la punta de pedra no invalida la presència de metal·lúrgia?"
+    answer: "Indiquen treball del metall, confecció de teixits, obtenció i conservació d'aliments i ús d'estris de pedra. Els materials antics continuaven utilitzant-se al costat dels metalls."
+    answer_space_mm: 45
+  - id: e13
+    kind: resposta-curta
+    objective_ids: [o4]
+    source_ids: [class-plan, class-notes]
+    question: "Situa Los Millares i El Argar en les etapes dels metalls i explica per què les anomenem cultures de la prehistòria."
+    answer: "Los Millares s'associa a l'edat del coure i El Argar a l'edat del bronze. Són cultures arqueològiques conegudes per les restes dels seus poblats i objectes; no convé presentar-les simplement com les primeres civilitzacions."
+    answer_space_mm: 35
+  - id: e14
+    kind: comparar
+    objective_ids: [o5]
+    source_ids: [class-notes, unesco-levantine]
+    question: "Compara les pintures d'Altamira i la Valltorta: lloc on es troben, figures o escenes habituals i context prehistòric general."
+    answer: "Altamira és art cantàbric de cova, amb animals detallats del Paleolític superior. La Valltorta és art llevantí d'abrics mediterranis, amb figures humanes i animals en escenes dinàmiques, de la prehistòria tardana."
+    answer_space_mm: 45
+  - id: e15
+    kind: diagrama
+    objective_ids: [o5]
+    source_ids: [class-worksheets]
+    diagram_id: formes-megalitiques
+    question: "Identifica les construccions 1–6 del diagrama. Després indica quines tres són especialment característiques de les Illes Balears."
+    answer: "1 menhir, 2 dolmen, 3 cromlec, 4 naveta, 5 taula, 6 talaiot. A les Illes Balears destaquen naveta, taula i talaiot."
+    answer_space_mm: 33
+  - id: e16
+    kind: interpretar
+    objective_ids: [o5]
+    source_ids: [class-notes, class-worksheets]
+    question: "Distingix art rupestre, art parietal i art moble. Podem afirmar amb seguretat que totes les 'venus' es van fer per a rituals de fertilitat? Raona la resposta."
+    answer: "Rupestre és l'art sobre roca; parietal, el que està en les parets rocoses; moble, el fet en objectes transportables. No podem assegurar una única funció de les figures femenines: la fertilitat i els rituals són interpretacions, no fets demostrats per a tots els casos."
+    answer_space_mm: 43

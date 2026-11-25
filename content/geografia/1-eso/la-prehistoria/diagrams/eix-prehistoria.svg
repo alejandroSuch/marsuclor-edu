@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="250" viewBox="0 0 840 250" role="img" aria-labelledby="title desc">
+  <title id="title">Eix de les etapes de la prehistòria</title>
+  <desc id="desc">De més antic a més recent: Paleolític, Neolític i edat dels metalls. S'hi indiquen l'obtenció d'aliments, la producció d'aliments i la metal·lúrgia. Les dates canvien segons la regió.</desc>
+  <rect width="840" height="250" rx="18" fill="#f7f6f1"/>
+  <text x="30" y="38" font-size="24" font-family="Arial,sans-serif" font-weight="700" fill="#203437">De més antic a més recent</text>
+  <line x1="40" y1="105" x2="800" y2="105" stroke="#203437" stroke-width="4"/>
+  <path d="M800 105l-16-10v20z" fill="#203437"/>
+  <rect x="45" y="69" width="235" height="72" rx="10" fill="#dcebdc" stroke="#406844" stroke-width="2"/>
+  <rect x="300" y="69" width="235" height="72" rx="10" fill="#e7e7c6" stroke="#6f7134" stroke-width="2"/>
+  <rect x="555" y="69" width="225" height="72" rx="10" fill="#f4dfcf" stroke="#9a6043" stroke-width="2"/>
+  <g font-family="Arial,sans-serif" text-anchor="middle" fill="#203437">
+    <text x="162" y="100" font-size="20" font-weight="700">PALEOLÍTIC</text>
+    <text x="162" y="124" font-size="15">caça i recol·lecció</text>
+    <text x="417" y="100" font-size="20" font-weight="700">NEOLÍTIC</text>
+    <text x="417" y="124" font-size="15">agricultura i ramaderia</text>
+    <text x="667" y="100" font-size="19" font-weight="700">EDAT DELS METALLS</text>
+    <text x="667" y="124" font-size="15">metal·lúrgia</text>
+  </g>
+  <text x="43" y="185" font-size="17" font-family="Arial,sans-serif" fill="#203437">Pedra tallada</text>
+  <text x="338" y="185" font-size="17" font-family="Arial,sans-serif" fill="#203437">Pedra polida</text>
+  <text x="582" y="185" font-size="17" font-family="Arial,sans-serif" fill="#203437">Coure → bronze → ferro</text>
+  <text x="43" y="223" font-size="15" font-family="Arial,sans-serif" fill="#425456">Els canvis van ser graduals i no van començar al mateix temps a tot arreu.</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="490" viewBox="0 0 840 490" role="img" aria-labelledby="title desc">
+  <title id="title">Sis formes de construccions de grans pedres</title>
+  <desc id="desc">Dibuixos esquemàtics numerats: 1 pedra dreta, 2 cambra amb llosa horitzontal, 3 pedres en cercle, 4 construcció allargada de pedra, 5 pedra horitzontal damunt una vertical i 6 torre de pedra.</desc>
+  <rect width="840" height="490" rx="18" fill="#f6f4ed"/>
+  <text x="25" y="36" font-size="23" font-family="Arial,sans-serif" font-weight="700" fill="#253b3f">Construccions de grans pedres</text>
+  <g fill="#fffdfa" stroke="#a1a99f" stroke-width="2">
+    <rect x="24" y="58" width="250" height="190" rx="12"/>
+    <rect x="295" y="58" width="250" height="190" rx="12"/>
+    <rect x="566" y="58" width="250" height="190" rx="12"/>
+    <rect x="24" y="269" width="250" height="190" rx="12"/>
+    <rect x="295" y="269" width="250" height="190" rx="12"/>
+    <rect x="566" y="269" width="250" height="190" rx="12"/>
+  </g>
+  <g fill="#2f5b67" font-family="Arial,sans-serif" font-size="21" font-weight="700">
+    <text x="42" y="87">1</text><text x="313" y="87">2</text><text x="584" y="87">3</text>
+    <text x="42" y="298">4</text><text x="313" y="298">5</text><text x="584" y="298">6</text>
+  </g>
+  <g fill="#c8baa4" stroke="#514c42" stroke-width="3" stroke-linejoin="round">
+    <path d="M128 204 L131 118 Q137 103 150 111 L165 121 L164 204 Z"/>
+    <path d="M347 198 L351 132 L376 132 L375 198 Z M464 198 L467 132 L492 132 L489 198 Z M338 129 L343 111 L498 111 L503 130 Z"/>
+    <path d="M600 184l12-30 14 2 5 30z M636 158l7-29 16 0 5 30z M679 146l4-31 16 1 5 30z M717 157l4-28 15 2 6 29z M751 188l5-30 16 2 5 28z M672 203l5-28 17 1 5 27z"/>
+    <path d="M70 417 L79 364 L103 344 L212 344 L234 365 L243 417 Z"/>
+    <path d="M386 412 L390 338 L418 338 L421 412 Z M350 337 L354 322 L461 322 L466 340 Z"/>
+    <path d="M609 415 L622 359 L642 334 L745 334 L765 360 L778 415 Z"/>
+  </g>
+  <path d="M640 415 L646 385 Q689 366 741 385 L746 415 Z" fill="#9e8f7d" stroke="#514c42" stroke-width="3"/>
+  <g stroke="#736b5c" stroke-width="2" fill="none"><path d="M80 370h150 M75 389h164 M622 360h136 M617 380h148 M612 400h161"/></g>
+  <g font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#253b3f" text-anchor="middle">
+    <text class="diagram-answer" x="149" y="229">Menhir</text>
+    <text class="diagram-answer" x="420" y="229">Dolmen</text>
+    <text class="diagram-answer" x="691" y="229">Cromlec</text>
+    <text class="diagram-answer" x="149" y="441">Naveta</text>
+    <text class="diagram-answer" x="420" y="441">Taula</text>
+    <text class="diagram-answer" x="691" y="441">Talaiot</text>
+  </g>
+</svg>
