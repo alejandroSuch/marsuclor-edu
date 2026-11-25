@@ -22,9 +22,8 @@ cards:
   - id: c05
     objective_ids: [o1]
     source_ids: [class-worksheets, smithsonian-sapiens]
-    diagram_id: expansio-hominins
-    front: "En el mapa, quin continent és el punt d'origen i què signifiquen les fletxes?"
-    back: "Àfrica. Les fletxes mostren direccions generals d'expansió, no una ruta única."
+    front: "Quina limitació tenen les fletxes d'un mapa esquemàtic de l'expansió humana?"
+    back: "Mostren direccions generals de dispersió, però no una ruta única seguida per tots els grups ni dates exactes."
   - id: c06
     objective_ids: [o2]
     source_ids: [class-plan, class-notes]
@@ -58,8 +57,7 @@ cards:
   - id: c12
     objective_ids: [o2, o3, o4]
     source_ids: [class-notes]
-    diagram_id: eix-prehistoria
-    front: "Quines tres etapes ordena l'eix i quin canvi identifica el Neolític?"
+    front: "Ordena de més antic a més recent: edat dels metalls, Paleolític i Neolític. Quin canvi identifica el Neolític?"
     back: "Paleolític → Neolític → edat dels metalls; el Neolític s'associa a agricultura i ramaderia."
   - id: c13
     objective_ids: [o4]

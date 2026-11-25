@@ -3,8 +3,7 @@ exercises:
     kind: ordenar-i-explicar
     objective_ids: [o2, o3, o4]
     source_ids: [class-plan, class-notes]
-    diagram_id: eix-prehistoria
-    question: "Ordena Paleolític, Neolític i edat dels metalls. Escriu una activitat o tècnica que caracteritze cada etapa i explica per què no tenen una data de començament universal."
+    question: "Ordena de més antic a més recent estes etapes: edat dels metalls, Paleolític i Neolític. Escriu una activitat o tècnica que caracteritze cada etapa i explica per què no tenen una data de començament universal."
     answer: "Paleolític: caça i recol·lecció, pedra tallada. Neolític: agricultura i ramaderia, pedra polida. Edat dels metalls: metal·lúrgia del coure, bronze i ferro. Les novetats es van difondre gradualment i en moments diferents segons la regió."
     answer_space_mm: 45
   - id: e02

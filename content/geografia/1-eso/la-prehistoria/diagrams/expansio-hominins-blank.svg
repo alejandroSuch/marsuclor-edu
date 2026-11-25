@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="420" viewBox="0 0 840 420" role="img" aria-labelledby="title desc">
+  <title id="title">Mapa esquemàtic de dispersió humana</title>
+  <desc id="desc">Mapa mundial simplificat amb continents, un punt de partida i diverses fletxes que cal interpretar.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#a64a36"/></marker></defs>
+  <rect width="840" height="420" rx="18" fill="#eaf3f4"/>
+  <text x="28" y="34" font-size="23" font-family="Arial,sans-serif" font-weight="700" fill="#203437">Observa les rutes del mapa</text>
+  <g fill="#d6ddc4" stroke="#6b7e68" stroke-width="2">
+    <path d="M45 109l48-35 56-9 48 20 35 39-25 23-31 1-17 42-30 9-21-32-33-10-24-32z"/>
+    <path d="M155 222l40-9 29 21 19 45-14 31-29 45-25-26-11-55z"/>
+    <path d="M345 138l21-37 46-15 39 13 23 34-26 20-37-6-21 18z"/>
+    <path d="M405 181l45-27 59 9 23 49-11 68-35 66-37-22-23-61z"/>
+    <path d="M480 84l65-24 75 15 90 32 44 31-29 38-67 3-21 29-48-9-29 35-49-25-11-45-52-8z"/>
+    <path d="M666 267l44-18 58 24 28 35-31 29-66-4-30-27z"/>
+    <path d="M75 72l36-20 41 4-15 23-40 7z"/>
+  </g>
+  <g font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#203437" text-anchor="middle">
+    <text x="160" y="129">Amèrica</text><text x="195" y="277">Amèrica</text>
+    <text x="397" y="122">Europa</text><text x="464" y="247">ÀFRICA</text>
+    <text x="613" y="132">Àsia</text><text x="728" y="291">Oceania</text>
+  </g>
+  <circle cx="464" cy="259" r="12" fill="#a64a36" stroke="#fff" stroke-width="3"/>
+  <g fill="none" stroke="#a64a36" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)">
+    <path d="M475 236 Q480 181 406 145"/>
+    <path d="M484 240 Q545 145 607 158"/>
+    <path d="M620 194 Q694 220 717 269"/>
+    <path d="M635 114 Q615 54 468 45 Q267 34 176 110"/>
+  </g>
+  <text x="30" y="387" font-size="15" font-family="Arial,sans-serif" fill="#3e5557">Interpreta el punt de partida i el sentit de les fletxes.</text>
+</svg>

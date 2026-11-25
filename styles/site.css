@@ -37,11 +37,26 @@ h1, h2 { color: #164c5b; }
 .vocab-entry { margin: .3rem 0; padding: .3rem .5rem; border-left: 2px solid #b8d8d3; }
 .vocab-entry small { color: #536971; }
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-.study-card { min-height: 9rem; padding: 1rem; border: 2px solid var(--accent); border-radius: .6rem; background: var(--soft); color: var(--ink); font-size: 1.05rem; text-align: center; cursor: pointer; }
+.study-card-wrap { display: flex; flex-direction: column; min-height: 9rem; border: 2px solid var(--accent); border-radius: .6rem; background: var(--soft); overflow: hidden; }
+.study-card { flex: 1; width: 100%; min-height: 9rem; padding: 1rem; border: 0; background: transparent; color: var(--ink); font-size: 1.05rem; text-align: center; cursor: pointer; }
+.study-card:focus-visible, .card-zoom:focus-visible { outline: 3px solid #9a6415; outline-offset: -3px; }
+.study-card-wrap.is-flipped { border-color: #b27516; background: #fff9e8; }
 .card-diagram { display: block; width: 100%; max-height: 5rem; margin: .5rem auto 0; object-fit: contain; }
+.card-zoom { width: 100%; padding: 0 .75rem .75rem; border: 0; background: transparent; color: #0e6762; font-size: .8rem; font-weight: 600; cursor: zoom-in; }
+.card-zoom:hover { color: #164c5b; text-decoration: underline; }
+.card-zoom .card-diagram { max-height: 9rem; margin: 0 auto .35rem; }
+.study-card-wrap.is-flipped .card-zoom { display: none; }
+.card-diagram-dialog { width: min(96vw, 1050px); max-width: none; max-height: 96vh; padding: .75rem; border: 2px solid var(--accent); border-radius: .7rem; color: var(--ink); }
+.card-diagram-dialog::backdrop { background: rgba(19, 34, 42, .78); }
+.card-diagram-dialog-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .5rem; }
+.card-diagram-dialog-bar h2 { margin: 0; font-size: 1.2rem; }
+.card-diagram-close { border: 1px solid var(--accent); border-radius: .3rem; background: white; color: var(--ink); font-size: 1.5rem; line-height: 1; cursor: pointer; }
+.card-diagram-close:focus-visible, .card-diagram-scroll:focus-visible { outline: 3px solid #9a6415; }
+.card-diagram-scroll { max-height: 78vh; overflow: auto; border: 1px solid #c6d5d6; border-radius: .3rem; background: white; }
+.card-diagram-large { display: block; width: max(100%, 840px); height: auto; margin: auto; }
+.card-diagram-hint { margin: .4rem 0 0; font-size: .85rem; color: #536971; }
 .flashcard-print { display: none; }
 .study-card .card-back { display: none; }
-.study-card[aria-pressed="true"] { background: #fff9e8; border-color: #b27516; }
 .study-card[aria-pressed="true"] .card-front { display: none; }
 .study-card[aria-pressed="true"] .card-back { display: block; }
 .pasapalabra-intro { max-width: 65ch; }
@@ -58,7 +73,7 @@ h1, h2 { color: #164c5b; }
 @page { size: A4; margin: 15mm; }
 @media print {
   body { font-size: 10.5pt; color: #000; }
-  nav, .navbar, .sidebar, .toc-active, #TOC, .quarto-title-banner, .pdf-link, .material-nav, .page-footer, .callout-note, .object-viewer { display: none !important; }
+  nav, .navbar, .sidebar, .toc-active, #TOC, .quarto-title-banner, .pdf-link, .material-nav, .page-footer, .callout-note, .object-viewer, .card-diagram-dialog { display: none !important; }
   main { width: 100%; max-width: none; margin: 0; padding: 0; }
   h2, h3 { break-after: avoid; }
   .callout, .vocab-entry, .topic-diagram, .exercise, .key-item { break-inside: avoid; }

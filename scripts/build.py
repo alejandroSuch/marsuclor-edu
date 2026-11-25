@@ -261,8 +261,10 @@ UI = {
         "exercise": "Exercici", "prompt": "Enunciat",
         "answer": "Solució", "show_answer": "Mostra la solució", "print": "Imprimix / Desa en PDF",
         "download": "Descarrega el PDF A4", "status": "Estat",
-        "card_instruction": "Prem una targeta per veure la resposta. Per al PDF A4, imprimix a doble cara, amb gir pel costat llarg i escala del 100 %; els reversos estan reflectits horitzontalment per a retallar.",
+        "card_instruction": "Prem una targeta per veure la resposta i un dibuix per ampliar-lo. Per al PDF A4, imprimix a doble cara, amb gir pel costat llarg i escala del 100 %; els reversos estan reflectits horitzontalment per a retallar.",
         "card_action": "Prem per veure la resposta", "blank_diagram": "Esquema sense etiquetes",
+        "zoom_diagram": "Amplia l'esquema", "close_diagram": "Tanca l'esquema",
+        "zoom_hint": "En pantalles menudes, desplaça el dibuix per veure'n els detalls.",
         "vocabulary": "Vocabulari de l'examen", "support_terms": "Altres termes de suport",
         "review_tips": "Trucs de repàs", "topic_index": "Torna als temes",
         "all_subjects": "Totes les assignatures",
@@ -276,8 +278,10 @@ UI = {
         "exercise": "Ejercicio", "prompt": "Enunciado",
         "answer": "Solución", "show_answer": "Ver solución", "print": "Imprimir / Guardar en PDF",
         "download": "Descargar el PDF A4", "status": "Estado",
-        "card_instruction": "Pulsa una tarjeta para ver la respuesta. Para el PDF A4, imprime a doble cara, girando por el borde largo y al 100 % de escala; los reversos están reflejados horizontalmente para recortar.",
+        "card_instruction": "Pulsa una tarjeta para ver la respuesta y un dibujo para ampliarlo. Para el PDF A4, imprime a doble cara, girando por el borde largo y al 100 % de escala; los reversos están reflejados horizontalmente para recortar.",
         "card_action": "Pulsa para ver la respuesta", "blank_diagram": "Esquema sin etiquetas",
+        "zoom_diagram": "Ampliar el esquema", "close_diagram": "Cerrar el esquema",
+        "zoom_hint": "En pantallas pequeñas, desplaza el dibujo para ver los detalles.",
         "vocabulary": "Vocabulario del examen", "support_terms": "Otros términos de apoyo",
         "review_tips": "Trucos de repaso", "topic_index": "Volver a los temas",
         "all_subjects": "Todas las asignaturas",
@@ -464,17 +468,34 @@ def prepare():
         card_page += ui(language, "card_instruction") + "\n\n"
         card_page += '<div class="card-grid web-cards">\n'
         for row in cards["cards"]:
-            diagram = (
-                f'<img class="card-diagram" src="diagrams/{esc(row["diagram_id"])}-blank.svg" alt="{ui(language, "blank_diagram")}">'
-                if row.get("diagram_id") else ""
-            )
             card_page += (
+                '<div class="study-card-wrap">'
                 '<button type="button" class="study-card" aria-pressed="false" '
                 f'aria-label="{esc(row["front"])}. {ui(language, "card_action")}">'
-                f'<span class="card-front">{esc(row["front"])}{diagram}</span>'
-                f'<span class="card-back">{esc(row["back"])}</span></button>\n'
+                f'<span class="card-front">{esc(row["front"])}</span>'
+                f'<span class="card-back">{esc(row["back"])}</span></button>'
             )
+            if row.get("diagram_id"):
+                card_page += (
+                    f'<button type="button" class="card-zoom" aria-label="{ui(language, "zoom_diagram")}">'
+                    f'<img class="card-diagram" src="diagrams/{esc(row["diagram_id"])}-blank.svg" '
+                    f'alt="{ui(language, "blank_diagram")}">'
+                    f'<span>{ui(language, "zoom_diagram")}</span></button>'
+                )
+            card_page += '</div>\n'
         card_page += "</div>\n"
+        if any(row.get("diagram_id") for row in cards["cards"]):
+            card_page += (
+                '<dialog class="card-diagram-dialog" aria-labelledby="card-diagram-dialog-title">'
+                '<div class="card-diagram-dialog-bar">'
+                f'<h2 id="card-diagram-dialog-title">{ui(language, "zoom_diagram")}</h2>'
+                f'<button type="button" class="card-diagram-close" aria-label="{ui(language, "close_diagram")}">×</button>'
+                '</div><div class="card-diagram-scroll" tabindex="0">'
+                f'<img class="card-diagram-large" alt="{ui(language, "blank_diagram")}">'
+                '</div>'
+                f'<p class="card-diagram-hint">{ui(language, "zoom_hint")}</p>'
+                '</dialog>\n'
+            )
         card_page += '<div class="flashcard-print">\n'
         for sheet_number, start in enumerate(range(0, len(cards["cards"]), 8), 1):
             chunk = cards["cards"][start:start + 8]
@@ -670,6 +691,23 @@ def verify():
                     ):
                         raise SystemExit(f"Presentació incompleta de la solució {number}")
             if page_path.name == "cards.html":
+                zoom = page.locator(".web-cards .card-zoom").first
+                if zoom.count():
+                    zoom_card = zoom.locator("xpath=..").locator(".study-card")
+                    zoom.click()
+                    dialog = page.locator(".card-diagram-dialog")
+                    enlarged = dialog.locator(".card-diagram-large")
+                    enlarged.evaluate("image => image.decode()")
+                    if (
+                        not dialog.evaluate("element => element.open")
+                        or zoom_card.get_attribute("aria-pressed") != "false"
+                        or not enlarged.evaluate("image => image.complete && image.naturalWidth > 0 && image.src.endsWith('-blank.svg')")
+                        or enlarged.bounding_box()["width"] <= zoom.locator(".card-diagram").bounding_box()["width"]
+                    ):
+                        raise SystemExit("L'ampliació del diagrama no funciona sense mostrar la resposta")
+                    page.keyboard.press("Escape")
+                    if dialog.evaluate("element => element.open") or not zoom.evaluate("element => document.activeElement === element"):
+                        raise SystemExit("L'ampliació no es tanca o no torna el focus a la targeta")
                 card = page.locator(".study-card").first
                 if card.count() == 0:
                     raise SystemExit("No hi ha targetes")
