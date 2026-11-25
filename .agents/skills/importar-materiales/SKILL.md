@@ -5,7 +5,7 @@ description: Incorporar apuntes, PDF, fotos o una guía existente a un tema de M
 
 Cuando una familia adjunte material o señale un documento, localízalo y léelo antes de escribir contenido. Si hay una guía ya desarrollada, úsala como base de la teoría; utiliza apuntes originales para contrastar objetivos, vocabulario y terminología. Si no puedes acceder a la guía, pide una copia: no la reconstruyas desde otra fuente.
 
-Si un PDF o una foto contiene texto escaneado, usa `scripts/ocr-scan.sh` cuando facilite la lectura; el uso y los idiomas disponibles están en `README.md`. Mantén el original y las salidas del OCR fuera del repositorio público. Contrasta la transcripción con la imagen, especialmente en manuscritos, nombres, fórmulas y etiquetas de esquemas; el OCR no resuelve por sí solo una fuente ilegible.
+En manuscritos, usa la lectura visual como vía principal de extracción. Vuelve a la imagen solo para resolver dudas o comprobar datos decisivos, como objetivos, términos de clase y relaciones en tablas, mapas o diagramas; no repitas una transcripción completa por sistema. Usa `scripts/ocr-scan.sh` cuando aporte valor, especialmente para fichas impresas o una copia buscable; el uso y los idiomas disponibles están en `README.md`. Mantén el original y las salidas del OCR fuera del repositorio público; si algo no se lee con fiabilidad, déjalo pendiente.
 
 Busca primero el tema en `content/`. Si existe, compara fuentes y contenido por secciones y conserva lo que no haya cambiado. Si es nuevo, prepara `topic.yml` y transcribe a los archivos del modelo existente. Registra fuentes identificables en `topic.yml` y enlaza cada bloque mediante `source_ids`; separa claramente las ampliaciones y las dudas. Una fuente ilegible queda pendiente, sin suposiciones.
 
