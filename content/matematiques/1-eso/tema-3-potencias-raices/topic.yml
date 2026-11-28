@@ -1,0 +1,45 @@
+title: 'Matemáticas · Tema 3: Potencias y raíces'
+course: 1-eso
+subject: matematiques
+teaching_language: es
+status: Preparado a partir del cuaderno de clase; ejemplos y práctica ampliados
+intro: Aprende a leer y calcular potencias, operar con ellas, hallar raíces y resolver operaciones combinadas. La práctica avanza desde cálculos directos hasta expresiones y problemas.
+objectives:
+- id: o1
+  text: Identificar base y exponente, leer y calcular potencias de números naturales y distinguir potencia de producto.
+- id: o2
+  text: Aplicar las propiedades de productos, cocientes y potencias de potencias, reconociendo cuándo se pueden usar.
+- id: o3
+  text: Interpretar exponentes cero y negativos en cocientes de potencias de base no nula.
+- id: o4
+  text: Reconocer índice y radicando, hallar raíces cuadradas y cúbicas exactas y acotar raíces cuadradas no exactas.
+- id: o5
+  text: Resolver operaciones combinadas con potencias y raíces respetando paréntesis y jerarquía, y comprobar resultados.
+sources:
+- id: cuaderno
+  type: private-class-notes
+  title: Cuaderno manuscrito de Matemáticas, tema 3, páginas 1–12 del PDF familiar
+  note: Original privado fuera del repositorio. Contiene un esquema de reglas, definiciones, ejercicios de potencias y raíces, y operaciones combinadas.
+- id: elaboracion
+  type: editorial
+  title: Elaboración didáctica original de Martina Edu
+  note: Redacción, diagramas, ejemplos adicionales, ejercicios y soluciones nuevos, graduados para 1.º ESO.
+source_note: >-
+  El escaneo recibido permanece fuera del repositorio público. Se transcriben solo las ideas matemáticas;
+  no se publican las imágenes del cuaderno. La página 1 contiene un esquema de operaciones con potencias,
+  reelaborado como SVG propio. Correcciones propuestas a resultados escritos, sin modificar el original:
+  en la página 2, si a³ = 63, a no es 4 porque 4³ = 64 (el enunciado o el resultado tiene una errata);
+  en la página 9, 7 < √50 < 8, no √7 < √50 < √8; en la página 11,
+  (10⁵ : 5⁵) − (2² · 2²) = 32 − 16 = 16, no 32.
+  La definición de raíz se precisa así: √a es la raíz no negativa, y una raíz de índice par
+  no tiene valor real para radicando negativo. La práctica con exponentes negativos se mantiene
+  como ampliación breve porque aparece en la página 6 del cuaderno.
+study_tips:
+- Antes de usar una regla, mira si coinciden las bases o los exponentes y si hay producto o cociente.
+- En una raíz no exacta, busca los dos cuadrados perfectos consecutivos entre los que cae el radicando.
+- En operaciones combinadas, resuelve primero paréntesis y potencias o raíces; después productos y divisiones, y al final sumas y restas.
+self_check:
+- Sé explicar la diferencia entre 3² y 3 · 2 y calcular ambos.
+- Puedo justificar con una regla cada simplificación de potencias.
+- Compruebo una raíz exacta elevando el resultado al índice y detecto si una raíz no es exacta.
+- Resuelvo expresiones combinadas paso a paso sin alterar la jerarquía.

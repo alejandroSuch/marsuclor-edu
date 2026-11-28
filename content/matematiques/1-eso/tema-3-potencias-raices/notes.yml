@@ -1,0 +1,66 @@
+sections:
+- title: 1. Qué es una potencia
+  objective_ids: [o1]
+  source_ids: [cuaderno, elaboracion]
+  body: >-
+    En **aⁿ**, **a** es la base y **n** el exponente. Significa multiplicar la base por sí misma
+    n veces: 4³ = 4 · 4 · 4 = 64. Se lee «cuatro elevado a tres» o «cuatro al cubo».
+    Con exponente 2 se dice «al cuadrado». No confundas 4³ con 4 · 3 = 12.
+    Como caso especial, a¹ = a. Para a distinto de 0, a⁰ = 1.
+    En el cuaderno se practican cuadrados, cubos y potencias de 10: 10³ = 1000.
+- title: 2. Productos de potencias
+  objective_ids: [o2]
+  source_ids: [cuaderno, elaboracion]
+  diagram_ids: [reglas-potencias]
+  body: >-
+    El esquema resume qué regla escoger. Si la **base es la misma** y multiplicas,
+    se suman exponentes: aᵐ · aⁿ = aᵐ⁺ⁿ; por ejemplo, 3² · 3⁴ = 3⁶.
+    Si el **exponente es el mismo**, se multiplican bases: aⁿ · bⁿ = (a · b)ⁿ;
+    por ejemplo, 2³ · 5³ = 10³. Si no coincide ni la base ni el exponente,
+    calcula por separado o busca otra transformación justificada.
+- title: 3. Potencia de una potencia
+  objective_ids: [o2]
+  source_ids: [cuaderno, elaboracion]
+  body: >-
+    Al elevar una potencia a otra, se **multiplican** exponentes:
+    (aᵐ)ⁿ = aᵐ·ⁿ. Por ejemplo, (2³)⁴ = 2¹² porque se multiplica 2³ cuatro veces.
+    No se suman los exponentes: (3²)³ = 3⁶, no 3⁵.
+- title: 4. Cocientes de potencias
+  objective_ids: [o2, o3]
+  source_ids: [cuaderno, elaboracion]
+  body: >-
+    Con **igual base no nula**, se restan exponentes: aᵐ : aⁿ = aᵐ⁻ⁿ.
+    Por ejemplo, 5⁶ : 5² = 5⁴. Si ambos exponentes son iguales,
+    aⁿ : aⁿ = a⁰ = 1. Si el exponente de abajo es mayor, el resultado
+    puede escribirse como fracción: 5² : 5⁴ = 5⁻² = 1/5² = 1/25.
+    Con **igual exponente**, se dividen bases: aⁿ : bⁿ = (a : b)ⁿ,
+    siempre que b no sea 0; por ejemplo, 18³ : 6³ = 3³ = 27.
+- title: 5. Raíces cuadradas y cúbicas
+  objective_ids: [o4]
+  source_ids: [cuaderno, elaboracion]
+  body: >-
+    En ⁿ√a, **n** es el índice y **a** el radicando. La raíz responde:
+    «¿qué número elevado a n da a?». Así, √49 = 7 porque 7² = 49,
+    y ∛8 = 2 porque 2³ = 8. Cuando el índice es 2, no se escribe.
+    El símbolo √a designa la raíz cuadrada **no negativa**: √36 = 6,
+    aunque 6² = 36 y (−6)² = 36. La ecuación x² = 36 sí tiene dos soluciones, 6 y −6.
+    En los números reales, √(−9) no existe. Para índice impar sí puede haber
+    radicando negativo: ∛(−8) = −2.
+- title: 6. Raíces no exactas y acotación
+  objective_ids: [o4]
+  source_ids: [cuaderno, elaboracion]
+  body: >-
+    Si el radicando no es un cuadrado perfecto, la raíz cuadrada no es entera.
+    Como 7² = 49 y 8² = 64, se cumple **7 < √50 < 8**.
+    Para localizar √90, compara 9² = 81 y 10² = 100: 9 < √90 < 10.
+    Esta acotación es exacta, aunque se necesite una aproximación decimal en otro contexto.
+- title: 7. Operaciones combinadas
+  objective_ids: [o5]
+  source_ids: [cuaderno, elaboracion]
+  body: >-
+    Sigue el orden: **paréntesis**, luego **potencias y raíces**, después
+    **multiplicaciones y divisiones** de izquierda a derecha, y por último
+    **sumas y restas** de izquierda a derecha. Por ejemplo,
+    6² + 2³ · 3 − √25 = 36 + 8 · 3 − 5 = 36 + 24 − 5 = 55.
+    Una propiedad de potencias puede simplificar un producto o un cociente antes de calcularlo,
+    pero no permite sumar exponentes en una suma de potencias.

@@ -1,0 +1,81 @@
+cards:
+- id: c01
+  objective_ids: [o1]
+  source_ids: [cuaderno, elaboracion]
+  front: ¿Qué indican la base y el exponente en aⁿ?
+  back: La base es el factor que se repite; el exponente dice cuántas veces se multiplica por sí mismo.
+- id: c02
+  objective_ids: [o1]
+  source_ids: [cuaderno, elaboracion]
+  front: ¿Por qué 4³ no es 4 · 3?
+  back: Porque 4³ = 4 · 4 · 4 = 64; 4 · 3 = 12.
+- id: c03
+  objective_ids: [o1]
+  source_ids: [cuaderno, elaboracion]
+  front: ¿Cuánto valen 7¹ y 7⁰?
+  back: 7¹ = 7 y 7⁰ = 1.
+- id: c04
+  objective_ids: [o2]
+  source_ids: [cuaderno, elaboracion]
+  front: ¿Qué haces al multiplicar potencias de la misma base?
+  back: Mantienes la base y sumas exponentes; 3² · 3⁴ = 3⁶.
+- id: c05
+  objective_ids: [o2]
+  source_ids: [cuaderno, elaboracion]
+  front: ¿Cómo simplificas 2³ · 5³?
+  back: Tienen igual exponente; multiplicas las bases y obtienes (2 · 5)³ = 10³.
+- id: c06
+  objective_ids: [o2]
+  source_ids: [cuaderno, elaboracion]
+  front: ¿Cuánto vale (a³)⁴ como una sola potencia?
+  back: a¹²; en una potencia de potencia se multiplican los exponentes.
+- id: c07
+  objective_ids: [o2]
+  source_ids: [cuaderno, elaboracion]
+  front: ¿Cómo divides potencias de la misma base no nula?
+  back: 'Mantienes la base y restas exponentes; 5⁶ : 5² = 5⁴.'
+- id: c08
+  objective_ids: [o2]
+  source_ids: [cuaderno, elaboracion]
+  front: '¿Cómo simplificas 18³ : 6³?'
+  back: 'Divides las bases porque el exponente coincide; (18 : 6)³ = 3³ = 27.'
+- id: c09
+  objective_ids: [o3]
+  source_ids: [cuaderno, elaboracion]
+  front: ¿Qué significa 5⁻²?
+  back: 1/5² = 1/25; la base debe ser distinta de cero.
+- id: c10
+  objective_ids: [o3]
+  source_ids: [cuaderno, elaboracion]
+  front: '¿Por qué 8⁴ : 8⁴ = 1?'
+  back: Un número no nulo dividido por sí mismo vale 1; por la regla, 8⁴⁻⁴ = 8⁰ = 1.
+- id: c11
+  objective_ids: [o4]
+  source_ids: [cuaderno, elaboracion]
+  front: En ∛64, ¿cuáles son el índice, el radicando y la raíz?
+  back: Índice 3, radicando 64 y raíz 4, porque 4³ = 64.
+- id: c12
+  objective_ids: [o4]
+  source_ids: [cuaderno, elaboracion]
+  front: ¿Por qué √49 = 7?
+  back: Porque 7² = 49 y el símbolo √ indica la raíz no negativa.
+- id: c13
+  objective_ids: [o4]
+  source_ids: [cuaderno, elaboracion]
+  front: Sin calculadora, ¿entre qué enteros está √50?
+  back: Entre 7 y 8, porque 7² = 49 < 50 < 64 = 8².
+- id: c14
+  objective_ids: [o4]
+  source_ids: [cuaderno, elaboracion]
+  front: ¿Cuántas soluciones tiene x² = 36 y cuánto vale √36?
+  back: La ecuación tiene 6 y −6; √36 vale solo 6.
+- id: c15
+  objective_ids: [o5]
+  source_ids: [cuaderno, elaboracion]
+  front: ¿En qué orden resuelves 2 + 3² · 4?
+  back: Primero 3² = 9, luego 9 · 4 = 36 y finalmente 2 + 36 = 38.
+- id: c16
+  objective_ids: [o5]
+  source_ids: [cuaderno, elaboracion]
+  front: ¿Se suman exponentes en 2³ + 2²?
+  back: No; la regla de sumar exponentes es para multiplicar potencias de igual base. Aquí 8 + 4 = 12.

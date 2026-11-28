@@ -1,0 +1,7 @@
+diagrams:
+- id: reglas-potencias
+  title: Cómo elegir una regla de potencias
+  file: reglas-potencias.svg
+  objective_ids: [o2, o3]
+  source_ids: [cuaderno, elaboracion]
+  vocabulary_ids: []

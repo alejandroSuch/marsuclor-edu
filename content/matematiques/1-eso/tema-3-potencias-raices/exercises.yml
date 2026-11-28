@@ -1,0 +1,524 @@
+exercises:
+- id: e01
+  kind: potencias · lectura
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Identifica base y exponente y lee en voz alta: a) 7²; b) 4³; c) 10⁵; d) 3⁴.'
+  answer: a) Base 7, exponente 2, «siete al cuadrado». b) Base 4, exponente 3, «cuatro al cubo». c) Base
+    10, exponente 5, «diez elevado a cinco». d) Base 3, exponente 4, «tres elevado a cuatro».
+  answer_space_mm: 35
+- id: e02
+  kind: potencias · desarrollo
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Escribe como producto y calcula: a) 2⁵; b) 5³; c) 9²; d) 3⁴.'
+  answer: a) 2·2·2·2·2 = 32. b) 5·5·5 = 125. c) 9·9 = 81. d) 3·3·3·3 = 81.
+  answer_space_mm: 42
+- id: e03
+  kind: potencias · escritura
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Escribe como potencia y calcula: a) 6·6·6; b) 10·10·10·10; c) 4·4; d) 2·2·2·2·2·2.'
+  answer: a) 6³ = 216. b) 10⁴ = 10000. c) 4² = 16. d) 2⁶ = 64.
+  answer_space_mm: 38
+- id: e04
+  kind: potencias · comparación
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula y compara con >, < o =: a) 3² y 3·2; b) 2⁴ y 4²; c) 5³ y 3⁵; d) 10² y 2¹⁰.'
+  answer: a) 9 > 6. b) 16 = 16. c) 125 < 243. d) 100 < 1024. Primero se calcula cada potencia.
+  answer_space_mm: 42
+- id: e05
+  kind: potencias · completar
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Completa: a) 2 elevado a □ = 32; b) □³ = 64; c) 10 elevado a □ = 100000; d) □² = 121. Usa
+    bases naturales.'
+  answer: a) 2⁵ = 32; exponente 5. b) 4³ = 64; base 4. c) 10⁵ = 100000; exponente 5. d) 11² = 121; base
+    11.
+  answer_space_mm: 38
+- id: e06
+  kind: potencias · orden
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula y ordena de menor a mayor: 2⁶, 4³, 3⁴, 10² y 5².'
+  answer: 5² = 25 < 2⁶ = 64 = 4³ = 64 < 3⁴ = 81 < 10² = 100.
+  answer_space_mm: 38
+- id: e07
+  kind: potencias · casos especiales
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula: a) 8¹; b) 9⁰; c) 1¹⁰; d) 7²; e) 0⁴.'
+  answer: a) 8¹ = 8. b) 9⁰ = 1 porque la base no es 0. c) 1¹⁰ = 1. d) 7² = 49. e) 0⁴ = 0.
+  answer_space_mm: 38
+- id: e08
+  kind: potencias · error
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Un compañero afirma que 6³ = 6·3 = 18. Explica el error y calcula 6³.
+  answer: 'El exponente indica cuántas veces se multiplica la base por sí misma: 6³ = 6·6·6 = 216; 6·3
+    es otro producto.'
+  answer_space_mm: 35
+- id: e09
+  kind: producto · misma base
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Reduce a una potencia: a) 2³·2⁴; b) 5²·5⁵; c) 10³·10; d) a⁴·a³.'
+  answer: 'Se suman exponentes: a) 2⁷; b) 5⁷; c) 10⁴ porque 10 = 10¹; d) a⁷.'
+  answer_space_mm: 40
+- id: e10
+  kind: producto · mismo exponente
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Reduce a una potencia: a) 2³·3³; b) 4²·5²; c) 7⁴·2⁴; d) 10³·5³.'
+  answer: 'Se multiplican bases: a) 6³; b) 20²; c) 14⁴; d) 50³.'
+  answer_space_mm: 40
+- id: e11
+  kind: producto · calcular
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula por la regla más corta: a) 2⁴·5⁴; b) 3³·2³; c) 4²·3²; d) 6²·5².'
+  answer: a) (2·5)⁴ = 10⁴ = 10000. b) 6³ = 216. c) 12² = 144. d) 30² = 900.
+  answer_space_mm: 42
+- id: e12
+  kind: producto · bases
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Decide si se pueden sumar exponentes directamente y calcula: a) 3²·3⁵; b) 2²·3³; c) 4³·4;
+    d) 5²·2².'
+  answer: 'a) Sí: 3⁷. b) No coinciden base ni exponente: 4·27 = 108. c) Sí: 4⁴ = 256. d) No se suman exponentes;
+    coinciden los exponentes: 10² = 100.'
+  answer_space_mm: 48
+- id: e13
+  kind: producto · completar
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Completa el exponente: a) 7³·7 elevado a □ = 7⁸; b) 10 elevado a □·10² = 10⁶; c) a⁵·a = a
+    elevado a □; d) 3²·3² = 3 elevado a □.'
+  answer: 'a) 3 + 5 = 8: □ = 5. b) 4 + 2 = 6: □ = 4. c) 5 + 1 = 6. d) 2 + 2 = 4.'
+  answer_space_mm: 42
+- id: e14
+  kind: potencia de potencia · reducir
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Reduce: a) (2³)²; b) (5²)⁴; c) (10³)³; d) (a⁴)⁵.'
+  answer: 'Se multiplican exponentes: a) 2⁶; b) 5⁸; c) 10⁹; d) a²⁰.'
+  answer_space_mm: 40
+- id: e15
+  kind: potencia de potencia · calcular
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula: a) (2²)³; b) (3²)²; c) (5¹)³; d) (10²)².'
+  answer: a) 2⁶ = 64. b) 3⁴ = 81. c) 5³ = 125. d) 10⁴ = 10000.
+  answer_space_mm: 42
+- id: e16
+  kind: potencia de potencia · completar
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Completa: a) (4²) elevado a □ = 4⁶; b) (3 elevado a □)⁴ = 3¹²; c) (a⁵)³ = a elevado a □.'
+  answer: 'a) 2·3 = 6: □ = 3. b) 3·4 = 12: □ = 3. c) 5·3 = 15.'
+  answer_space_mm: 38
+- id: e17
+  kind: cociente · misma base
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Reduce, con bases no nulas: a) 8⁵:8²; b) 3⁷:3³; c) 10⁶:10; d) a⁹:a⁴.'
+  answer: 'Se restan exponentes: a) 8³; b) 3⁴; c) 10⁵; d) a⁵.'
+  answer_space_mm: 40
+- id: e18
+  kind: cociente · mismo exponente
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Reduce y calcula: a) 12²:3²; b) 18³:6³; c) 100²:20²; d) 24³:8³.'
+  answer: 'Se dividen bases: a) 4² = 16. b) 3³ = 27. c) 5² = 25. d) 3³ = 27.'
+  answer_space_mm: 42
+- id: e19
+  kind: cociente · uno
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula y explica: a) 4⁵:4⁵; b) 7³:7³; c) 10⁸:10⁸.'
+  answer: 'Cada cociente de un número no nulo entre sí mismo vale 1. Por resta de exponentes: a) 4⁰ =
+    1; b) 7⁰ = 1; c) 10⁰ = 1.'
+  answer_space_mm: 36
+- id: e20
+  kind: cociente · exponente negativo
+  objective_ids:
+  - o3
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Escribe como fracción positiva: a) 2⁻³; b) 5⁻²; c) 10⁻¹; d) 3⁻⁴.'
+  answer: 'Para base no nula, a⁻ⁿ = 1/aⁿ: a) 1/8; b) 1/25; c) 1/10; d) 1/81.'
+  answer_space_mm: 40
+- id: e21
+  kind: cociente · fracciones
+  objective_ids:
+  - o3
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Reduce sin exponentes negativos: a) 3²:3⁴; b) 2³:2⁶; c) 10¹:10³; d) 5⁴:5⁵.'
+  answer: a) 3⁻² = 1/3² = 1/9. b) 2⁻³ = 1/8. c) 10⁻² = 1/100. d) 5⁻¹ = 1/5.
+  answer_space_mm: 42
+- id: e22
+  kind: cociente · completar
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Completa, con bases no nulas: a) 5⁹:5 elevado a □ = 5⁴; b) 7 elevado a □:7³ = 7²; c) a⁶:a
+    elevado a □ = a⁰.'
+  answer: 'a) 9 − 5 = 4: □ = 5. b) 5 − 3 = 2: □ = 5. c) 6 − 6 = 0: □ = 6.'
+  answer_space_mm: 40
+- id: e23
+  kind: reglas · mezcla
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Reduce a una potencia: a) (2³·2⁴):2²; b) (3²)³:3⁴; c) 5²·5³·5; d) (a³)²·a⁴.'
+  answer: a) 2^(3+4−2) = 2⁵. b) 3^(2·3−4) = 3². c) 5^(2+3+1) = 5⁶. d) a^(3·2+4) = a¹⁰.
+  answer_space_mm: 48
+- id: e24
+  kind: reglas · mezcla
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Reduce: a) (x⁸:x³)·x²; b) (m⁴)³:m⁵; c) (k³·k²):k⁵; d) (a⁶:a²)².'
+  answer: a) x^(8−3+2) = x⁷. b) m^(4·3−5) = m⁷. c) k^(3+2−5) = k⁰ = 1 si k ≠ 0. d) (a⁴)² = a⁸.
+  answer_space_mm: 50
+- id: e25
+  kind: reglas · elegir
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Di qué regla usas y reduce: a) 6⁴·2⁴; b) 9⁵:9³; c) (4³)²; d) 8³:2³.'
+  answer: 'a) Igual exponente, producto de bases: 12⁴. b) Igual base, resta: 9². c) Potencia de potencia,
+    producto: 4⁶. d) Igual exponente, cociente de bases: 4³.'
+  answer_space_mm: 46
+- id: e26
+  kind: reglas · detectar error
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Corrige: a) 2³·2² = 4⁵; b) (3²)⁴ = 3⁶; c) 5⁶:5² = 5³.'
+  answer: 'a) Misma base: 2³·2² = 2⁵ = 32. b) Se multiplican exponentes: 3⁸. c) Se restan: 5⁴.'
+  answer_space_mm: 46
+- id: e27
+  kind: raíces · partes
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Indica índice, radicando y valor: a) √81; b) ∛27; c) ⁴√16; d) √100.'
+  answer: a) Índice 2, radicando 81, valor 9 porque 9² = 81. b) 3, 27, 3 porque 3³ = 27. c) 4, 16, 2 porque
+    2⁴ = 16. d) 2, 100, 10 porque 10² = 100.
+  answer_space_mm: 46
+- id: e28
+  kind: raíces · exactas
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula y comprueba elevando al cuadrado: a) √49; b) √144; c) √225; d) √900.'
+  answer: a) 7, ya que 7² = 49. b) 12, pues 12² = 144. c) 15, pues 15² = 225. d) 30, pues 30² = 900.
+  answer_space_mm: 44
+- id: e29
+  kind: raíces · cubos
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula y comprueba elevando al cubo: a) ∛8; b) ∛64; c) ∛125; d) ∛1000.'
+  answer: a) 2 porque 2³ = 8. b) 4 porque 4³ = 64. c) 5 porque 5³ = 125. d) 10 porque 10³ = 1000.
+  answer_space_mm: 44
+- id: e30
+  kind: raíces · cuadrados con ceros
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula mentalmente: a) √400; b) √3600; c) √6400; d) √10000.'
+  answer: a) 20 porque 20² = 400. b) 60 porque 60² = 3600. c) 80 porque 80² = 6400. d) 100 porque 100²
+    = 10000.
+  answer_space_mm: 42
+- id: e31
+  kind: raíces · reconocer
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Indica cuáles son raíces cuadradas enteras: √16, √20, √36, √50, √64 y √70. Calcula las exactas.'
+  answer: 'Exactas: √16 = 4, √36 = 6 y √64 = 8. Las otras no son enteras porque 20, 50 y 70 no son cuadrados
+    perfectos.'
+  answer_space_mm: 40
+- id: e32
+  kind: raíces · acotar
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Acota entre dos enteros consecutivos: a) √18; b) √50; c) √90; d) √130.'
+  answer: a) 4² = 16 < 18 < 25 = 5², luego 4 < √18 < 5. b) 7² = 49 < 50 < 64 = 8², luego 7 < √50 < 8.
+    c) 9² = 81 < 90 < 100 = 10², luego 9 < √90 < 10. d) 11² = 121 < 130 < 144 = 12², luego 11 < √130 <
+    12.
+  answer_space_mm: 58
+- id: e33
+  kind: raíces · comparar
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Ordena de menor a mayor: √40, 7, √49, √60 y 8.'
+  answer: '√40 está entre 6 y 7. √49 = 7. √60 está entre 7 y 8. Orden: √40 < 7 = √49 < √60 < 8.'
+  answer_space_mm: 42
+- id: e34
+  kind: raíces · completar
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Completa: a) raíz cuadrada de □ = 13; b) ∛□ = 4; c) raíz cuadrada de □ = 20; d) □² = 169,
+    con □ natural.'
+  answer: 'a) 13² = 169. b) 4³ = 64. c) 20² = 400. d) 13² = 169: □ = 13.'
+  answer_space_mm: 42
+- id: e35
+  kind: raíces · diferencia
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Explica la diferencia entre √64 y las soluciones de x² = 64.
+  answer: √64 representa la raíz no negativa, 8. La ecuación x² = 64 tiene dos soluciones, x = 8 y x =
+    −8, porque ambos cuadrados valen 64.
+  answer_space_mm: 40
+- id: e36
+  kind: raíces · negativos
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula si existe en los números reales: a) √(−16); b) ∛(−27); c) √0; d) ∛(−1).'
+  answer: a) No existe raíz cuadrada real de −16. b) −3 porque (−3)³ = −27. c) 0 porque 0² = 0. d) −1
+    porque (−1)³ = −1.
+  answer_space_mm: 44
+- id: e37
+  kind: combinadas · orden
+  objective_ids:
+  - o5
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula paso a paso: a) 3² + 4·2³; b) 5² − √81 + 2; c) 2³·3 + √16.'
+  answer: a) 9 + 4·8 = 9 + 32 = 41. b) 25 − 9 + 2 = 18. c) 8·3 + 4 = 28.
+  answer_space_mm: 48
+- id: e38
+  kind: combinadas · paréntesis
+  objective_ids:
+  - o5
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula: a) (3 + 2)² − 4²; b) 2·(√49 + 3²); c) (10 − 6)³ : 2³.'
+  answer: a) 5² − 16 = 25 − 16 = 9. b) 2·(7 + 9) = 2·16 = 32. c) 4³:2³ = (4:2)³ = 2³ = 8.
+  answer_space_mm: 50
+- id: e39
+  kind: combinadas · división
+  objective_ids:
+  - o5
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula: a) 2⁵ : 2³ + √25; b) 10³ : 5³ − 2; c) 3⁴ : 3² + 4².'
+  answer: a) 2² + 5 = 4 + 5 = 9. b) (10:5)³ − 2 = 8 − 2 = 6. c) 3² + 16 = 9 + 16 = 25.
+  answer_space_mm: 48
+- id: e40
+  kind: combinadas · varias reglas
+  objective_ids:
+  - o5
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula: a) (2²)³ : 2⁴ + √36; b) 4³ : 2³ + 3²; c) 5²·2² − √100.'
+  answer: a) 2⁶:2⁴ + 6 = 2² + 6 = 10. b) (4:2)³ + 9 = 8 + 9 = 17. c) (5·2)² − 10 = 100 − 10 = 90.
+  answer_space_mm: 52
+- id: e41
+  kind: combinadas · signos
+  objective_ids:
+  - o5
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: 'Calcula: a) 6² + 2² − 2² + 5; b) 2⁴ − 3⁸:3⁶ − 2²; c) (8−5)²·(9−6)³:3⁵.'
+  answer: a) 36 + 4 − 4 + 5 = 41. b) 16 − 3² − 4 = 16 − 9 − 4 = 3. c) 3²·3³:3⁵ = 3⁰ = 1.
+  answer_space_mm: 52
+- id: e42
+  kind: combinadas · detectar error
+  objective_ids:
+  - o5
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Alguien obtiene 2 + 3²·4 = 20. Localiza el error y corrige.
+  answer: 'Probablemente sumó 2 + 3 = 5 y luego calculó 5·4. Primero va la potencia y luego el producto:
+    2 + 3²·4 = 2 + 9·4 = 2 + 36 = 38.'
+  answer_space_mm: 40
+- id: e43
+  kind: problema · cuadrado
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Un patio cuadrado tiene 12 baldosas por lado. ¿Cuántas baldosas cubren el patio? Escríbelo
+    como potencia.
+  answer: 12² = 12·12 = 144 baldosas. Se multiplica el número de filas por el de columnas.
+  answer_space_mm: 40
+- id: e44
+  kind: problema · cubo
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Una caja cúbica se llena con cubitos formando 4 filas, 4 columnas y 4 capas. ¿Cuántos cubitos
+    caben?
+  answer: 4³ = 4·4·4 = 64 cubitos. Las tres direcciones tienen longitud 4.
+  answer_space_mm: 40
+- id: e45
+  kind: problema · duplicación
+  objective_ids:
+  - o1
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Una población de bacterias se duplica cada hora. Empieza con 3 bacterias. ¿Cuántas hay tras
+    5 horas si todas se duplican?
+  answer: 'Cada hora multiplica por 2. Tras 5 horas: 3·2⁵ = 3·32 = 96 bacterias.'
+  answer_space_mm: 42
+- id: e46
+  kind: problema · lado del cuadrado
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Un cuadrado tiene 196 cm² de área. ¿Cuánto mide su lado? Compruébalo.
+  answer: Si el lado es l, l² = 196. Por tanto, l = √196 = 14 cm; 14² = 196 cm².
+  answer_space_mm: 40
+- id: e47
+  kind: problema · acotar lado
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: El área de un cuadrado es 70 cm². ¿Entre qué dos enteros consecutivos está la longitud de
+    su lado?
+  answer: 8² = 64 < 70 < 81 = 9². Como el lado es √70 cm, está entre 8 y 9 cm.
+  answer_space_mm: 42
+- id: e48
+  kind: problema · volumen
+  objective_ids:
+  - o4
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Un cubo tiene volumen 216 cm³. ¿Cuánto mide una arista? Compruébalo.
+  answer: La arista es ∛216 = 6 cm porque 6³ = 216 cm³.
+  answer_space_mm: 40
+- id: e49
+  kind: reto · comparar métodos
+  objective_ids:
+  - o2
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Calcula 25²·4² de dos maneras y comprueba que coinciden.
+  answer: 'Separadas: 25² = 625 y 4² = 16; 625·16 = 10000. Igual exponente: (25·4)² = 100² = 10000.'
+  answer_space_mm: 44
+- id: e50
+  kind: reto · expresión
+  objective_ids:
+  - o5
+  source_ids:
+  - cuaderno
+  - elaboracion
+  question: Calcula [(3²·3³):3⁴]² + √121 − ∛27.
+  answer: 'Dentro del corchete: 3^(2+3−4) = 3. Después 3² + 11 − 3 = 9 + 11 − 3 = 17.'
+  answer_space_mm: 46

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Cómo elegir una regla de potencias</title>
+  <desc id="desc">Esquema de clase reelaborado: con igual base, en productos se suman exponentes y en cocientes se restan; con igual exponente, se multiplican o dividen las bases; en una potencia de potencia se multiplican los exponentes.</desc>
+  <rect width="900" height="520" fill="#ffffff"/>
+  <text x="450" y="45" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#17324d">¿Qué operación hay entre las potencias?</text>
+  <g font-family="Arial,sans-serif" font-size="21" fill="#17324d">
+    <rect x="30" y="80" width="400" height="170" rx="16" fill="#e9f5fc" stroke="#2674a5" stroke-width="2"/>
+    <text x="50" y="115" font-weight="700">Producto ·</text>
+    <text x="50" y="153">Misma base: aᵐ · aⁿ = aᵐ⁺ⁿ</text>
+    <text x="50" y="189">Mismo exponente: aⁿ · bⁿ = (a · b)ⁿ</text>
+    <text x="50" y="227" font-size="18">Ejemplo: 2³ · 5³ = 10³</text>
+    <rect x="470" y="80" width="400" height="170" rx="16" fill="#eef7ed" stroke="#538b47" stroke-width="2"/>
+    <text x="490" y="115" font-weight="700">Cociente :</text>
+    <text x="490" y="153">Misma base: aᵐ : aⁿ = aᵐ⁻ⁿ</text>
+    <text x="490" y="189">Mismo exponente: aⁿ : bⁿ = (a : b)ⁿ</text>
+    <text x="490" y="227" font-size="18">Ejemplo: 18³ : 6³ = 3³</text>
+    <rect x="200" y="285" width="500" height="115" rx="16" fill="#fff3e4" stroke="#b67324" stroke-width="2"/>
+    <text x="225" y="325" font-weight="700">Potencia de una potencia</text>
+    <text x="225" y="363">(aᵐ)ⁿ = aᵐ·ⁿ; ejemplo: (2³)⁴ = 2¹²</text>
+    <text x="450" y="458" text-anchor="middle" font-size="18">En los cocientes, la base del denominador debe ser distinta de cero.</text>
+    <text x="450" y="488" text-anchor="middle" font-size="18">Si no coincide la base ni el exponente, no se aplica ninguna de estas reglas directamente.</text>
+  </g>
+</svg>
